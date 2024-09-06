@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.7'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web' // 스프링 웹
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3' // 마이바티스
+    //[4] 타임리프 템플릿 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    //[5] 롬복 라이브러리
+    compileOnly 'org.projectlombok:lombok' // 롬복
+    annotationProcessor 'org.projectlombok:lombok'
+
+    runtimeOnly 'com.mysql:mysql-connector-j' // mysql jdbc
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
