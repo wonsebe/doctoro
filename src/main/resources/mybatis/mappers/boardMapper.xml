@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.model.dao.BoardDao" > <!-- mapper start -->
+
+    <insert id="bWrite" parameterType="web.model.dto.BoardDto">
+        insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno},#{categoryno} )
+    </insert>
+    <!--2. 전체 출력 -->
+    <select id="bPrinte" resultType="web.model.dto.BoardDto">
+        select * from board
+    </select>
+
+    <!--2-2. 개별 조회 -->
+    <select id="bdetail" parameterType="web.model.dto.BoardDto">
+        select * from board where uno= #{uno}
+    </select>
+
+    <!--3. 수정 -->
+    <update id="bdetail" parameterType="web.model.dto.BoardDto">
+        update board set btitle= #{btitle} , bcontent= #{bcontent} where uno= #{uno}
+    </update>
+
+    <!--4. 삭제 -->
+    <delete id="bDelete" parameterType="web.model.dto.BoardDto">
+        delete from board  where uno={uno}
+    </delete>
+</mapper>  <!-- mapper end -->
