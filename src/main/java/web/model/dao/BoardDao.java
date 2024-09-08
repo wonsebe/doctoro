@@ -1,7 +1,7 @@
 package web.model.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
+
 import web.model.dto.BoardDto;
 
 import java.util.List;
@@ -19,10 +19,10 @@ public interface BoardDao {
     //게시판 출력
     List<BoardDto>bPrinte();
     //게시판 개별출력
-    List<BoardDto> bdetail();
+    BoardDto bdetail(int bno);
     //게시판 수정
     boolean bUpdate(BoardDto boardDto);
     //게시판 삭제
-    boolean bDelete(BoardDto boardDto);
+    int bDelete(int bno);
 
 }
