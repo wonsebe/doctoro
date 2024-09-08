@@ -1,0 +1,50 @@
+/* =============== 공통 CSS =============== */
+/* 폰트 : 나눔고딕 */
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 25px;
+    font-family: nanumgothic;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/* ============= 레이아웃 CSS ============= */
+#header{
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;     /* 양쪽 끝에 여백 없이 사이 여백 균등 정렬 */
+    padding: 20px 0px;
+}
+
+#content{
+    width: 1280px;
+    margin: 0 auto;
+}
+
+/* ============= 작업용 CSS ============= */
+/* *{
+    border: 1px solid red;
+} */
+
+/* ============= 헤더 CSS ============= */
+#headerMenu{
+    display: flex;
+    justify-content: space-between;     /* 양쪽 끝에 여백 없이 사이 여백 균등 정렬 */
+}
+
+#headerMenu > li{
+    margin-left: 20px;
+}
+

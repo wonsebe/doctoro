@@ -9,9 +9,9 @@ import lombok.*;
 @ToString
 @Builder
 public class CommentDto {
-    private int cno;
-    private String ccontent;
-    private String cdate;
-    private int bno;
-    private int uno;
+    private int cno;            // 댓글 번호
+    private String ccontent;    // 내용
+    private String cdate;       // 댓글 등록 날짜/시간
+    private int bno;            // 게시글 번호
+    private int uno;            // 유저 번호
 }
