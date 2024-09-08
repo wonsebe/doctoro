@@ -5,6 +5,7 @@
 
 <mapper namespace="web.model.dao.BoardDao" > <!-- mapper start -->
 
+    <!--1. 게시물 등록 -->
     <insert id="bWrite" parameterType="web.model.dto.BoardDto">
         insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno},#{categoryno} )
     </insert>
@@ -14,17 +15,17 @@
     </select>
 
     <!--2-2. 개별 조회 -->
-    <select id="bdetail" parameterType="web.model.dto.BoardDto">
-        select * from board where uno= #{uno}
+    <select id="bDetail" parameterType="web.model.dto.BoardDto">
+        select * from board where bno= #{bno}
     </select>
 
     <!--3. 수정 -->
-    <update id="bdetail" parameterType="web.model.dto.BoardDto">
+    <update id="bUpdate" parameterType="web.model.dto.BoardDto">
         update board set btitle= #{btitle} , bcontent= #{bcontent} where uno= #{uno}
     </update>
 
     <!--4. 삭제 -->
-    <delete id="bDelete" parameterType="web.model.dto.BoardDto">
-        delete from board  where uno={uno}
+    <delete id="bDelete" parameterType="int">
+        delete from board  where bno={bno}
     </delete>
 </mapper>  <!-- mapper end -->
