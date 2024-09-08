@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.model.dao.UserDao">    <!-- mapper start -->
+    <!-- namespace="매핑할 인터페이스 경로(위치)" -->
+
+    <!-- 1. 회원가입 -->
+    <insert id="userSignup" parameterType="web.model.dto.UserDto">
+        insert into users (id, password, name, gender, phone, distinction) values
+        (#{id}, #{password}, #{name}, #{gender}, #{phone}, #{distinction});
+    </insert>
+
+
+</mapper>   <!-- mapper end -->
