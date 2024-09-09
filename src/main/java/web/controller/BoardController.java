@@ -32,7 +32,6 @@ public class BoardController {
     //게시판 개별조회
     @GetMapping("/bdetail")
     public BoardDto bDetail(int bno){
-        System.out.println("bno = " + bno);
         System.out.println("BoardController.bDetail");
         return boardService.bDetail(bno);
     }
@@ -45,10 +44,10 @@ public class BoardController {
     }
     //게시판 삭제
     @DeleteMapping("/delete")
-    public int bDelete(int bno){
-        System.out.println("bno = " + bno);
+    public boolean bDelete(BoardDto boardDto){
+
         System.out.println("BoardController.bDelete");
-        return boardService.bDelete(bno);
+        return boardService.bDelete(boardDto);
     }
     //###############################################################//
 

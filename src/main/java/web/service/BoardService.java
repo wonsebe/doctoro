@@ -28,9 +28,8 @@ public class BoardService {
 
     //게시판 개별출력
     public BoardDto bDetail(int bno){
-        System.out.println("bno = " + bno);
         System.out.println("BoardService.bDetail");
-        return boardDao.bdetail(bno);}
+        return boardDao.bDetail(bno);}
 
     //게시판 수정
     public boolean bUpdate(BoardDto boardDto){
@@ -40,10 +39,9 @@ public class BoardService {
     }
 
     //게시판 삭제
-    public int bDelete(int bno){
-        System.out.println("bno = " + bno);
+    public boolean bDelete(BoardDto boardDto){
         System.out.println("BoardService.bDelete");
-        return boardDao.bDelete(bno);
+        return boardDao.bDelete(boardDto);
     }
     //################################################//
 }
