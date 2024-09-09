@@ -9,6 +9,21 @@
 
     <div id="content">
         회원가입
+
+        <form>
+            아이디 : <input type="text" id="id" /> <br>
+            비밀번호 : <input type="password" id="password" /> <br>
+            이름 : <input type="text" id="name" /> <br>
+            <!-- 성별 : <input type="text" id="gender" /> <br> -->
+            성별 : <span>
+                        <input type="radio" name="gender" id="gender" value="M" /> 남자
+                        <input type="radio" name="gender" id="gender" value="F" /> 여자
+                   </span> <br>
+
+            전화번호 : <input type="text" id="phone" /> <br>
+
+            <button type="button" onclick="doSignup()">회원가입</button>
+        </form>
     </div>
 
 
