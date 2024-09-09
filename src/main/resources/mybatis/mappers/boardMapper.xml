@@ -15,7 +15,7 @@
     </select>
 
     <!--2-2. 개별 조회 -->
-    <select id="bDetail" parameterType="web.model.dto.BoardDto">
+    <select id="bDetail" parameterType="int" resultType="web.model.dto.BoardDto" >
         select * from board where bno= #{bno}
     </select>
 
@@ -25,7 +25,7 @@
     </update>
 
     <!--4. 삭제 -->
-    <delete id="bDelete" parameterType="int">
-        delete from board  where bno={bno}
+    <delete id="bDelete" parameterType="web.model.dto.BoardDto">
+        delete from board  where bno=#{bno}
     </delete>
 </mapper>  <!-- mapper end -->

@@ -19,10 +19,10 @@ public interface BoardDao {
     //게시판 출력
     List<BoardDto>bPrint();
     //게시판 개별출력
-    BoardDto bdetail(int bno);
+    BoardDto bDetail(int bno);
     //게시판 수정
     boolean bUpdate(BoardDto boardDto);
     //게시판 삭제
-    int bDelete(int bno);
+    boolean bDelete(BoardDto boardDto);
 
 }

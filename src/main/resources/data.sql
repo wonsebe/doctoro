@@ -1,5 +1,4 @@
 -- 1. 회원 샘플
---select * from users;
 INSERT INTO users (id, password, name, gender, phone, distinction) VALUES
 ('admin', '1234', '관리자', 'F', '010-0000-0000', '관리자'),
 ('johndoe91', 'abc1234!', '김철수', 'M', '010-1111-1111', '일반'),

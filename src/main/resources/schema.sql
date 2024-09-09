@@ -1,7 +1,7 @@
 -- [1] DB 생성, DB생성은 mysql workbench
--- drop database if exists doctoro;
--- create database doctoro;
--- use doctoro;
+--drop database if exists doctoro;
+--create database doctoro;
+--use doctoro;
 
 -- [2] 테이블이 존재하면 삭제
 drop table if exists rankpokemon;
