@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:fragment="header">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- 1. CSS 호출 -->
+    <link href="/css/header.css" rel="stylesheet" />
 </head>
 <body>
+    <div id="header">
+        <!-- <a href="/"> <img src="/img/" /> </a> -->
+
+        <ul id="headerMenu">
+            <li> <a href="#">정보</a> </li>
+            <li> <a href="#">확률</a> </li>
+            <li> <a href="#">이상형월드컵</a> </li>
+            <li> <a href="#">게시판</a> </li>
+            <li> <a href="/user/login">로그인</a> </li>
+            <li> <a href="/user/signup">회원가입</a> </li>
+        </ul>
+  
+    </div>
+
+    <!-- 공통 JS -->
+    <!-- 1. JQUERY, AJAX  -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </body>
 </html>
