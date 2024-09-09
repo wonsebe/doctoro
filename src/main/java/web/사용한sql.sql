@@ -1,130 +1,133 @@
+-- [1] DB 생성
 drop database if exists doctoro;
 create database doctoro;
 use doctoro;
 
--- drop table if exists users;
 
-#회원
+-- [2] 테이블 생성
+-- 1. 회원 테이블
+drop table if exists users;
 create table users(
-uno int auto_increment,
-id varchar(30) not null unique,
-password varchar(30) not null,
-name varchar(10) not null,
-gender varchar(2) not null,
-phone varchar(15) not null unique,
-distinction varchar(10) not null,
-primary key (uno)
+    uno int auto_increment,
+    id varchar(30) not null unique,
+    password varchar(30) not null,
+    name varchar(10) not null,
+    gender varchar(2) not null,
+    phone varchar(15) not null unique,
+    distinction varchar(10) not null,
+    primary key (uno)
 );
 
-#카테고리
+-- 2. 카테고리 테이블
+drop table if exists category;
 create table category(
-categoryno int auto_increment,
-categoryname varchar(10) not null unique,
-primary key (categoryno)
+    categoryno int auto_increment,
+    categoryname varchar(10) not null unique,
+    primary key (categoryno)
 );
 
-#게시판
+-- 3. 게시판 테이블
+drop table if exists board;
 create table board(
-bno int auto_increment,
-btitle varchar(100) not null,
-bcontent varchar(300) not null,
-bdate datetime default now(),
-uno int not null,
-categoryno int null,
-primary key(bno),
-foreign key(uno) references users (uno),
-foreign key(categoryno) references category (categoryno)
-on delete cascade
-on update cascade
+    bno int auto_increment,
+    btitle varchar(100) not null,
+    bcontent varchar(300) not null,
+    bdate datetime default now(),
+    uno int not null,
+    categoryno int not null,
+    primary key(bno),
+    foreign key(uno) references users (uno) on update cascade on delete cascade,
+    foreign key(categoryno) references category (categoryno) on update cascade on delete cascade
 );
 
-
-
-#댓글
+-- 4. 댓글 테이블
+drop table if exists comment;
 create table comment(
-cno int auto_increment,
-ccontent varchar(150) not null,
-cdate datetime default now(),
-bno int not null,
-uno int not null,
-primary key(cno),
-foreign key(bno) references board (bno),
-foreign key(uno) references users (uno)
-on delete cascade
-on update cascade
+    cno int auto_increment,
+    ccontent varchar(150) not null,
+    cdate datetime default now(),
+    bno int not null,
+    uno int not null,
+    primary key(cno),
+    foreign key(bno) references board (bno) on update cascade on delete cascade,
+    foreign key(uno) references users (uno) on update cascade on delete cascade
 );
 
-#대댓글
+-- 5. 대댓글 테이블
+drop table if exists reply;
 create table reply(
-rno int auto_increment,
-rcontent varchar(150) not null,
-rdate datetime default now(),
-cno int not null,
-uno int not null,
-primary key(rno),
-foreign key(cno) references comment (cno),
-foreign key(uno) references users (uno)
-on delete cascade
-on update cascade
+    rno int auto_increment,
+    rcontent varchar(150) not null,
+    rdate datetime default now(),
+    cno int not null,
+    uno int not null,
+    primary key(rno),
+    foreign key(cno) references comment (cno) on update cascade on delete cascade,
+    foreign key(uno) references users (uno) on update cascade on delete cascade
 );
 
-#포켓몬 랭킹(인기)
+-- 6. 포켓몬 랭킹(인기) 테이블
+drop table if exists rankpokemon;
 create table rankpokemon(
-pno int,
-click int default 0,
-win int default 0,
-primary key(pno)
+    pno int,
+    click int default 0,
+    win int default 0,
+    primary key(pno)
 );
 
 
-INSERT INTO category (categoryname) VALUES
-	('자유'), ('정보'), ('토론'), ('질문'), ('자랑');
-select * from users; -- 유저테이블 추가
-		INSERT INTO users (id, password, name, gender, phone, distinction) VALUES
-		('admin', '1234', '관리자', 'F', '010-0000-0000', '관리자'),
-		('johndoe91', 'abc1234!', '김철수', 'M', '010-1111-1111', '일반'),
-		('janesmith88', 'def456#$', '이영희', 'F', '010-2222-2222', '일반'),
-		('alicejohnson07', 'ghi789*(', '박민수', 'M', '010-3333-3333', '일반'),
-		('bobbrown23', 'jkl012&^', '최지혜', 'F', '010-4444-4444', '일반'),
-		('charliedavis10', 'mno345@!', '정수진', 'M', '010-5555-5555', '일반'),
-		('dianaevans15', 'pqr678#$', '장성호', 'F', '010-6666-6666', '일반'),
-		('edwardgarcia32', 'stu901(*', '조한별', 'M', '010-7777-7777', '일반'),
-		('fionaharris42', 'vwx234@!', '문서연', 'F', '010-8888-8888', '일반'),
-		('georgeclark55', 'yzA567#$', '오지훈', 'M', '010-9999-9999', '일반'),
-		('ianwalker76', 'efg123@!', '이준호', 'M', '010-1111-2222', '일반'),
-		('jacklee83', 'hij456#$', '박지연', 'F', '010-3333-4444', '일반'),
-		('karenallen91', 'klm789*(', '최민호', 'M', '010-5555-6666', '일반'),
-		('liamscott05', 'nop012&^', '정은지', 'F', '010-7777-8888', '일반'),
-		('miayoung12', 'qrs345@!', '장희재', 'M', '010-9999-0000', '일반'),
-		('noahking19', 'tuv678#$', '문서원', 'F', '010-1111-3333', '일반'),
-		('oliviawright23', 'wxy901(*', '조은비', 'F', '010-5645-5555', '일반'),
-		('paulturner34', 'zAB234@!', '김상혁', 'M', '010-4875-7777', '일반'),
-		('quinnadams45', 'cDE567#$', '이경희', 'F', '010-1203-9999', '일반'),
-		('ryanbaker56', 'fGH890*(', '박재민', 'M', '010-0450-1111', '일반'),
-		('sophiacarter67', 'iJK123@!', '최지훈', 'F', '010-2622-3333', '일반'),
-		('thomasmitchell78', 'lmn456#$', '정다연', 'M', '010-4444-5555', '일반'),
-		('umarobinson89', 'opq789*(', '장민정', 'F', '010-6666-7777', '일반'),
-		('victorparker90', 'rst012&^', '문석호', 'M', '010-8888-9999', '일반'),
-		('wendycollins01', 'uvw345@!', '조서현', 'F', '010-0000-2222', '일반'),
-		('xanderrivera12', 'xyz678#$', '이상우', 'M', '010-1111-4444', '일반'),
-		('yaraward23', 'ABC901(*', '박소희', 'F', '010-3333-6666', '일반'),
-		('zacharyross34', 'DEF234@!', '최진우', 'M', '010-5555-9999', '일반'),
-		('annabell45', 'GHI567#$', '김미영', 'F', '010-7777-0000', '일반'),
-		('briangray56', 'JKL890*(', '이도현', 'M', '010-8888-1111', '일반');
+-- [3] 샘플 추가
+-- 1. 회원 샘플
+select * from users;
+INSERT INTO users (id, password, name, gender, phone, distinction) VALUES
+('admin', '1234', '관리자', 'F', '010-0000-0000', '관리자'),
+('johndoe91', 'abc1234!', '김철수', 'M', '010-1111-1111', '일반'),
+('janesmith88', 'def456#$', '이영희', 'F', '010-2222-2222', '일반'),
+('alicejohnson07', 'ghi789*(', '박민수', 'M', '010-3333-3333', '일반'),
+('bobbrown23', 'jkl012&^', '최지혜', 'F', '010-4444-4444', '일반'),
+('charliedavis10', 'mno345@!', '정수진', 'M', '010-5555-5555', '일반'),
+('dianaevans15', 'pqr678#$', '장성호', 'F', '010-6666-6666', '일반'),
+('edwardgarcia32', 'stu901(*', '조한별', 'M', '010-7777-7777', '일반'),
+('fionaharris42', 'vwx234@!', '문서연', 'F', '010-8888-8888', '일반'),
+('georgeclark55', 'yzA567#$', '오지훈', 'M', '010-9999-9999', '일반'),
+('ianwalker76', 'efg123@!', '이준호', 'M', '010-1111-2222', '일반'),
+('jacklee83', 'hij456#$', '박지연', 'F', '010-3333-4444', '일반'),
+('karenallen91', 'klm789*(', '최민호', 'M', '010-5555-6666', '일반'),
+('liamscott05', 'nop012&^', '정은지', 'F', '010-7777-8888', '일반'),
+('miayoung12', 'qrs345@!', '장희재', 'M', '010-9999-0000', '일반'),
+('noahking19', 'tuv678#$', '문서원', 'F', '010-1111-3333', '일반'),
+('oliviawright23', 'wxy901(*', '조은비', 'F', '010-5645-5555', '일반'),
+('paulturner34', 'zAB234@!', '김상혁', 'M', '010-4875-7777', '일반'),
+('quinnadams45', 'cDE567#$', '이경희', 'F', '010-1203-9999', '일반'),
+('ryanbaker56', 'fGH890*(', '박재민', 'M', '010-0450-1111', '일반'),
+('sophiacarter67', 'iJK123@!', '최지훈', 'F', '010-2622-3333', '일반'),
+('thomasmitchell78', 'lmn456#$', '정다연', 'M', '010-4444-5555', '일반'),
+('umarobinson89', 'opq789*(', '장민정', 'F', '010-6666-7777', '일반'),
+('victorparker90', 'rst012&^', '문석호', 'M', '010-8888-9999', '일반'),
+('wendycollins01', 'uvw345@!', '조서현', 'F', '010-0000-2222', '일반'),
+('xanderrivera12', 'xyz678#$', '이상우', 'M', '010-1111-4444', '일반'),
+('yaraward23', 'ABC901(*', '박소희', 'F', '010-3333-6666', '일반'),
+('zacharyross34', 'DEF234@!', '최진우', 'M', '010-5555-9999', '일반'),
+('annabell45', 'GHI567#$', '김미영', 'F', '010-7777-0000', '일반'),
+('briangray56', 'JKL890*(', '이도현', 'M', '010-8888-1111', '일반');
 
+-- 2. 카테고리 샘플
+select * from category;
+INSERT INTO category (categoryname) VALUES ('자유'), ('정보'), ('토론'), ('질문'), ('자랑');
 
-select * from board; -- 게시물 테이블 추가
+-- 3. 게시판 샘플
+select * from board;
 INSERT INTO board (btitle, bcontent, bdate, uno, categoryno) VALUES
 ('피카츄의 전기 공격', '피카츄의 백만볼트가 전투에서 정말 유용하네요!', '2024-09-05 14:31:00', 4, 1),
 ('리자몽의 불꽃 공격', '리자몽의 화염 방사는 정말 강력해요. 전투에서 강한 효과를 발휘해요!', '2024-09-06 09:15:00', 2, 1),
 ('이상해씨의 진화', '이상해씨가 이상해풀로 진화하면서 새로운 기술을 배우는 모습이 멋져요.', '2024-09-06 11:45:00', 3, 1),
 ('꼬부기의 물 타입 공격', '꼬부기의 물총과 물대포는 물 타입 공격에서 정말 강력합니다.', '2024-09-07 10:30:00', 4, 1),
-('버터플의 비행 기술', '버터플이 사용하는 날개치기는 전투에서 유용하네요. 특히 비행 타입 상대로!', '2024-09-07 13:00:00', 1, 1), #자유
+('버터플의 비행 기술', '버터플이 사용하는 날개치기는 전투에서 유용하네요. 특히 비행 타입 상대로!', '2024-09-07 13:00:00', 1, 1),
 ('내 피카츄가 최고!', '제 피카츄는 정말 특별해요! 백만볼트, 전격파, 그리고 스피드가 뛰어나서 전투에서 항상 승리해요. 자랑스러워요!', '2024-09-15 15:00:00', 1, 5),
 ('리자몽의 불꽃이 뜨겁다!', '제 리자몽은 불꽃 기술을 완벽하게 소화합니다. 불꽃 방사와 용의 브레스를 사용하는 모습이 정말 멋지네요. 진정한 전투의 왕입니다!', '2024-09-16 10:30:00', 2, 5),
 ('이상해씨의 진화가 자랑스러워요!', '이상해씨가 이상해풀로 진화한 모습이 너무 자랑스러워요. 특히 레이저빔 기술로 상대를 물리치는 장면이 최고입니다!', '2024-09-17 12:00:00', 3, 5),
 ('내 블래키는 정말 강력해요!', '블래키의 어둠의 파동과 자원봉사로 팀을 지키는 모습이 자랑스럽습니다. 전투에서 매우 중요한 역할을 하고 있죠.', '2024-09-18 14:45:00', 4, 5),
-('뮤츠의 사이킥은 끝내줍니다!', '뮤츠의 사이킥 공격력은 상상을 초월해요. 심리적인 압박과 함께 강력한 전투력을 자랑합니다. 제 최고의 포켓몬이에요!', '2024-09-19 09:15:00', 1, 5),#자랑
+('뮤츠의 사이킥은 끝내줍니다!', '뮤츠의 사이킥 공격력은 상상을 초월해요. 심리적인 압박과 함께 강력한 전투력을 자랑합니다. 제 최고의 포켓몬이에요!', '2024-09-19 09:15:00', 1, 5),
 ('피카츄는 너무 오버레이트', '피카츄는 너무 과대평가된 포켓몬이에요. 실제로 전투에서 별로 강하지도 않으면서 왜 그렇게 인기 있는지 이해할 수 없네요.', '2024-09-23 16:00:00', 2, 1),
 ('리자몽은 전투에서 쓸모없어요', '리자몽이란 포켓몬은 불꽃 공격 외에는 아무것도 할 수 없어요. 전투에서 자주 패배하는 모습을 보니 진짜 실망스러워요.', '2024-09-24 18:30:00', 3, 1),
 ('거북왕은 너무 느리다', '거북왕은 전투에서 너무 느려서 거의 아무것도 할 수 없어요. 이런 포켓몬은 정말 필요 없다고 생각해요.', '2024-09-25 11:45:00', 4, 1),
@@ -146,10 +149,8 @@ INSERT INTO board (btitle, bcontent, bdate, uno, categoryno) VALUES
 ('드래곤 타입 포켓몬의 효과적인 육성 방법은?', '드래곤 타입 포켓몬을 효과적으로 육성하기 위한 팁이나 전략이 궁금합니다. 어떤 기술을 우선적으로 배워야 하고, 진화 시점은 어떻게 설정하는 것이 좋을까요?', '2024-10-11 11:30:00', 2, 4),
 ('악 타입 기술의 전투에서의 장점은 무엇인가요?', '악 타입 기술이 전투에서 어떤 장점을 가지고 있는지 알고 싶습니다. 악 타입 기술의 효과적인 사용법과 어떤 상황에서 특히 유용한지에 대해 논의해 보세요.', '2024-10-12 14:00:00', 3, 4);
 
-
-
-
-select * from comment; --  댓글 테이블 추가
+-- 4. 댓글 샘플
+select * from comment;
 INSERT INTO comment (ccontent, cdate, bno, uno) VALUES
 ('피카츄의 백만볼트는 정말 강력하죠. 하지만 다른 전기 타입 기술도 고려해봐야 할 것 같아요.', '2024-09-05 08:08:08', 1, 3),
 ('리자몽의 불꽃 방사는 강력하지만, 때로는 타입 상성에 따라 다른 기술을 사용하는 게 좋을 때도 있죠.', '2024-09-06 09:45:00', 2, 4),
@@ -182,6 +183,7 @@ INSERT INTO comment (ccontent, cdate, bno, uno) VALUES
 ('드래곤 타입 포켓몬을 육성할 때 기술과 진화 시점을 잘 선택해야 해요. 효과적인 육성 방법을 찾아보세요.', '2024-10-11 12:00:00', 29, 5),
 ('악 타입 기술의 전투 장점은 상황에 따라 달라져요. 효과적인 사용법을 잘 익히는 것이 중요해요.', '2024-10-12 14:30:00', 30, 1);
 
+-- 5. 대댓글 샘플
 select * from reply;
 INSERT INTO reply (rcontent, rdate, cno, uno) VALUES
 ('백만볼트 외에도 아이언테일과 같은 기술을 고려해보세요. 다양한 기술 조합이 필요할 수 있습니다.', '2024-09-05 14:50:00', 1, 6),
@@ -215,6 +217,7 @@ INSERT INTO reply (rcontent, rdate, cno, uno) VALUES
 ('드래곤 타입 포켓몬의 육성 방법은 기술과 진화 시점을 잘 선택하는 것이 중요해요. 효과적인 방법을 찾아보세요.', '2024-10-11 13:00:00', 29, 4),
 ('악 타입 기술의 전투 장점은 상황에 따라 다를 수 있어요. 효과적인 사용법을 잘 익히는 것이 중요합니다.', '2024-10-12 15:00:00', 30, 5);
 
+-- 6. 포켓몬 랭킹(인기) 샘플
 select * from rankpokemon;
 INSERT INTO rankpokemon (pno, click, win) VALUES
 (1, 15, 5),

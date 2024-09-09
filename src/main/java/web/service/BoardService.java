@@ -20,10 +20,10 @@ public class BoardService {
         return boardDao.bWrite(boardDto);
     }
     //게시판 출력
-    public List<BoardDto> bPrinte(){
+    public List<BoardDto> bPrint(){
         System.out.println("boardDao = " + boardDao);
-        System.out.println("BoardService.bPrinte");
-        return boardDao.bPrinte();
+        System.out.println("BoardService.bPrint");
+        return boardDao.bPrint();
     }
 
     //게시판 개별출력

@@ -17,7 +17,7 @@ public interface BoardDao {
     //게시판 등록
     boolean bWrite(BoardDto boardDto);
     //게시판 출력
-    List<BoardDto>bPrinte();
+    List<BoardDto>bPrint();
     //게시판 개별출력
     BoardDto bdetail(int bno);
     //게시판 수정
