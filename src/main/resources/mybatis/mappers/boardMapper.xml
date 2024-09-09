@@ -10,7 +10,7 @@
         insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno},#{categoryno} )
     </insert>
     <!--2. 전체 출력 -->
-    <select id="bPrinte" resultType="web.model.dto.BoardDto">
+    <select id="bPrint" resultType="web.model.dto.BoardDto">
         select * from board
     </select>
 

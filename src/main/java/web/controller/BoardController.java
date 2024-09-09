@@ -24,10 +24,10 @@ public class BoardController {
     }
     //게시판 출력
     @GetMapping("/print")
-    public List<BoardDto> bPrinte(){
+    public List<BoardDto> bPrint(){
         System.out.println("boardService = " + boardService);
         System.out.println("BoardController.bPrinte");
-        return boardService.bPrinte();
+        return boardService.bPrint();
     }
     //게시판 개별조회
     @GetMapping("/bdetail")
