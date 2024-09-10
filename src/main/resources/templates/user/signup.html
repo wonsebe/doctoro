@@ -17,19 +17,19 @@
             비밀번호 : <input type="password" id="pw" onkeyup="pwCheck()" />
             <div id="pwInputCheck"></div>
 
-            <!-- 비밀번호 확인 : <input type="password" id="pwCheck" />
-            <div id="pwCheckInputCheck"></div> -->
+            비밀번호 확인 : <input type="password" id="pwConfirm" onkeyup="pwConfirmCheck()" />
+            <div id="pwConfirmInputCheck"></div>
 
-            이름 : <input type="text" id="name" />
+            이름 : <input type="text" id="name" onkeyup="nameCheck()" />
             <div id="nameInputCheck"></div>
 
             성별 : <span>
-                        <input type="radio" name="gender" value="M" /> 남자
+                        <input type="radio" name="gender" value="M" checked /> 남자
                         <input type="radio" name="gender" value="F" /> 여자
                    </span>
                    <div id="genderInputCheck"></div>
 
-            전화번호 : <input type="text" id="phone" />
+            전화번호 : <input type="text" id="phone" onkeyup="phoneCheck()" />
             <div id="phoneInputCheck"></div>
 
             <button type="button" onclick="doSignup()">회원가입</button>
