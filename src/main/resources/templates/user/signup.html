@@ -11,16 +11,26 @@
         회원가입
 
         <form>
-            아이디 : <input type="text" id="id" /> <br>
-            비밀번호 : <input type="password" id="password" /> <br>
-            이름 : <input type="text" id="name" /> <br>
-            <!-- 성별 : <input type="text" id="gender" /> <br> -->
-            성별 : <span>
-                        <input type="radio" name="gender" id="gender" value="M" /> 남자
-                        <input type="radio" name="gender" id="gender" value="F" /> 여자
-                   </span> <br>
+            아이디 : <input type="text" id="id" onkeyup="idCheck()" />
+            <div id="idInputCheck"></div>
+            
+            비밀번호 : <input type="password" id="pw" onkeyup="pwCheck()" />
+            <div id="pwInputCheck"></div>
 
-            전화번호 : <input type="text" id="phone" /> <br>
+            <!-- 비밀번호 확인 : <input type="password" id="pwCheck" />
+            <div id="pwCheckInputCheck"></div> -->
+
+            이름 : <input type="text" id="name" />
+            <div id="nameInputCheck"></div>
+
+            성별 : <span>
+                        <input type="radio" name="gender" value="M" /> 남자
+                        <input type="radio" name="gender" value="F" /> 여자
+                   </span>
+                   <div id="genderInputCheck"></div>
+
+            전화번호 : <input type="text" id="phone" />
+            <div id="phoneInputCheck"></div>
 
             <button type="button" onclick="doSignup()">회원가입</button>
         </form>

@@ -17,6 +17,20 @@ public class UserService {
         return userDao.userSignup(userDto);
     }
 
+    // 2. 아이디 중복 검사
+    public boolean idCheck(String id) {
+        System.out.println("UserController.idCheck");
+        System.out.println("id = " + id);
+        String result = userDao.idCheck(id);
+        System.out.println("result = " + result);
+        // 아이디가 존재하지 않으면 (null) true 반환, 아이디가 존재하면 false 반환
+        if (result == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
 }
