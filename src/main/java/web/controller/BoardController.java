@@ -26,7 +26,7 @@ public class BoardController {
     @GetMapping("/print")
     public List<BoardDto> bPrint(){
         System.out.println("boardService = " + boardService);
-        System.out.println("BoardController.bPrinte");
+        System.out.println("BoardController.bPrint");
         return boardService.bPrint();
     }
     //게시판 개별조회
