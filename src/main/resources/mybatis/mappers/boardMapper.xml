@@ -7,25 +7,25 @@
 
     <!--1. 게시물 등록 -->
     <insert id="bWrite" parameterType="web.model.dto.BoardDto">
-        insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno},#{categoryno} )
+        insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno},#{categoryno} );
     </insert>
     <!--2. 전체 출력 -->
     <select id="bPrint" resultType="web.model.dto.BoardDto">
-        select * from board
+        select * from board;
     </select>
 
     <!--2-2. 개별 조회 -->
     <select id="bDetail" parameterType="int" resultType="web.model.dto.BoardDto" >
-        select * from board where bno= #{bno}
+        select * from board where bno= #{bno};
     </select>
 
     <!--3. 수정 -->
     <update id="bUpdate" parameterType="web.model.dto.BoardDto">
-        update board set btitle= #{btitle} , bcontent= #{bcontent} where uno= #{uno}
+        update board set btitle= #{btitle} , bcontent= #{bcontent} where uno= #{uno};
     </update>
 
     <!--4. 삭제 -->
     <delete id="bDelete" parameterType="web.model.dto.BoardDto">
-        delete from board  where bno=#{bno}
+        delete from board  where bno=#{bno};
     </delete>
 </mapper>  <!-- mapper end -->
