@@ -10,17 +10,22 @@ function print(){
         method:"get",
         success: r =>{
             console.log(r);
-            let printBox= document.querySelector('#printBox');
+            let tbox= document.querySelector('#tbox');
             let html=''
-            r.forEach(내용 =>{
+            r.forEach(게시판 =>{
                 
             html+=` 
-                        <tr> <th> ${내용.bno} </th> 
-                        <th> <a href="/board/detail.html"></a>${내용.btitle}</th></tr><br/>
+                        <tr>
+                        <th> ${게시판.bno} </th> 
+                        <th> <a href="/board/detail.html"></a>${게시판.btitle}</th>
+                        <th> ${게시판.uno} </th>
+                        <th> ${게시판.bdate} </th> 
+                        </tr>
+
              `
         })
-            printBox.innerHTML=html;
-            console.log(printBox)
+            tbox.innerHTML=html;
+            console.log(tbox);
         }
     })
 }
