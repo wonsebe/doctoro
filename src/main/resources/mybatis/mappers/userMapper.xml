@@ -12,5 +12,10 @@
         (#{id}, #{password}, #{name}, #{gender}, #{phone}, #{distinction});
     </insert>
 
+    <!-- 2. 아이디 중복 검사 -->
+    <select id="idCheck" resultType="String" parameterType="String">
+        select id from users where id = #{id};
+    </select>
+
 
 </mapper>   <!-- mapper end -->
