@@ -17,18 +17,20 @@
     <option value="2">자랑</option>
     </select>
 
-    <input id="btitle" type="text"  placeholder="작성할 제목을 입력"/><br>
-    <textarea id="bcontent" name="content" required  placeholder="작성할 내용을 입력"></textarea>
+    <div>제목: <input id="btitle" type="text" name="btitle"  /><br></div>
+    <div>내용:<textarea id="bcontent" name="bcontent"  ></textarea></div>
+    <button onclick="write()" type="button">글 등록</button>
     
 
 
-
-
-
-
-
-
 </form>
-    <script src="/js/board/write.js"></script>
+<!-- 
+썸머노트 jS
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js" ></script>
+    <---썸머노트 한국어-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js" ></script> --> -->
+
+<script src="/js/board/write.js"></script>
+<!-- <script src="/js/board/category.js"></script> -->
 </body>
 </html>
