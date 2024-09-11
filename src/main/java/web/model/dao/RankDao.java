@@ -9,5 +9,5 @@ import java.util.List;
 public interface RankDao {
 
     //종합 순위 출력
-    List<RankDto> total();
+    RankDto total( int pno );
 }

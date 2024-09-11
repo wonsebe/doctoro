@@ -7,8 +7,8 @@
 
 
     <!--2. 전체 출력 -->
-    <select id="total" resultType="web.model.dto.RankDto">
-        select * from rankpokemon;
+    <select id="total" resultType="web.model.dto.RankDto" parameterType="int">
+        select * from rankpokemon where pno = #{ pno }
     </select>
 
 </mapper>  <!-- mapper end -->
