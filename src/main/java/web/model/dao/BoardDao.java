@@ -24,5 +24,8 @@ public interface BoardDao {
     boolean bUpdate(BoardDto boardDto);
     //게시판 삭제
     boolean bDelete(BoardDto boardDto);
+    //#############################################//
+    //카테고리 출력
+    List<BoardDto>categoryprint();
 
 }

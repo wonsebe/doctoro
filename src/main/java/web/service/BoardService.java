@@ -43,5 +43,13 @@ public class BoardService {
         System.out.println("BoardService.bDelete");
         return boardDao.bDelete(boardDto);
     }
+
     //################################################//
+    //카테고리 출력
+    public List<BoardDto>categoryprint(){
+        return boardDao.categoryprint();
+    }
+
+
+
 }

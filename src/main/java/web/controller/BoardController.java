@@ -49,6 +49,16 @@ public class BoardController {
         System.out.println("BoardController.bDelete");
         return boardService.bDelete(boardDto);
     }
+
+
+
     //###############################################################//
 
+    //카테고리 출력
+    @GetMapping("/bcategory")
+    public List<BoardDto> categoryprint(){
+        System.out.println("boardService = " + boardService);
+        System.out.println("BoardController.categoryprint");
+        return boardService.categoryprint();
+    }
 }

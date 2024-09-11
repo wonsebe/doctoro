@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+</head>
+<body>
+    <h3> 게시판 수정 페이지 </h3>
+    <div>
+    <select name="categoryno" id="category">
+        <option value="1">자유</option>
+        <option value="2">정보</option>
+        <option value="3">토론</option>
+        <option value="4">질문</option>
+        <option value="5">자랑</option>
+        </select>
+    </div>
+    <div>제목: <input id="btitle" type="text" name="btitle"  /><br></div>
+    <div>내용:<textarea id="bcontent" name="bcontent"  ></textarea></div>
+    <button onclick="updateB()" type="button">글 등록</button>
+
+
+
+
+    <script src="/js/board/category.js"></script>
+    <script src='/js/update.js'></script>
+    
+</body>
+</html>
