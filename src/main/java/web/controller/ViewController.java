@@ -40,4 +40,11 @@ public class ViewController {
     @GetMapping("/rank/get")
     public String getRank(){return "/rank/rank.html";}
 
+
+    // 승률 예측 페이지
+    @GetMapping("/rate")
+    public String rate(){
+        return "/rate/rate.html";
+    }
+
 }
