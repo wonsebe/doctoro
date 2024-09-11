@@ -13,7 +13,7 @@ public interface UserDao {
     String idCheck(String id);
 
     // 3. 로그인
-    String userLogin(UserDto userDto);
+    UserDto userLogin(UserDto userDto);
 
 
 }

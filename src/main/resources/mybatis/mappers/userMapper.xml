@@ -8,8 +8,8 @@
 
     <!-- 1. 회원가입 -->
     <insert id="userSignup" parameterType="web.model.dto.UserDto">
-        insert into users (id, password, name, gender, phone, distinction) values
-        (#{id}, #{password}, #{name}, #{gender}, #{phone}, #{distinction});
+        insert into users (id, password, name, gender, phone, ubirth, distinction) values
+        (#{id}, #{password}, #{name}, #{gender}, #{phone}, #{ubirth}, #{distinction});
     </insert>
 
     <!-- 2. 아이디 중복 검사 -->
@@ -18,7 +18,7 @@
     </select>
 
     <!-- 3. 로그인 -->
-    <select id="userLogin" resultType="String" parameterType="web.model.dto.UserDto">
+    <select id="userLogin" resultType="web.model.dto.UserDto" parameterType="web.model.dto.UserDto">
         select * from users where id = #{id} and password = #{password};
     </select>
 

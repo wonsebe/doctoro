@@ -1,6 +1,6 @@
 console.log('signup.js');
 
-let signupCheck = [false, false, false, false, false];
+let signupCheck = [false, false, false, false, false, false];
 
 // 1. 회원가입 함수
 function doSignup() {   console.log('doSignup()');
@@ -17,6 +17,7 @@ function doSignup() {   console.log('doSignup()');
     let name = document.querySelector('#name').value;
     let gender;
     let phone = document.querySelector('#phone').value;
+    let birth = document.querySelector('#birth').value;
     
     // 라디오 버튼 선택한 값 가져오기
     genderValue = document.getElementsByName("gender");
@@ -32,7 +33,8 @@ function doSignup() {   console.log('doSignup()');
         password : pw,
         name : name,
         gender : gender,
-        phone : phone
+        phone : phone,
+        ubirth : birth
     }
     console.log(data);
 
@@ -194,4 +196,29 @@ function phoneCheck() {  console.log('phoneCheck()');
 
 }   // phoneCheck() end
 
+birthCheck();
+// 7. 생년월일 유효성 검사
+function birthCheck() {    console.log('birthCheck()');
+    // 1. 생년월일 입력 시 오늘 날짜 이후로는 입력하지 못하도록 막기
+    var nowDate = Date.now();
+    // getTimezoneOffset()은 현재 시간과의 차이를 분 단위로 반환
+    var timeOff = new Date().getTimezoneOffset() * 60000;
+    var today = new Date(nowDate-timeOff).toISOString().split("T")[0];
+    document.getElementById("birth").setAttribute("max", today);
+
+    // 2. 생년월일 입력 여부 체크
+    let birth = document.querySelector('#birth').value;
+    console.log(birth);
+    let birthInputCheck = document.querySelector('#birthInputCheck');
+
+    if (birth == '') {
+        html = '생년월일을 입력해주세요.';
+        signupCheck[5] = false;
+    } else {
+        html = ''
+        signupCheck[5] = true;
+    }
+    birthInputCheck.innerHTML = html;
+
+}   // birthCheck() end
 

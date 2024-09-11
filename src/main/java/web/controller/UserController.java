@@ -37,5 +37,19 @@ public class UserController {
         return userService.userLogin(userDto);
     }
 
+    // 4. 로그인 체크
+    @GetMapping("/login/check")
+    public UserDto userLoginCheck() {
+        System.out.println("UserController.userLoginCheck");
+        return userService.userLoginCheck();
+    }
+
+    // 5. 로그아웃
+    @GetMapping("/logout")
+    public void userLogout() {
+        System.out.println("UserController.userLogout");
+        userService.userLogout();
+    }
+
 
 }

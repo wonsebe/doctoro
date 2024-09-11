@@ -1,5 +1,7 @@
 package web.service;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.model.dao.UserDao;
@@ -8,6 +10,7 @@ import web.model.dto.UserDto;
 @Service
 public class UserService {
     @Autowired private UserDao userDao;
+    @Autowired HttpServletRequest request;      // 현재 요청을 보낸 클라이언트의 HTTP 요청 정보를 가지고 있는 객체를 주입
 
     // 1. 회원가입
     public boolean userSignup(UserDto userDto) {
@@ -35,13 +38,49 @@ public class UserService {
     public boolean userLogin(UserDto userDto) {
         System.out.println("UserService.login");
         System.out.println("userDto = " + userDto);
-        String result = userDao.userLogin(userDto);
-        // 아이디와 비밀번호가 일치하지 않으면 (null) false 반환, 아이디와 비밀번호가 일치하면 true 반환
+
+        UserDto result = userDao.userLogin(userDto);
+
+        // 아이디와 비밀번호가 일치하지 않으면 (null) false 반환, 아이디와 비밀번호가 일치하면 HTTP 세션 처리 후 true 반환
         if (result == null) {
             return false;
         } else {
+            UserDto loginDto = UserDto.builder()
+                    .uno(result.getUno())
+                    .id(userDto.getId())
+                    .distinction(result.getDistinction())
+                    .build();
+
+            // HTTP 세션 처리
+            // 1. 현재 요청을 보내온 클라이언트의 세션 객체 호출
+            HttpSession session = request.getSession();
+            // 2. 세션 객체에 속성 추가
+            session.setAttribute("loginDto", loginDto);     // Object로 타입변환이 된다
+
             return true;
         }
+    }
+
+    // 4. 로그인 체크
+    public UserDto userLoginCheck() {
+        System.out.println("UserService.userLoginCheck");
+        // 1. 현재 요청을 보내온 클라이언트의 세션객체호출
+        HttpSession session = request.getSession();
+        // 2. 세션 객체 내 속성 값 호출, 타입변환 필요
+        Object object = session.getAttribute("loginDto");
+        if (object != null) {
+            return (UserDto)object;
+        }
+        return null;
+    }
+
+    // 5. 로그아웃 : 세션 초기화
+    public void userLogout() {
+        System.out.println("UserController.userLogout");
+        // 1. 현재 요청을 보내온 클라이언트의 세션 객체 호출
+        HttpSession session = request.getSession();
+        // 2. 세션 객체 내 모든 속성 값 초기화
+        session.invalidate();
     }
 
 
