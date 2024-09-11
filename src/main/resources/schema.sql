@@ -20,6 +20,7 @@ create table users(
     name varchar(10) not null,
     gender varchar(2) not null,
     phone varchar(15) not null unique,
+    ubirth varchar(20) not null,
     distinction varchar(10) not null,
     primary key (uno)
 );
@@ -37,6 +38,7 @@ create table board(
     btitle varchar(100) not null,
     bcontent varchar(300) not null,
     bdate datetime default now(),
+    bview int default 0,
     uno int not null,
     categoryno int not null,
     primary key(bno),

@@ -29,4 +29,13 @@ public class UserController {
         return userService.idCheck(id);
     }
 
+    // 3. 로그인
+    @PostMapping("/login")
+    public boolean userLogin(UserDto userDto) {
+        System.out.println("UserController.login");
+        System.out.println("userDto = " + userDto);
+        return userService.userLogin(userDto);
+    }
+
+
 }

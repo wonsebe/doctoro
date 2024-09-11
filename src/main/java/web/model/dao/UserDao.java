@@ -12,6 +12,8 @@ public interface UserDao {
     // 2. 아이디 중복 검사
     String idCheck(String id);
 
+    // 3. 로그인
+    String userLogin(UserDto userDto);
 
 
 }

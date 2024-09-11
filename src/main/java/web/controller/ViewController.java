@@ -18,6 +18,11 @@ public class ViewController {
         return "/user/signup.html";
     }
 
+    // 2. 로그인 페이지 요청
+    @GetMapping("/user/login")
+    public String userLoginPage() {
+        return "/user/login.html";
+    }
 
     // ===================== [3] 게시판관련 ===================== //
     //게시판 등록 페이지 요청

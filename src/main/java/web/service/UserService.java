@@ -31,6 +31,19 @@ public class UserService {
         }
     }
 
+    // 3. 로그인
+    public boolean userLogin(UserDto userDto) {
+        System.out.println("UserService.login");
+        System.out.println("userDto = " + userDto);
+        String result = userDao.userLogin(userDto);
+        // 아이디와 비밀번호가 일치하지 않으면 (null) false 반환, 아이디와 비밀번호가 일치하면 true 반환
+        if (result == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
 
 }
