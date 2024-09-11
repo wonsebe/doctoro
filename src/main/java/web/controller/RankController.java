@@ -21,8 +21,8 @@ public class RankController {
 
     //r
     @GetMapping("/total")
-    public List<RankDto> total(){
-        return rankService.total();
+    public RankDto total( int pno ){
+        return rankService.total( pno );
     }
 
     //u

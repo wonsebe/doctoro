@@ -12,7 +12,12 @@ public class RankService {
 
     @Autowired private RankDao rankDao;
 
-    public List<RankDto> total(){
-        return rankDao.total();
+    public RankDto total( int pno ){
+//        System.out.println("pno = " + pno);
+
+        RankDto result = rankDao.total( pno );
+
+//        System.out.println("result = " + result);
+        return result;
     }
 }
