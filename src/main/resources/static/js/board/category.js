@@ -2,25 +2,28 @@ console.log('category.js');
 
 category();
 function category(){
-    //어디에
-    let category=document.querySelector('#category').value
-    //무엇을
-    let html=''
+   
     
     $.ajax({
+        async:false,
         url:"/board/bcategory",
         method:'get',
         success:(result)=>{
             console.log(result);
-
-            for(let i=0; i<result.length; i++){
-                html+= `<option value="${result[i].categoryno}">${result[i].categoryname}</option>`
-           
-                //출력
-                category.innerHTML=html;
-           
-            }
-
+            //어디에
+            let categoryBox=document.querySelector('.categoryBox')
+            //무엇을
+            let html=''
+           result.forEach(카테고리 =>{
+            html+= `
+            <option value="${카테고리.categoryno}">${카테고리.categoryname}</option>
+            `
+           })
+      //출력
+      categoryBox.innerHTML=html;
+      console.log(categoryBox);
         }
+
     })
+
 }

@@ -14,21 +14,27 @@
 <h3> 게시판 등록 페이지 </h3>
 
 <form class="boardWrite">
-    <select name="categoryno" id="category">
-    <option value="1">자유</option>
+
+
+    <!-- <option value="1">자유</option>
     <option value="2">정보</option>
     <option value="3">토론</option>
     <option value="4">질문</option>
-    <option value="5">자랑</option>
-    </select>
-
-
-    <div>제목: <input id="btitle" type="text" name="btitle"  /><br></div>
-    <div>내용:<textarea id="bcontent" name="bcontent"  ></textarea></div>
-    <button onclick="boardWrite()" type="button">글 등록</button>
+    <option value="5">자랑</option> -->
     
 
+    <div style="margin : 10px 0px; display:flex">
+        <select name="categoryno" class="categoryBox form-select" style="width:10%">
+            <option value="카테고리번호FK"> 카테고리이름 </option>
+        </select>
+        <input type="text" name="btitle" class="btitle form-control"  placeholder="제목"  />
+    </div>
 
+    <div><textarea id="summernote" name="bcontent" class="bcontent"></textarea></div>
+    <!-- <div>제목: <input id="btitle" type="text" name="btitle"  /><br></div>
+    <div>내용:<textarea id="bcontent" name="bcontent"  ></textarea></div> -->
+    <button onclick="boardWrite()" type="button">글 등록</button>
+    
 </form>
 
 </div>
@@ -37,8 +43,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js" ></script>
     <!-- <---썸머노트 한국어-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js" ></script>
-
-<script src="/js/board/write.js"></script>
 <script src="/js/board/category.js"></script>
+<script src="/js/board/write.js"></script>
+
 </body>
 </html>
