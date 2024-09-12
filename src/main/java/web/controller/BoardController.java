@@ -3,6 +3,7 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import web.model.dto.BoardDto;
+import web.model.dto.BoardPageDto;
 import web.service.BoardService;
 
 import java.util.List;
@@ -24,10 +25,10 @@ public class BoardController {
     }
     //게시판 출력
     @GetMapping("/print")
-    public List<BoardDto> bPrint(){
+    public List<BoardDto> bPrint(BoardPageDto boardPageDto){
         System.out.println("boardService = " + boardService);
         System.out.println("BoardController.bPrint");
-        return boardService.bPrint();
+        return boardService.bPrint(boardPageDto);
     }
     //게시판 개별조회
     @GetMapping("/bdetail")

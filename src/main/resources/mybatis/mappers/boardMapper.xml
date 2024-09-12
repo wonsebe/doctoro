@@ -10,8 +10,9 @@
         insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno},#{categoryno} );
     </insert>
     <!--2. 전체 출력 -->
-    <select id="bPrint" resultType="web.model.dto.BoardDto">
-        select * from board;
+    <select id="bPrint" resultType="web.model.dto.BoardDto" parameterType="web.model.dto.BoardPageDto" >
+        select cn.categoryno , categoryname, bno , btitle  , bcontent, bdate , bview from board b inner join users u inner join category cn on
+        b.uno = u.uno and b.categoryno = cn.categoryno where b.bno = #{ b.bno }
     </select>
 
     <!--2-2. 개별 조회 -->
@@ -28,4 +29,10 @@
     <delete id="bDelete" parameterType="web.model.dto.BoardDto">
         delete from board  where bno=#{bno};
     </delete>
+
+    <!--5. 카테고리 출력 -->
+    <select id="categoryprint" resultType="web.model.dto.CategoryDto">
+        select * from category order by categoryno ;
+    </select>
 </mapper>  <!-- mapper end -->
+

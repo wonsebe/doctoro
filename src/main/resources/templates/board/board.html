@@ -16,7 +16,9 @@
 <a href="/board/bwrite"><button type="button"> 글쓰기</button></a> <br><br>
 
 
-        
+         <!-- 카테고리 구역 -->
+         <div class="categoryBox" style="display:flex;"> <!-- doBoardFindAll( 페이지번호 page , 카테고리번호 bcno ) -->
+         </div>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -33,12 +35,30 @@
             </tbody>
         </table>
 
+        <!-- 페이징 구역 -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" onclick="print()">이전</a></li>
+            </ul>
+        </nav>
+        <!-- 검색구역 -->
+        <div>
+            <select class="searchKey">
+                <option value="btitle"> 제목 </option>
+                <option value="btitle"> 내용 </option>
+                <option value="btitle"> 작성자 </option>
+            </select>
+            <input class="searchKeyWord"/>
+            <button type="button" onclick="search()" > 검색 </button>
+        </div>
+
+
+
        
 
 
 <!-- 1. 부트스트랩 JS 캐러셀을 사용하기 위해 추가 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/board/category.js"></script>
 <script src="/js/board/board.js"></script>
 
 
