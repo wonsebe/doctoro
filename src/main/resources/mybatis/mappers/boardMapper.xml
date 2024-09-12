@@ -11,8 +11,7 @@
     </insert>
     <!--2. 전체 출력 -->
     <select id="bPrint" resultType="web.model.dto.BoardDto" parameterType="web.model.dto.BoardPageDto" >
-        select cn.categoryno , categoryname, bno , btitle  , bcontent, bdate , bview from board b inner join users u inner join category cn on
-        b.uno = u.uno and b.categoryno = cn.categoryno where b.bno = #{ b.bno }
+        select * from board inner join users on board.uno = users.uno order by board.bno desc limit ? , ? ";
     </select>
 
     <!--2-2. 개별 조회 -->
