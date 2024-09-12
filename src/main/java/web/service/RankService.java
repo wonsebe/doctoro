@@ -14,10 +14,14 @@ public class RankService {
 
     public RankDto total( int pno ){
 //        System.out.println("pno = " + pno);
-
         RankDto result = rankDao.total( pno );
-
 //        System.out.println("result = " + result);
         return result;
     }
+
+    public RankDto click( int pno ){
+        return rankDao.click( pno );
+    }
+
+
 }

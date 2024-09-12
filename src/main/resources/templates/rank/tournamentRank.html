@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h4>토너먼트</h4>
+
+<div class="round">
+    <h3>총라운드 선택</h3> <br/>
+    <select class="roundcate">
+        <option value="0">선택</option>
+        <option value="64">64강</option>
+        <option value="32">32강</option>
+        <option value="16">16강</option>
+        <option value="8">8강</option>
+        <option value="4">4강</option>
+    </select>
+    <button type="button" onclick="selectround()"> 시작 </button>
+</div>
+
+<div> 토너먼트 </div>
+<table id="tnmnt">
+    <thead>
+        <tr>
+            <th> 1번 </th> <th> 2번 </th>
+        </tr>
+    </thead>
+    <tbody class="tnmtTbody">
+        <tr>
+            <td> <img src=""/> </td> <td> <img src=""/> </td>
+        </tr>
+    </tbody>
+</table>
+
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/js/rank/tournamentRank.js" ></script>
+</body>
+</html>

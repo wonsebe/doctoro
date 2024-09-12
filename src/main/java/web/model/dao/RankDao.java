@@ -10,4 +10,7 @@ public interface RankDao {
 
     //종합 순위 출력
     RankDto total( int pno );
+
+    //토너먼트용
+    RankDto click ( int pno );
 }

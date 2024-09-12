@@ -2,9 +2,7 @@ package web.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.model.dto.RankDto;
 import web.service.RankService;
 
@@ -18,12 +16,19 @@ public class RankController {
     @Autowired private RankService rankService;
 
     //c
+//    @PostMapping("/tournament")
+//    public Object tournament( @RequestBody List<Integer> pnoList ) {
+//        return RankService.tournament();
+//    }
 
     //r
     @GetMapping("/total")
     public RankDto total( int pno ){
         return rankService.total( pno );
     }
+
+    @PutMapping("/click")
+    public RankDto click (int pno ) {return rankService.click( pno ); }
 
     //u
 
