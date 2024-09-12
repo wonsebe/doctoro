@@ -2,8 +2,8 @@ console.log('write.js');
 
 category();
 function category(){
-   
-    
+
+
     $.ajax({
         async:false,
         url:"/board/bcategory",
