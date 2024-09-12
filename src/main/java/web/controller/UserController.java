@@ -1,10 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.model.dto.UserDto;
 import web.service.UserService;
 
@@ -51,5 +48,27 @@ public class UserController {
         userService.userLogout();
     }
 
+    // 6. 마이페이지
+    @GetMapping("/my/info")
+    public UserDto userMyInfo() {
+        System.out.println("UserController.userMyInfo");
+        return userService.userMyInfo();
+    }
+
+    // 7. 회원 정보 수정
+    @PutMapping("/update")
+    public boolean userUpdate(UserDto userDto) {
+        System.out.println("UserController.userUpdate");
+        System.out.println("userDto = " + userDto);
+        return userService.userUpdate(userDto);
+    }
+
+    // 8. 회원 탈퇴
+    @DeleteMapping("/delete")
+    public boolean userDelete(UserDto userDto) {
+        System.out.println("UserController.userDelete");
+        System.out.println("userDto = " + userDto);
+        return userService.userDelete(userDto);
+    }
 
 }

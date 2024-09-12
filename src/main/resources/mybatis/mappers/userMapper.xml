@@ -22,5 +22,22 @@
         select * from users where id = #{id} and password = #{password};
     </select>
 
+    <!-- 4. 마이페이지 -->
+    <select id="userMyInfo" resultType="web.model.dto.UserDto" parameterType="int">
+        select * from users where uno = #{uno};
+    </select>
+
+    <!-- 5. 회원 정보 수정 -->
+    <update id="userUpdate" parameterType="web.model.dto.UserDto">
+        update users
+        set password = #{password}, name = #{name}, phone = #{phone}
+        where uno = #{uno};
+    </update>
+
+    <!-- 6. 회원 탈퇴 -->
+    <delete id="userDelete" parameterType="web.model.dto.UserDto">
+        delete from users
+        where uno = #{uno} and id = #{id} and password = #{password} and phone = #{phone};
+    </delete>
 
 </mapper>   <!-- mapper end -->

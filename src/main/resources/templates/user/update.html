@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 정보 수정</title>
+</head>
+<body>
+    <div th:replace="~{/header.html :: header }"></div>
+
+    <div id="content">
+        회원 정보 수정
+
+        <form>
+            아이디 : <input type="text" id="id" disabled /> <br>
+            <div id="idInputCheck"></div>
+            
+            비밀번호 : <input type="password" id="pw" onkeyup="pwCheck()" />
+            <div id="pwInputCheck"></div>
+
+            비밀번호 확인 : <input type="password" id="pwConfirm" onkeyup="pwConfirmCheck()" />
+            <div id="pwConfirmInputCheck"></div>
+
+            이름 : <input type="text" id="name" onkeyup="nameCheck()" />
+            <div id="nameInputCheck"></div>
+
+            성별 : <span>
+                        <input type="radio" name="gender" value="M" disabled /> 남자
+                        <input type="radio" name="gender" value="F" disabled /> 여자
+                   </span> <br>
+
+            전화번호 : <input type="text" id="phone" onkeyup="phoneCheck()" />
+            <div id="phoneInputCheck"></div>
+
+            생년월일 : <input type="date" id="birth" min="1900-01-01" onchange="birthCheck()" disabled /> <br>
+            <div id="birthInputCheck"></div>
+
+            <button type="button" onclick="doUpdate()">회원정보수정</button>
+        </form>
+    </div>
+
+    <script src="/js/user/update.js"></script>
+    <script src="/js/user/signup.js"></script>
+    
+
+</body>
+</html>

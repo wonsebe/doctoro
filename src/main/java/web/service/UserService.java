@@ -83,6 +83,49 @@ public class UserService {
         session.invalidate();
     }
 
+    // 6. 마이페이지
+    public UserDto userMyInfo() {
+        System.out.println("UserService.userMyInfo");
+        UserDto loginDto = userLoginCheck();    // 로그인된 세션 정보 요청
+        if (loginDto == null) {     // 비로그인이라면 리턴
+            return null;
+        }
+        int uno = loginDto.getUno();
+        return userDao.userMyInfo(uno);
+    }
+
+    // 7. 회원 정보 수정
+    public boolean userUpdate(UserDto userDto) {
+        System.out.println("UserService.userUpdate");
+
+        UserDto loginDto = userLoginCheck();    // 로그인된 세션 정보 요청
+        if (loginDto == null) {     // 비로그인이라면 리턴
+            return false;
+        }
+        userDto.setUno(loginDto.getUno());
+        System.out.println("userDto = " + userDto);
+
+        return userDao.userUpdate(userDto);
+    }
+
+    // 8. 회원 탈퇴
+    public boolean userDelete(UserDto userDto) {
+        System.out.println("UserService.userDelete");
+
+        UserDto loginDto = userLoginCheck();    // 로그인된 세션 정보 요청
+        if (loginDto == null) {     // 비로그인이라면 리턴
+            return false;
+        }
+        userDto.setUno(loginDto.getUno());
+        System.out.println("userDto = " + userDto);
+
+        boolean result = userDao.userDelete(userDto);
+        // 회원 탈퇴 성공 시 로그아웃
+        if (result) {
+            userLogout();
+        }
+        return result;
+    }
 
 
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지</title>
+</head>
+<body>
+    <div th:replace="~{/header.html :: header }"></div>
+
+    <div id="content">
+        마이페이지
+
+        <div id="myinfo">
+
+            
+        </div> <br>
+
+        <button type="button" onclick="location.href='/user/update'">회원정보수정</button>
+        <button type="button" onclick="location.href='/user/delete'">회원탈퇴</button>
+    </div>
+
+    <script src="/js/user/myinfo.js"></script>
+
+</body>
+</html>
