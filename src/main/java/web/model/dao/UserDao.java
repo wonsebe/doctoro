@@ -13,7 +13,15 @@ public interface UserDao {
     String idCheck(String id);
 
     // 3. 로그인
-    String userLogin(UserDto userDto);
+    UserDto userLogin(UserDto userDto);
 
+    // 4. 마이페이지
+    UserDto userMyInfo(int uno);
+
+    // 7. 회원 정보 수정
+    boolean userUpdate(UserDto userDto);
+
+    // 8. 회원 탈퇴
+    boolean userDelete(UserDto userDto);
 
 }

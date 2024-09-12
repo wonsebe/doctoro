@@ -1,42 +1,44 @@
 console.log('signup.js');
 
-let signupCheck = [false, false, false, false, false];
+let doCheck = [false, false, false, false, false, false];
 
 // 1. 회원가입 함수
 function doSignup() {   console.log('doSignup()');
-    for (let i = 0; i < signupCheck.length; i++) {
-        if (!signupCheck[i]) {
+    for (let i = 0; i < doCheck.length; i++) {
+        if (!doCheck[i]) {
             alert('유효하지 않은 정보가 있습니다.');
             return;
         }
     }
 
-    // 1. 입력값 가져오기
+    // 입력값 가져오기
     let id = document.querySelector('#id').value;
     let pw = document.querySelector('#pw').value;
     let name = document.querySelector('#name').value;
     let gender;
     let phone = document.querySelector('#phone').value;
+    let birth = document.querySelector('#birth').value;
     
     // 라디오 버튼 선택한 값 가져오기
-    genderValue = document.getElementsByName("gender");
+    let genderValue = document.getElementsByName("gender");
     genderValue.forEach((radio) => {
         if (radio.checked) {
             gender = radio.defaultValue;
         }
     });
 
-    // 2. 객체
+    // 객체
     let data = {
         id : id,
         password : pw,
         name : name,
         gender : gender,
-        phone : phone
+        phone : phone,
+        ubirth : birth
     }
     console.log(data);
 
-    // 3. ajax
+    // ajax
     $.ajax({
         async : false,
         method : 'post',
@@ -47,8 +49,7 @@ function doSignup() {   console.log('doSignup()');
                 alert('회원가입 성공');
                 location.href = '/';
             } else {
-                console.log('회원가입 실패');
-
+                alert('회원가입 실패');
             }
         }   // success end
     })  // ajax end
@@ -80,16 +81,16 @@ function idCheck() {    console.log('idCheck()');
             success : (result) => { console.log(result);
                 if (result) {
                     html = '사용 가능한 아이디입니다.'
-                    signupCheck[0] = true;
+                    doCheck[0] = true;
                 } else {
                     html = '이미 사용중인 아이디입니다.';
-                    signupCheck[0] = false;
+                    doCheck[0] = false;
                 }
             }   // success end
         });  // ajax end
     } else {    // 정규표현식을 만족하지 않으면 else문 실행
         html = '8~20글자의 영문 대/소문자와 숫자만 사용 가능합니다.';
-        signupCheck[0] = false;
+        doCheck[0] = false;
     }
     idInputCheck.innerHTML = html;
     
@@ -112,10 +113,10 @@ function pwCheck() {    console.log('pwCheck()');
     // 4. 정규표현식을 만족하면 if문 실행
     if (pwRegex.test(pw)) {
         html = '사용가능한 비밀번호입니다.'
-        signupCheck[1] = true;
+        doCheck[1] = true;
     } else {
         html = '8~20글자의 영문 대/소문자, 숫자, 특수문자만 사용 가능합니다.';
-        signupCheck[1] = false;
+        doCheck[1] = false;
     }
     pwInputCheck.innerHTML = html;
 
@@ -134,10 +135,10 @@ function pwConfirmCheck() { console.log('pwConfirmCheck()');
     // 2. 비밀번호와 비밀번호 확인 값의 일치여부에 따른 처리
     if (pw == pwConfirm) {
         html = '비밀번호가 일치합니다.'
-        signupCheck[2] = true;
+        doCheck[2] = true;
     } else {
         html = '비밀번호가 일치하지 않습니다.'
-        signupCheck[2] = false;
+        doCheck[2] = false;
     }
 
     pwConfirmInputCheck.innerHTML = html;
@@ -158,10 +159,10 @@ function nameCheck() {  console.log('nameCheck()');
     // 4. 정규표현식을 만족하면 if문 실행
     if (nameRegex.test(name)) {
         html = '사용가능한 이름입니다.'
-        signupCheck[3] = true;
+        doCheck[3] = true;
     } else {
         html = '2~15글자의 한글 또는 영문 대/소문자만 사용 가능합니다.';
-        signupCheck[3] = false;
+        doCheck[3] = false;
     }
     nameInputCheck.innerHTML = html;
 
@@ -185,13 +186,38 @@ function phoneCheck() {  console.log('phoneCheck()');
     // 4. 정규표현식을 만족하면 if문 실행
     if (phoneRegex.test(phone)) {
         html = '사용가능한 전화번호입니다.'
-        signupCheck[4] = true;
+        doCheck[4] = true;
     } else {
         html = '00-0000-0000 또는 000-0000-0000 형식으로 입력해주세요.';
-        signupCheck[4] = false;
+        doCheck[4] = false;
     }
     phoneInputCheck.innerHTML = html;
 
 }   // phoneCheck() end
 
+birthCheck();
+// 7. 생년월일 유효성 검사
+function birthCheck() {    console.log('birthCheck()');
+    // 1. 생년월일 입력 시 오늘 날짜 이후로는 입력하지 못하도록 막기
+    var nowDate = Date.now();
+    // getTimezoneOffset()은 현재 시간과의 차이를 분 단위로 반환
+    var timeOff = new Date().getTimezoneOffset() * 60000;
+    var today = new Date(nowDate-timeOff).toISOString().split("T")[0];
+    document.getElementById("birth").setAttribute("max", today);
+
+    // 2. 생년월일 입력 여부 체크
+    let birth = document.querySelector('#birth').value;
+    console.log(birth);
+    let birthInputCheck = document.querySelector('#birthInputCheck');
+
+    if (birth == '') {
+        html = '생년월일을 입력해주세요.';
+        doCheck[5] = false;
+    } else {
+        html = ''
+        doCheck[5] = true;
+    }
+    birthInputCheck.innerHTML = html;
+
+}   // birthCheck() end
 

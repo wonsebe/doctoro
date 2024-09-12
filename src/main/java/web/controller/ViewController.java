@@ -24,6 +24,24 @@ public class ViewController {
         return "/user/login.html";
     }
 
+    // 3. 내정보 페이지 요청
+    @GetMapping("/user/myinfo")
+    public String userMyinfoPage() {
+        return "/user/myinfo.html";
+    }
+
+    // 4. 회원 정보 수정 페이지 요청
+    @GetMapping("/user/update")
+    public String userUpdatePage() {
+        return "/user/update.html";
+    }
+
+    // 5. 회원 탈퇴 페이지 요청
+    @GetMapping("/user/delete")
+    public String userDeletePage() {
+        return "/user/delete.html";
+    }
+
     // ===================== [3] 게시판관련 ===================== //
     //게시판 등록 페이지 요청
     @GetMapping("/board/bwrite")
