@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import web.model.dao.BoardDao;
 import web.model.dto.BoardDto;
 import web.model.dto.BoardPageDto;
+import web.model.dto.UserDto;
 
 import java.util.List;
 
@@ -13,10 +14,19 @@ import java.util.List;
 public class BoardService {
     @Autowired private BoardDao boardDao;
     @Autowired private UserService userService;
-
     //#################게시판 관련#################//
     //게시판 등록 (uno 넣기)
     public boolean bWrite(BoardDto boardDto){
+            //회원의 로그인회원번호 구하기
+        //1. 로그인 세션에서 값 호출
+        Object object=userService.userLoginCheck();
+        if (object ==null)return false; //비로그인시 함수 강제종료/취소
+        //2. 세션 내 회원번호 속성 호출
+        UserDto memberDto=(UserDto)object;
+        //3. 속성 호출
+        int loginNo=memberDto.getUno();
+        //4. BoardDto 에 담아주기
+        boardDto.setUno(loginNo);
         System.out.println("boardDto = " + boardDto);
         System.out.println("BoardService.bWrite");
 
@@ -62,7 +72,7 @@ public class BoardService {
 
     //게시판 삭제
     public boolean bDelete(BoardDto boardDto){
-        System.out.println("BoardService.bDelete");
+       System.out.println("BoardService.bDelete");
         return boardDao.bDelete(boardDto);
     }
 
@@ -71,7 +81,5 @@ public class BoardService {
     public List<BoardDto>categoryprint(){
         return boardDao.categoryprint();
     }
-
-
 
 }

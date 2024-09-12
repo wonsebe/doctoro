@@ -9,6 +9,7 @@ function boardWrite(){
     let info = {categoryno : categoryno ,
                 btitle : btitle ,
                 bcontent : bcontent,
+                uno:uno
                 // uno:uno
             }
     console.log( info );
@@ -20,8 +21,7 @@ function boardWrite(){
         async:false,
         url:'/board/write',
         method:'post',
-        data : JSON.stringify( info ) ,
-        contentType: false , processData : false,
+        data : info,
         success: (result) =>{
             console.log(result);
             if( result ){ // 4. 통신 결과에 실행문
