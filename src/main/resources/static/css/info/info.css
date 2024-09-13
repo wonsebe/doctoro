@@ -1,0 +1,8 @@
+.info_area {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info_area_detail {
+    width: 18%
+}
