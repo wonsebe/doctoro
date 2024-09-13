@@ -24,12 +24,12 @@ public class BoardController {
         return boardService.bWrite(boardDto);
     }
     //게시판 출력
-    @GetMapping("/print")
-    public List<BoardDto> bPrint(BoardPageDto boardPageDto){
-        System.out.println("boardService = " + boardService);
-        System.out.println("BoardController.bPrint");
-        return boardService.bPrint(boardPageDto);
-    }
+//    @GetMapping("/print")
+//    public List<BoardDto> bPrint(BoardPageDto boardPageDto){
+//        System.out.println("boardService = " + boardService);
+//        System.out.println("BoardController.bPrint");
+//        return boardService.bPrint(boardPageDto);
+//    }
     //게시판 개별조회
     @GetMapping("/bdetail")
     public BoardDto bDetail(int bno){
