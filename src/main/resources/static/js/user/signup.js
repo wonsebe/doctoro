@@ -47,7 +47,7 @@ function doSignup() {   console.log('doSignup()');
         success : (result) => {     console.log(result);
             if (result) {
                 alert('회원가입 성공');
-                location.href = '/';
+                location.href = '/user/login';
             } else {
                 alert('회원가입 실패');
             }
@@ -76,7 +76,7 @@ function idCheck() {    console.log('idCheck()');
         $.ajax({
             async : false,
             method : 'get',
-            url : '/user/idcheck',
+            url : '/user/check/id',
             data : { id : id },  
             success : (result) => { console.log(result);
                 if (result) {
@@ -112,7 +112,7 @@ function pwCheck() {    console.log('pwCheck()');
 
     // 4. 정규표현식을 만족하면 if문 실행
     if (pwRegex.test(pw)) {
-        html = '사용가능한 비밀번호입니다.'
+        html = '사용 가능한 비밀번호입니다.'
         doCheck[1] = true;
     } else {
         html = '8~20글자의 영문 대/소문자, 숫자, 특수문자만 사용 가능합니다.';
@@ -183,11 +183,26 @@ function phoneCheck() {  console.log('phoneCheck()');
 
     let html = '';
 
+
     // 4. 정규표현식을 만족하면 if문 실행
     if (phoneRegex.test(phone)) {
-        html = '사용가능한 전화번호입니다.'
-        doCheck[4] = true;
-    } else {
+        console.log(phone);
+        $.ajax({
+            async : false,
+            method : 'get',
+            url : '/user/check/phone',
+            data : { phone : phone },  
+            success : (result) => { console.log(result);
+                if (result) {
+                    html = '사용 가능한 전화번호입니다.'
+                    doCheck[4] = true;
+                } else {
+                    html = '이미 사용중인 전화번호입니다.';
+                    doCheck[4] = false;
+                }
+            }   // success end
+        });  // ajax end
+    } else {    // 정규표현식을 만족하지 않으면 else문 실행
         html = '00-0000-0000 또는 000-0000-0000 형식으로 입력해주세요.';
         doCheck[4] = false;
     }

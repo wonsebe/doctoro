@@ -25,15 +25,43 @@ function doFindPw() {   console.log('doFindPw()');
         data : data,
         success : (result) => {     console.log(result);
             let html = ``;
-            if (result == '') {
+            if (result) {   // 비밀번호를 찾은 경우
+                sessionStorage.setItem("uno", result.uno);
+                location.href="/user/reset/pw";
+            } else {
                 alert('일치하는 정보가 없습니다. 다시 시도해주세요.');
                 html += ``;
-            } else {    // 비밀번호를 찾은 경우
-                location.href="/user/reset/pw";
             }
         }   // success end
     })  // ajax end
 }   // doFindId() end
+
+// 2. 전화번호 유효성 검사
+function phoneCheck() {  console.log('phoneCheck()');
+    // 1. 입력된 값 가져오기
+    let phone = document.querySelector('#phone').value;
+    let phoneInputCheck = document.querySelector('#phoneInputCheck');
+    
+    // 2. 정규표현식 : 00-0000-0000 또는 000-0000-0000
+    let phoneRegex = /^(?:\d{2,3}-\d{3,4}-\d{4})$/;
+    // let phoneRegex = /^(0[1-9]{1,2})+[-]([0-9]{3,4})+[-]([0-9]{4})$/;
+    
+    // 3. 정규표현식 검사
+    console.log(phoneRegex.test(phone));
+
+    let html = '';
+    let doCheck = false;
+
+    // 4. 정규표현식을 만족하지 않으면 if문 실행
+    if (!phoneRegex.test(phone)) {
+        html = '00-0000-0000 또는 000-0000-0000 형식으로 입력해주세요.';
+        doCheck = false;
+    } else {
+        doCheck = true;
+    }
+    phoneInputCheck.innerHTML = html;
+
+}   // phoneCheck() end
 
 
 

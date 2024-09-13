@@ -17,7 +17,8 @@
 
             이름 : <input type="text" id="name" /> <br>
 
-            전화번호 : <input type="text" id="phone" /> <br>
+            전화번호 : <input type="text" id="phone" onkeyup="phoneCheck()" />
+            <div id="phoneInputCheck"></div>
 
             생년월일 : <input type="date" id="birth" min="1900-01-01" /> <br>
 
