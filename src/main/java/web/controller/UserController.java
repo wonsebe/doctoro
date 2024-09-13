@@ -71,4 +71,20 @@ public class UserController {
         return userService.userDelete(userDto);
     }
 
+    // 9. 아이디 찾기
+    @GetMapping("/find/id")
+    public String userFindId(UserDto userDto) {
+        System.out.println("UserController.userFindId");
+        System.out.println("userDto = " + userDto);
+        return userService.userFindId(userDto);
+    }
+    
+    // 10. 비밀번호 찾기
+    @GetMapping("/find/pw")
+    public String userFindPw(UserDto userDto) {
+        System.out.println("UserController.userFindPw");
+        System.out.println("userDto = " + userDto);
+        return userService.userFindPw(userDto);
+    }
+
 }

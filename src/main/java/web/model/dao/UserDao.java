@@ -15,7 +15,7 @@ public interface UserDao {
     // 3. 로그인
     UserDto userLogin(UserDto userDto);
 
-    // 4. 마이페이지
+    // 6. 마이페이지
     UserDto userMyInfo(int uno);
 
     // 7. 회원 정보 수정
@@ -23,5 +23,11 @@ public interface UserDao {
 
     // 8. 회원 탈퇴
     boolean userDelete(UserDto userDto);
+
+    // 9. 아이디 찾기
+    String userFindId(UserDto userDto);
+
+    // 10. 비밀번호 찾기
+    String userFindPw(UserDto userDto);
 
 }
