@@ -7,12 +7,11 @@
 
     <!--1. 게시물 등록 -->
     <insert id="bWrite" parameterType="web.model.dto.BoardDto">
-        insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno},#{categoryno} );
+        insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno}, #{categoryno} );
     </insert>
     <!--2. 전체 출력 -->
-    <select id="bPrint" resultType="web.model.dto.BoardDto" parameterType="web.model.dto.BoardPageDto" >
-        select cn.categoryno , categoryname, bno , btitle  , bcontent, bdate , bview from board b inner join users u inner join category cn on
-        b.uno = u.uno and b.categoryno = cn.categoryno where b.bno = #{ b.bno }
+    <select id="bPrint" resultType="web.model.dto.BoardDto" parameterType="Map" >
+        select * from board inner join users on board.uno = users.uno order by board.bno desc limit #{startRow} , #{pageBoardSize} ;
     </select>
 
     <!--2-2. 개별 조회 -->

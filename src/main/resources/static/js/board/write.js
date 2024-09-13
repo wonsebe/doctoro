@@ -3,7 +3,7 @@ console.log('write.js');
 
 function boardWrite(){
     let categoryno=document.querySelector('.categoryBox').value;
-    let btitle=document.querySelector('.btitle').value;
+    let btitle=document.querySelector('#btitle').value;
     let bcontent=document.querySelector('.bcontent').value;
     // 2. 객체화
     let info = {categoryno : categoryno ,
@@ -20,8 +20,7 @@ function boardWrite(){
         async:false,
         url:'/board/write',
         method:'post',
-        data : JSON.stringify( info ) ,
-        contentType: false , processData : false,
+        data :info,
         success: (result) =>{
             console.log(result);
             if( result ){ // 4. 통신 결과에 실행문
