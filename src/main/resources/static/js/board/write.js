@@ -1,15 +1,41 @@
 console.log('write.js');
 
+category();
+function category(){
+   
+    
+    $.ajax({
+        async:false,
+        url:"/board/bcategory",
+        method:'get',
+        success:(result)=>{
+            console.log(result);
+            //어디에
+            let categoryBox=document.querySelector('.categoryBox')
+            //무엇을
+            let html=''
+           result.forEach(카테고리 =>{
+            html+= `
+            <option value="${카테고리.categoryno}">${카테고리.categoryname}</option>
+            `
+           })
+      //출력
+      categoryBox.innerHTML=html;
+      console.log(categoryBox);
+        }
+
+    })
+
+}
 
 function boardWrite(){
     let categoryno=document.querySelector('.categoryBox').value;
-    let btitle=document.querySelector('.btitle').value;
+    let btitle=document.querySelector('#btitle').value;
     let bcontent=document.querySelector('.bcontent').value;
     // 2. 객체화
     let info = {categoryno : categoryno ,
                 btitle : btitle ,
-                bcontent : bcontent,
-                // uno:uno
+                bcontent : bcontent
             }
     console.log( info );
 
@@ -20,8 +46,7 @@ function boardWrite(){
         async:false,
         url:'/board/write',
         method:'post',
-        data : JSON.stringify( info ) ,
-        contentType: false , processData : false,
+        data : info,
         success: (result) =>{
             console.log(result);
             if( result ){ // 4. 통신 결과에 실행문

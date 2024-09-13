@@ -16,8 +16,9 @@ public class BoardPageDto {
     private int totalBoardSize; // 2. 전체 게시물수
     private int totalPage; // 3. 전체 페이지수
     private List<BoardDto> data; // 4. 조회된 게시물 정보 목록/리스트
-
-//    //+검색
-//    private String searchKey;
-//    private String searchKeyWord;
+    //+검색
+    private String searchKey;
+    private String searchKeyWord;
+    private int startBtn;
+    private int endBtn;
 }
