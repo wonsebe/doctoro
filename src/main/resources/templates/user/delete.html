@@ -15,12 +15,12 @@
 
             비밀번호 : <input type="password" id="pw" /> </br>
 
-            전화번호 : <input type="text" id="phone" /> </br>
+            전화번호 : <input type="text" id="phone" onkeyup="phoneCheck()" />
+            <div id="phoneInputCheck"></div>
 
             <button type="button" onclick="doDelete()">회원탈퇴</button>
         </form>
     </div>
-
 
     <script src="/js/user/delete.js"></script>
 

@@ -28,6 +28,12 @@ public interface UserDao {
     String userFindId(UserDto userDto);
 
     // 10. 비밀번호 찾기
-    String userFindPw(UserDto userDto);
+    UserDto userFindPw(UserDto userDto);
+
+    // 11. 비밀번호 재설정
+    boolean userResetPw(UserDto userDto);
+
+    // 12. 전화번호 중복 검사
+    String phoneCheck(String phone);
 
 }

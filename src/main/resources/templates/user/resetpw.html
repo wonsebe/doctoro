@@ -5,6 +5,22 @@
     <title>비밀번호 재설정</title>
 </head>
 <body>
-    비밀번호 재설정
+    <div th:replace="~{/header.html :: header }"></div>
+
+    <div id="content">
+        비밀번호 재설정
+
+        <form>
+            새로운 비밀번호 : <input type="password" id="pw" onkeyup="pwCheck()" />
+            <div id="pwInputCheck"></div>
+
+            비밀번호 확인 : <input type="password" id="pwConfirm" onkeyup="pwConfirmCheck()" />
+            <div id="pwConfirmInputCheck"></div>
+
+            <button type="button" onclick="doResetPw()">비밀번호 재설정</button>
+        </form>
+    </div>
+
+    <script src="/js/user/resetpw.js"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@ public class UserController {
     }
 
     // 2. 아이디 중복 검사
-    @GetMapping("/idcheck")
+    @GetMapping("/check/id")
     public boolean idCheck(String id) {
         System.out.println("UserController.idCheck");
         System.out.println("id = " + id);
@@ -81,10 +81,26 @@ public class UserController {
     
     // 10. 비밀번호 찾기
     @GetMapping("/find/pw")
-    public String userFindPw(UserDto userDto) {
+    public UserDto userFindPw(UserDto userDto) {
         System.out.println("UserController.userFindPw");
         System.out.println("userDto = " + userDto);
         return userService.userFindPw(userDto);
+    }
+
+    // 11. 비밀번호 재설정
+    @PutMapping("/reset/pw")
+    public boolean userResetPw(UserDto userDto) {
+        System.out.println("UserController.userResetPw");
+        System.out.println("userDto = " + userDto);
+        return userService.userResetPw(userDto);
+    }
+
+    // 12. 전화번호 중복 검사
+    @GetMapping("/check/phone")
+    public boolean phoneCheck(String phone) {
+        System.out.println("UserController.phoneCheck");
+        System.out.println("phone = " + phone);
+        return userService.phoneCheck(phone);
     }
 
 }

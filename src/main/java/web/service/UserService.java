@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import web.model.dao.UserDao;
 import web.model.dto.UserDto;
 
@@ -22,7 +23,7 @@ public class UserService {
 
     // 2. 아이디 중복 검사
     public boolean idCheck(String id) {
-        System.out.println("UserController.idCheck");
+        System.out.println("UserService.idCheck");
         System.out.println("id = " + id);
         String result = userDao.idCheck(id);
         System.out.println("result = " + result);
@@ -76,7 +77,7 @@ public class UserService {
 
     // 5. 로그아웃 : 세션 초기화
     public void userLogout() {
-        System.out.println("UserController.userLogout");
+        System.out.println("UserService.userLogout");
         // 1. 현재 요청을 보내온 클라이언트의 세션 객체 호출
         HttpSession session = request.getSession();
         // 2. 세션 객체 내 모든 속성 값 초기화
@@ -135,11 +136,31 @@ public class UserService {
     }
 
     // 10. 비밀번호 찾기
-    public String userFindPw(UserDto userDto) {
+    public UserDto userFindPw(UserDto userDto) {
         System.out.println("UserService.userFindPw");
         System.out.println("userDto = " + userDto);
         return userDao.userFindPw(userDto);
     }
 
+    // 11. 비밀번호 재설정
+    public boolean userResetPw(UserDto userDto) {
+        System.out.println("UserService.userResetPw");
+        System.out.println("userDto = " + userDto);
+        return userDao.userResetPw(userDto);
+    }
+
+    // 12. 전화번호 중복 검사
+    public boolean phoneCheck(String phone) {
+        System.out.println("UserController.phoneCheck");
+        System.out.println("phone = " + phone);
+        String result = userDao.phoneCheck(phone);
+        System.out.println("result = " + result);
+        // 전화번호가 존재하지 않으면 (null) true 반환, 아이디가 존재하면 false 반환
+        if (result == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
