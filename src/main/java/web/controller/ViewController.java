@@ -67,4 +67,15 @@ public class ViewController {
         return "/rate/rate.html";
     }
 
+    // 포켓몬위키 페이지
+    @GetMapping("/info")
+    public String info(){
+        return "/info/info.html";
+    }
+
+    // 포켓몬위키 개별정보 페이지
+    @GetMapping("/info/detail")
+    public String infoDetail(){
+        return "/info/info_detail.html";
+    }
 }
