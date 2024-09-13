@@ -127,5 +127,19 @@ public class UserService {
         return result;
     }
 
+    // 9. 아이디 찾기
+    public String userFindId(UserDto userDto) {
+        System.out.println("UserService.userFindId");
+        System.out.println("userDto = " + userDto);
+        return userDao.userFindId(userDto);
+    }
+
+    // 10. 비밀번호 찾기
+    public String userFindPw(UserDto userDto) {
+        System.out.println("UserService.userFindPw");
+        System.out.println("userDto = " + userDto);
+        return userDao.userFindPw(userDto);
+    }
+
 
 }

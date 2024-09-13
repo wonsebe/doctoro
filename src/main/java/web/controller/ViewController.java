@@ -42,6 +42,24 @@ public class ViewController {
         return "/user/delete.html";
     }
 
+    // 6. 아이디 찾기 페이지 요청
+    @GetMapping("/user/findid")
+    public String userFindIdPage() {
+        return "/user/findid.html";
+    }
+
+    // 7. 비밀번호 찾기 페이지 요청
+    @GetMapping("/user/findpw")
+    public String userFindPwPage() {
+        return "/user/findpw.html";
+    }
+
+    // 8. 비밀번호 재설정 페이지 요청
+    @GetMapping("/user/reset/pw")
+    public String userResetPwPage() {
+        return "/user/resetpw.html";
+    }
+
     // ===================== [3] 게시판관련 ===================== //
     //게시판 등록 페이지 요청
     @GetMapping("/board/bwrite")

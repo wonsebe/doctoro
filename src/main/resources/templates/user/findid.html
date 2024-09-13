@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>아이디 찾기</title>
 </head>
 <body>
+    <div th:replace="~{/header.html :: header }"></div>
+
+    <div id="content">
+        아이디 찾기 <br>
+
+        <form>
+            본인인증 <br>
+
+            이름 : <input type="text" id="name" /> <br>
+
+            전화번호 : <input type="text" id="phone" /> <br>
+
+            생년월일 : <input type="date" id="birth" min="1900-01-01" /> <br>
+
+            <button type="button" onclick="doFindId()">아이디 찾기</button>
+        </form>
+
+        <div id="findidBox">
+            
+        </div>
+
+        <a href="/user/login">로그인</a>
+        <a href="/user/findpw">비밀번호 찾기</a>
+    </div>
+
+    <script src="/js/user/findid.js"></script>
 
 </body>
 </html>
