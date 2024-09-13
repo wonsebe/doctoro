@@ -10,9 +10,13 @@
     <select id="total" resultType="web.model.dto.RankDto" parameterType="int">
         select * from rankpokemon where pno = #{ pno }
     </select>
-
-    <update id="tournament" parameterType="int">
-    update rankpokemon set click = click + 1 where pno = #{pno};
+    <!-- 클릭수 증가   -->
+    <update id="click" parameterType="int">
+        update rankpokemon set click = click + 1 where pno = #{pno}
+    </update>
+    <!-- 승리 증가   -->
+    <update id="win" parameterType="int">
+        update rankpokemon set win = win + 1 where pno = #{pno}
     </update>
 
 </mapper>  <!-- mapper end -->

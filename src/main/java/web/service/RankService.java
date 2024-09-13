@@ -19,8 +19,12 @@ public class RankService {
         return result;
     }
 
-    public RankDto click( int pno ){
+    public boolean click( int pno ){
         return rankDao.click( pno );
+    }
+
+    public boolean win( int pno ){
+        return rankDao.win( pno );
     }
 
 
