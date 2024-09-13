@@ -11,8 +11,15 @@
 <form class="boardWrite">
  
 
-    <input id="btitle" type="text"  placeholder="수정할 제목을 입력"/><br>
-    <textarea id="bcontent" name="content" required  placeholder="수정할 내용을 입력"></textarea>
+    <!-- 카테고리 구역 -->
+    <div class="categoryBox" style="display:flex;"> <!-- doBoardFindAll( 페이지번호 page , 카테고리번호 bcno ) -->
+    </div>
+    <div class="detailPrintZone">
+
+        <button onclick="updateB()" type="button">수정하기</button>
+        <button onclick="deleteB()" type="button">수정하기</button>
+
+    </div>
     
 
 
