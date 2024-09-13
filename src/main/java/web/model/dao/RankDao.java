@@ -12,5 +12,7 @@ public interface RankDao {
     RankDto total( int pno );
 
     //토너먼트용
-    RankDto click ( int pno );
+    boolean click ( int pno );
+    //승리횟수
+    boolean win ( int pno );
 }

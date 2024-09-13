@@ -28,7 +28,10 @@ public class RankController {
     }
 
     @PutMapping("/click")
-    public RankDto click (int pno ) {return rankService.click( pno ); }
+    public boolean click (int pno ) {return rankService.click( pno ); }
+
+    @PutMapping("/win")
+    public boolean win (int pno ) {return rankService.win( pno ); }
 
     //u
 
