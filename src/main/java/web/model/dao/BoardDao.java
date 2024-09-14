@@ -18,6 +18,8 @@ public interface BoardDao {
     //#################게시판 관련#################//
     //게시판 등록
     boolean bWrite(BoardDto boardDto);
+    //게시판 전체 게시물 수 반환
+    int getTotalBoardSize(Map<String, Object> params);
     //게시판 출력
     List<BoardDto> bPrint(Map<String, Object> params);
     //게시판 개별출력

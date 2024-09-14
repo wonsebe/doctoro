@@ -24,12 +24,17 @@ public class BoardController {
         return boardService.bWrite(boardDto);
     }
     //게시판 출력
-//    @GetMapping("/print")
-//    public List<BoardDto> bPrint(BoardPageDto boardPageDto){
-//        System.out.println("boardService = " + boardService);
-//        System.out.println("BoardController.bPrint");
-//        return boardService.bPrint(boardPageDto);
-//    }
+    @GetMapping("/print")
+    public BoardPageDto bPrint(BoardPageDto boardPageDto){
+        System.out.println("boardService = " + boardService);
+        System.out.println("BoardController.bPrint");
+        // --- 매개변수
+        // 1. page : 페이징 처리 에서 사용할 현재 페이지번호
+        // 2. categoryno : 현재 선택된 카테고리 번호
+        // 3. searchKey : 검색 조회시 사용되는 필드명
+        // 4. searchKeyword : 검색 조회시 사용되는 필드의 값
+        return boardService.bPrint(boardPageDto);
+    }
     //게시판 개별조회
     @GetMapping("/bdetail")
     public BoardDto bDetail(int bno){

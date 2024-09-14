@@ -44,46 +44,53 @@ public class BoardService {
         return boardDao.bWrite(boardDto);
     }
     //게시판 출력
-//    public List<BoardPageDto> bPrint(BoardPageDto boardPageDto) {
-//        //만약에 페이지번호가 매개변수로 존재하지 않으면 1페이지로 설정
-//        if (boardPageDto.getPage() == 0) {
-//            boardPageDto.setPage(1);  // 1페이지로 초기화
-//        }
-//        //1. 하나의 페이지당 표시할 게시물 수
-//        int pageBoardSize = 10;
-//        //2. 페이지당 게시물을 출력할 시작레코드 번호
-//        int startRow = (boardPageDto.getPage() - 1) * pageBoardSize;
-//
-//        Map<String, Object> params = new HashMap<>();
-//        params.put("startRow", startRow);
-//        params.put("pageBoardSize", pageBoardSize);
-//        //4.,전체 게시물 수
-//        int totalBoardSize = boardDao.getTotalBoardSize();
-//
-//        int totalPage = totalBoardSize % pageBoardSize == 0 ?
-//                totalBoardSize / pageBoardSize :
-//                totalBoardSize / pageBoardSize + 1;
-//
-//        int btnSize = 5; //페이지당 최대 버튼수를 5개씩 표기한다는 가정
-//        int startBtn = ((boardPageDto.getPage() - 1) / btnSize) * btnSize + 1; //페이지별 시작 버튼 번호 변수
-//        int endBtn = startBtn + btnSize - 1;
-//        if (endBtn >= totalPage) endBtn = totalPage; //만일 끝 번호가 마지막페이지 보다 커질 수 없다.
-//
-//        //게시물 정보 조회
-//        List<BoardDto> data = boardDao.bPrint(params);
-//
-//        // 반환 객체 구성
-//        BoardPageDto pageDto = BoardPageDto.builder()
-//                .page(boardPageDto.getPage()) // 1. 현재 페이지 번호
-//                .totalBoardSize(totalBoardSize) // 2. 전체 게시물수
-//                .totalPage(totalPage) // 3. 전체 페이지수
-//                .data(data) // 4. 조회된 게시물 정보 목록/리스트
-//                .startBtn(startBtn) // 5. 페이지별 시작버튼 번호
-//                .endBtn(endBtn) // 6. 페이지별 끝버튼 번호
-//                .build();
-//
-//        return pageDto;
-//    }
+    public BoardPageDto bPrint(BoardPageDto boardPageDto) {
+        //만약에 페이지번호가 매개변수로 존재하지 않으면 1페이지로 설정
+        if (boardPageDto.getPage() == 0) {
+            boardPageDto.setPage(1);  // 1페이지로 초기화
+        }
+        //1. 하나의 페이지당 표시할 게시물 수
+        int pageBoardSize = 10;
+        //2. 페이지당 게시물을 출력할 시작레코드 번호
+        int startRow = (boardPageDto.getPage() - 1) * pageBoardSize;
+
+
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("startRow", startRow);
+        params.put("pageBoardSize", pageBoardSize);
+        params.put("categoryno", boardPageDto.getCategoryno());
+        params.put("searchKey", boardPageDto.getSearchKey());
+        params.put("searchKeyWord", boardPageDto.getSearchKeyWord());
+
+        //카테고리별 검색조건
+        int totalBoardSize=boardDao.getTotalBoardSize(params);
+
+        //4.,전체 게시물 수 구하기
+        int totalPage = totalBoardSize % pageBoardSize == 0 ?
+                totalBoardSize / pageBoardSize :
+                totalBoardSize / pageBoardSize + 1;
+
+        int btnSize = 5; //페이지당 최대 버튼수를 5개씩 표기한다는 가정
+        int startBtn = ((boardPageDto.getPage() - 1) / btnSize) * btnSize + 1; //페이지별 시작 버튼 번호 변수
+        int endBtn = startBtn + btnSize - 1;
+        if (endBtn >= totalPage) endBtn = totalPage; //만일 끝 번호가 마지막페이지 보다 커질 수 없다.
+
+        //게시물 정보 조회
+        List<BoardDto> data = boardDao.bPrint(params);
+
+        // 반환 객체 구성
+        BoardPageDto pageDto = BoardPageDto.builder()
+                .page(boardPageDto.getPage()) // 1. 현재 페이지 번호
+                .totalBoardSize(totalBoardSize) // 2. 전체 게시물수
+                .totalPage(totalPage) // 3. 전체 페이지수
+                .data(data) // 4. 조회된 게시물 정보 목록/리스트
+                .startBtn(startBtn) // 5. 페이지별 시작버튼 번호
+                .endBtn(endBtn) // 6. 페이지별 끝버튼 번호
+                .build();
+
+        return pageDto;
+    }
 
     //게시판 개별출력
     public BoardDto bDetail(int bno){
