@@ -1,3 +1,5 @@
+
+
 .info_area {
     display: flex;
     flex-wrap: wrap;
@@ -5,4 +7,9 @@
 
 .info_area_detail {
     width: 18%
+}
+
+.wrap{
+    width: 1280px;
+    margin: 0 auto;
 }
