@@ -1,25 +1,24 @@
 console.log('update.js');
-
+let urlParams = new URL(location.href).searchParams;
+let bno = urlParams.get("bno") // 현재 URL 경로상의 bno 값 호출
 //수정
 function updateB(){
-    console.log(updateB);
-    let btitle=document.querySelector('.btitle').value
-    let bcontent=document.querySelector('.bcontent').value
-    let categoryno=document.querySelector('.categoryno').value;
+    let btitle=document.querySelector('#btitle').value;
+    let bcontent=document.querySelector('#bcontent').value;
+    let categoryno=document.querySelector('#categoryno').value;
     
-    let info={btitle:btitle, bcontent: bcontent, categoryno:categoryno, bno:bno}
+    let info={btitle:btitle, bcontent: bcontent, categoryno:categoryno,bno:bno}
 
     $.ajax({
         url:'/board/update',
         method:'put',
-        data:JSON.stringify(info),
-        contentType : "application/json" ,
+        data:info,
         success: (result) =>{
             console.log(result);
             console.log('수정');
-            if(r){
+            if(result){
                 alert('수정성공');
-                location.href="/board/print";
+                location.href="/board/bprint";
             }else{
                 alert('수정 실패');
 

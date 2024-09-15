@@ -16,5 +16,7 @@ public class BoardDto {
     private int bview;
     private int uno;            // 유저 번호
     private int categoryno;     // 카테고리 번호
+    private String categoryname;
+    private String id;
 
 }

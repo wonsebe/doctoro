@@ -7,6 +7,7 @@ import web.model.dto.BoardPageDto;
 import web.service.BoardService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/board")
@@ -56,8 +57,6 @@ public class BoardController {
         return boardService.bDelete(boardDto);
     }
 
-
-
     //###############################################################//
 
     //카테고리 출력
@@ -66,5 +65,13 @@ public class BoardController {
         System.out.println("boardService = " + boardService);
         System.out.println("BoardController.categoryprint");
         return boardService.categoryprint();
+    }
+
+    //댓글 쓰기 처리
+    @PostMapping("/comentb")
+    public boolean coment(Map<String, String>map){
+        System.out.println("map = " + map);
+        System.out.println("BoardController.coment");
+        return boardService.coment(map);
     }
 }

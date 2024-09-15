@@ -16,7 +16,7 @@ function onSearchClear(){
 
 
 
-// //카테고리 클릭 했을 때
+ //카테고리 클릭 했을 때
 function onCategory(categoryno){
     onSearchClear(); //검색 제거
     //1. 전역변수에 categoryno 대입
@@ -108,7 +108,7 @@ function print(page){
                 html+=` 
                         <tr>
                         <th> ${게시판.bno} </th> 
-                        <th> <a href="/board/bdetail?bno=${게시판.bno}">${게시판.btitle}</a></th>
+                        <th> <a href="/board/detail?bno=${게시판.bno}">${게시판.btitle}</a></th>
                         <th> ${게시판.bdate} </th> 
                         <th> ${ 게시판.bview }</th>
                         </tr>`

@@ -9,10 +9,11 @@
     <insert id="bWrite" parameterType="web.model.dto.BoardDto">
         insert into board (btitle, bcontent, uno, categoryno) values ( #{btitle}, #{bcontent},#{uno}, #{categoryno} );
     </insert>
+
     <!--2. 전체 출력 -->
     <select id="bPrint" resultType="web.model.dto.BoardDto" parameterType="Map" >
         select * from board inner join users on board.uno = users.uno
-<!--        order by board.bno desc limit #{startRow} , #{pageBoardSize}-->
+        <!--order by board.bno desc limit #{startRow} , #{pageBoardSize}-->
         <where>
             <if test="cagegoryno != null and cagegoryno >= 1">
                 and board.cagegoryno = #{cagegoryno}
@@ -32,16 +33,11 @@
                 </choose>
             </if>
         </where>
-
-        <!-- Sorting order -->
-        <if test="sortOrder != null and sortOrder == 'desc'">
+        <!-- 정렬 순서 -->
             order by board.bno desc
-        </if>
+        <!--제한-->
+        limit #{startRow} , #{pageBoardSize}
 
-        <!-- Paging limit -->
-        <if test="startRow != null and pageBoardSize != null">
-            limit #{startRow}, #{pageBoardSize}
-        </if>
 
     </select>
 
@@ -70,17 +66,23 @@
                 </if>
             </trim>
         </where>
+
     </select>
 
 
     <!--2-2. 개별 조회 -->
     <select id="bDetail" parameterType="int" resultType="web.model.dto.BoardDto" >
-        select * from board where bno= #{bno};
+        select cn.categoryno, cn.categoryname ,b.bno, b.btitle, b.bcontent, u.id, b.bdate, b.bview from
+        board b inner join users u inner join category cn on b.uno=u.uno and b.categoryno=cn.categoryno where b.bno= #{bno};
     </select>
 
+    <!--조회수 증가 처리-->
+    <update id="bView" parameterType="int">
+        update board set bview =bview +1 where bno= #{bno}
+    </update>
     <!--3. 수정 -->
     <update id="bUpdate" parameterType="web.model.dto.BoardDto">
-        update board set btitle= #{btitle} , bcontent= #{bcontent} where uno= #{uno};
+        update board set btitle= #{ btitle }, bcontent= #{ bcontent } , categoryno= #{categoryno} where bno=#{ bno };
     </update>
 
     <!--4. 삭제 -->
@@ -92,5 +94,10 @@
     <select id="categoryprint" resultType="web.model.dto.CategoryDto">
         select * from category order by categoryno ;
     </select>
+
+    <!--댓글처리-->
+    <insert id="coment" parameterType="List<BoardDto>list">
+        insert into comment (ccontent,bno,uno) values ( #{ccontent},#{bno},#{uno} );
+    </insert>
 </mapper>  <!-- mapper end -->
 

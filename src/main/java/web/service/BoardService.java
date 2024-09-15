@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import web.model.dao.BoardDao;
 import web.model.dto.BoardDto;
 import web.model.dto.BoardPageDto;
@@ -18,7 +19,7 @@ public class BoardService {
     @Autowired private BoardDao boardDao;
     @Autowired private UserService userService;
     //#################게시판 관련#################//
-    //게시판 등록 (uno 넣기)
+    //게시판 등록
     public boolean bWrite(BoardDto boardDto){
             //회원의 로그인회원번호 구하기
         //1. 로그인 세션에서 값 호출
@@ -66,7 +67,7 @@ public class BoardService {
         //카테고리별 검색조건
         int totalBoardSize=boardDao.getTotalBoardSize(params);
 
-        //4.,전체 게시물 수 구하기
+        //4. 전체 게시물 수 구하기
         int totalPage = totalBoardSize % pageBoardSize == 0 ?
                 totalBoardSize / pageBoardSize :
                 totalBoardSize / pageBoardSize + 1;
@@ -95,7 +96,10 @@ public class BoardService {
     //게시판 개별출력
     public BoardDto bDetail(int bno){
         System.out.println("BoardService.bDetail");
-        return boardDao.bDetail(bno);}
+        //조회수 증가 처리
+        boardDao.bView(bno);
+        return boardDao.bDetail(bno);
+    }
 
     //게시판 수정
     public boolean bUpdate(BoardDto boardDto){
@@ -116,4 +120,20 @@ public class BoardService {
         return boardDao.categoryprint();
     }
 
+    //댓글 쓰기 처리
+    public boolean coment(Map<String, String>map){
+        System.out.println("map = " + map);
+        System.out.println("BoardController.coment");
+        //1. 로그인 세션에서 값 호출
+        Object object=userService.userLoginCheck();
+        if (object ==null)return false; //비로그인시 함수 강제종료/취소
+        //2. 세션 내 회원번호 속성 호출
+        UserDto memberDto=(UserDto)object;
+        //3. 속성 호출
+        int loginNo=memberDto.getUno();
+        BoardDto boardDto=new BoardDto();
+        //4. BoardDto 에 담아주기
+        map.put( "no" , String.valueOf( loginNo )  );
+        return boardDao.coment(map);
+    }
 }

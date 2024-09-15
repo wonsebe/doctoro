@@ -72,6 +72,10 @@ public class ViewController {
     //게시판 상세페이지 요청
     @GetMapping("/board/detail")
     public String boardDetail(){return  "/board/detail.html";}
+
+    //게시판 수정페이지 요청
+    @GetMapping("/board/bupdate")
+    public String boardUpdate(){return  "/board/update.html";}
     //====================== 랭킹 ===========================//
     @GetMapping("/rank/get")
     public String getRank(){return "/rank/rank.html";}

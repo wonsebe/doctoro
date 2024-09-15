@@ -24,6 +24,8 @@ public interface BoardDao {
     List<BoardDto> bPrint(Map<String, Object> params);
     //게시판 개별출력
     BoardDto bDetail(int bno);
+    //게시물 조회수 증가
+    boolean bView(int bno);
     //게시판 수정
     boolean bUpdate(BoardDto boardDto);
     //게시판 삭제
@@ -31,5 +33,7 @@ public interface BoardDao {
     //#############################################//
     //카테고리 출력
     List<BoardDto>categoryprint();
+    //댓글 처리
+    boolean coment(Map<String, String>map);
 
 }
