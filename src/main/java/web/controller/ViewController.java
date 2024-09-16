@@ -100,4 +100,13 @@ public class ViewController {
     public String infoDetail(){
         return "/info/info_detail.html";
     }
+
+    // ===================== 종족값 관련 ===================== //
+    // 종족값 목록 페이지 요청
+    @GetMapping("/base/stats/print")
+    public String baseStatsPrintPage() {
+        return "/base-stats/base-stats.html";
+    }
+
+
 }
