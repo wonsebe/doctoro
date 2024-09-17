@@ -16,10 +16,10 @@ public interface CommentplyDao {
     //댓글 출력
     List<CommentDto> cPrint();
 
-    //댓글 수정
-    boolean cUpdate(CommentDto commentDto);
-
-    //댓글 삭제
-    boolean cDelete(int cno);
+//    //댓글 수정
+//    boolean cUpdate(CommentDto commentDto);
+//
+//    //댓글 삭제
+//    boolean cDelete(int cno);
 }
 

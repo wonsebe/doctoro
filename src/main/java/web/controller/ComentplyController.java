@@ -1,10 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.model.dto.CommentDto;
 import web.service.CommetnplyService;
 
@@ -34,12 +31,17 @@ public class ComentplyController {
         return commetnplyService.cPrint();
     }
 
-    //댓글 수정
-    public boolean cUpdate(CommentDto commentDto){
-        System.out.println("commentDto = " + commentDto);
-        System.out.println("ComentplyController.cUpdate");
-        return  commetnplyService.cUpdate(commentDto);
-    }
+//    //댓글 수정
+//    @PutMapping("/cupdate")
+//    public boolean cUpdate(CommentDto commentDto){
+//        System.out.println("commentDto = " + commentDto);
+//        System.out.println("ComentplyController.cUpdate");
+//        return  commetnplyService.cUpdate(commentDto);
+//    }
 
     //댓글 삭제
+//    @DeleteMapping("/cdelete")
+//    public boolean cDelete(int cno){
+//        return commetnplyService.cDelete(cno);
+//    }
 }
