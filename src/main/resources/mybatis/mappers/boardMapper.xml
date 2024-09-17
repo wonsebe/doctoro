@@ -68,8 +68,6 @@
         </where>
 
     </select>
-
-
     <!--2-2. 개별 조회 -->
     <select id="bDetail" parameterType="int" resultType="web.model.dto.BoardDto" >
         select cn.categoryno, cn.categoryname ,b.bno, b.btitle, b.bcontent, u.id, b.bdate, b.bview from
@@ -95,9 +93,5 @@
         select * from category order by categoryno ;
     </select>
 
-    <!--댓글처리-->
-    <insert id="coment" parameterType="List<BoardDto>list">
-        insert into comment (ccontent,bno,uno) values ( #{ccontent},#{bno},#{uno} );
-    </insert>
 </mapper>  <!-- mapper end -->
 

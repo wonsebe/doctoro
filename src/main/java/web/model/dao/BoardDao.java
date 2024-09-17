@@ -2,18 +2,16 @@ package web.model.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import web.model.dto.BoardDto;
 import web.model.dto.BoardPageDto;
+import web.model.dto.CommentDto;
 
 import java.util.List;
 import java.util.Map;
 
 @Mapper
 public interface BoardDao {
-
-
-
-
 
     //#################게시판 관련#################//
     //게시판 등록
@@ -30,10 +28,11 @@ public interface BoardDao {
     boolean bUpdate(BoardDto boardDto);
     //게시판 삭제
     boolean bDelete(BoardDto boardDto);
-    //#############################################//
     //카테고리 출력
     List<BoardDto>categoryprint();
-    //댓글 처리
-    boolean coment(Map<String, String>map);
+
+
+
+
 
 }

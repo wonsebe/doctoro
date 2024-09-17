@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import web.model.dto.BoardDto;
 import web.model.dto.BoardPageDto;
+import web.model.dto.CommentDto;
 import web.service.BoardService;
 
 import java.util.List;
@@ -67,11 +68,5 @@ public class BoardController {
         return boardService.categoryprint();
     }
 
-    //댓글 쓰기 처리
-    @PostMapping("/comentb")
-    public boolean coment(Map<String, String>map){
-        System.out.println("map = " + map);
-        System.out.println("BoardController.coment");
-        return boardService.coment(map);
-    }
+
 }

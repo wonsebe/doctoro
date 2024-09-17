@@ -5,30 +5,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.model.dao.BoardDao;
 import web.model.dto.BoardDto;
 import web.model.dto.BoardPageDto;
+import web.model.dto.CommentDto;
 import web.model.dto.UserDto;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class BoardService {
-    @Autowired private BoardDao boardDao;
-    @Autowired private UserService userService;
+    @Autowired
+    private BoardDao boardDao;
+    @Autowired
+    private UserService userService;
+
     //#################게시판 관련#################//
     //게시판 등록
-    public boolean bWrite(BoardDto boardDto){
-            //회원의 로그인회원번호 구하기
+    public boolean bWrite(BoardDto boardDto) {
+        //회원의 로그인회원번호 구하기
         //1. 로그인 세션에서 값 호출
-        Object object=userService.userLoginCheck();
-        if (object ==null)return false; //비로그인시 함수 강제종료/취소
+        Object object = userService.userLoginCheck();
+        if (object == null) return false; //비로그인시 함수 강제종료/취소
         //2. 세션 내 회원번호 속성 호출
-        UserDto memberDto=(UserDto)object;
+        UserDto memberDto = (UserDto) object;
         //3. 속성 호출
-        int loginNo=memberDto.getUno();
+        int loginNo = memberDto.getUno();
         //4. BoardDto 에 담아주기
         boardDto.setUno(loginNo);
         System.out.println("boardDto = " + boardDto);
@@ -44,6 +50,7 @@ public class BoardService {
         boardDto.setUno(uno);
         return boardDao.bWrite(boardDto);
     }
+
     //게시판 출력
     public BoardPageDto bPrint(BoardPageDto boardPageDto) {
         //만약에 페이지번호가 매개변수로 존재하지 않으면 1페이지로 설정
@@ -56,7 +63,6 @@ public class BoardService {
         int startRow = (boardPageDto.getPage() - 1) * pageBoardSize;
 
 
-
         Map<String, Object> params = new HashMap<>();
         params.put("startRow", startRow);
         params.put("pageBoardSize", pageBoardSize);
@@ -65,7 +71,7 @@ public class BoardService {
         params.put("searchKeyWord", boardPageDto.getSearchKeyWord());
 
         //카테고리별 검색조건
-        int totalBoardSize=boardDao.getTotalBoardSize(params);
+        int totalBoardSize = boardDao.getTotalBoardSize(params);
 
         //4. 전체 게시물 수 구하기
         int totalPage = totalBoardSize % pageBoardSize == 0 ?
@@ -94,7 +100,7 @@ public class BoardService {
     }
 
     //게시판 개별출력
-    public BoardDto bDetail(int bno){
+    public BoardDto bDetail(int bno) {
         System.out.println("BoardService.bDetail");
         //조회수 증가 처리
         boardDao.bView(bno);
@@ -102,38 +108,21 @@ public class BoardService {
     }
 
     //게시판 수정
-    public boolean bUpdate(BoardDto boardDto){
+    public boolean bUpdate(BoardDto boardDto) {
         System.out.println("boardDto = " + boardDto);
         System.out.println("BoardService.bUpdate");
         return boardDao.bUpdate(boardDto);
     }
 
     //게시판 삭제
-    public boolean bDelete(BoardDto boardDto){
-       System.out.println("BoardService.bDelete");
+    public boolean bDelete(BoardDto boardDto) {
+        System.out.println("BoardService.bDelete");
         return boardDao.bDelete(boardDto);
     }
 
-    //################################################//
     //카테고리 출력
-    public List<BoardDto>categoryprint(){
+    public List<BoardDto> categoryprint() {
         return boardDao.categoryprint();
     }
 
-    //댓글 쓰기 처리
-    public boolean coment(Map<String, String>map){
-        System.out.println("map = " + map);
-        System.out.println("BoardController.coment");
-        //1. 로그인 세션에서 값 호출
-        Object object=userService.userLoginCheck();
-        if (object ==null)return false; //비로그인시 함수 강제종료/취소
-        //2. 세션 내 회원번호 속성 호출
-        UserDto memberDto=(UserDto)object;
-        //3. 속성 호출
-        int loginNo=memberDto.getUno();
-        BoardDto boardDto=new BoardDto();
-        //4. BoardDto 에 담아주기
-        map.put( "no" , String.valueOf( loginNo )  );
-        return boardDao.coment(map);
-    }
 }
