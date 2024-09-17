@@ -67,15 +67,18 @@ function round64(){
 
     let ch1 = document.querySelector('.ch1');
     let ch2 = document.querySelector('.ch2');
+    let tround = document.querySelector('.tround');
 
     con1 = 포켓몬목록['r64'][0][num1][2]
     con2 = 포켓몬목록['r64'][0][num2][2]
 
-    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 } )"> </td> </tr>`
-    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 } )"> </td> </tr>`
+    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택64(${ num1 },${ num2 } )"> </td> </tr>`
+    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택64(${ num2 },${ num1 } )"> </td> </tr>`
+    html3 = `<tr> <td> 64강/${포켓몬목록['r64'][0].length} </td> </tr>`
 
     ch1.innerHTML = html1
     ch2.innerHTML = html2
+    tround.innerHTML = html3
 
     if(포켓몬목록['r64'][0].length == 0){round32();}
 //    포켓몬목록['r64'].push(chunkedArrays)
@@ -96,15 +99,18 @@ function round32(){
 
     let ch1 = document.querySelector('.ch1');
     let ch2 = document.querySelector('.ch2');
+    let tround = document.querySelector('.tround');
 
     con1 = 포켓몬목록['r32'][0][num1][2]
     con2 = 포켓몬목록['r32'][0][num2][2]
 
-    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 } )"> </td> </tr>`
-    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 } )"> </td> </tr>`
+    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택32(${ num1 },${ num2 } )"> </td> </tr>`
+    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택32(${ num2 },${ num1 } )"> </td> </tr>`
+    html3 = `<tr> <td> 32강/${포켓몬목록['r32'][0].length} </td> </tr>`
 
     ch1.innerHTML = html1
     ch2.innerHTML = html2
+    tround.innerHTML = html3
 
     if(포켓몬목록['r32'][0].length == 0){round16();}
 }
@@ -123,15 +129,18 @@ function round16(){
 
     let ch1 = document.querySelector('.ch1');
     let ch2 = document.querySelector('.ch2');
+    let tround = document.querySelector('.tround');
 
     con1 = 포켓몬목록['r16'][0][num1][2]
     con2 = 포켓몬목록['r16'][0][num2][2]
 
-    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 } )"> </td> </tr>`
-    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 } )"> </td> </tr>`
+    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택16(${ num1 },${ num2 } )"> </td> </tr>`
+    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택16(${ num2 },${ num1 } )"> </td> </tr>`
+    html3 = `<tr> <td> 16강/${포켓몬목록['r16'][0].length} </td> </tr>`
 
     ch1.innerHTML = html1
     ch2.innerHTML = html2
+    tround.innerHTML = html3
 
     if(포켓몬목록['r16'][0].length == 0){round8();}
 }
@@ -150,15 +159,18 @@ function round8(){
 
     let ch1 = document.querySelector('.ch1');
     let ch2 = document.querySelector('.ch2');
+    let tround = document.querySelector('.tround');
 
     con1 = 포켓몬목록['r8'][0][num1][2]
     con2 = 포켓몬목록['r8'][0][num2][2]
 
-    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 } )"> </td> </tr>`
-    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 } )"> </td> </tr>`
+    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택8(${ num1 },${ num2 } )"> </td> </tr>`
+    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택8(${ num2 },${ num1 }  )"> </td> </tr>`
+    html3 = `<tr> <td> 8강/${포켓몬목록['r8'][0].length} </td> </tr>`;
 
     ch1.innerHTML = html1
     ch2.innerHTML = html2
+    tround.innerHTML = html3
 
     if(포켓몬목록['r8'][0].length == 0){round4();}
 }
@@ -177,15 +189,18 @@ function round4(){
 
     let ch1 = document.querySelector('.ch1');
     let ch2 = document.querySelector('.ch2');
+    let tround = document.querySelector('.tround');
 
     con1 = 포켓몬목록['r4'][0][num1][2]
     con2 = 포켓몬목록['r4'][0][num2][2]
 
-    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 } )"> </td> </tr>`
-    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 } )"> </td> </tr>`
+    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택4(${ num1 },${ num2 } )"> </td> </tr>`
+    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택4(${ num2 },${ num1 } )"> </td> </tr>`
+    html3 = `<tr> <td> 4강/${포켓몬목록['r4'][0].length} </td> </tr>`
 
     ch1.innerHTML = html1
     ch2.innerHTML = html2
+    tround.innerHTML = html3
 
     if(포켓몬목록['r4'][0].length == 0){round2();}
 }
@@ -204,15 +219,18 @@ function round2(){
 
     let ch1 = document.querySelector('.ch1');
     let ch2 = document.querySelector('.ch2');
+    let tround = document.querySelector('.tround');
 
     con1 = 포켓몬목록['r2'][0][num1][2]
     con2 = 포켓몬목록['r2'][0][num2][2]
 
-    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 } )"> </td> </tr>`
-    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 } )"> </td> </tr>`
+    html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택2(${ num1 },${ num2 } )"> </td> </tr>`
+    html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택2(${ num2 },${ num1 } )"> </td> </tr>`
+    html3 = `<tr> <td> 2강/${포켓몬목록['r2'][0].length} </td> </tr>`
 
     ch1.innerHTML = html1
     ch2.innerHTML = html2
+    tround.innerHTML = html3
 
     if(포켓몬목록['r2'][0].length == 0){win();}
 }
@@ -221,23 +239,121 @@ function win (){
 
     let tnmtTbody = document.querySelector('.tnmtTbody');
 
-    html = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 } )"> </td> </tr>`
+    html = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png")"> </td> </tr>`
 
     tnmtTbody.innerHTML = html;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-function 포켓몬선택(index){
-    console.log('테스트')
-    console.log(포켓몬목록['r64'][0][index]);
-    r64 = 포켓몬목록['r64'][0][index]
-    포켓몬목록['r32'].push(r64);
-    포켓몬목록['r64'][0].splice(num1, 1);
-    포켓몬목록['r64'][0].splice(num2, 1);
-//    포켓몬목록['r32'].push(chunkedArrays[0][index])
-//    console.log(포켓몬목록['r32'])
+function 포켓몬선택64(index, index2){
+
+    console.log(index, index2)
+    포켓몬목록['r32'].push(포켓몬목록['r64'][0][index])
+    console.log(포켓몬목록['r32'])
+
+    if(index > index2){
+        포켓몬목록['r64'][0].splice(index, 1);
+        포켓몬목록['r64'][0].splice(index2, 1);
+    }
+    else if (index < index2){
+        포켓몬목록['r64'][0].splice(index2, 1);
+        포켓몬목록['r64'][0].splice(index, 1);
+    }
+
+    console.log(포켓몬목록['r64'][0])
+    if(포켓몬목록['r64'][0].length > 0){게임시작();}
+    else if(포켓몬목록['r64'][0].length == 0){round32();}
+}
+//////////////////////////////////////////////////
+function 포켓몬선택32(index, index2){
+
+    console.log(index, index2)
+    포켓몬목록['r16'].push(포켓몬목록['r32'][0][index])
+    console.log(포켓몬목록['r16'])
+
+    if(index > index2){
+        포켓몬목록['r32'][0].splice(index, 1);
+        포켓몬목록['r32'][0].splice(index2, 1);
+    }
+    else if (index < index2){
+        포켓몬목록['r32'][0].splice(index2, 1);
+        포켓몬목록['r32'][0].splice(index, 1);
+    }
+
     게임시작();
 }
-////////////////////////////////////
+//////////////////////////////////////////////////
+function 포켓몬선택16(index, index2){
+
+    console.log(index, index2)
+    포켓몬목록['r8'].push(포켓몬목록['r16'][0][index])
+    console.log(포켓몬목록['r8'])
+
+    if(index > index2){
+        포켓몬목록['r16'][0].splice(index, 1);
+        포켓몬목록['r16'][0].splice(index2, 1);
+    }
+    else if (index < index2){
+        포켓몬목록['r16'][0].splice(index2, 1);
+        포켓몬목록['r16'][0].splice(index, 1);
+    }
+
+    게임시작();
+}
+//////////////////////////////////////////////////
+function 포켓몬선택8(index, index2){
+
+    console.log(index, index2)
+    포켓몬목록['r4'].push(포켓몬목록['r8'][0][index])
+    console.log(포켓몬목록['r4'])
+
+    if(index > index2){
+        포켓몬목록['r8'][0].splice(index, 1);
+        포켓몬목록['r8'][0].splice(index2, 1);
+    }
+    else if (index < index2){
+        포켓몬목록['r8'][0].splice(index2, 1);
+        포켓몬목록['r8'][0].splice(index, 1);
+    }
+
+    게임시작();
+}
+//////////////////////////////////////////////////
+function 포켓몬선택4(index, index2){
+
+    console.log(index, index2)
+    포켓몬목록['r2'].push(포켓몬목록['r4'][0][index])
+    console.log(포켓몬목록['r2'])
+
+    if(index > index2){
+        포켓몬목록['r4'][0].splice(index, 1);
+        포켓몬목록['r4'][0].splice(index2, 1);
+    }
+    else if (index < index2){
+        포켓몬목록['r4'][0].splice(index2, 1);
+        포켓몬목록['r4'][0].splice(index, 1);
+    }
+
+    게임시작();
+}
+//////////////////////////////////////////////////
+function 포켓몬선택2(index, index2){
+
+    console.log(index, index2)
+    포켓몬목록['win'].push(포켓몬목록['r2'][0][index])
+    console.log(포켓몬목록['win'])
+
+    if(index > index2){
+        포켓몬목록['r2'][0].splice(index, 1);
+        포켓몬목록['r2'][0].splice(index2, 1);
+    }
+    else if (index < index2){
+        포켓몬목록['r2'][0].splice(index2, 1);
+        포켓몬목록['r2'][0].splice(index, 1);
+    }
+
+    게임시작();
+}
+//////////////////////////////////////////////////
 //클릭 횟수 증가
 function clickup(pno){
     console.log(pno);
