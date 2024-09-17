@@ -1,6 +1,6 @@
 console.log('board.js');
 // //페이지 정보들을 관리하는 객체 , 전역변수 , 함수의 매개변수
-let pageInfo={ page:1, categoryno:0 , searchKey:'btitle',searchKeyWord:' ' }
+let pageInfo={ page:1, categoryno:0 , searchKey:'btitle',searchKeyWord:'' }
 //  // 1. page : 현재페이지[기본값 1페이지] , 2.categoryno : 현재카테고리[기본값 0전체보기] // 3.searchKey:현재검색필드[기본값:제목필드] 4.searchKeyword:현재검색값[기본값:공백]
 
 // 검색 상태 제거/초기화
@@ -20,7 +20,9 @@ function onSearchClear(){
 function onCategory(categoryno){
     onSearchClear(); //검색 제거
     //1. 전역변수에 categoryno 대입
-    pageInfo.categoryno=categoryno; console.log('카테고리 변경'); console.log(pageInfo);
+    pageInfo.categoryno=categoryno; 
+    console.log('카테고리 변경'); 
+    console.log(pageInfo);
     print(1) ; //새로 고침, 1페이지
     
 }
@@ -39,7 +41,7 @@ function onCategory(categoryno){
          async:false,
          url:"/board/bcategory",
          method:'get',
-         success:(result)=>{
+         success:result=>{
              console.log(result);
           
             result.forEach(카테고리 =>{

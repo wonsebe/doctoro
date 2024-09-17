@@ -23,7 +23,6 @@ function boardWrite(){
         data :info,
         success: (result) =>{
             console.log(result);
-            result=confirm('게시물을 삭제하시겠습니까?');
             if( result ){ // 4. 통신 결과에 실행문
                 alert('글쓰기성공');
                 location.href="/board/bprint";

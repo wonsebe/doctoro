@@ -18,7 +18,8 @@ function updateB(){
             console.log('수정');
             if(result){
                 alert('수정성공');
-                location.href="/board/bprint";
+                location.href='/board/bprint'
+                
             }else{
                 alert('수정 실패');
 
@@ -28,6 +29,7 @@ function updateB(){
             console.log(e);
       }
     });
+    
 }
 
 // 3. 썸머노트 실행
