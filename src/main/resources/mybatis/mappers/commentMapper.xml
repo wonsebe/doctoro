@@ -10,9 +10,9 @@
         insert into comment (ccontent,bno,uno) values ( #{ccontent},#{bno},#{uno} );
     </insert>
 
-    <!--2. 전체출력 -->
-    <select id="cPrint"  resultType="web.model.dto.CommentDto">
-        select *from comment inner join users on comment.uno = users.uno
-    </select>
+<!--    &lt;!&ndash;2. 전체출력 &ndash;&gt;-->
+<!--    <select id="cPrint"  resultType="web.model.dto.CommentDto">-->
+<!--        select *from comment-->
+<!--    </select>-->
 
 </mapper>

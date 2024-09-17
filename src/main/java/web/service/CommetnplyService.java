@@ -34,24 +34,24 @@ public class CommetnplyService {
         return commentplyDao.coment(commentDto);
     }
 
-    //댓글 출력
-    public List<CommentDto> cPrint(){
-    System.out.println("CommetnplyService.cprint");
-    System.out.println("commentplyDao = " + commentplyDao);
-    return commentplyDao.cPrint();
-    }
-
-    //댓글 수정
-    public  boolean cUpdate(CommentDto commentDto){
-    System.out.println("commentDto = " + commentDto);
-    System.out.println("CommetnplyService.cUpdate");
-    return commentplyDao.cUpdate(commentDto);
-    }
-
-    //댓글 삭제
-    public boolean cDelete(int cno){
-    System.out.println("CommetnplyService.cDelete");
-    System.out.println("cno = " + cno);
-    return commentplyDao.cDelete(cno);
-    }
+//    //댓글 출력
+//    public List<CommentDto> cPrint(){
+//    System.out.println("CommetnplyService.cprint");
+//    System.out.println("commentplyDao = " + commentplyDao);
+//    return commentplyDao.cPrint();
+//    }
+//
+//    //댓글 수정
+//    public  boolean cUpdate(CommentDto commentDto){
+//    System.out.println("commentDto = " + commentDto);
+//    System.out.println("CommetnplyService.cUpdate");
+//    return commentplyDao.cUpdate(commentDto);
+//    }
+//
+//    //댓글 삭제
+//    public boolean cDelete(int cno){
+//    System.out.println("CommetnplyService.cDelete");
+//    System.out.println("cno = " + cno);
+//    return commentplyDao.cDelete(cno);
+//    }
 }
