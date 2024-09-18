@@ -43,11 +43,11 @@ function 게임시작(){
 //    console.log(포켓몬목록['r64'])
     if(포켓몬목록['win'].length < 1){
         if(포켓몬목록['r64'].length > 0){round64();}
-        else if (포켓몬목록['r64'].length == 0 && 포켓몬목록['r32'].length > 0){round32();}
-        else if (포켓몬목록['r32'].length == 0 && 포켓몬목록['r16'].length > 0){round16();}
-        else if (포켓몬목록['r16'].length == 0 && 포켓몬목록['r8'].length > 0){round8();}
-        else if (포켓몬목록['r8'].length == 0 && 포켓몬목록['r4'].length > 0){round4();}
-        else if (포켓몬목록['r4'].length == 0 && 포켓몬목록['r2'].length > 0){round2();}
+        else if (포켓몬목록['r32'].length > 0){round32();}
+        else if (포켓몬목록['r16'].length > 0){round16();}
+        else if (포켓몬목록['r8'].length > 0){round8();}
+        else if (포켓몬목록['r4'].length > 0){round4();}
+        else if (포켓몬목록['r2'].length > 0){round2();}
         else if (포켓몬목록['r2'].length == 0 && 포켓몬목록['win'].length > 0){win();}
     }
 }
