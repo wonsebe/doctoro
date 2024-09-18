@@ -10,9 +10,13 @@
         insert into comment (ccontent,bno,uno) values ( #{ccontent},#{bno},#{uno} );
     </insert>
 
-<!--    &lt;!&ndash;2. 전체출력 &ndash;&gt;-->
-<!--    <select id="cPrint"  resultType="web.model.dto.CommentDto">-->
-<!--        select *from comment-->
-<!--    </select>-->
+    <!--2. 전체출력 -->
+    <select id="cPrint"  resultType="web.model.dto.CommentDto" parameterType="int">
+        SELECT c.cno, c.ccontent, c.cdate, u.id
+        FROM comment c
+        INNER JOIN users u ON c.uno = u.uno
+        WHERE c.bno = #{bno}
+        ORDER BY c.cdate DESC;
+    </select>
 
 </mapper>

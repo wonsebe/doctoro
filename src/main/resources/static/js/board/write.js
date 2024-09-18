@@ -8,9 +8,7 @@ function boardWrite(){
     // 2. 객체화
     let info = {categoryno : categoryno ,
                 btitle : btitle ,
-                bcontent : bcontent,
-                // uno:uno
-            }
+                bcontent : bcontent}
     console.log( info );
 
     let html='';

@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    .uid{
+        font-weight: bold;
+    }
+    .cdate {
+    font-size: 12px; /* 날짜 크기 설정 */
+    color: gray;     /* 날짜 색상 설정 */
+    margin-left: 10px; /* 내용과 날짜 사이에 간격 추가 */
+    }
+</style>
 <body>
     <div th:replace="~{/header.html :: header }"></div>
 <h3> 게시판 상세 페이지 </h3>
@@ -19,19 +29,26 @@
 
         </div>
     </div>
-
+    <br/><br/><br/><br/><br/><hr><br/>
     <div>
+        <br/><br/>
+        <h3>댓글</h3> <br/>
         <textarea class="ccontent"></textarea>
         <button type="button" onclick="coment()">댓글등록</button>
-    </div>
+    </div><br/>
 
-    <div class="printBox">
-       
-        
+    <div id="comment">
+    
+    <div class="commentBox">
+    <div class="uid">댓글 쓴 사람의 id</div>
+    <div class="cContent">댓글 내용 /</div>
+    <div class="cdate">댓글 쓴 날짜</div>
+    </div>
     </div>
     
     <script src="/js/board/detail.js"></script>
     <script src="/js/board/delete.js"></script>
-    <script src="/js/board/coment.js"></script>
+    <script src="/js/coment/coment.js"></script>
+    <script src="/js/coment/cprint.js"></script>
 </body>
 </html>

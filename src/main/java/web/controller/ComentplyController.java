@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/coment")
+@RequestMapping("/comment")
 public class ComentplyController {
     @Autowired private CommetnplyService commetnplyService;
 
@@ -23,25 +23,26 @@ public class ComentplyController {
         return commetnplyService.coment(commentDto);
     }
 
-//    //댓글 출력
-//    @GetMapping("/cprint")
-//    public List<CommentDto> cPrint(){
-//        System.out.println("commetnplyService = " + commetnplyService);
-//        System.out.println("ComentplyController.cprint");
-//        return commetnplyService.cPrint();
-//    }
-//
-//    //댓글 수정
-//    @PutMapping("/cupdate")
-//    public boolean cUpdate(CommentDto commentDto){
-//        System.out.println("commentDto = " + commentDto);
-//        System.out.println("ComentplyController.cUpdate");
-//        return  commetnplyService.cUpdate(commentDto);
-//    }
-//
-//    //댓글 삭제
-//    @DeleteMapping("/cdelete")
-//    public boolean cDelete(int cno){
-//        return commetnplyService.cDelete(cno);
-//    }
+    //댓글 출력
+    @GetMapping("/cprint")
+    public List<CommentDto> cPrint(int bno){
+        System.out.println("commetnplyService = " + commetnplyService);
+        System.out.println("ComentplyController.cPrint");
+        return commetnplyService.cPrint(bno);
+
+    }
+
+    //댓글 수정
+    @PutMapping("/cupdate")
+    public boolean cUpdate(CommentDto commentDto){
+        System.out.println("commentDto = " + commentDto);
+        System.out.println("ComentplyController.cUpdate");
+        return  commetnplyService.cUpdate(commentDto);
+    }
+
+    //댓글 삭제
+    @DeleteMapping("/cdelete")
+    public boolean cDelete(int cno){
+        return commetnplyService.cDelete(cno);
+    }
 }
