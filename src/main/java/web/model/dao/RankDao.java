@@ -15,4 +15,6 @@ public interface RankDao {
     boolean click ( int pno );
     //승리횟수
     boolean win ( int pno );
+
+    RankDto rankwin (int pno);
 }

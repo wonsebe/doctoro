@@ -77,11 +77,17 @@ public class ViewController {
     @GetMapping("/board/bupdate")
     public String boardUpdate(){return  "/board/update.html";}
     //====================== 랭킹 ===========================//
+    //포켓몬 전체 랭킹 가져오기 페이지
     @GetMapping("/rank/get")
     public String getRank(){return "/rank/rank.html";}
 
+    //포켓몬 이상형 월드컵 페이지
     @GetMapping("/rank/tnm")
     public String getTournamentRank(){return "/rank/tournamentRank.html";}
+    
+    //포켓몬 우승자 출력 페이지
+    @GetMapping("/rank/win")
+    public String getWinRank(){return "/rank/rankwin.html";}
 
     // 승률 예측 페이지
     @GetMapping("/rate")

@@ -27,6 +27,9 @@ public class RankController {
         return rankService.total( pno );
     }
 
+    @GetMapping("/rankwin")
+    public RankDto rankwin( int pno ) {return rankService.rankwin( pno );}
+
     @PutMapping("/click")
     public boolean click (int pno ) {return rankService.click( pno ); }
 
