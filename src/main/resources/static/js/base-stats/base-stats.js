@@ -1,5 +1,6 @@
 console.log('base-stats.js')
 
+/*
 let num = 0;    // 번호 오름차순 내림차순 구분
 
 // 포켓몬 종족값 목록 출력 -> 아이디 (번호) 기준
@@ -9,8 +10,10 @@ function baseStatsAllPrint() {      console.log('baseStatsAllPrint()');
         // Flask 서버에 통신
         $.ajax({
             async : false,
-            method : 'get',
+            method : 'post',
             url : "http://localhost:5000/base/stats/print",
+            contentType: 'application/json',
+            data: JSON.stringify({ data: 101010 }),
             success : (result) => {     console.log(result);
                 let tbody = document.querySelector('tbody');
                 let html = ``;
@@ -87,6 +90,72 @@ function baseStatsAllPrint() {      console.log('baseStatsAllPrint()');
         num = 0;
     }
 }   // baseStatsAllPrint() end
+*/
+
+
+
+
+
+
+
+
+
+// 포켓몬 종족값 목록 출력 -> 아이디 (번호) 기준
+baseStatsAllPrint('아이디');
+function baseStatsAllPrint(name) {      console.log('baseStatsAllPrint()');
+    // let nameValue = '';
+    // if (name = '') {
+    //     nameValue = '아이디';
+    // }
+    // nameValue = name;
+    console.log(name);
+    // console.log(nameValue);
+    // Flask 서버에 통신
+    $.ajax({
+        async : false,
+        method : 'post',
+        url : "http://localhost:5000/base/stats/print/pokename",
+        contentType: 'application/json',
+        data: JSON.stringify({
+            name : name,
+            sort : "내림차순"
+        }),
+        success : (result) => {     console.log(result);
+            let tbody = document.querySelector('tbody');
+            let html = ``;
+            result.forEach(포켓몬 => {
+                // 종족값 총합 구하기
+                let total = 포켓몬.체력
+                            + 포켓몬.공격
+                            + 포켓몬.방어
+                            + 포켓몬.특수공격
+                            + 포켓몬.특수방어
+                            + 포켓몬.스피드;
+                // console.log(total);
+
+                html += `
+                        <tr>
+                            <td>${포켓몬.아이디}</td>
+                            <td><img src="${포켓몬.이미지}" /></td>
+                            <td>${포켓몬.한글이름} (${포켓몬.영어이름})</td>
+                            <td>${포켓몬.타입}</td>
+                            <td>${포켓몬.체력}</td>
+                            <td>${포켓몬.공격}</td>
+                            <td>${포켓몬.방어}</td>
+                            <td>${포켓몬.특수공격}</td>
+                            <td>${포켓몬.특수방어}</td>
+                            <td>${포켓몬.스피드}</td>
+                            <td>${total}</td>
+                        </tr>
+                        `
+            })  // forEach end
+            tbody.innerHTML = html;
+        }   // success end
+    })  // ajax end
+}   // baseStatsAllPrint() end
+
+
+
 
 
 
