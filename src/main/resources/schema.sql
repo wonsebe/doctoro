@@ -10,6 +10,7 @@ drop table if exists comment;
 drop table if exists board;
 drop table if exists category;
 drop table if exists users;
+drop table if exists ratepokemon;
 
 -- [3] 테이블 생성
 -- 1. 회원 테이블
@@ -76,4 +77,15 @@ create table rankpokemon(
     click int default 0,
     win int default 0,
     primary key(pno)
+);
+
+-- 7. 포켓몬 승률 예측 기록 테이블
+create table ratepokemon(
+    rno int auto_increment,
+    rscore float,
+    rrate float,
+    rresult int,
+    rpokeindex int,
+    rskillindex int,
+    primary key(rno)
 );

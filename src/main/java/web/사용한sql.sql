@@ -77,6 +77,17 @@ create table rankpokemon(
     primary key(pno)
 );
 
+-- 7. 포켓몬 승률 예측 기록 테이블
+create table ratepokemon(
+    rno int auto_increment,
+    rscore float,
+    rrate float,
+    rresult int,
+    rpokeindex int,
+    rskillindex int,
+    primary key(rno)
+);
+
 
 -- [3] 샘플 추가
 -- 1. 회원 샘플

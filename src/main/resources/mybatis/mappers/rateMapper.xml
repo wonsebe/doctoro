@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.model.dao.RateDao">
+    <insert id="RateRecord" parameterType="web.model.dto.RateDto">
+        insert into ratepokemon(rscore, rrate, rresult, rpokeindex, rskillindex) values( #{rscore}, #{rrate}, #{rresult}, #{rpokeindex}, #{rskillindex});
+    </insert>
+
+    <select id="RateSend" resultType="web.model.dto.RateDto">
+        select * from ratepokemon;
+    </select>
+</mapper>

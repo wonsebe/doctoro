@@ -276,10 +276,10 @@ function poke_read2() {
 }
 
 function rate_cal() {
-    n1 = document.querySelector("#poke_select1").value;
-    n2 = document.querySelector("#poke_select2").value;
-    m1 = document.querySelector("#poke_select_skill1").value;
-    m2 = document.querySelector("#poke_select_skill2").value;
+    let n1 = document.querySelector("#poke_select1").value;
+    let n2 = document.querySelector("#poke_select2").value;
+    let m1 = document.querySelector("#poke_select_skill1").value;
+    let m2 = document.querySelector("#poke_select_skill2").value;
     $.ajax({
         async: false,
         method: "get",
@@ -325,7 +325,14 @@ function rate_cal() {
                                     ${result.B_포켓몬_승률}
                                 </td>
                             </tr>
-
+                            <tr>
+                                <button type="button" class="btn btn-primary" onclick="rate_records1(${result.A_포켓몬_점수}, ${result.A_포켓몬_승률})">
+                                    1번 포켓몬 승률 기록 남기기
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="rate_records2(${result.B_포켓몬_점수}, ${result.B_포켓몬_승률})">
+                                    2번 포켓몬 승률 기록 남기기
+                                </button>
+                            </tr>
                         </tbody>
                     </table>`
 
@@ -334,6 +341,82 @@ function rate_cal() {
 
     })
 
+}
+
+function rate_records1(score, rate) {
+    let n1 = document.querySelector("#poke_select1").value;
+    let m1 = document.querySelector("#poke_select_skill1").value;
+    let result = 0;
+    if (rate > 50) {
+        result = 1;
+    } else if (rate == 50) {
+        result = 2;
+    } else {
+        result = 0;
+    }
+    $.ajax({
+        async: false,
+        method: "post",
+        url: "/rate/record",
+        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n1, rskillindex: m1 },
+        success: function response(result) {
+            if (result) {
+                alert("승률 기록 성공");
+                record_send();
+            } else {
+                alert("승률 기록 실패");
+            }
+        }
+    })
+}
+
+function rate_records2(score, rate) {
+    let n2 = document.querySelector("#poke_select2").value;
+    let m2 = document.querySelector("#poke_select_skill2").value;
+    let result = 0;
+    if (rate > 50) {
+        result = 1;
+    } else if (rate == 50) {
+        result = 2;
+    } else {
+        result = 0;
+    }
+    $.ajax({
+        async: false,
+        method: "post",
+        url: "/rate/record",
+        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n2, rskillindex: m2 },
+        success: function response(result) {
+            if (result) {
+                alert("승률 기록 성공");
+                record_send();
+            } else {
+                alert("승률 기록 실패");
+            }
+        }
+    })
+}
+
+function record_send() {
+    $.ajax({
+        async: false,
+        method: "get",
+        url: "/rate/send",
+        success: function response(result) {
+            console.log(result);
+            $.ajax({
+                async: false,
+                method: "get",
+                url: "http://127.0.0.1:5000/rate_pred/take",
+                data: { list: result },
+                success: function response(result1) {
+                    console.log(result1);
+                    console.log("데이터 전송 성공");
+                }
+            })
+        }
+
+    })
 }
 
 function type_trans(type) {

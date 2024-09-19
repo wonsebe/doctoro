@@ -176,6 +176,8 @@ function poke_type_info(page=1){
 
             paginationBox.innerHTML = pageHTML;
             
+        },error : e =>{
+            console.log(e)
         }
     })
 }
