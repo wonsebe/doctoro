@@ -6,18 +6,18 @@
 
     <!--댓글등록처리-->
     <insert id="rWrite" parameterType="web.model.dto.ReplyDto">
-        INSERT INTO reply (rcontent, cno, uno) VALUES (#{rcontent}, #{cno}, #{bno});
+        INSERT INTO reply (rcontent, cno, uno) VALUES (#{rcontent}, #{cno}, #{uno});
     </insert>
 
     <!--2. 전체출력 -->
     <select id="rPrint"  resultType="web.model.dto.ReplyDto" parameterType="int">
-        SELECT * FROM reply WHERE cno = #{cno};
+        SELECT r.rno, r.rcontent, u.id, r.rdate FROM reply r inner join users u  on r.uno=u.uno WHERE r.cno = #{cno};
     </select>
 
-    <!--3. 수정 -->
-    <update id="bUpdate" parameterType="web.model.dto.BoardDto">
-        update comment set ccontent= #{ ccontent }, };
-    </update>
+<!--    &lt;!&ndash;3. 수정 &ndash;&gt;-->
+<!--    <update id="bUpdate" parameterType="String" >-->
+<!--        update comment set rcontent= #{ rcontent };-->
+<!--    </update>-->
     <!--4. 삭제 -->
     <delete id="rDelete" parameterType="int">
         DELETE FROM reply WHERE rno = #{rno};
