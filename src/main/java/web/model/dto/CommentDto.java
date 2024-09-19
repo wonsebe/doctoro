@@ -15,4 +15,5 @@ public class CommentDto {
     private int bno;            // 게시글 번호
     private int uno;            // 유저 번호
     private int rno;           //대댓글 번호
+    private String id;  //유저 아이디
 }
