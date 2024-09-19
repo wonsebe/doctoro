@@ -6,13 +6,14 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'> <!--1. 썸머노트 CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" />
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+   
     
 </head>
 <body>
+    <div th:replace="~{ /header.html :: header }"></div>
     <h3> 게시판 수정 페이지 </h3>
     <div>
-    <select name="categoryno" id="category">
+    <select name="categoryno" id="categoryno">
         <option value="1">자유</option>
         <option value="2">정보</option>
         <option value="3">토론</option>
@@ -22,7 +23,7 @@
     </div>
     <div>제목: <input id="btitle" type="text" name="btitle"  /><br></div>
     <div>내용:<textarea id="bcontent" name="bcontent"  ></textarea></div>
-    <button onclick="updateB()" type="button">글 등록</button>
+    <button onclick="updateB()" type="button">수정</button>
 
 
 
@@ -30,8 +31,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js" ></script>
     <!-- <---썸머노트 한국어-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js" ></script>
-    <script src='/js/update.js'></script>
-    <script src='/js/board.js'></script>
+<script src='/js/board/update.js'></script>
+
     
 </body>
 </html>

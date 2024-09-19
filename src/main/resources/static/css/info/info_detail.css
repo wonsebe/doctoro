@@ -1,3 +1,8 @@
 /*
 포켓몬 개별 정보 페이지 css
 */
+
+.wrap{
+    width: 1280px;
+    margin: 0 auto;
+}

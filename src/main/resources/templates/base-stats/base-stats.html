@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>종족값 목록</title>
+</head>
+<body>
+    <div th:replace="~{/header.html :: header }"></div>
+
+    <div id="content">
+        종족값 목록
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th> <button type="button" onclick="baseStatsAllPrint()">번호</button> </th>
+                    <th>이미지</th>
+                    <th>포켓몬</th>
+                    <th>타입</th>
+                    <th>체력</th>
+                    <th>공격</th>
+                    <th>방어</th>
+                    <th>특수공격</th>
+                    <th>특수방어</th>
+                    <th>스피드</th>
+                    <th>총합</th> 
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/base-stats/base-stats.js"></script>
+
+</body>
+</html>

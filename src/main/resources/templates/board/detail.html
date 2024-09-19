@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
 </head>
 <body>
+    <div th:replace="~{/header.html :: header }"></div>
 <h3> 게시판 상세 페이지 </h3>
 
-<form class="boardWrite">
  
 
-    <!-- 카테고리 구역 -->
-    <div class="categoryBox" style="display:flex;"> <!-- doBoardFindAll( 페이지번호 page , 카테고리번호 bcno ) -->
+    <div>
+        <div class="categoryname"> ( 카테고리명 ) </div>
+        <div class="infoBox"> (작성자) , ( 조회수 ) , ( 작성일 ) </div>
+        <div class="btitle"> 안녕하세요1 (제목구역) </div>
+        <div class="bcontent"> 내용 (내용구역) </div>
+        <div class="btnBox">
+
+        </div>
     </div>
-    <div class="detailPrintZone">
 
-        <button onclick="updateB()" type="button">수정하기</button>
-        <button onclick="deleteB()" type="button">수정하기</button>
+    <div>
+        <textarea class="ccontent"></textarea>
+        <button type="button" onclick="coment()">댓글등록</button>
+    </div>
 
+    <div class="printBox">
+       
+        
     </div>
     
-
-
-
-
-
-
-
-
-</form>
-    <script src="/js/board/write.js"></script>
+    <script src="/js/board/detail.js"></script>
+    <script src="/js/board/delete.js"></script>
+    <script src="/js/board/coment.js"></script>
 </body>
 </html>
