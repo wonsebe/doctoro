@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import web.model.dao.ReplyDao;
 import web.model.dto.CommentDto;
 import web.model.dto.ReplyDto;
 import web.service.ReplyService;
@@ -13,6 +14,7 @@ import java.util.List;
 public class ReplyController {
     @Autowired private ReplyService replyService;
 
+
     //대댓글 쓰기 처리
     @PostMapping("/write")
     public boolean rWrite(ReplyDto replyDto){
@@ -23,20 +25,20 @@ public class ReplyController {
 
     //대댓글 출력
     @GetMapping("/print")
-    public List<CommentDto> rPrint(int cno){
+    public List<ReplyDto> rPrint(int cno){
         System.out.println("cno = " + cno);
         System.out.println("ReplyController.rPrint");
         return replyService.rPrint(cno);
 
     }
 
-    //대댓글 수정
-    @PutMapping("/cupdate")
-    public boolean rUpdate(String rcontent){
-        System.out.println("ReplyController.rUpdate");
-        System.out.println("rcontent = " + rcontent);
-        return  replyService.rUpdate(rcontent);
-    }
+//    //대댓글 수정
+//    @PutMapping("/cupdate")
+//    public boolean rUpdate(String rcontent){
+//        System.out.println("ReplyController.rUpdate");
+//        System.out.println("rcontent = " + rcontent);
+//        return  replyService.rUpdate(rcontent);
+//    }
 
     //대댓글 삭제
     @DeleteMapping("/delete")

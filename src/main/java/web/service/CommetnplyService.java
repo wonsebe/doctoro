@@ -11,8 +11,8 @@ import java.util.List;
 
 @Service
 public class CommetnplyService {
-@Autowired private CommentplyDao commentplyDao;
-@Autowired private UserService userService;
+    @Autowired private CommentplyDao commentplyDao;
+    @Autowired private UserService userService;
     //대댓글 처리 기능 rest
 
     //################댓글관련########################//
@@ -40,20 +40,20 @@ public class CommetnplyService {
         System.out.println("CommetnplyService.cPrint");
 
 
-    return commentplyDao.cPrint(bno);
+        return commentplyDao.cPrint(bno);
     }
 
     //댓글 수정
     public  boolean cUpdate(CommentDto commentDto){
-    System.out.println("commentDto = " + commentDto);
-    System.out.println("CommetnplyService.cUpdate");
-    return commentplyDao.cUpdate(commentDto);
+        System.out.println("commentDto = " + commentDto);
+        System.out.println("CommetnplyService.cUpdate");
+        return commentplyDao.cUpdate(commentDto);
     }
 
     //댓글 삭제
     public boolean cDelete(int cno){
-    System.out.println("CommetnplyService.cDelete");
-    System.out.println("cno = " + cno);
-    return commentplyDao.cDelete(cno);
+        System.out.println("CommetnplyService.cDelete");
+        System.out.println("cno = " + cno);
+        return commentplyDao.cDelete(cno);
     }
 }

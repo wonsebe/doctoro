@@ -1,6 +1,6 @@
-console.log('coment.js');
+console.log('comment.js');
 
-function coment(){ console.log('coment()');
+function comment(){ console.log('comment()');
 
      let ccontent=document.querySelector('.ccontent').value; 
      let info={ccontent:ccontent,
@@ -22,7 +22,12 @@ function coment(){ console.log('coment()');
         }
 
     })
+ 
     
 };
+
+
+
+
 
 
