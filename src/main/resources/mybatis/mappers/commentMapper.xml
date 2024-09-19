@@ -15,8 +15,12 @@
         SELECT c.cno, c.ccontent, c.cdate, u.id
         FROM comment c
         INNER JOIN users u ON c.uno = u.uno
-        WHERE c.bno = #{bno}
-        ORDER BY c.cdate DESC;
+        WHERE c.bno = #{bno};
     </select>
+
+    <!--3. 수정 -->
+    <update id="bUpdate" parameterType="web.model.dto.BoardDto">
+        update comment set ccontent= #{ ccontent }, };
+    </update>
 
 </mapper>

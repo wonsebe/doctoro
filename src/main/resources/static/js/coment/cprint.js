@@ -18,11 +18,11 @@ function commentPrint(){
             } else {
                 response.forEach(comment => {
                     html += `
-                       
+                        <div class="commentBox">
                             <div class="uid">${comment.id}</div>
                            <span class="cContent">${comment.ccontent}</span>
                            <span class="cdate">${comment.cdate}</span>
-                    
+                        </div>
                     `;
                 });
             }
