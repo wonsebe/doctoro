@@ -27,5 +27,10 @@ public class RankService {
         return rankDao.win( pno );
     }
 
+    public RankDto rankwin( int pno ){
+        RankDto result1 = rankDao.rankwin( pno );
+        return result1;
+    }
+
 
 }
