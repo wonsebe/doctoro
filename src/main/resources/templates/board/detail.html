@@ -16,6 +16,7 @@
 </style>
 <body>
     <div th:replace="~{/header.html :: header }"></div>
+    <div id="content">
 <h3> 게시판 상세 페이지 </h3>
 
  
@@ -39,20 +40,15 @@
 
     <div id="comment">
     <div class="commentBox">
+    <div class="uid">댓글 쓴 사람의 id</div>
+    <div class="cContent">댓글 내용 /</div>
+    <div class="cdate">댓글 쓴 날짜</div>
+
+
     </div>
-    <!-- <button type="button" onclick="rprint()">답글</button> -->
-
-    
-    <div class="rplyPrint">
 
     </div>
-    <textarea class="rcontent">대댓글 입력</textarea>
-    <button type="button" onclick="rwrite()">대댓글등록</button>
 
-    
-
- 
-  
 
 
 
