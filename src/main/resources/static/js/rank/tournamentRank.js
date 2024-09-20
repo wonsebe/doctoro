@@ -117,8 +117,24 @@ function 게임시작(){
 function 포켓몬선택(index, index2){
 
     if( selectNo+1 == selectRound.length ){
-        winpage()
-//        win = 포켓몬목록[`${selectRound[selectNo]}`][index][0]
+
+        let tnmtTbody = document.querySelector('.tnmtTbody');
+//        let tround = document.querySelector('.tnround');
+//        let thead = document.querySelector('.thead');
+
+        win = 포켓몬목록[`${selectRound[selectNo]}`][index][0]
+        num = 포켓몬목록[`${selectRound[selectNo]}`][index][2]
+
+
+        html = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png"> </td> <td> <span> ${win} </span> </td> </tr>`;
+//        html2 = `<tr> <td> <span> WINNER </span> </td> </tr>`;
+//        html3 = `<tr> <th> </th> <span> WINNER </span> <th> <span> NUM </span> </th> </tr>`;
+
+        tnmtTbody.innerHTML = html
+//        thead.innerHTML = html3
+//        tround.innerHTML = html2
+
+
 
         return
     }
@@ -140,27 +156,4 @@ function 포켓몬선택(index, index2){
 
 
     게임시작();
-}
-
-function winpage (){ //우승자 출력페이지 매핑 수정중
-    window.location.href = "http://localhost:8080/rank/win"
-
-    $.ajax({
-        async : false,
-        url : 'http://localhost:5000/rank/win',
-        method : 'GET',
-        success : (r) => {
-    })
-
-            num = 포켓몬목록[`${selectRound[selectNo]}`][index][2]
-    //        alert( win )
-
-            let winnerimg = document.querySelector('.winnerimg');
-            let winnername = document.querySelector('.winnername');
-
-            html = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png" />`;
-            html2 = `<span> 포켓몬목록[${selectRound[selectNo]}][index][0] </span>`;
-
-            winnerimg.innerHTML = html
-            winnername.innerHTML = html2
 }
