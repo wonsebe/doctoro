@@ -1,16 +1,18 @@
 console.log('write.js');
 
-function rwrite(){
-    let rcontent=document.querySelector('.rcontent').value;
+function rwrite(){ console.log('rwrite()');
+    let rcontent=document.querySelector('.rcontent').value; 
+    
     $.ajax({
         url:"/reply/write",
         method:'post',
-        data:{ rcontent:rcontent},
+        data:{rcontent:rcontent,cno:cno},
         success: (r)=>{
             console.log(r);
             if(r){
                 alert('답글이 등록되었습니다.')
-                location.href="/board/detail";
+                
+                location.href="/board/bdetail";
             }else{
                 alert('답글이 정상적으로 처리되지 않았습니다.');
             }
