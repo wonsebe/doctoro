@@ -16,5 +16,4 @@ public interface RankDao {
     //승리횟수
     boolean win ( int pno );
 
-    RankDto rankwin (int pno);
 }

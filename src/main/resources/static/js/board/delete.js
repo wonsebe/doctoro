@@ -1,6 +1,7 @@
 console.log('delete.js');
 
 function deleteB(){
+    console.log(bno)
     $.ajax({
         url:"/board/delete",
         method:'delete',

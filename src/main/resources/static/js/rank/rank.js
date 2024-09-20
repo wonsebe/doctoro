@@ -2,11 +2,12 @@ console.log('Connect success')
 
 total();
 
-function total(){
+function total(page = 1){
     $.ajax({
         async : false,
         url : 'http://localhost:5000/rank',
         method : 'GET',
+        data : { page : page } ,
         success : r => {
             //console.log(r);
             let tbody = document.querySelector('#tbody');
@@ -27,6 +28,26 @@ function total(){
                 })
             });
             tbody.innerHTML = html;
+
+            let paginationBox = document.querySelector('.pagination');
+                        let pageHTML = '';
+
+
+                        for (let i = 0; i <= 10; i++) { //for start 반복문을 돌려서
+                            pageHTML += `
+                            <li class="page-item${i}">
+                            <a class="page-link" href="#" onclick="total(${i+1})">${i + 1}</a>
+                            </li>
+                            `;
+                            //페이지의 번호와 데이터에 맞는 버튼 생성
+
+                        } //for end
+
+
+                        //페이지네이션 버튼출력
+
+
+                        paginationBox.innerHTML = pageHTML;
         }
     })
 }

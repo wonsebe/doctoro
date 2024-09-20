@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div th:replace="~{/header.html :: header }"></div>
 <h4>토너먼트</h4>
 
 <div class="round">
@@ -22,7 +23,7 @@
 
 <div> 토너먼트 </div>
 <table id="tnmnt">
-    <thead>
+    <thead id="thead">
         <tr>
             <th> 1번 </th> <th> 2번 </th>
         </tr>

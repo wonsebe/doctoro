@@ -61,24 +61,17 @@ function all_poke_info(page = 0) {
             poke_all_info_keys.forEach(k => {
                 //console.log(poke_all_info[k])
 
-                html += `<div class = "info_area_detail">
-                                <div> 
-                                    <a href="/info/detail?name=${poke_all_info[k]["영어이름"]}">
-                                        <img src="${poke_all_info[k]["이미지"]}">  
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="/info/detail?name=${poke_all_info[k]["영어이름"]}"> 
-                                        ${poke_all_info[k]["한글이름"]}
-                                    </a> 
-                                </div>
-                                <div>
-                                    <a href="/info/detail?name=${poke_all_info[k]["영어이름"]}"> 
-                                        ${poke_all_info[k]["영어이름"]}
-                                    </a> 
-                                </div>
-                                
-                            </div>`
+                html += `<div class="cards">
+                            <a href="/info/detail?name=${poke_all_info[k]["영어이름"]}">
+                                <figure class="card">
+                            
+                                    <img src="${poke_all_info[k]["이미지"]}" />
+
+                                    <figcaption>${poke_all_info[k]["한글이름"]} <br>${poke_all_info[k]["영어이름"]} </figcaption>
+
+                                </figure>
+                            </a>
+                        </div>`
 
             })
             info_area.innerHTML = html;
@@ -132,24 +125,17 @@ function poke_type_info(page=1){
             result.forEach(r => {
                 //console.log(poke_all_info[k])
 
-                html += `<div class = "info_area_detail">
-                                <div> 
-                                    <a href="/info/detail?name=${r["영어이름"]}">
-                                        <img src="${r["이미지"]}">  
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="/info/detail?name=${r["영어이름"]}"> 
-                                        ${r["한글이름"]}
-                                    </a> 
-                                </div>
-                                <div>
-                                    <a href="/info/detail?name=${r["영어이름"]}"> 
-                                        ${r["영어이름"]}
-                                    </a> 
-                                </div>
-                                
-                            </div>`
+                html += `<div class="cards">
+                            <a href="/info/detail?name=${r["영어이름"]}">
+                                <figure class="card">
+                            
+                                    <img src="${r["이미지"]}" />
+
+                                    <figcaption>${r["한글이름"]}<br> ${r["영어이름"]} </figcaption>
+
+                                </figure>
+                            </a>
+                        </div>`
 
             })
             info_area.innerHTML = html;
@@ -206,24 +192,17 @@ function poke_search(page=1){
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
         
-                        html += `<div class = "info_area_detail">
-                                        <div> 
-                                            <a href="/info/detail?name=${r["영어이름"]}">
-                                                <img src="${r["이미지"]}">  
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["한글이름"]}
-                                            </a> 
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["영어이름"]}
-                                            </a> 
-                                        </div>
-                                        
-                                    </div>`
+                        html += `<div class="cards">
+                            <a href="/info/detail?name=${r["영어이름"]}">
+                                <figure class="card">
+                            
+                                    <img src="${r["이미지"]}" />
+
+                                    <figcaption>${r["한글이름"]}<br> ${r["영어이름"]} </figcaption>
+
+                                </figure>
+                            </a>
+                        </div>`
         
                     })
                     info_area.innerHTML = html;
@@ -268,24 +247,17 @@ function poke_search(page=1){
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
         
-                        html += `<div class = "info_area_detail">
-                                        <div> 
-                                            <a href="/info/detail?name=${r["영어이름"]}">
-                                                <img src="${r["이미지"]}">  
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["한글이름"]}
-                                            </a> 
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["영어이름"]}
-                                            </a> 
-                                        </div>
-                                        
-                                    </div>`
+                        html += `<div class="cards">
+                            <a href="/info/detail?name=${r["영어이름"]}">
+                                <figure class="card">
+                            
+                                    <img src="${r["이미지"]}" />
+
+                                    <figcaption>${r["한글이름"]}<br> ${r["영어이름"]} </figcaption>
+
+                                </figure>
+                            </a>
+                        </div>`
         
                     })
                     info_area.innerHTML = html;
@@ -331,24 +303,17 @@ function poke_search(page=1){
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
         
-                        html += `<div class = "info_area_detail">
-                                        <div> 
-                                            <a href="/info/detail?name=${r["영어이름"]}">
-                                                <img src="${r["이미지"]}">  
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["한글이름"]}
-                                            </a> 
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["영어이름"]}
-                                            </a> 
-                                        </div>
-                                        
-                                    </div>`
+                        html += `<div class="cards">
+                            <a href="/info/detail?name=${r["영어이름"]}">
+                                <figure class="card">
+                            
+                                    <img src="${r["이미지"]}" />
+
+                                    <figcaption>${r["한글이름"]}<br> ${r["영어이름"]} </figcaption>
+
+                                </figure>
+                            </a>
+                        </div>`
         
                     })
                     info_area.innerHTML = html;
@@ -393,24 +358,17 @@ function poke_search(page=1){
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
         
-                        html += `<div class = "info_area_detail">
-                                        <div> 
-                                            <a href="/info/detail?name=${r["영어이름"]}">
-                                                <img src="${r["이미지"]}">  
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["한글이름"]}
-                                            </a> 
-                                        </div>
-                                        <div>
-                                            <a href="/info/detail?name=${r["영어이름"]}"> 
-                                                ${r["영어이름"]}
-                                            </a> 
-                                        </div>
-                                        
-                                    </div>`
+                        html += `<div class="cards">
+                            <a href="/info/detail?name=${r["영어이름"]}">
+                                <figure class="card">
+                            
+                                    <img src="${r["이미지"]}" />
+
+                                    <figcaption>${r["한글이름"]}<br> ${r["영어이름"]} </figcaption>
+
+                                </figure>
+                            </a>
+                        </div>`
         
                     })
                     info_area.innerHTML = html;
