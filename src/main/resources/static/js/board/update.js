@@ -18,11 +18,36 @@ function doLoginCheck() {   console.log('doLoginCheck');
         }   // success end
     })  // ajax end
 }   // doLoginCheck() end
+detailB1(bno);
+function detailB1(bno) {
+    let board = {};
+    $.ajax({
+        async: true,
+        url: "/board/bdetail",
+        method: "get",
+        data: { bno: bno },
+        success: (r) => {
+            console.log(r); // 응답 데이터 확인
+            board = r; // 응답 데이터를 board에 저장
 
+            // 입력 필드에 값 설정
+            if (board) {
+                let infoBox = document.querySelector('.infoBox');
+                let btitle = document.querySelector('.btitle');
+                let bcontent = document.querySelector('.bcontent');
+
+                if (infoBox) infoBox.value = board.infoBox || '';
+                if (btitle) btitle.value = board.btitle || '';
+                if (bcontent) bcontent.value = board.bcontent || '';
+            }
+
+        }
+    });
+}
 //수정
 function updateB(){
-    let btitle=document.querySelector('#btitle').value;
-    let bcontent=document.querySelector('#bcontent').value;
+    let btitle=document.querySelector('.btitle').value;
+    let bcontent=document.querySelector('.bcontent').value;
     let categoryno=document.querySelector('#categoryno').value;
     
     let info={btitle:btitle, bcontent: bcontent, categoryno:categoryno,bno:bno}
@@ -32,7 +57,7 @@ function updateB(){
         async : false,
         method : 'get',
         url : '/user/login/check',
-        success : (result) => {     console.log(result);
+        success : (result) => {console.log(result);
             if (result.id == 'admin' || result.id == id ) {   
             $.ajax({
                 url:'/board/update',
