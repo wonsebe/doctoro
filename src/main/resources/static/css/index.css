@@ -1,0 +1,16 @@
+#content{
+    height: 3500px;
+}
+
+#topContent{
+    border: 1px solid blue;
+    height: 33%;
+}
+#middleContent{
+    border: 1px solid blue;
+    height: 33%;
+}
+#bottomContent{
+    border: 1px solid blue;
+    height: 33%;
+}

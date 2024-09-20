@@ -19,7 +19,9 @@ function doLoginCheck() {
                 html += `
                         <li> <a href="/info">정보</a> </li>
                         <li> <a href="/rate">확률</a> </li>
-                        <li> <a href="#">이상형월드컵</a> </li>
+                        <li> <a href="/base/stats/print">종족값</a> </li>
+                        <li> <a href="/rank/tnm">이상형월드컵</a> </li>
+                        <li> <a href="/rank/get">랭킹보기</a> </li>
                         <li> <a href="/board/bprint">게시판</a> </li>
                         <li> <a href="/user/login">로그인</a> </li>
                         <li> <a href="/user/signup">회원가입</a> </li>
@@ -28,9 +30,11 @@ function doLoginCheck() {
                 // 로그인한 상태인 경우
                 console.log('로그인');
                 html += `
-                        <li> <a href="#">정보</a> </li>
-                        <li> <a href="#">확률</a> </li>
-                        <li> <a href="#">이상형월드컵</a> </li>
+                        <li> <a href="/info">정보</a> </li>
+                        <li> <a href="/rate">확률</a> </li>
+                        <li> <a href="/base/stats/print">종족값</a> </li>
+                        <li> <a href="/rank/tnm">이상형월드컵</a> </li>
+                        <li> <a href="/rank/get">랭킹보기</a> </li>
                         <li> <a href="/board/bprint">게시판</a> </li>
                         <li> <a href="/user/myinfo">마이페이지</a> </li>
                         <li> <a href="#" onclick="doLogout()">로그아웃</a> </li>

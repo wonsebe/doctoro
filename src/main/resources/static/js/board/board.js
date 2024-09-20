@@ -13,6 +13,22 @@ function onSearchClear(){
     pageInfo.searchKeyWord='';
 }
 
+// 1. 로그인 체크
+function doLoginCheck() {   console.log('doLoginCheck');
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/user/login/check',
+        success : (result) => {     console.log(result);
+            if (result == '') {                 // 비로그인 상태인 경우
+                alert("로그인 후 이용 가능합니다.");
+                location.href="/user/login";    // 로그인 페이지로 이동
+            } else {
+                location.href =  "/board/bwrite"
+            }
+        }   // success end
+    })  // ajax end
+}   // doLoginCheck() end
 
 
 
