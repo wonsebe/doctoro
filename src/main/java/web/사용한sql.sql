@@ -11,7 +11,7 @@ create table users(
     uno int auto_increment,
     id varchar(30) not null unique,
     password varchar(30) not null,
-    name varchar(10) not null,
+    name varchar(15) not null,
     gender varchar(2) not null,
     phone varchar(15) not null unique,
     ubirth varchar(20) not null,
