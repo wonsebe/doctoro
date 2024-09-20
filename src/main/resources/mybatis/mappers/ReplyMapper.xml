@@ -6,14 +6,16 @@
 
     <!--댓글등록처리-->
     <insert id="rWrite" parameterType="web.model.dto.ReplyDto">
-        INSERT INTO reply (rcontent, cno, uno) VALUES (#{rcontent}, #{cno}, #{uno});
+        INSERT INTO reply (rcontent, cno, uno) VALUES ( #{rcontent}, #{cno}, #{uno} );
     </insert>
 
-    <!--2. 전체출력 -->
-    <select id="rPrint"  resultType="web.model.dto.ReplyDto" parameterType="int">
-        SELECT r.rno, r.rcontent, u.id, r.rdate FROM reply r inner join users u  on r.uno=u.uno WHERE r.cno = #{cno};
+    <!--2. 댓글별 대댓글출력 -->
+    <select id="rPrint"  parameterType="int" resultType="web.model.dto.ReplyDto">
+        SELECT r.cno, r.rno ,r.rcontent, u.id, r.rdate
+        FROM reply r
+        INNER JOIN users u ON r.uno = u.uno
+        WHERE r.cno = #{cno};
     </select>
-
 <!--    &lt;!&ndash;3. 수정 &ndash;&gt;-->
 <!--    <update id="bUpdate" parameterType="String" >-->
 <!--        update comment set rcontent= #{ rcontent };-->

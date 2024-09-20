@@ -15,5 +15,6 @@ public class ReplyDto {
     private int cno;            // 댓글 번호
     private int uno;            // 유저 번호
     private String id;
+    private int bno;
 
 }

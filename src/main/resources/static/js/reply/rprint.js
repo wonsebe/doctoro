@@ -10,10 +10,10 @@ function print(){
         success:(r)=>{console.log(r);
             let rplyPrint=document.querySelector('.rplyPrint');
             let html = '';
-            if (response.length === 0) {
+            if (r.length === 0) {
                 html = '<div>대댓글이 없습니다.</div>';
             } else {
-                response.forEach(reply => {
+                r.forEach(reply => {
                     html += `
                               <div id="rid">${reply.id}</div>
                               <div id="rcontent">${reply.rcontent}</div>
