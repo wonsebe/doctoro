@@ -11,76 +11,78 @@
 
 <body>
     <div th:replace="~{/header.html :: header }"></div>
-    <h3> 승률 예측 구현</h3>
-    <div id="poke_Wrap">
-        <div>
-            <div id="poke_select_box">
-                <select name="" id="poke_select1" onchange="poke_read1()">
-                    <option value=0></option>
-                </select>
+    <div id="all_wrap">
+        <h3> 승률 예측 구현</h3>
+        <div id="poke_Wrap">
+            <div>
+                <div id="poke_select_box">
+                    <select name="" id="poke_select1" onchange="poke_read1()">
+                        <option value=0></option>
+                    </select>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+                                포켓몬
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="poke1">
+
+                    </tbody>
+                </table>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                onclick="rate_cal()">
+                승률 예측!!!
+            </button>
 
-                        </th>
-                        <th>
-                            포켓몬
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="poke1">
-
-                </tbody>
-            </table>
-        </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            onclick="rate_cal()">
-            승률 예측!!!
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">승률 예측 결과</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> 닫기 </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">승률 예측 결과</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> 닫기 </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <div id="poke_select_box">
-                <select name="" id="poke_select2" onchange="poke_read2()">
-                    <option value=0></option>
-                </select>
+            <div>
+                <div id="poke_select_box">
+                    <select name="" id="poke_select2" onchange="poke_read2()">
+                        <option value=0></option>
+                    </select>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+                                포켓몬
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="poke2">
+
+                    </tbody>
+                </table>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
 
-                        </th>
-                        <th>
-                            포켓몬
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="poke2">
-
-                </tbody>
-            </table>
         </div>
-
     </div>
 
 

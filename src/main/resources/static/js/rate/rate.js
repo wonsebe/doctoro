@@ -14,7 +14,7 @@ function poke_select1() {
         success: function response(result) {
             console.log(result);
             result.forEach((r, index) => {  // index: 0, 1, 2...
-                html += `<option value=${index}>${r["한글이름"]}, ${r["영어이름"]}</option>
+                html += `<option value=${index}>${r["한글이름"]} ${r["영어이름"]}</option>
                         `;
             })
             select.innerHTML = html;
@@ -41,16 +41,13 @@ function poke_read1() {
                         <td>
                         </td>
                         <td>
-                            <img src="${result.이미지}">
+                            <div class="cards">
+                                <figure class="card">
+                                    <img src="${result.이미지}" />
+                                    <figcaption>${result.한글이름} <br>${result.영어이름} </figcaption>
+                                </figure>
+                            </div>
                         <td>
-                    </tr>
-                    <tr>
-                        <td>
-                            이름
-                        </td>
-                        <td>
-                            ${result.한글이름}, ${result.영어이름}
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -112,7 +109,8 @@ function poke_read1() {
             $.ajax({
                 async: false,
                 method: "get",
-                url: "http://127.0.0.1:5000/rate/all_skill",
+                url: "http://127.0.0.1:5000/rate/each_skill_info",
+                data : {kr_name : result.한글이름},
                 success: function response(result) {
                     console.log(result);
                     html += `<tr>
@@ -121,9 +119,9 @@ function poke_read1() {
                                 </td>
                                 <td>
                                     <select name="" id="poke_select_skill1">`
-                    result.forEach((r, index) => {
+                    result.forEach(r => {
                         html += `
-                                        <option value=${index}>${r.스킬이름} (${r.타입})</option>
+                                        <option value=${r.인덱스}>${r.기술이름} (${r.타입})</option>
                                         `;
                     })
                     html += `
@@ -150,7 +148,7 @@ function poke_select2() {
         success: function response(result) {
             console.log(result);
             result.forEach((r, index) => {  // index: 0, 1, 2...
-                html += `<option value=${index}>${r["한글이름"]}, ${r["영어이름"]}</option>
+                html += `<option value=${index}>${r["한글이름"]} ${r["영어이름"]}</option>
                         `;
             })
             select.innerHTML = html;
@@ -177,16 +175,13 @@ function poke_read2() {
                         <td>
                         </td>
                         <td>
-                            <img src="${result.이미지}">
+                            <div class="cards">
+                                <figure class="card">
+                                    <img src="${result.이미지}" />
+                                    <figcaption>${result.한글이름} <br>${result.영어이름} </figcaption>
+                                </figure>
+                            </div>
                         <td>
-                    </tr>
-                    <tr>
-                        <td>
-                            이름
-                        </td>
-                        <td>
-                            ${result.한글이름}, ${result.영어이름}
-                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -248,7 +243,8 @@ function poke_read2() {
             $.ajax({
                 async: false,
                 method: "get",
-                url: "http://127.0.0.1:5000/rate/all_skill",
+                url: "http://127.0.0.1:5000/rate/each_skill_info",
+                data : {kr_name : result.한글이름},
                 success: function response(result) {
                     console.log(result);
                     html += `<tr>
@@ -257,9 +253,9 @@ function poke_read2() {
                                         </td>
                                         <td>
                                             <select name="" id="poke_select_skill2">`
-                    result.forEach((r, index) => {
+                    result.forEach(r => {
                         html += `
-                                                <option value=${index}>${r.스킬이름} (${r.타입})</option>
+                                                <option value=${r.인덱스}>${r.기술이름} (${r.타입})</option>
                                                 `;
                     })
                     html += `
