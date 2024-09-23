@@ -58,7 +58,10 @@ function selectround(){
 //            console.log(포켓몬목록['r16'])
 //            console.log(포켓몬목록['r8'])
 //            console.log(포켓몬목록['r4'])
+            let round = document.querySelector('.round');
 
+            html = ``;
+            round.innerHTML = html;
         }
     })
 게임시작()
@@ -102,9 +105,9 @@ function 게임시작(){
         name1 = 포켓몬목록[`${selectRound[selectNo]}`][num1][0]
         name2 = 포켓몬목록[`${selectRound[selectNo]}`][num2][0]
 
-        html1 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 },${ num2 } ); clickup(${con1});"> <br/> <span> ${name1} </span> </td> </tr>`
-        html2 = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 },${ num1 } ); clickup(${con2});"> <br/> <span> ${name2} </span> </td> </tr>`
-        html3 = `<tr> <td> ${selectRound[selectNo]}강/${포켓몬목록[`${selectRound[selectNo]}`].length} </td> </tr>`
+        html1 = `<div class="cards"> <figure class="card"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 },${ num2 } ); clickup(${con1});"> <figcaption>${name1}</figcaption> </figure> </div>`
+        html2 = `<div class="cards"> <figure class='card'> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 },${ num1 } ); clickup(${con2});"> <figcaption>${name2}</figcaption> </figure> </div>`
+        html3 = `<tr> <td class="round"> ${selectRound[selectNo]}강/${포켓몬목록[`${selectRound[selectNo]}`].length} </td> </tr>`
 
         ch1.innerHTML = html1
         ch2.innerHTML = html2
