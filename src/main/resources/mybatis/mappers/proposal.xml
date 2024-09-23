@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.model.dao.ProposalDao" > <!-- mapper start -->
+
+
+    <!--2. 전체 출력 -->
+    <select id="get" resultType="web.model.dto.ProposalDto">
+        SELECT * FROM proposal p INNER JOIN users u ON p.uno = u.uno;
+    </select>
+
+</mapper>  <!-- mapper end -->

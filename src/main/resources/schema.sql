@@ -11,6 +11,7 @@ drop table if exists board;
 drop table if exists category;
 drop table if exists users;
 drop table if exists ratepokemon;
+drop table if exists proposal;
 
 -- [3] 테이블 생성
 -- 1. 회원 테이블
@@ -88,4 +89,14 @@ create table ratepokemon(
     rpokeindex int,
     rskillindex int,
     primary key(rno)
+);
+
+-- 선호포켓몬 테이블
+create table proposal(
+	prono int,
+    uno int,
+    pno int,
+    primary key(prono),
+    foreign key(uno) references users (uno) on update cascade on delete cascade,
+    foreign key(pno) references rankpokemon (pno) on update cascade on delete cascade
 );
