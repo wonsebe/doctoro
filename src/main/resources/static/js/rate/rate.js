@@ -110,7 +110,7 @@ function poke_read1() {
                 async: false,
                 method: "get",
                 url: "http://127.0.0.1:5000/rate/each_skill_info",
-                data : {kr_name : result.한글이름},
+                data: { kr_name: result.한글이름 },
                 success: function response(result) {
                     console.log(result);
                     html += `<tr>
@@ -121,7 +121,7 @@ function poke_read1() {
                                     <select name="" id="poke_select_skill1">`
                     result.forEach(r => {
                         html += `
-                                        <option value=${r.인덱스}>${r.기술이름} (${r.타입})</option>
+                                        <option value=${r.위력}>${r.기술이름} (${r.타입})</option>
                                         `;
                     })
                     html += `
@@ -244,7 +244,7 @@ function poke_read2() {
                 async: false,
                 method: "get",
                 url: "http://127.0.0.1:5000/rate/each_skill_info",
-                data : {kr_name : result.한글이름},
+                data: { kr_name: result.한글이름 },
                 success: function response(result) {
                     console.log(result);
                     html += `<tr>
@@ -255,7 +255,7 @@ function poke_read2() {
                                             <select name="" id="poke_select_skill2">`
                     result.forEach(r => {
                         html += `
-                                                <option value=${r.인덱스}>${r.기술이름} (${r.타입})</option>
+                                                <option value=${r.위력}>${r.기술이름} (${r.타입})</option>
                                                 `;
                     })
                     html += `
@@ -354,7 +354,7 @@ function rate_records1(score, rate) {
         async: false,
         method: "post",
         url: "/rate/record",
-        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n1, rskillindex: m1 },
+        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n1, rskillpower: m1 },
         success: function response(result) {
             if (result) {
                 alert("승률 기록 성공");
@@ -381,7 +381,7 @@ function rate_records2(score, rate) {
         async: false,
         method: "post",
         url: "/rate/record",
-        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n2, rskillindex: m2 },
+        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n2, rskillpower: m2 },
         success: function response(result) {
             if (result) {
                 alert("승률 기록 성공");
@@ -402,9 +402,10 @@ function record_send() {
             console.log(result);
             $.ajax({
                 async: false,
-                method: "get",
+                method: "post",
                 url: "http://127.0.0.1:5000/rate_pred/take",
-                data: { list: result },
+                data: JSON.stringify({ list: result }),
+                contentType: 'application/json',
                 success: function response(result1) {
                     console.log(result1);
                     console.log("데이터 전송 성공");

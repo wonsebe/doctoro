@@ -15,5 +15,5 @@ public class RateDto {
     private float rrate;
     private int rresult;
     private int rpokeindex;
-    private int rskillindex;
+    private int rskillpower;
 }

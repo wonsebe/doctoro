@@ -1,4 +1,4 @@
--- 1. 회원 샘플
+    -- 1. 회원 샘플
 INSERT INTO users (id, password, name, gender, phone, ubirth, distinction) VALUES
 ('admin', '1234', '관리자', 'F', '010-0000-0000', '1980-05-15', '관리자'),
 ('johndoe91', 'abc1234!', '김철수', 'M', '010-1111-1111', '1985-03-22', '일반'),
