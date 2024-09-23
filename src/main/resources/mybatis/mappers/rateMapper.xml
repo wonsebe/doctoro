@@ -5,7 +5,7 @@
 
 <mapper namespace="web.model.dao.RateDao">
     <insert id="RateRecord" parameterType="web.model.dto.RateDto">
-        insert into ratepokemon(rscore, rrate, rresult, rpokeindex, rskillindex) values( #{rscore}, #{rrate}, #{rresult}, #{rpokeindex}, #{rskillindex});
+        insert into ratepokemon(rscore, rrate, rresult, rpokeindex, rskillpower) values( #{rscore}, #{rrate}, #{rresult}, #{rpokeindex}, #{rskillpower});
     </insert>
 
     <select id="RateSend" resultType="web.model.dto.RateDto">
