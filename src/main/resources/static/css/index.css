@@ -18,6 +18,7 @@
 /* =========== 이벤트 페이지 크롤링한 부분 CSS =========== */
 #middleContent {
     display: flex;
+    flex-wrap: wrap;
 }
 
 #eventImg {

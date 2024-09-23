@@ -1,7 +1,7 @@
 console.log('index.js');
 
 // 포켓몬 스토어 온라인 - 이벤트 페이지 일부 항목 크롤링 요청
-//eventPokemon();
+eventPokemon();
 function eventPokemon() {       console.log('eventPokemon()');
     $.ajax({
         async : false,
