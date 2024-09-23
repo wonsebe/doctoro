@@ -14,3 +14,12 @@
     border: 1px solid blue;
     height: 33%;
 }
+
+/* =========== 이벤트 페이지 크롤링한 부분 CSS =========== */
+#middleContent {
+    display: flex;
+}
+
+#eventImg {
+    width: 300px;
+}
