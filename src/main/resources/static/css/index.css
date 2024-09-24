@@ -16,10 +16,76 @@
 }
 
 /* =========== 이벤트 페이지 크롤링한 부분 CSS =========== */
-#middleContent {
+/* #middleContent {
     display: flex;
-}
+    flex-wrap: wrap;
+}*/
 
 #eventImg {
     width: 300px;
+} 
+
+/* *{margin:0; padding:0;}
+li{list-style:none;} */
+.flex{
+  display:flex;
 }
+
+.flex-jc-c{
+  justify-content:center;
+}
+.con{
+  max-width:1200px;
+  margin:0 auto;
+  border:solid red;
+}
+
+.article-board-box{
+  position:relative;
+  border:solid red;
+}
+.slide_wrapper{
+  border:solid red;
+  position:relative;
+  width:960px;
+  margin:0 auto;
+  height:300px;
+  overflow:hidden
+}
+
+.slides{
+  position:absolute;
+  left:0;
+  top:0;
+  transition:left 0.5s ease-out;
+}
+
+.slides li:not(:last-child){
+  justify-content:flex-start;
+  margin-right:30px;
+}
+
+
+.controls{
+  text-align:center;
+}
+
+.controls span{
+  z-index:2;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.controls>.prev{
+  right:calc(100% - 40px);
+  width : 50px
+}
+
+.controls>.next{
+  left:calc(100% - 40px);
+}
+
+.ha{
+    width:50px;
+  }
