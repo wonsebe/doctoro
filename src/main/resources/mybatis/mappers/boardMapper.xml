@@ -98,5 +98,10 @@
         DELETE FROM comment WHERE cno = #{cno}
     </delete>
 
+    <!-- 5.게시판 단어 빈도수 출력-->
+    <select id="boardCount" resultType="web.model.dto.BoardDto"  parameterType="web.model.dto.BoardDto">
+        select btitle , bcontent from board;
+    </select>
+
 </mapper>  <!-- mapper end -->
 

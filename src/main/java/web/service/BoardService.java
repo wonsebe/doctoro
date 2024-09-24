@@ -125,4 +125,9 @@ public class BoardService {
         return boardDao.categoryprint();
     }
 
+    //게시판 단어 빈도수 출력
+    public List<BoardDto> boardCount(BoardDto boardDto){
+        return  boardDao.boardCount( boardDto);
+    }
+
 }

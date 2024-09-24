@@ -68,5 +68,11 @@ public class BoardController {
         return boardService.categoryprint();
     }
 
+    //==============================================================//
+    @GetMapping("/wordCount")
+    public List<BoardDto>boardCount(BoardDto boardDto){
+        return boardService.boardCount( boardDto);
+    }
+
 
 }
