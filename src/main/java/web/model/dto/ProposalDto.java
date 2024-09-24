@@ -12,4 +12,7 @@ public class ProposalDto {
     int prono;
     int uno;
     int pno;
+
+    String gender;
+    String ubirth;
 }

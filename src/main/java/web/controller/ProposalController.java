@@ -16,7 +16,7 @@ public class ProposalController {
     @Autowired private ProposalService proposalService;
 
     @GetMapping("/get")
-    public List<ProposalDto> get () {
+    public List<ProposalDto> get ( ) {
         System.out.println("proposalService = " + proposalService);
         return proposalService.get();
     }

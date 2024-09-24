@@ -13,7 +13,7 @@ public class ProposalService {
 
     @Autowired private ProposalDao proposalDao;
 
-    public List<ProposalDto> get (){
+    public List<ProposalDto> get ( ){
         System.out.println("proposalDao = " + proposalDao);
         return proposalDao.get();
     }

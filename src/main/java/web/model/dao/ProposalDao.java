@@ -7,5 +7,5 @@ import java.util.List;
 
 @Mapper
 public interface ProposalDao {
-    List<ProposalDto> get();
+    List<ProposalDto> get( );
 }
