@@ -88,6 +88,12 @@ create table ratepokemon(
     rresult int,
     rpokeindex int,
     rskillpower int,
+    rhp int,
+    ratk int,
+    rdef int,
+    rspd int,
+    rspatk int,
+    rspdef int,
     primary key(rno)
 );
 

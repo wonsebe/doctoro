@@ -1,9 +1,18 @@
 console.log("rate.js");
 
+
+
+let poke_stat1 = {}
+let poke_stat2 = {}
+
+
 poke_select1();
 poke_read1();
 poke_select2();
 poke_read2();
+
+
+
 function poke_select1() {
     let select = document.querySelector("#poke_select1")
     let html = ``;
@@ -36,6 +45,15 @@ function poke_read1() {
         data: { n: n },
         success: function response(result) {
             console.log(result)
+            poke_stat1 = {
+                "HP": result.체력,
+                "ATK": result.공격,
+                "DEF": result.방어,
+                "SPD": result.스피드,
+                "SP_ATK": result.특수공격,
+                "SP_DEF": result.특수방어
+            }
+
             kr_type = type_trans(result.타입)
             html += `<tr>
                         <td>
@@ -171,6 +189,14 @@ function poke_read2() {
         success: function response(result) {
             console.log(result)
             kr_type = type_trans(result.타입)
+            poke_stat2 = {
+                "HP": result.체력,
+                "ATK": result.공격,
+                "DEF": result.방어,
+                "SPD": result.스피드,
+                "SP_ATK": result.특수공격,
+                "SP_DEF": result.특수방어
+            }
             html += `<tr>
                         <td>
                         </td>
@@ -354,7 +380,19 @@ function rate_records1(score, rate) {
         async: false,
         method: "post",
         url: "/rate/record",
-        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n1, rskillpower: m1 },
+        data: {
+            rscore: score,
+            rrate: rate,
+            rresult: result,
+            rpokeindex: n1,
+            rskillpower: m1,
+            rhp: poke_stat1.HP,
+            ratk: poke_stat1.ATK,
+            rdef: poke_stat1.DEF,
+            rspd: poke_stat1.SPD,
+            rspatk: poke_stat1.SP_ATK,
+            rspdef: poke_stat1.SP_DEF
+        },
         success: function response(result) {
             if (result) {
                 alert("승률 기록 성공");
@@ -381,7 +419,19 @@ function rate_records2(score, rate) {
         async: false,
         method: "post",
         url: "/rate/record",
-        data: { rscore: score, rrate: rate, rresult: result, rpokeindex: n2, rskillpower: m2 },
+        data: {
+            rscore: score,
+            rrate: rate,
+            rresult: result,
+            rpokeindex: n2,
+            rskillpower: m2,
+            rhp: poke_stat2.HP,
+            ratk: poke_stat2.ATK,
+            rdef: poke_stat2.DEF,
+            rspd: poke_stat2.SPD,
+            rspatk: poke_stat2.SP_ATK,
+            rspdef: poke_stat2.SP_DEF
+        },
         success: function response(result) {
             if (result) {
                 alert("승률 기록 성공");
