@@ -76,6 +76,8 @@ public class ViewController {
     //게시판 수정페이지 요청
     @GetMapping("/board/bupdate")
     public String boardUpdate(){return  "/board/update.html";}
+
+
     //====================== 랭킹 ===========================//
     //포켓몬 전체 랭킹 가져오기 페이지
     @GetMapping("/rank/get")
@@ -113,6 +115,8 @@ public class ViewController {
     public String baseStatsPrintPage() {
         return "/base-stats/base-stats.html";
     }
+
+
 
 
 }

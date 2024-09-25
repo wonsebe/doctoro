@@ -32,7 +32,7 @@ public interface BoardDao {
     List<BoardDto>categoryprint();
 
     //게시판 단어 빈도수 출력
-    List<BoardDto>boardCount(BoardDto boardDto);
+    List<BoardDto>boardCount();
 
 
 
