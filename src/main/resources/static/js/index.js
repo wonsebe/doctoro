@@ -61,5 +61,3 @@ prevBtn.addEventListener('click', function () {
         moveSlide(slideCount - 3);
     }   
 });
-
-
