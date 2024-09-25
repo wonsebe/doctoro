@@ -70,8 +70,8 @@ public class BoardController {
 
     //==============================================================//
     @GetMapping("/wordCount")
-    public List<BoardDto>boardCount(BoardDto boardDto){
-        return boardService.boardCount( boardDto);
+    public List<BoardDto>boardCount(){
+        return boardService.boardCount();
     }
 
 

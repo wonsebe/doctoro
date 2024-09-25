@@ -102,6 +102,8 @@ public class BoardService {
     //게시판 개별출력
     public BoardDto bDetail(int bno) {
         System.out.println("BoardService.bDetail");
+
+
         //조회수 증가 처리
         boardDao.bView(bno);
         return boardDao.bDetail(bno);
@@ -126,8 +128,8 @@ public class BoardService {
     }
 
     //게시판 단어 빈도수 출력
-    public List<BoardDto> boardCount(BoardDto boardDto){
-        return  boardDao.boardCount( boardDto);
+    public List<BoardDto> boardCount(){
+        return  boardDao.boardCount();
     }
 
 }
