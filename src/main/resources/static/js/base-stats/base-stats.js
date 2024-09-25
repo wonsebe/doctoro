@@ -64,7 +64,34 @@ function baseStatsAllPrint(name) {      console.log('baseStatsAllPrint()');
     })  // ajax end
 }   // baseStatsAllPrint() end
 
-
+// 특정 종족값에 대한 상위 퍼센트 계산
+function baseStatsPercentPrint(stats) {      console.log('baseStatsPercentPrint()');
+    console.log(stats);
+    $.ajax({
+        async : false,
+        method : 'post',
+        url : "http://localhost:5000/base/stats/print/percent",
+        contentType: 'application/json',
+        data : JSON.stringify({ stats : stats }),
+        success : (result) => {     console.log(result);
+            let tbody = document.querySelector('tbody');
+            let html = ``;
+            result.forEach(포켓몬 => {
+                html += `
+                        <tr>
+                            <td>${포켓몬.아이디}</td>
+                            <td><img src="${포켓몬.이미지}" /></td>
+                            <td>${포켓몬.한글이름} (${포켓몬.영어이름})</td>
+                            <td>${포켓몬.타입}</td>
+                            <td>${포켓몬[stats]}</td>
+                            <td>${포켓몬.상위퍼센트}</td>
+                        </tr>
+                        `
+            })  // forEach end
+            tbody.innerHTML = html;
+        }   // success end
+    })  // ajax end
+}   // baseStatsPercentPrint() end
 
 
 
