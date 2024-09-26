@@ -16,6 +16,7 @@
             </select> -->
 
             <div class="checklist">
+                <label> <input type="radio" id="total" name="baseStats" value="총합" onclick="baseStatsPercentPrint('총합')" checked> 총합 </label>
                 <label> <input type="radio" id="strength" name="baseStats" value="체력" onclick="baseStatsPercentPrint('체력')"> 체력 </label>
                 <label> <input type="radio" id="attack" name="baseStats" value="공격" onclick="baseStatsPercentPrint('공격')"> 공격 </label>
                 <label> <input type="radio" id="defence" name="baseStats" value="방어" onclick="baseStatsPercentPrint('방어')"> 방어 </label>
@@ -28,17 +29,7 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th> <button type="button" onclick="baseStatsAllPrint('아이디')">번호</button> </th>
-                    <th> 이미지</th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('한글이름')">포켓몬</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('타입')">타입</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('체력')">체력</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('공격')">공격</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('방어')">방어</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('특수공격')">특수공격</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('특수방어')">특수방어</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('스피드')">스피드</button> </th>
-                    <th> <button type="button" onclick="baseStatsAllPrint('총합')">총합</button> </th>
+                    
                 </tr>
             </thead>
             <tbody>
