@@ -6,11 +6,6 @@ let poke_stat1 = {}
 let poke_stat2 = {}
 
 
-poke_select1();
-poke_read1();
-poke_select2();
-poke_read2();
-
 
 
 function poke_select1() {
