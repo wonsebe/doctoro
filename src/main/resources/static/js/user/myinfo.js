@@ -8,15 +8,6 @@ function doMyInfo() {   console.log('doMyInfo()');
         method : 'get',
         url : '/user/my/info',
         success : (result) => {     console.log(result);
-            $.ajax({
-                async: false,
-                method : 'get',
-                data : {user : result},
-                url : 'http://localhost:5000/model/get',
-                success : (result2) => {
-                    console.log(result2)
-                }
-            })
             if (result == '') {
                 alert("로그인 후 이용 가능합니다.");
                 location.href="/user/login";

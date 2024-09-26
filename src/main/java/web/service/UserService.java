@@ -48,7 +48,9 @@ public class UserService {
         } else {
             UserDto loginDto = UserDto.builder()
                     .uno(result.getUno())
-                    .id(userDto.getId())
+                    .id(result.getId())
+                    .ubirth(result.getUbirth())
+                    .gender(result.getGender())
                     .distinction(result.getDistinction())
                     .build();
 
