@@ -61,3 +61,14 @@ prevBtn.addEventListener('click', function () {
         moveSlide(slideCount - 3);
     }   
 });
+
+function firstprint(){
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : 'http://localhost:5000/promodel',
+        success : r => {
+            console.log(r)
+        }
+    })
+}

@@ -11,7 +11,25 @@ function doLoginCheck() {
         success: (result) => {
             console.log(result);
             let html = '';
+            let uno = result['uno']
+            let gender = result['gender']
+            let ubirth = result['ubirth']
 
+            if(uno && gender && ubirth) {
+                $.ajax({
+                    async: false,
+                    method: 'post',
+                    url: 'http://localhost:5000/model',
+                    data : JSON.stringify({uno : uno, gender : gender ,ubirth : ubirth}),
+                    contentType : 'application/json',
+                    success: (r) => {
+                        console.log(r);
+                    },
+                    error: (xhr, status, error) => {
+                        console.error('Error:', error);
+                        }
+                })
+            }
             // 로그인 상태에 따른 메뉴 구성
             if (result == '') {
                 // 비로그인 상태인 경우
