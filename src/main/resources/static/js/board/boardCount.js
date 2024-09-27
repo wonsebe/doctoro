@@ -1,4 +1,5 @@
 console.log('boardCount.js');
+count();
 function count(){
 $.ajax({
     async : false ,
@@ -28,8 +29,9 @@ $.ajax({
                 let html=''
                 r.forEach( 숫자 => {
 
-                    html +=     `<tr><th>${숫자.word}</th>
-                                <th>${숫자.count}</th></tr> `
+                    html +=     ` 
+                ${숫자.word}, ${숫자.count} /
+               `
                 })
                 countPrint.innerHTML = html
             },//s e
