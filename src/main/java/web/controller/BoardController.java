@@ -69,6 +69,8 @@ public class BoardController {
     }
 
     //==============================================================//
+
+    // 단어 빈도수 출력
     @GetMapping("/wordCount")
     public List<BoardDto>boardCount(){
         return boardService.boardCount();
