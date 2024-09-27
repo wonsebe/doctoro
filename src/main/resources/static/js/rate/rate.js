@@ -461,6 +461,164 @@ function record_send() {
     })
 }
 
+function poke_select3() {
+    let select = document.querySelector("#poke_select3")
+    let html = ``;
+    $.ajax({
+        async: false,
+        method: "get",
+        url: "http://127.0.0.1:5000/rate/all_info",
+        success: function response(result) {
+            console.log(result);
+            result.forEach((r, index) => {  // index: 0, 1, 2...
+                html += `<option value=${index}>${r["한글이름"]} ${r["영어이름"]}</option>
+                        `;
+            })
+            select.innerHTML = html;
+        }
+
+    })
+}
+
+function pred_print() {
+    let poke_info = document.querySelector("#poke3");
+    let n = document.querySelector("#poke_select3").value;
+    let html = ``;
+    let kr_type = "";
+    $.ajax({
+        async: false,
+        method: "get",
+        url: "http://127.0.0.1:5000/rate/data_info",
+        data: { n: n },
+        success: function response(result) {
+            console.log(result)
+            kr_type = type_trans(result.타입)
+            html += `<tr>
+                        <td>
+                        </td>
+                        <td>
+                            <div class="cards">
+                                <figure class="card">
+                                    <img src="${result.이미지}" />
+                                    <figcaption>${result.한글이름} <br>${result.영어이름} </figcaption>
+                                </figure>
+                            </div>
+                        <td>
+                    </tr>
+                    <tr>
+                        <td>
+                            체력
+                        </td>
+                        <td>
+                            ${result.체력}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            공격
+                        </td>
+                        <td>
+                            ${result.공격}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            방어
+                        </td>
+                        <td>
+                            ${result.방어}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            스피드
+                        </td>
+                        <td>
+                            ${result.스피드}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            특수공격
+                        </td>
+                        <td>
+                            ${result.특수공격}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            특수방어
+                        </td>
+                        <td>
+                            ${result.특수방어}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            타입
+                        </td>
+                        <td>
+                            ${kr_type} ${result.타입}
+                        </td>
+                    </tr>
+                    `;
+            $.ajax({
+                async: false,
+                method: "get",
+                url: "http://127.0.0.1:5000/rate/each_skill_info",
+                data: { kr_name: result.한글이름 },
+                success: function response(result) {
+                    console.log(result);
+                    html += `<tr>
+                                        <td>
+                                            기술 선택
+                                        </td>
+                                        <td>
+                                            <select name="" id="poke_select_skill3">`
+                    result.forEach(r => {
+                        html += `
+                                                <option value=${r.위력}>${r.기술이름} (${r.타입})</option>
+                                                `;
+                    })
+                    html += `
+                                            </select>
+                                        </td>
+                                    </tr>`;
+
+                }
+            })
+            poke_info.innerHTML = html;
+        }
+
+    })
+}
+
+function rate_predict_from_model() {
+    let poke_index = document.querySelector("#poke_select3").value;
+    let rskillpower = document.querySelector("#poke_select_skill3").value;
+    let rate_result = document.querySelector(".modal-body1")
+    let html = ``;
+    $.ajax({
+        async: false,
+        method: "get",
+        url: "http://127.0.0.1:5000/rate_pred/predict",
+        data: { poke_index: poke_index, rskillpower: rskillpower },
+        success: function response(result) {
+            console.log(result);
+            html += `<div>
+                        예측 결과는? 
+                    </div>
+                    <div>
+                    ${result[0]}%
+                    </div>
+                    `
+            rate_result.innerHTML = html;
+        }
+
+    })
+
+}
+
 function type_trans(type) {
     if (type == "normal") {
         kr_type = "노말"
