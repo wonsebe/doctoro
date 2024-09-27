@@ -12,6 +12,8 @@ drop table if exists category;
 drop table if exists users;
 drop table if exists ratepokemon;
 drop table if exists proposal;
+drop table if exists explog;
+drop table if exists mypokemon;
 
 -- [3] 테이블 생성
 -- 1. 회원 테이블
@@ -97,7 +99,7 @@ create table ratepokemon(
     primary key(rno)
 );
 
--- 선호포켓몬 테이블
+-- 8. 선호포켓몬 테이블
 create table proposal(
 	prono int,
     uno int,
@@ -106,3 +108,25 @@ create table proposal(
     foreign key(uno) references users (uno) on update cascade on delete cascade,
     foreign key(pno) references rankpokemon (pno) on update cascade on delete cascade
 );
+
+-- 9. 내 포켓몬 테이블
+create table mypokemon(
+    mpno int auto_increment,
+    pokeno int not null,
+    step int not null,
+    uno int not null,
+    primary key (mpno),
+    foreign key(uno) references users (uno) on update cascade on delete cascade
+);
+
+-- 10. 포켓몬 경험치 기록 테이블
+create table explog(
+    eno int auto_increment,
+    expnum int not null,
+    expmethod varchar(30) not null,
+    expdate datetime default now(),
+    mpno int not null,
+    primary key (eno),
+    foreign key(mpno) references mypokemon (mpno) on update cascade on delete cascade
+);
+
