@@ -48,10 +48,12 @@ public class UserService {
         } else {
             UserDto loginDto = UserDto.builder()
                     .uno(result.getUno())
-                    .id(userDto.getId())
+                    .id(result.getId())
+                    .ubirth(result.getUbirth())
+                    .gender(result.getGender())
                     .distinction(result.getDistinction())
                     .build();
-
+            System.out.println(loginDto);
             // HTTP 세션 처리
             // 1. 현재 요청을 보내온 클라이언트의 세션 객체 호출
             HttpSession session = request.getSession();
