@@ -27,9 +27,9 @@ $.ajax({
                 let countPrint=document.querySelector('#countPrint')
                 let html=''
                 r.forEach( 숫자 => {
-                    html += `<tr> <th> ${숫자.btitle} </th>
-                                <th> ${숫자.bcontent} </th>
-                              </tr>`
+
+                    html +=     `<tr><th>${숫자.word}</th>
+                                <th>${숫자.count}</th></tr> `
                 })
                 countPrint.innerHTML = html
             },//s e
