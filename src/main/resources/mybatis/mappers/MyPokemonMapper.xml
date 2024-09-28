@@ -5,9 +5,16 @@
 
 <mapper namespace="web.model.dao.MyPokemonDao">    <!-- mapper start -->
     <!-- namespace="매핑할 인터페이스 경로(위치)" -->
+
     <!-- 내 포켓몬 존재 유무 -->
-    <select id="MyPokeExistCheck" resultType="web.model.dto.MyPokemonDto" parameterType="int">
+    <select id="myPokeExistCheck" resultType="web.model.dto.MyPokemonDto" parameterType="int">
         select * from mypokemon where uno = #{loginUno};
     </select>
+
+    <!-- 내 포켓몬 생성 -->
+    <insert id="myPokeAdd" parameterType="int">
+        insert into mypokemon (pokeno, stage, uno) values (0, 0, #{loginUno});
+    </insert>
+
 
 </mapper>   <!-- mapper end -->

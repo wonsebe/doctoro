@@ -7,7 +7,10 @@ import web.model.dto.MyPokemonDto;
 public interface MyPokemonDao {
 
     // 내 포켓몬 존재 유무
-    MyPokemonDto MyPokeExistCheck(int loginUno);
+    MyPokemonDto myPokeExistCheck(int loginUno);
+
+    // 내 포켓몬 생성
+    boolean myPokeAdd(int loginUno);
 
 
 }

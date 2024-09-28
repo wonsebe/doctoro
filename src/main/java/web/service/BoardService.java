@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.dao.BoardDao;
-import web.model.dto.BoardDto;
-import web.model.dto.BoardPageDto;
-import web.model.dto.CommentDto;
-import web.model.dto.UserDto;
+import web.model.dto.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +20,7 @@ public class BoardService {
     private BoardDao boardDao;
     @Autowired
     private UserService userService;
+    @Autowired private ExpLogService expLogService;
 
     //#################게시판 관련#################//
     //게시판 등록
@@ -48,7 +46,20 @@ public class BoardService {
         int uno = loginDto.getUno();
         //4. BoardDto 에 담아주기
         boardDto.setUno(uno);
-        return boardDao.bWrite(boardDto);
+
+        boolean result = boardDao.bWrite(boardDto);
+
+        if (result) {   // 게시판 글 등록 성공 시
+            // 경험치 기록 - 게시판 글쓰기 10 경험치
+            ExpLogDto expLogDto = ExpLogDto.builder()
+                    .expvalue(10)
+                    .expmethod("게시판 글쓰기")
+                    .build();
+            System.out.println("expLogDto = " + expLogDto);
+            expLogService.pokeExpLogAdd(expLogDto, uno);
+        }
+
+        return result;
     }
 
     //게시판 출력

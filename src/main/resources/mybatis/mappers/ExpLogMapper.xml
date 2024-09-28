@@ -6,5 +6,10 @@
 <mapper namespace="web.model.dao.ExpLogDao">    <!-- mapper start -->
     <!-- namespace="매핑할 인터페이스 경로(위치)" -->
 
+    <!-- 포켓몬 경험치 기록하기 -->
+    <insert id="pokeExpLogAdd" parameterType="web.model.dto.ExpLogDto">
+        insert into explog (expvalue, expmethod, mpno) values (#{expvalue}, #{expmethod}, #{mpno});
+    </insert>
+
 </mapper>   <!-- mapper end -->
 

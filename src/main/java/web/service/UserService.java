@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import web.model.dao.UserDao;
+import web.model.dto.ExpLogDto;
 import web.model.dto.UserDto;
 
 @Service
 public class UserService {
     @Autowired private UserDao userDao;
+    @Autowired private ExpLogService expLogService;
     @Autowired HttpServletRequest request;      // 현재 요청을 보낸 클라이언트의 HTTP 요청 정보를 가지고 있는 객체를 주입
 
     // 1. 회원가입
@@ -59,6 +61,14 @@ public class UserService {
             HttpSession session = request.getSession();
             // 2. 세션 객체에 속성 추가
             session.setAttribute("loginDto", loginDto);     // Object로 타입변환이 된다
+
+            // 경험치 기록 - 로그인 10 경험치
+            ExpLogDto expLogDto = ExpLogDto.builder()
+                    .expvalue(10)
+                    .expmethod("로그인")
+                    .build();
+            System.out.println("expLogDto = " + expLogDto);
+            expLogService.pokeExpLogAdd(expLogDto, result.getUno());
 
             return true;
         }

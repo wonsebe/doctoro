@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import web.model.dao.CommentplyDao;
 import web.model.dto.CommentDto;
+import web.model.dto.ExpLogDto;
 import web.model.dto.UserDto;
 
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.List;
 public class CommetnplyService {
     @Autowired private CommentplyDao commentplyDao;
     @Autowired private UserService userService;
+    @Autowired private ExpLogService expLogService;
+
     //대댓글 처리 기능 rest
 
     //################댓글관련########################//
@@ -31,8 +34,21 @@ public class CommetnplyService {
         commentDto.setUno(loginNo);
         System.out.println("BoardService.coment");
         System.out.println("commentDto = " + commentDto);
+
         // 5. boardDao에 저장
-        return commentplyDao.coment(commentDto);
+        boolean result = commentplyDao.coment(commentDto);
+
+        if (result) {   // 댓글 등록 성공 시
+            // 경험치 기록 - 댓글 작성 5 경험치
+            ExpLogDto expLogDto = ExpLogDto.builder()
+                    .expvalue(5)
+                    .expmethod("댓글 작성")
+                    .build();
+            System.out.println("expLogDto = " + expLogDto);
+            expLogService.pokeExpLogAdd(expLogDto, loginNo);
+        }
+
+        return result;
     }
 
     //댓글 출력

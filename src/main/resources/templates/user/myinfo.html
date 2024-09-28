@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>마이페이지</title>
+    <!-- CSS 호출 -->
+    <link href="/css/user/myinfo.css" rel="stylesheet" />
 </head>
 <body>
     <div th:replace="~{/header.html :: header }"></div>
@@ -17,6 +19,16 @@
 
         <button type="button" onclick="location.href='/user/update'">회원정보수정</button>
         <button type="button" onclick="location.href='/user/delete'">회원탈퇴</button>
+
+        <div id="myPokemon">
+            <div id="myPokeStatus">
+
+            </div>
+
+            <div id="expLogArea">
+
+            </div>
+        </div>
     </div>
 
     <script src="/js/user/myinfo.js"></script>
