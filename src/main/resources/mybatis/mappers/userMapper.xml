@@ -22,7 +22,7 @@
         select * from users where id = #{id} and password = #{password};
     </select>
 
-    <!-- 6. 마이페이지 -->
+    <!-- 6. 내 정보 호출 -->
     <select id="userMyInfo" resultType="web.model.dto.UserDto" parameterType="int">
         select * from users where uno = #{uno};
     </select>

@@ -48,7 +48,7 @@ public class UserController {
         userService.userLogout();
     }
 
-    // 6. 마이페이지
+    // 6. 내 정보 호출
     @GetMapping("/my/info")
     public UserDto userMyInfo() {
         System.out.println("UserController.userMyInfo");

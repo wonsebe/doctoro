@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.model.dao.MyPokemonDao">    <!-- mapper start -->
+    <!-- namespace="매핑할 인터페이스 경로(위치)" -->
+    <!-- 내 포켓몬 존재 유무 -->
+    <select id="MyPokeExistCheck" resultType="web.model.dto.MyPokemonDto" parameterType="int">
+        select * from mypokemon where uno = #{loginUno};
+    </select>
+
+</mapper>   <!-- mapper end -->

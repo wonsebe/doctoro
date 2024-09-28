@@ -1,6 +1,6 @@
 console.log('myinfo.js');
 
-// 1. 내정보 호출
+// 1. 내 정보 호출
 doMyInfo();
 function doMyInfo() {
     console.log('doMyInfo()');
@@ -57,3 +57,23 @@ function poke_rate_model_update() {
         }
     })
 }
+
+
+// 내 포켓몬 존재 유무
+myPokeExistCheck();
+function myPokeExistCheck() {   console.log('myPokeExistCheck()');
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/mypoke/exist',
+        success : (result) => {     console.log(result);
+            if (result == '') {
+                console.log('첫시작');
+            } else {
+                console.log('이미 생성됨');
+            }
+
+        }   // success end
+    })  // ajax end
+}   // myPokeExistCheck() end
+

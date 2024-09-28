@@ -15,7 +15,7 @@ public interface UserDao {
     // 3. 로그인
     UserDto userLogin(UserDto userDto);
 
-    // 6. 마이페이지
+    // 6. 내 정보 호출
     UserDto userMyInfo(int uno);
 
     // 7. 회원 정보 수정

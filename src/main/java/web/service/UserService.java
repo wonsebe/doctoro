@@ -86,7 +86,7 @@ public class UserService {
         session.invalidate();
     }
 
-    // 6. 마이페이지
+    // 6. 내 정보 호출
     public UserDto userMyInfo() {
         System.out.println("UserService.userMyInfo");
         UserDto loginDto = userLoginCheck();    // 로그인된 세션 정보 요청

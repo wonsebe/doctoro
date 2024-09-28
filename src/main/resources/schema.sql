@@ -4,16 +4,16 @@
 --use doctoro;
 
 -- [2] 테이블이 존재하면 삭제
-drop table if exists rankpokemon;
 drop table if exists reply;
 drop table if exists comment;
 drop table if exists board;
 drop table if exists category;
-drop table if exists users;
-drop table if exists ratepokemon;
 drop table if exists proposal;
 drop table if exists explog;
 drop table if exists mypokemon;
+drop table if exists users;
+drop table if exists rankpokemon;
+drop table if exists ratepokemon;
 
 -- [3] 테이블 생성
 -- 1. 회원 테이블
@@ -62,19 +62,7 @@ create table comment(
     foreign key(uno) references users (uno) on update cascade on delete cascade
 );
 
--- 5. 대댓글 테이블
-create table reply(
-    rno int auto_increment,
-    rcontent varchar(150) not null,
-    rdate datetime default now(),
-    cno int not null,
-    uno int not null,
-    primary key(rno),
-    foreign key(cno) references comment (cno) on update cascade on delete cascade,
-    foreign key(uno) references users (uno) on update cascade on delete cascade
-);
-
--- 6. 포켓몬 랭킹(인기) 테이블
+-- 5. 포켓몬 랭킹(인기) 테이블
 create table rankpokemon(
     pno int,
     click int default 0,
@@ -82,7 +70,7 @@ create table rankpokemon(
     primary key(pno)
 );
 
--- 7. 포켓몬 승률 예측 기록 테이블
+-- 6. 포켓몬 승률 예측 기록 테이블
 create table ratepokemon(
     rno int auto_increment,
     rscore float,
@@ -99,7 +87,7 @@ create table ratepokemon(
     primary key(rno)
 );
 
--- 8. 선호포켓몬 테이블
+-- 7. 선호포켓몬 테이블
 create table proposal(
 	prono int,
     uno int,
@@ -109,20 +97,20 @@ create table proposal(
     foreign key(pno) references rankpokemon (pno) on update cascade on delete cascade
 );
 
--- 9. 내 포켓몬 테이블
+-- 8. 내 포켓몬 테이블
 create table mypokemon(
     mpno int auto_increment,
     pokeno int not null,
-    step int not null,
+    stage int not null,
     uno int not null,
     primary key (mpno),
     foreign key(uno) references users (uno) on update cascade on delete cascade
 );
 
--- 10. 포켓몬 경험치 기록 테이블
+-- 9. 포켓몬 경험치 기록 테이블
 create table explog(
     eno int auto_increment,
-    expnum int not null,
+    expvalue int not null,
     expmethod varchar(30) not null,
     expdate datetime default now(),
     mpno int not null,
