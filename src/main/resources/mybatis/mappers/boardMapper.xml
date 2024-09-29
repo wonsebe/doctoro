@@ -93,10 +93,10 @@
         select * from category order by categoryno ;
     </select>
 
-    <!--4. 삭제 -->
-    <delete id="cDelete" parameterType="int">
-        DELETE FROM comment WHERE cno = #{cno}
-    </delete>
+<!--    &lt;!&ndash;4. 삭제 &ndash;&gt;-->
+<!--    <delete id="cDelete" parameterType="int">-->
+<!--        DELETE FROM comment WHERE cno = #{cno}-->
+<!--    </delete>-->
 
     <!-- 5.게시판 단어 빈도수 출력-->
     <select id="boardCount" resultType="web.model.dto.BoardDto">

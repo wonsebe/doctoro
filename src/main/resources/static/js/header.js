@@ -41,6 +41,7 @@ function doLoginCheck() {
                         <li> <a href="/rank/tnm">이상형월드컵</a> </li>
                         <li> <a href="/rank/get">랭킹보기</a> </li>
                         <li> <a href="/board/bprint">게시판</a> </li>
+                        <li> <a href="/chat">채팅방</a> </li>
                         <li> <a href="/user/login">로그인</a> </li>
                         <li> <a href="/user/signup">회원가입</a> </li>
                         `
@@ -54,6 +55,7 @@ function doLoginCheck() {
                         <li> <a href="/rank/tnm">이상형월드컵</a> </li>
                         <li> <a href="/rank/get">랭킹보기</a> </li>
                         <li> <a href="/board/bprint">게시판</a> </li>
+                        <li> <a href="/chat">채팅방</a> </li>
                         <li> <a href="/user/myinfo">마이페이지</a> </li>
                         <li> <a href="#" onclick="doLogout()">로그아웃</a> </li>
                         `
