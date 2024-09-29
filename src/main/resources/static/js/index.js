@@ -2,6 +2,7 @@ console.log('index.js');
 
 // 포켓몬 스토어 온라인 - 이벤트 페이지 일부 항목 크롤링 요청
 eventPokemon();
+firstprint();
 function eventPokemon() {       console.log('eventPokemon()');
     $.ajax({
         async : false,
@@ -62,13 +63,34 @@ prevBtn.addEventListener('click', function () {
     }   
 });
 
+let birth = []
+let gender = []
+
 function firstprint(){
     $.ajax({
         async : false,
         method : 'get',
-        url : 'http://localhost:5000/promodel',
+        url : '/user/login/check',
         success : r => {
-            console.log(r)
+            console.log(r['gender'])
+            console.log(r['ubirth'])
+
+            let birth = r['ubirth']
+            let ebirth = birth.slice(0,4)
+            ubirth.push = Number(ebirth)
+            console.log(ubirth)
+
+            gender.push = r['gender']
+            if(gender == 'M'){gender = 1}
+            else if(gender == 'F'){gender = 0}
+            console.log(gender)
+
         }
+    })
+}
+
+function seconde(){
+    $.ajax({
+
     })
 }
