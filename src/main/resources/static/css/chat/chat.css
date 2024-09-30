@@ -1,0 +1,72 @@
+*{
+    border:1px solid red;
+}
+
+#content{
+    width: 1280px;
+    height: 1000px;
+    margin: 0 auto;
+}
+#imgSend{
+    width: 40px;
+}
+#box{
+    display: flex;
+}
+.massageI{
+    width: 100%;
+
+}
+ /* .bu{
+
+} */
+ #user{
+    font-weight: bold;
+ }
+ .message{
+    font-size: 20px;
+    border:1px solid pink;
+    background-color: pink;
+    border-radius: 20px;
+ }
+
+.messageBox{
+width : 1280px;
+border: none;
+}
+.fromMsgBox{
+text-align : right;
+border: none;
+}
+.nam{
+    font-size: 20px;
+    border:1px solid rgb(37, 226, 201);;
+    background-color: rgb(37, 226, 201);
+    border-radius: 20px;
+}
+.content{
+    border:1px solid rgb(190, 170, 170);
+    color:black;
+    height:  30px;
+}
+.toMsgBox{
+text-align : left;
+border: none;
+}
+.alarmMsgBox{
+text-align : center;
+border: none;
+background-color : #1958D7;
+color:white;
+height: 30px;
+align-content: center;
+}
+input[type="text"]:focus {
+    outline: none; /* 포커스 시 테두리 제거 */
+    border: 1px solid #ccc; /* 기본 테두리 스타일 */
+}
+input[type="text"] {
+    border : 1px solid rgb(231, 231, 231);
+    outline: none; /* 포커스 시 테두리 제거 */
+    /* 필요시 다른 스타일 추가 */
+}

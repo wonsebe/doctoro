@@ -20,7 +20,7 @@ public class ChatController extends TextWebSocketHandler {
         //접속된 클라이언트 소켓을 접속명단에 저장
         connClient.add(session);
         //현재 접속된 인원수
-        System.out.println("서버소켓의 접속 인원 : "+connClient.size());
+        System.out.println("서버소켓의 접속 인원 : "+ connClient.size());
 
     }
 
@@ -31,14 +31,15 @@ public class ChatController extends TextWebSocketHandler {
         System.out.println("[서버웹소켓측] JS 클라이언트 웹소켓이 나감");
         //접속된 클라이언트소켓을 접속명단에서 제외
         connClient.remove(session);
-        //현재 접속된 인원수
-        System.out.println("서버소켓의 접속 인원: "+connClient.size());
+        System.out.println("서버소켓의 접속인원 :"+connClient.size());
+        TextMessage textMessage=new TextMessage("Hello, ClientSocket");
+        handleTextMessage(null,textMessage);
     }
     // 3. 클라이언트가 서버 웹소켓에 메세지를 보냈을 때 // 서버가 메세지를 받을 때 이후 로직 구현
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        System.out.println("session = " + session);
+        System.out.println("session = " + session+" message = " + message);
         System.out.println(message.getPayload());
         //특정한 세션으로 받은 메세지 내용들 현재 접속된 다른 세션에게도 전달
             //모든 접속된 클라이언트소켓 하나씩 꺼내기

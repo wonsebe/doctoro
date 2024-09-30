@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="/css/chat/chat.css" rel="stylesheet" />
 </head>
+
+
 <body>
-<div th:replace="~{/header.html :: header }"></div>
-<h3> 채팅방 </h3>
-<button onclick="messageSend()">전송</button>
-<div>
-    <!-- <div class="messageBox">
+    <div th:replace="~{/header.html :: header }"></div>
 
-    </div> -->
-    <!-- <input type="text" class="massageI"/> -->
+   
+    <div id="content">
+        <h3> 채팅방 </h3>
 
-</div>
-
-<script src="/js/chat/chat.js"></script>
+<!--        <div class="content">-->
+<!--            <p>1. 정치 종료 등 갈등으로 이어질 수 있는 주제 보다는 누구나 미소 지을 수 있는 글을 올려주세요<br/><br/>-->
+<!--            2.상호 간에 존칭을 사용해주세요 손아랫 사람일지라도! 혹여 초등학생이 들어오더라도 존중해주세요 </p> <br/>-->
+<!--        </div>-->
+        <div class="messageBox" >
+           
+        
+        </div>
+        
+        <div id="box">
+        <input type="text" class="massageI" />
+        <a href="#" onclick="messageSend()"> <img id="imgSend" src="/img/포켓몬볼.png" /> </a>
+        <!-- <button class="bu" onclick="messageSend()">전송</button> -->
+        </div>
+    </div>
+    <script src="/js/chat/chat.js"></script>
 </body>
 </html>
