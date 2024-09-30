@@ -18,13 +18,14 @@
         where mpno = #{myPokeNo};
     </select>
 
-    <!-- 내 포켓몬 경험치 기록 최근 20개 가져오기 -->
-<!--    <select id="expLogPrint" resultType="String" parameterType="int">-->
-<!--        select *-->
-<!--        from explog-->
-<!--        where mpno = 43-->
-<!--        order by eno desc;-->
-<!--    </select>-->
+    <!-- 내 포켓몬 경험치 기록 최근 10개 가져오기 -->
+    <select id="expLogPrint" resultType="web.model.dto.ExpLogDto" parameterType="int">
+        select *
+        from explog
+        where mpno = #{myPokeNo}
+        order by eno desc
+        limit 10;
+    </select>
 
 
 </mapper>   <!-- mapper end -->

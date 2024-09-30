@@ -354,6 +354,26 @@ function rate_cal() {
                     </table>`
 
             cal_content.innerHTML = html;
+
+            // 경험치 기록 - 포켓몬 1:1 대결 비교, 5 경험치
+            console.log(loginNo);   // 현재 로그인된 유저 번호 확인
+            if (loginNo > 0) {  // 현재 로그인된 경우만 경험치 지급
+                $.ajax({
+                    async : false,
+                    method : 'post',
+                    url : '/exp/add',
+                    data : {
+                        expvalue : 5,
+                        expmethod : '포켓몬 1:1 대결 비교',
+                        loginUno : loginNo
+                    },
+                    success : (result) => {     console.log(result);
+                        
+                        
+                    }   // success end
+                })  // ajax end
+            }
+
         }
 
     })

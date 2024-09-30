@@ -14,8 +14,8 @@ public interface ExpLogDao {
     // 총 경험치 값 가져오기
     String expTotal(int myPokeNo);
 
-    // 내 포켓몬 경험치 기록 최근 20개 가져오기
-    List<ExpLogDto> expLogPrint();
+    // 내 포켓몬 경험치 기록 최근 10개 가져오기
+    List<ExpLogDto> expLogPrint(int myPokeNo);
 
 
 }

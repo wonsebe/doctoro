@@ -49,10 +49,21 @@ public class ExpLogService {
         return Integer.parseInt(expSum);
     }
 
-    // 내 포켓몬 경험치 기록 최근 20개 가져오기
-    public List<ExpLogDto> expLogPrint() {
+    // 내 포켓몬 경험치 기록 최근 10개 가져오기
+    public List<ExpLogDto> expLogPrint(int loginUno) {
         System.out.println("ExpLogService.expLogPrint");
-        return expLogDao.expLogPrint();
+
+        MyPokemonDto myPokemonDto = myPokemonDao.myPokeExistCheck(loginUno);    // 내 포켓몬 번호 가져오기
+        if (myPokemonDto == null) {     // 내 포켓몬이 존재하지 않은 경우
+            return null;
+        }
+        int myPokeNo = myPokemonDto.getMpno();
+        System.out.println("myPokeNo = " + myPokeNo);
+
+        List<ExpLogDto> expLogDtoList = expLogDao.expLogPrint(myPokeNo);
+        System.out.println("expLogDtoList = " + expLogDtoList);
+
+        return expLogDtoList;
     }
 
 

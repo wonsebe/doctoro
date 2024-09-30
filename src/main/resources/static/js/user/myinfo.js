@@ -64,6 +64,7 @@ let maxExp = 0;         // 최대 경험치량
 let stage = 0;          // 내 포켓몬 현재 단계
 let evolve = false;     // 진화 가능 여부
 let uno = 0;            // 유저 번호
+let expLogDto = [];     // 내 포켓몬 경험치 기록 // ajax로부터 응답받은 객체를 저장하는 변수 
 
 // 내 포켓몬 존재 유무에 따른 포켓몬 출력
 myPokeExistCheck();
@@ -88,9 +89,11 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
             } else {
                 console.log('이미 생성');
 
+                expLogPrint();      // 내 포켓몬 경험치 기록 최근 10개 가져오기
+
                 stage = result.stage;
 
-                expTotal();     // 총 경험치 값 가져오기
+                expTotal();         // 총 경험치 값 가져오기
 
                 let myPokeStatus = document.querySelector('#myPokeStatus');
 
@@ -183,6 +186,7 @@ function reset() {  console.log('reset()');
             success : (result) => {     console.log(result);
                 if (result) {
                     alert('초기화가 완료되었습니다.');
+                    expLogPrint();          // 내 포켓몬 경험치 기록 최근 10개 가져오기
                     myPokeExistCheck();
                 } else {
                     alert('초기화 하는 데에 실패하였습니다. 다시 시도해주세요.');
@@ -368,4 +372,52 @@ function doEvolve(myStage) {    console.log('doEvolve()');
         }   // success end
     })  // ajax end
 }   // doEvolve() end
+
+// 내 포켓몬 경험치 기록 최근 10개 가져오기
+function expLogPrint() {    console.log('expLogPrint()');
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/exp/log',
+        data : { loginUno : uno },
+        success : (result) => {     console.log(result);
+            expLogDto = result;     // 응답 데이터의 타입이 Array , Object인지 확인 필요함.
+
+        }   // success end
+    })  // ajax end
+
+    let expLogAreaTbody = document.querySelector('#expLogAreaTbody');
+    let expLogArea = document.querySelector('#expLogArea');
+
+    let html = ``;
+
+    console.log(expLogDto.length);  // 내 포켓몬 경험치 기록 개수
+
+    if (expLogDto != '') {  // 내 포켓몬 경험치 기록이 있는 경우
+        for (let i = 0; i < expLogDto.length; i++) {
+            html += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${expLogDto[i].expmethod}</td>
+                        <td>${expLogDto[i].expvalue}</td>
+                        <td>${expLogDto[i].expdate}</td>
+                    </tr>
+                    `;
+        }   // for end
+
+        expLogAreaTbody.innerHTML = html;
+    } else {    // 내 포켓몬 경험치 기록이 없는 경우
+        html += `
+                <thead>
+                </thead>
+                <tbody id="expLogAreaTbody">
+                    <tr> <td>경험치 기록이 존재하지 않습니다.</td> </tr>
+                </tbody>
+                `;
+
+        expLogArea.innerHTML = html;
+    }
+
+}   // expLogPrint() end
+
 

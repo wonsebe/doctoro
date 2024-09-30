@@ -1,5 +1,7 @@
 console.log('header.js');
 
+let loginNo = 0;    // 현재 로그인된 유저 번호
+
 // 1. 로그인 체크
 doLoginCheck();
 function doLoginCheck() {
@@ -14,6 +16,8 @@ function doLoginCheck() {
             let uno = result['uno']
             let gender = result['gender']
             let ubirth = result['ubirth']
+
+            loginNo = uno;      // 현재 로그인된 유저 번호 저장
 
             if(uno && gender && ubirth) {
                 $.ajax({
