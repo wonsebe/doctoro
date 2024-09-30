@@ -1,5 +1,4 @@
 package web.controller;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -116,7 +115,10 @@ public class ViewController {
         return "/base-stats/base-stats.html";
     }
 
-
-
+    // ================= 채팅방 관련 ========================== //
+    @GetMapping("/chat")
+    public String chat(){
+        return "/chat/chat.html";
+    }
 
 }
