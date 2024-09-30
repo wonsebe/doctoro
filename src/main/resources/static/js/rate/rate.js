@@ -194,8 +194,6 @@ function poke_read2() {
             }
             html += `<tr>
                         <td>
-                        </td>
-                        <td>
                             <div class="cards">
                                 <figure class="card">
                                     <img src="${result.이미지}" />
@@ -203,61 +201,63 @@ function poke_read2() {
                                 </figure>
                             </div>
                         <td>
+                        <td>
+                        </td>
                     </tr>
                     <tr>
-                        <td>
-                            체력
-                        </td>
                         <td>
                             ${result.체력}
                         </td>
+                        <td>
+                            체력
+                        </td>
                     </tr>
                     <tr>
-                        <td>
-                            공격
-                        </td>
                         <td>
                             ${result.공격}
                         </td>
+                        <td>
+                            공격
+                        </td>
                     </tr>
                     <tr>
-                        <td>
-                            방어
-                        </td>
                         <td>
                             ${result.방어}
                         </td>
+                        <td>
+                            방어
+                        </td>
                     </tr>
                     <tr>
-                        <td>
-                            스피드
-                        </td>
                         <td>
                             ${result.스피드}
                         </td>
+                        <td>
+                            스피드
+                        </td>
                     </tr>
                     <tr>
-                        <td>
-                            특수공격
-                        </td>
                         <td>
                             ${result.특수공격}
                         </td>
+                        <td>
+                            특수공격
+                        </td>
                     </tr>
                     <tr>
-                        <td>
-                            특수방어
-                        </td>
                         <td>
                             ${result.특수방어}
                         </td>
+                        <td>
+                            특수방어
+                        </td>
                     </tr>
                     <tr>
                         <td>
-                            타입
+                            ${kr_type} ${result.타입}
                         </td>
                         <td>
-                            ${kr_type} ${result.타입}
+                            타입
                         </td>
                     </tr>
                     `;
@@ -270,9 +270,6 @@ function poke_read2() {
                     console.log(result);
                     html += `<tr>
                                         <td>
-                                            기술 선택
-                                        </td>
-                                        <td>
                                             <select name="" id="poke_select_skill2">`
                     result.forEach(r => {
                         html += `
@@ -281,6 +278,9 @@ function poke_read2() {
                     })
                     html += `
                                             </select>
+                                        </td>
+                                        <td>
+                                            기술 선택
                                         </td>
                                     </tr>`;
 
@@ -306,7 +306,7 @@ function rate_cal() {
             console.log(result)
             let cal_content = document.querySelector(".modal-body");
             let html = ``;
-            html += `<table>
+            html += `<table class = "rate_modal">
                         <thead>
                             <tr>
                                 <th>
@@ -495,15 +495,19 @@ function pred_print() {
             kr_type = type_trans(result.타입)
             html += `<tr>
                         <td>
-                        </td>
-                        <td>
                             <div class="cards">
                                 <figure class="card">
                                     <img src="${result.이미지}" />
                                     <figcaption>${result.한글이름} <br>${result.영어이름} </figcaption>
                                 </figure>
                             </div>
+                        </td>
                         <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal2" onclick="rate_predict_from_model()">
+                                예측 결과 보기
+                        </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>
