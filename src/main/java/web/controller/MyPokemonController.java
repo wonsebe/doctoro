@@ -1,10 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.model.dto.MyPokemonDto;
 import web.service.MyPokemonService;
 
@@ -27,8 +24,18 @@ public class MyPokemonController {
         return myPokemonService.myPokeAdd();
     }
 
+    // 내 포켓몬 초기화
+    @DeleteMapping("/reset")
+    public boolean myPokeReset() {
+        System.out.println("MyPokemonController.myPokeReset");
+        return myPokemonService.myPokeReset();
+    }
 
-
-
+    // 내 포켓몬 진화
+    @PutMapping("/evolve/new")
+    public boolean myPokeEvolve(MyPokemonDto myPokemonDto) {
+        System.out.println("MyPokemonController.myPokeEvolve");
+        return myPokemonService.myPokeEvolve(myPokemonDto);
+    }
 
 }

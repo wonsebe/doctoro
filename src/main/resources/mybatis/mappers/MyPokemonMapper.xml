@@ -16,5 +16,17 @@
         insert into mypokemon (pokeno, stage, uno) values (0, 0, #{loginUno});
     </insert>
 
+    <!-- 내 포켓몬 초기화 -->
+    <update id="myPokeReset" parameterType="int">
+        delete from mypokemon where uno = #{loginUno};
+    </update>
+
+    <!-- 내 포켓몬 진화 -->
+    <update id="myPokeEvolve" parameterType="web.model.dto.MyPokemonDto">
+        update mypokemon
+        set pokeno = #{pokeno}, stage = #{stage}
+        where uno = #{uno};
+    </update>
+
 
 </mapper>   <!-- mapper end -->

@@ -11,5 +11,21 @@
         insert into explog (expvalue, expmethod, mpno) values (#{expvalue}, #{expmethod}, #{mpno});
     </insert>
 
+    <!-- 총 경험치 값 가져오기 -->
+    <select id="expTotal" resultType="String" parameterType="int">
+        select sum(expvalue) as "총경험치"
+        from explog
+        where mpno = #{myPokeNo};
+    </select>
+
+    <!-- 내 포켓몬 경험치 기록 최근 20개 가져오기 -->
+<!--    <select id="expLogPrint" resultType="String" parameterType="int">-->
+<!--        select *-->
+<!--        from explog-->
+<!--        where mpno = 43-->
+<!--        order by eno desc;-->
+<!--    </select>-->
+
+
 </mapper>   <!-- mapper end -->
 
