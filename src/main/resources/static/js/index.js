@@ -66,7 +66,7 @@ prevBtn.addEventListener('click', function () {
 
 //유저 정보 가져오기
 function checkuinfo(){
-    alert('123');
+//    alert('123');
     $.ajax({
         async : false,
         method : 'get',
@@ -96,12 +96,12 @@ function checkuinfo(){
                     let card = document.querySelector('.card');
                     html = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result}.png">`
                     card.innerHTML = html
-                    alert('456');
+//                    alert('456');
                 },
                 error : x => {
                     console.log(x)
                     console.log('error')
-                    alert('789');
+//                    alert('789');
                 }
             })
 
