@@ -3,8 +3,65 @@
   margin: 0 auto;
 }
 
-.poke_Wrap {
+.poke_Wrap1 {
   display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.poke_Wrap2 {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+td,
+th {
+  text-align: center !important;
+}
+
+.poke_Wrap2 {
+  display: flex;
+  margin: 0 auto;
+}
+
+.poke_select_box1 {
+  width: 256px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.poke_select_box2 {
+  width: 256px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+}
+
+.poke_select_box3 {
+  width: 256px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#poke_select1,
+#poke_select2,
+#poke_select3,
+#poke_select_skill1,
+#poke_select_skill2,
+#poke_select_skill3 {
+  width: 210px;
+  text-align: center;
+}
+
+.modal-body {
+  margin: 0 auto;
+}
+
+.rate_modal {
   margin: 0 auto;
 }
 
