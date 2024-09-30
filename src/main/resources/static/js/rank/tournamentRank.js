@@ -97,7 +97,7 @@ function 게임시작(){
 
         let ch1 = document.querySelector('.ch1');
         let ch2 = document.querySelector('.ch2');
-        let tround = document.querySelector('.tround');
+//        let tround = document.querySelector('.tround');
 
         con1 = 포켓몬목록[`${selectRound[selectNo]}`][num1][2]
         con2 = 포켓몬목록[`${selectRound[selectNo]}`][num2][2]
@@ -107,11 +107,11 @@ function 게임시작(){
 
         html1 = `<div class="cards"> <figure class="card"> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con1}.png" onclick="포켓몬선택(${ num1 },${ num2 } ); clickup(${con1});"> <figcaption>${name1}</figcaption> </figure> </div>`
         html2 = `<div class="cards"> <figure class='card'> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${con2}.png" onclick="포켓몬선택(${ num2 },${ num1 } ); clickup(${con2});"> <figcaption>${name2}</figcaption> </figure> </div>`
-        html3 = `<tr> <td class="round"> ${selectRound[selectNo]}강/${포켓몬목록[`${selectRound[selectNo]}`].length} </td> </tr>`
+//        html3 = `<tr> <td class="round"> ${selectRound[selectNo]}강/${포켓몬목록[`${selectRound[selectNo]}`].length} </td> </tr>`
 
         ch1.innerHTML = html1
         ch2.innerHTML = html2
-        tround.innerHTML = html3
+//        tround.innerHTML = html3
 
 //        if(포켓몬목록[`${selectNo}`][0].length == 0){round32();}
 //        console.log(포켓몬목록['r32'])
@@ -130,7 +130,7 @@ function 포켓몬선택(index, index2){
 
         winup(num)
 
-        html = `<tr> <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png"> </td> <td> <span> ${win} </span> </td> </tr>`;
+        html = `<div class="center"> <div class="cards"> <figure class='card'> <h3 style="display : flex; justify-content: center;"> 우승 </h3> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png"> <figcaption> ${win} </figcaption> </figure> </div> </div>`;
 //        html2 = `<tr> <td> <span> WINNER </span> </td> </tr>`;
 //        html3 = `<tr> <th> </th> <span> WINNER </span> <th> <span> NUM </span> </th> </tr>`;
 
@@ -160,4 +160,12 @@ function 포켓몬선택(index, index2){
 
 
     게임시작();
+}
+
+function deleteDiv(){
+    let div = document.querySelector('.round');
+
+    if(div){
+    div.remove();
+    }
 }

@@ -1,3 +1,7 @@
+.tnmtbody{
+    display : flex
+}
+
 .abs,
 h2:after,
 .cards .card figcaption,
@@ -83,6 +87,7 @@ h2:after {
 .cards,
 .news {
   flex-flow: row wrap;
+  margin-left : 150px
 }
 .cards .card,
 .news .card {
@@ -112,7 +117,7 @@ h2:after {
   padding-bottom: 10px;
   font-size: 20px;
   background: none;
-  color: #fff;
+  color: black;
   transform: translateY(100%);
   transition: 0.3s;
 }
@@ -161,7 +166,44 @@ h2:after {
   opacity: 0.15;
 }
 
-.round{display : flex;
-  align-content: center;  
+.round{
+    width : 600px;
+    height : 300px;
+    margin : 0 auto;
+    display : flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border : 1px solid red;
+    margin-top: 150px;
+}
+
+.round > h3 {
+    padding-top : 20px
+    margin-top : 20px;
+    margin-bottom : 20px;
+    font-size : 50px;
+}
+
+.round > select {
+    width : 200px;
+    height : 40px;
+    padding : 5px;
+    font-size : 20px;
+}
+
+.round > button {
+    width : 200px;
+    height : 50px;
+    padding : 10px;
+    font-size : 20px;
+    background : #373d47;
+    color : #fff;
+
+}
+
+.center{
+    display : flex;
+    margin-left : 400px;
 }
 .tournament{display : flex;}

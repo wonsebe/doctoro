@@ -1,7 +1,5 @@
 console.log('header.js');
 
-let loginNo = 0;    // 현재 로그인된 유저 번호
-
 // 1. 로그인 체크
 doLoginCheck();
 function doLoginCheck() {
@@ -13,27 +11,6 @@ function doLoginCheck() {
         success: (result) => {
             console.log(result);
             let html = '';
-            let uno = result['uno']
-            let gender = result['gender']
-            let ubirth = result['ubirth']
-
-            loginNo = uno;      // 현재 로그인된 유저 번호 저장
-
-            if(uno && gender && ubirth) {
-                $.ajax({
-                    async: false,
-                    method: 'post',
-                    url: 'http://localhost:5000/model',
-                    data : JSON.stringify({uno : uno, gender : gender ,ubirth : ubirth}),
-                    contentType : 'application/json',
-                    success: (r) => {
-                        console.log(r);
-                    },
-                    error: (xhr, status, error) => {
-                        console.error('Error:', error);
-                        }
-                })
-            }
             // 로그인 상태에 따른 메뉴 구성
             if (result == '') {
                 // 비로그인 상태인 경우
