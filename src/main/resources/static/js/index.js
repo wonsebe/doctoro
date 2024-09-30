@@ -2,7 +2,8 @@ console.log('index.js');
 
 // 포켓몬 스토어 온라인 - 이벤트 페이지 일부 항목 크롤링 요청
 eventPokemon();
-firstprint();
+checkuinfo();
+
 function eventPokemon() {       console.log('eventPokemon()');
     $.ajax({
         async : false,
@@ -63,10 +64,9 @@ prevBtn.addEventListener('click', function () {
     }   
 });
 
-let birth = []
-let gender = []
-
-function firstprint(){
+//유저 정보 가져오기
+function checkuinfo(){
+    alert('123');
     $.ajax({
         async : false,
         method : 'get',
@@ -77,20 +77,34 @@ function firstprint(){
 
             let birth = r['ubirth']
             let ebirth = birth.slice(0,4)
-            ubirth.push = Number(ebirth)
-            console.log(ubirth)
+            let ubirth = Number(ebirth)
+            ubirth = 2024 - ubirth
+            console.log(typeof(ubirth))
 
-            gender.push = r['gender']
+            let gender = r['gender']
             if(gender == 'M'){gender = 1}
             else if(gender == 'F'){gender = 0}
             console.log(gender)
 
+            $.ajax({
+                async : false,
+                method : 'get',
+                url : 'http://localhost:5000/model',
+                data : {ubirth : ubirth, gender : gender },
+                success : (result) => {
+                    console.log(result)
+                    let card = document.querySelector('.card');
+                    html = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result}.png">`
+                    card.innerHTML = html
+                    alert('456');
+                },
+                error : x => {
+                    console.log(x)
+                    console.log('error')
+                    alert('789');
+                }
+            })
+
         }
-    })
-}
-
-function seconde(){
-    $.ajax({
-
     })
 }
