@@ -1,8 +1,10 @@
 console.log('index.js');
 
+
+
 // 포켓몬 스토어 온라인 - 이벤트 페이지 일부 항목 크롤링 요청
 eventPokemon();
-checkuinfo();
+
 
 function eventPokemon() {       console.log('eventPokemon()');
     $.ajax({
@@ -26,45 +28,46 @@ function eventPokemon() {       console.log('eventPokemon()');
             console.log(html);
 
             slides.innerHTML = html;
+
         }   // success end
     })  // ajax end
 }   // eventPokemon() end
 
-
-// 이벤트 항목 멀티 슬라이드
-var slides = document.querySelector('.slides'),
-    slide = document.querySelectorAll('.slides li'),
-    currentIdx = 0,
-    slideCount = slide.length,
-    slideWidth = 300,
-    slideMargin = 30,
-    prevBtn = document.querySelector('.prev'),
-    nextBtn = document.querySelector('.next');
-
+var slides = document.querySelector('.slides');
+console.log( slides )
+var slide = document.querySelectorAll('.slides li');
+console.log( slide )
+var currentIdx = 0;
+var slideCount = slide.length;
+var  slideWidth = 300;
+var slideMargin = 30;
+var prevBtn = document.querySelector('.prev');
+var nextBtn = document.querySelector('.next');
 slides.style.width = (slideWidth + slideMargin) * slideCount - slideMargin + 'px';
+
 
 function moveSlide(num) {
     slides.style.left = -num * 330 + 'px';
     currentIdx = num;
 }
-
-nextBtn.addEventListener('click', function () {
-    if( currentIdx < slideCount - 3){
-        moveSlide(currentIdx + 1);
-    }else{
-        moveSlide(0);
-    }   
-});
-
-prevBtn.addEventListener('click', function () {
+function onPrev(){
     if( currentIdx > 0){
         moveSlide(currentIdx - 1);
     }else{
         moveSlide(slideCount - 3);
-    }   
-});
+    }
+}
+function onNext(){
+    if( currentIdx < slideCount - 3){
+        moveSlide(currentIdx + 1);
+    }else{
+        moveSlide(0);
+    }
+}
+
 
 //유저 정보 가져오기
+checkuinfo();
 function checkuinfo(){
 //    alert('123');
     $.ajax({
