@@ -156,3 +156,15 @@ marquee > span {
 .card4{
     border: 1px solid #dddddd;
 }
+.contentTop1  .card-title{
+    font-size: 20px;
+    font-family: 'yg-jalnan';
+    margin: 10px 0px;
+}
+.contentTop1  .card-text{
+    letter-spacing: 0.5px;
+}
+.contentTop1 .aipoint{
+    font-size: 28px;
+    font-family: 'yg-jalnan';
+}
