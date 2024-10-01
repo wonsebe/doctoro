@@ -46,7 +46,8 @@ clientSocket.onmessage=(messageEvent)=>{
     console.log(msg);
         //2-1 알람 메세지
     if(msg.type == 'alarm'){
-        messageBox.innerHTML += `<div class="alarmMsgBox">
+        messageBox.innerHTML += `<br/><br/><br/>
+                                <div class="alarmMsgBox">
                                     <span> ${msg.message}</span><br/>
                                 </div>`;
          return //알람 메세지를 HTML 출력 후 일반 메세지 HTML 코드가 실행되지 않도록 함수 종료
@@ -58,21 +59,34 @@ clientSocket.onmessage=(messageEvent)=>{
     }
     
     if (msg.from == nick) { // 내가 보낸 메시지
-        messageBox.innerHTML += `<div class="fromMsgBox">
+        messageBox.innerHTML += `
+                            <div class="fromMsgBox">
+                                 <div class="userpo">
+                                    <img id="imgfi" src="/img/파이리아이콘-removebg-preview.png" />
                                     <div id="user"> ${msg.from}</div>
-                                    <div>
-                                        <span> ${msg.date.split(' ')[4]}</span>
-                                        <span class="message"> ${msg.message}</span>
-                                    </div><br/>
-                                </div>`;
+                                </div>
+                                        <div>
+                                            <span> ${msg.date.split(' ')[4]}</span>
+                                            <span class="message"> ${msg.message}</span><br/><br/>
+                                        </div>
+                            </div>
+                              
+                                `
+                                ;
     } else { // 남이 보낸 메시지
         messageBox.innerHTML += `<div class="toMsgBox">
-                                    <div> ${msg.from}</div>
-                                    <div>
-                                         <span class="nam"> ${msg.message}</span>
-                                         <span> ${msg.date.split(' ')[4]}</span>
+                                        
+                                        <div class="userpot">
+                                        <img id="imgEE" src="/img/이브이아이콘-removebg-preview.png" />
+                                        <div id="user"> ${msg.from}</div>
+                                       </div>
+                                        <div>
+                                            <span class="nam"> ${msg.message}</span>
+                                            <span> ${msg.date.split(' ')[4]}</span><br/><br/>
+                                        </div>
                                     </div>
-                                </div>`;
+                                
+                                `;
     }
     // 다른 사람이 보낸 메시지는 메시지가 먼저 보이고, 자신의 메시지는 시간 정보가 먼저 보이도록 설정된 것
 }
