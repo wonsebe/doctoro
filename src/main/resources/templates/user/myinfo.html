@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>마이페이지</title>
-    
+
     <!-- CSS 호출 -->
     <link href="/css/user/myinfo.css" rel="stylesheet" />
 </head>
@@ -11,16 +11,19 @@
     <div th:replace="~{/header.html :: header }"></div>
 
     <div id="content">
-        마이페이지
+        <h5 class="myInformation">내 정보</h5>
 
         <div id="myinfo">
 
             
         </div> <br>
 
-        <button type="button" onclick="location.href='/user/update'">회원정보수정</button>
-        <button type="button" onclick="location.href='/user/delete'">회원탈퇴</button>
+        <div class="myInfoBtn">
+            <button type="button" class="myInfoUpdate" onclick="location.href='/user/update'">회원정보수정</button>
+            <button type="button" class="myInfoDelete" onclick="location.href='/user/delete'">회원탈퇴</button>
+        </div>
 
+        <h5 class="myPokeInfo">나의 포켓몬</h5>
         <div id="myPokemon">
             <div id="myPokeStatus">
 
