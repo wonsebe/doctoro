@@ -74,12 +74,12 @@ function baseStatsAllPrint(name) {      console.log('baseStatsAllPrint()');
                             <td><img src="${포켓몬.이미지}" /></td>
                             <td>${포켓몬.한글이름} (${포켓몬.영어이름})</td>
                             <td>${포켓몬.타입}</td>
-                            <td>${포켓몬.체력}</td>
-                            <td>${포켓몬.공격}</td>
-                            <td>${포켓몬.방어}</td>
-                            <td>${포켓몬.특수공격}</td>
-                            <td>${포켓몬.특수방어}</td>
-                            <td>${포켓몬.스피드}</td>
+                            <td class="hp">${포켓몬.체력}</td>
+                            <td class="attack">${포켓몬.공격}</td>
+                            <td class="defense">${포켓몬.방어}</td>
+                            <td class="sp-attack">${포켓몬.특수공격}</td>
+                            <td class="sp-defense">${포켓몬.특수방어}</td>
+                            <td class="speed">${포켓몬.스피드}</td>
                             <td>${total}</td>
                         </tr>
                         `
@@ -138,7 +138,7 @@ function baseStatsPercentPrint(stats) {      console.log('baseStatsPercentPrint(
                         <th> <button type="button" onclick="baseStatsAllPrint('특수방어')">특수방어</button> </th>
                         <th> <button type="button" onclick="baseStatsAllPrint('스피드')">스피드</button> </th>
                         <th> <button type="button" onclick="baseStatsAllPrint('총합')">총합</button> </th>
-                        <th> <button type="button" >상위퍼센트</button> </th>
+                        <th> <button type="button" >상위 퍼센트</button> </th>
                         `
             } else {
                 console.log('false');
@@ -148,9 +148,26 @@ function baseStatsPercentPrint(stats) {      console.log('baseStatsPercentPrint(
                         <th> <button type="button" onclick="baseStatsAllPrint('한글이름')">포켓몬</button> </th>
                         <th> <button type="button" onclick="baseStatsAllPrint('타입')">타입</button> </th>
                         <th> <button type="button" onclick="baseStatsAllPrint('${stats}')">${stats}</button> </th>
-                        <th> <button type="button" >상위퍼센트</button> </th>
+                        <th> 상위 퍼센트 </th>
                         `
             }
+
+            // stats 값에 따른 css class 값 부여
+            let baseStatsTd = '';
+            if (stats == '체력') {
+                baseStatsTd = "hp"
+            } else if (stats == '공격') {
+                baseStatsTd = "attack"
+            } else if (stats == '방어') {
+                baseStatsTd = "defense"
+            } else if (stats == '특수공격') {
+                baseStatsTd = "sp-attack"
+            } else if (stats == '특수방어') {
+                baseStatsTd = "sp-defense"
+            } else if (stats == '스피드') {
+                baseStatsTd = "speed"
+            }
+            console.log(baseStatsTd);
 
             result.forEach(포켓몬 => {
                 if (stats == '총합') {
@@ -160,12 +177,12 @@ function baseStatsPercentPrint(stats) {      console.log('baseStatsPercentPrint(
                                 <td><img src="${포켓몬.이미지}" /></td>
                                 <td>${포켓몬.한글이름} (${포켓몬.영어이름})</td>
                                 <td>${포켓몬.타입}</td>
-                                <td>${포켓몬.체력}</td>
-                                <td>${포켓몬.공격}</td>
-                                <td>${포켓몬.방어}</td>
-                                <td>${포켓몬.특수공격}</td>
-                                <td>${포켓몬.특수방어}</td>
-                                <td>${포켓몬.스피드}</td>
+                                <td class="hp">${포켓몬.체력}</td>
+                                <td class="attack">${포켓몬.공격}</td>
+                                <td class="defense">${포켓몬.방어}</td>
+                                <td class="sp-attack">${포켓몬.특수공격}</td>
+                                <td class="sp-defense">${포켓몬.특수방어}</td>
+                                <td class="speed">${포켓몬.스피드}</td>
                                 <td>${포켓몬.총합}</td>
                                 <td>${포켓몬.상위퍼센트}%</td>
                             </tr>
@@ -177,7 +194,7 @@ function baseStatsPercentPrint(stats) {      console.log('baseStatsPercentPrint(
                                 <td><img src="${포켓몬.이미지}" /></td>
                                 <td>${포켓몬.한글이름} (${포켓몬.영어이름})</td>
                                 <td>${포켓몬.타입}</td>
-                                <td>${포켓몬[stats]}</td>
+                                <td class="${baseStatsTd}">${포켓몬[stats]}</td>
                                 <td>${포켓몬.상위퍼센트}%</td>
                             </tr>
                             `
