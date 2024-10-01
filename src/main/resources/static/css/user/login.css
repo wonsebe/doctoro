@@ -53,6 +53,8 @@ label {
     margin-top: 10px;
     margin-bottom: 20px;
     letter-spacing: 5.5px;         /* 자간 조정 */
+    background-color: #bc97d2;
+    outline: none;
 }
 
 .userHref {
