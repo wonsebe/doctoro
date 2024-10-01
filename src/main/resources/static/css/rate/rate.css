@@ -49,6 +49,8 @@ th {
 
 .btn {
   background-color: #bc97d2 !important;
+  border: none !important;
+
 }
 
 #poke_select1,
