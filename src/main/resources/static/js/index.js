@@ -153,7 +153,8 @@ function checkuinfo(){
                         success : e => {
                             console.log(e[result-1])
                             let cardbod = document.querySelector('.card-body')
-                            html = `<p class="card-text"> ${e[result-1]['한글정보2']} </p>`;
+                            html = `<h5 class="card-title">${e[result-1]['한글이름']}</h5>
+                                    <p class="card-text"> ${e[result-1]['한글정보2']} </p>`;
 
                             let card1 = document.querySelector('.card-body1')
                             html1 = `<h5 class="card-title">${e[random1-1]['한글이름']}</h5>
