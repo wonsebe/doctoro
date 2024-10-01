@@ -34,10 +34,12 @@
     margin-top: 40px;
     padding: 40px;
     border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
 }
 
 label {
     letter-spacing: 0.5px;         /* 자간 조정 */
+    font-size: 15px;
 }
 
 .inputBox {
@@ -45,15 +47,22 @@ label {
     height: 30px;
     margin-bottom: 15px;
     padding : 5px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
 }
 
-.btn {
+.btns {
     width: 350px;
     height: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
-    letter-spacing: 5.5px;         /* 자간 조정 */
+    letter-spacing: 1px;         /* 자간 조정 */
+    font-size: 15px;
+    font-weight: bold;
     background-color: #bc97d2;
+    color : white;
+    border-radius: 5px;
+    border : none;
     outline: none;
 }
 
@@ -66,48 +75,71 @@ label {
 
 .userHref > a {
     word-spacing: 0.5px;         /* 어간 조정 */
+    font-size: 15px;
 }
 
-/* ================================== */ 
+/* ================================== */
 
-#findidBox {                /* findid.html에만 있는 거 */
+#findidBox {
     margin-bottom: 20px;
 }
 
-.inputCheck {               /* findpw.html, resetpw.html에만 있는 거 */
+.inputCheck {
     margin-bottom: 5px;
 }
 
 #idInputCheck, #pwInputCheck, #pwConfirmInputCheck,
-#nameInputCheck, #phoneInputCheck, #birthInputCheck, #genderInputCheck {      /* findpw.html, resetpw.html, signup.html에만 있는 거 */
+#nameInputCheck, #phoneInputCheck, #birthInputCheck, #genderInputCheck {
     margin-left : 3px;
     margin-bottom: 15px;
 }
 
-#userForm > h5 {                /* resetpw.html에만 있는 거 */
+#userForm > h5, #updateForm > h5, #deleteForm > h5 {
     margin-bottom: 23px;
     font-size: 18px;
 }
 
-.bottomXBtn {                   /* resetpw.html, signup.html에만 있는 거 */
+.bottomXBtn {
     margin-bottom: 0px;
 }
 
-#signuplogo {                   /* signup.html에만 있는 거 */
+#signuplogo {
     width: 435px;
     margin: 0 auto;
     margin-top: 60px;
     text-align: center;
 }
 
-#signuplogo > a {               /* signup.html에만 있는 거 */
+#signuplogo > a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-#logo > a > h3 {
+#logo > a > h3, #signuplogo > a > h3 {
     font-size: 25px;
     margin-bottom: 0px;
+}
+
+#genderInputCheck > span > label {
+    padding-left: 8px;
+}
+
+#updateForm {           /* update.html 틀 */
+    width: 435px;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding: 40px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
+}
+
+#deleteForm {           /* delete.html 틀 */
+    width: 435px;
+    margin: 0 auto;
+    margin-top: 160px;
+    padding: 40px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
 }
