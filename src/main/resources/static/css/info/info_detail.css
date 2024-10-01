@@ -2,7 +2,70 @@
 포켓몬 개별 정보 페이지 css
 */
 
-.wrap{
+.wrap {
     width: 1280px;
     margin: 0 auto;
+}
+
+.poke_info_detail {
+    padding-top: 20px;
+}
+
+.detail_info_top {
+    width: 750px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+table {
+    width: 300px;
+    height: 300px;
+    font-size: 16px !important;
+    border: 1px solid black;
+    border-radius: 10% !important;
+}
+
+table>thead>tr>th {
+    text-align: center;
+    font-size: 16px;
+}
+
+table>tbody>tr>td {
+    text-align: center;
+    font-size: 15px;
+}
+
+.info_explain {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.detail_info {
+    list-style: none;
+    font-size: 14px !important;
+}
+
+
+.detail_info_img {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #dee2e6;
+}
+
+.info_li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px !important;
+}
+
+.info_li1 {
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px !important;
+}
+
+ul>li,
+ul>li>div {
+    font-size: 14px !important;
 }
