@@ -1,7 +1,155 @@
-#myPokeImg {
-    width : 300px;
+/* 전체 레이아웃 */
+#content {
+    margin: 20px auto;
+    width: 80%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* 내 정보 카드 */
+#myinfo {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+}
+
+#myinfo div {
+    margin: 5px 0;
+}
+
+/* 포켓몬 상태 박스 */
+#myPokemon {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 경험치 진행 바 */
 .progress {
-    width : 500px;
+    height: 30px;
+    margin: 20px 0px;
+}
+
+.progress-bar {
+    background-color: #66bb6a; /* 기본 색상 (초록색) */
+    font-size: 1rem;
+    line-height: 30px;
+}
+
+.progress-bar-danger {
+    background-color: #ef5350; /* 진화 불가 색상 (빨간색) */
+}
+
+.progress-bar-success {
+    background-color: #42a5f5; /* 진화 가능 색상 (파란색) */
+}
+
+/* 진화 및 리셋 버튼 */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/*
+button:hover {
+    background-color: #f0f0f0;
+}
+*/
+
+button:disabled {
+    background-color: #dddddd;
+    color: #999999;
+}
+
+#myPokeStatus {
+    text-align: center;
+}
+
+/* 경험치 로그 테이블 */
+#expLogArea {
+    width: 100%;
+    margin-top: 30px;
+}
+
+#expLogArea th, #expLogArea td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+#expLogArea th {
+    background-color: #f1f1f1;
+}
+
+#expLogArea tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 포켓몬 이미지 */
+#myPokeImg {
+    width: 300px;
+    animation: fadeIn 0.5s ease-in-out; /* 애니메이션 효과 추가 */
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 4px solid #f1f1f1;
+}
+
+
+/* ========================== */
+
+/* 제목 내 정보 부분 */
+#content > .myInformation {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* 제목 나의 포켓몬 부분 */
+#content > .myPokeInfo {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* 포켓몬 이름 */
+.pokeName {
+    margin-top: 10px;
+}
+
+/* 회원정보수정, 회원탈퇴, 진화, 초기화, 내 포켓몬 생성 버튼 */
+.myInfoUpdate, .myInfoDelete, .evolveBtn, .resetBtn, .myPokeAdd {
+    background-color: #bc97d2;
+    margin: 0px 5px;
+    color: white;
+    border-radius: 5px;
+}
+
+.myInfoBtn {
+    display: inline-block;
+    margin: 0 5px;
+    float: right;
 }

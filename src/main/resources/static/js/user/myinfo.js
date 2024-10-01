@@ -84,7 +84,7 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
                 let myPokeStatus = document.querySelector('#myPokeStatus');
 
                 let html = `
-                            <button type="button" onclick="MyPokeAdd()">포켓몬 생성</button>
+                            <button type="button" class="myPokeAdd" onclick="MyPokeAdd()">포켓몬 생성</button>
                             `
 
                 myPokeStatus.innerHTML = html;
@@ -99,24 +99,33 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
 
                 let html = ``;
 
+                // (현재 경험치 / 전체 경험치) * 100 으로 나온 값을 경험치바에 비율 계산해서 표시
+                    // 4% 미만일 경우 경험치바 내의 글씨가 보이지 않는 경우가 있어 최소가 4%도록 설정
+                let expPercent = (myExp / maxExp) * 100;
+                if (expPercent == 0) {
+                    expPercent = 0;
+                } else if (expPercent < 4) {
+                    expPercent = 4;
+                }
+                
                 if (result.stage == 0) {    // 0단계 출력
                     html += `
                             <h4>${result.stage}단계</h4>
                             <img id="myPokeImg" src="/img/알.png" />
-                            <h4>이름 : 알</h4>
+                            <h4 class="pokeName">이름 : 알</h4>
                             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="${myExp}" aria-valuemin="0" aria-valuemax="${maxExp}">
-                                <div class="progress-bar" style="width: ${(myExp / maxExp) * 100}%">${myExp} / ${maxExp}</div>
+                                <div class="progress-bar" style="width: ${expPercent}%">${myExp} / ${maxExp}</div>
                             </div>
                             `
                     if (evolve) {   // 진화가 가능한 경우
                         html += `
-                                <button type="button" onclick="doEvolve(${result.stage})">진화하기</button>
-                                <button type="button" onclick="reset()">리셋하기</button>
+                                <button type="button" class="evolveBtn" onclick="doEvolve(${result.stage})">진화하기</button>
+                                <button type="button" class="resetBtn" onclick="reset()">리셋하기</button>
                                 `
                     } else {        // 진화가 불가능한 경우
                         html += `
-                                <button type="button" disabled>진화하기</button>
-                                <button type="button" onclick="reset()">리셋하기</button>
+                                <button type="button" class="evolveBtn" disabled>진화하기</button>
+                                <button type="button" class="resetBtn" onclick="reset()">리셋하기</button>
                                 `
                     }
                 } else {    // 1 ~ 6단계 출력
@@ -130,20 +139,20 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
                             html += `
                                     <h4>${result.stage}단계</h4>
                                     <img id="myPokeImg" src="${res[0].이미지}" />
-                                    <h4>이름 : ${res[0].한글이름}</h4>
+                                    <h4 class="pokeName">이름 : ${res[0].한글이름}</h4>
                                     <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="${myExp}" aria-valuemin="0" aria-valuemax="${maxExp}">
-                                        <div class="progress-bar" style="width: ${(myExp / maxExp) * 100}%">${myExp} / ${maxExp}</div>
+                                        <div class="progress-bar" style="width: ${expPercent}%">${myExp} / ${maxExp}</div>
                                     </div>
                                     `
                             if (evolve) {   // 진화가 가능한 경우
                                 html += `
-                                        <button type="button" onclick="doEvolve(${result.stage})">진화하기</button>
-                                        <button type="button" onclick="reset()">리셋하기</button>
+                                        <button type="button" class="evolveBtn" onclick="doEvolve(${result.stage})">진화하기</button>
+                                        <button type="button" class="resetBtn" onclick="reset()">리셋하기</button>
                                         `
                             } else {        // 진화가 불가능한 경우
                                 html += `
-                                        <button type="button" disabled>진화하기</button>
-                                        <button type="button" onclick="reset()">리셋하기</button>
+                                        <button type="button" class="evolveBtn" disabled>진화하기</button>
+                                        <button type="button" class="resetBtn" onclick="reset()">리셋하기</button>
                                         `
                             }
 
