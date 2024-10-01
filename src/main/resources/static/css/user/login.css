@@ -53,6 +53,8 @@ label {
     margin-top: 10px;
     margin-bottom: 20px;
     letter-spacing: 5.5px;         /* 자간 조정 */
+    background-color: #bc97d2;
+    outline: none;
 }
 
 .userHref {
@@ -66,7 +68,7 @@ label {
     word-spacing: 0.5px;         /* 어간 조정 */
 }
 
-/* ================================== */
+/* ================================== */ 
 
 #findidBox {                /* findid.html에만 있는 거 */
     margin-bottom: 20px;
