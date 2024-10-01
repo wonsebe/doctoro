@@ -4,7 +4,7 @@ console.log("info.js")
 
 
 let type_list = [
-    {"0" : "전체"},
+    { "0": "전체" },
     { "normal": "노말" },
     { "fire": "불" },
     { "water": "물" },
@@ -44,6 +44,8 @@ function select_type() {
 
 function all_poke_info(page = 0) {
     let info_area = document.querySelector(".info_area");
+    let page_area = document.querySelector(".page_area");
+    let page_html = ``;
     let html = ``;
     let page_in_print = page * 100
     $.ajax({
@@ -57,7 +59,7 @@ function all_poke_info(page = 0) {
             //console.log(poke_all_info)
             let poke_all_info_keys = Object.keys(poke_all_info)
             //console.log(poke_all_info_keys)
-
+            page_html += `<h1>${page + 1}페이지</h1>`
             poke_all_info_keys.forEach(k => {
                 //console.log(poke_all_info[k])
 
@@ -74,6 +76,7 @@ function all_poke_info(page = 0) {
                         </div>`
 
             })
+            page_area.innerHTML = page_html;
             info_area.innerHTML = html;
 
 
@@ -101,12 +104,14 @@ function all_poke_info(page = 0) {
     })
 }
 
-function poke_type_info(page=1){
+function poke_type_info(page = 1) {
     let type = document.querySelector("#poke_select").value;
     let info_area = document.querySelector(".info_area");
+    let page_area = document.querySelector(".page_area");
+    let page_html = ``;
     let html = ``;
 
-    if(type == "0"){
+    if (type == "0") {
         all_poke_info(0);
         return;
     }
@@ -114,7 +119,7 @@ function poke_type_info(page=1){
         async: false,
         method: "get",
         url: "http://127.0.0.1:5000/info/type",
-        data: { page: page, type : type },
+        data: { page: page, type: type },
         success: function response(result) {
             console.log(result);
             // let poke_all_info = result[0]
@@ -122,6 +127,7 @@ function poke_type_info(page=1){
             // let poke_all_info_keys = Object.keys(poke_all_info)
             // console.log(poke_all_info_keys)
             // console.log()
+            page_html += `<h1>${page}페이지</h1>`
             result.forEach(r => {
                 //console.log(poke_all_info[k])
 
@@ -138,10 +144,11 @@ function poke_type_info(page=1){
                         </div>`
 
             })
+            page_area.innerHTML = page_html;
             info_area.innerHTML = html;
             console.log(result.length)
             console.log(Math.round(result.length / 100))
-            
+
             let paginationBox = document.querySelector('.pagination');
             let pageHTML = '';
             let page_num = Math.floor(result.length / 100)
@@ -161,27 +168,29 @@ function poke_type_info(page=1){
 
 
             paginationBox.innerHTML = pageHTML;
-            
-        },error : e =>{
+
+        }, error: e => {
             console.log(e)
         }
     })
 }
 
-function poke_search(page=1){
+function poke_search(page = 1) {
     let type = document.querySelector("#poke_select").value;
     let info_area = document.querySelector(".info_area");
+    let page_area = document.querySelector(".page_area");
+    let page_html = ``;
     let html = ``;
     let search = document.querySelector("#search").value;
     let en_value = /[a-zA-Z]/;
     let kr_value = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-    if (type == "0"){ 
-        if(en_value.test(search)){
+    if (type == "0") {
+        if (en_value.test(search)) {
             $.ajax({
                 async: false,
                 method: "get",
                 url: "http://127.0.0.1:5000/info/en_search",
-                data: { page: page, search : search },
+                data: { page: page, search: search },
                 success: function response(result) {
                     console.log(result);
                     // let poke_all_info = result[0]
@@ -189,9 +198,10 @@ function poke_search(page=1){
                     // let poke_all_info_keys = Object.keys(poke_all_info)
                     // console.log(poke_all_info_keys)
                     // console.log()
+                    page_html += `<h1>${page}페이지</h1>`
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
-        
+
                         html += `<div class="cards">
                             <a href="/info/detail?name=${r["영어이름"]}">
                                 <figure class="card">
@@ -203,16 +213,17 @@ function poke_search(page=1){
                                 </figure>
                             </a>
                         </div>`
-        
+
                     })
+                    page_area.innerHTML = page_html;
                     info_area.innerHTML = html;
                     console.log(result.length)
                     console.log(Math.round(result.length / 100))
-                    
+
                     let paginationBox = document.querySelector('.pagination');
                     let pageHTML = '';
                     let page_num = Math.floor(result.length / 100)
-        
+
                     for (let i = 0; i <= page_num; i++) { //for start 반복문을 돌려서
                         pageHTML += `
                         <li class="page-item${i}">
@@ -220,23 +231,23 @@ function poke_search(page=1){
                         </li>
                         `;
                         //페이지의 번호와 데이터에 맞는 버튼 생성
-        
+
                     } //for end
-        
-        
+
+
                     //페이지네이션 버튼출력
-        
-        
+
+
                     paginationBox.innerHTML = pageHTML;
                 }
             })
         }
-        else if(kr_value.test(search)){
+        else if (kr_value.test(search)) {
             $.ajax({
                 async: false,
                 method: "get",
                 url: "http://127.0.0.1:5000/info/kr_search",
-                data: { page: page, search : search },
+                data: { page: page, search: search },
                 success: function response(result) {
                     console.log(result);
                     // let poke_all_info = result[0]
@@ -244,9 +255,10 @@ function poke_search(page=1){
                     // let poke_all_info_keys = Object.keys(poke_all_info)
                     // console.log(poke_all_info_keys)
                     // console.log()
+                    page_html += `<h1>${page}페이지</h1>`
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
-        
+
                         html += `<div class="cards">
                             <a href="/info/detail?name=${r["영어이름"]}">
                                 <figure class="card">
@@ -258,16 +270,17 @@ function poke_search(page=1){
                                 </figure>
                             </a>
                         </div>`
-        
+
                     })
+                    page_area.innerHTML = page_html;
                     info_area.innerHTML = html;
                     console.log(result.length)
                     console.log(Math.round(result.length / 100))
-                    
+
                     let paginationBox = document.querySelector('.pagination');
                     let pageHTML = '';
                     let page_num = Math.floor(result.length / 100)
-        
+
                     for (let i = 0; i <= page_num; i++) { //for start 반복문을 돌려서
                         pageHTML += `
                         <li class="page-item${i}">
@@ -275,24 +288,24 @@ function poke_search(page=1){
                         </li>
                         `;
                         //페이지의 번호와 데이터에 맞는 버튼 생성
-        
+
                     } //for end
-        
-        
+
+
                     //페이지네이션 버튼출력
-        
-        
+
+
                     paginationBox.innerHTML = pageHTML;
                 }
             })
         }
-    }else{
-        if(en_value.test(search)){
+    } else {
+        if (en_value.test(search)) {
             $.ajax({
                 async: false,
                 method: "get",
                 url: "http://127.0.0.1:5000/info/type_en_search",
-                data: { page: page, search : search, type : type  },
+                data: { page: page, search: search, type: type },
                 success: function response(result) {
                     console.log(result);
                     // let poke_all_info = result[0]
@@ -300,9 +313,10 @@ function poke_search(page=1){
                     // let poke_all_info_keys = Object.keys(poke_all_info)
                     // console.log(poke_all_info_keys)
                     // console.log()
+                    page_html += `<h1>${page}페이지</h1>`
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
-        
+
                         html += `<div class="cards">
                             <a href="/info/detail?name=${r["영어이름"]}">
                                 <figure class="card">
@@ -314,16 +328,17 @@ function poke_search(page=1){
                                 </figure>
                             </a>
                         </div>`
-        
+
                     })
+                    page_area.innerHTML = page_html;
                     info_area.innerHTML = html;
                     console.log(result.length)
                     console.log(Math.round(result.length / 100))
-                    
+
                     let paginationBox = document.querySelector('.pagination');
                     let pageHTML = '';
                     let page_num = Math.floor(result.length / 100)
-        
+
                     for (let i = 0; i <= page_num; i++) { //for start 반복문을 돌려서
                         pageHTML += `
                         <li class="page-item${i}">
@@ -331,23 +346,23 @@ function poke_search(page=1){
                         </li>
                         `;
                         //페이지의 번호와 데이터에 맞는 버튼 생성
-        
+
                     } //for end
-        
-        
+
+
                     //페이지네이션 버튼출력
-        
-        
+
+
                     paginationBox.innerHTML = pageHTML;
                 }
             })
         }
-        else if(kr_value.test(search)){
+        else if (kr_value.test(search)) {
             $.ajax({
                 async: false,
                 method: "get",
                 url: "http://127.0.0.1:5000/info/type_kr_search",
-                data: { page: page, search : search, type : type },
+                data: { page: page, search: search, type: type },
                 success: function response(result) {
                     console.log(result);
                     // let poke_all_info = result[0]
@@ -355,9 +370,10 @@ function poke_search(page=1){
                     // let poke_all_info_keys = Object.keys(poke_all_info)
                     // console.log(poke_all_info_keys)
                     // console.log()
+                    page_html += `<h1>${page}페이지</h1>`
                     result.forEach(r => {
                         //console.log(poke_all_info[k])
-        
+
                         html += `<div class="cards">
                             <a href="/info/detail?name=${r["영어이름"]}">
                                 <figure class="card">
@@ -369,16 +385,17 @@ function poke_search(page=1){
                                 </figure>
                             </a>
                         </div>`
-        
+
                     })
+                    page_area.innerHTML = page_html;
                     info_area.innerHTML = html;
                     console.log(result.length)
                     console.log(Math.round(result.length / 100))
-                    
+
                     let paginationBox = document.querySelector('.pagination');
                     let pageHTML = '';
                     let page_num = Math.floor(result.length / 100)
-        
+
                     for (let i = 0; i <= page_num; i++) { //for start 반복문을 돌려서
                         pageHTML += `
                         <li class="page-item${i}">
@@ -386,13 +403,13 @@ function poke_search(page=1){
                         </li>
                         `;
                         //페이지의 번호와 데이터에 맞는 버튼 생성
-        
+
                     } //for end
-        
-        
+
+
                     //페이지네이션 버튼출력
-        
-        
+
+
                     paginationBox.innerHTML = pageHTML;
                 }
             })

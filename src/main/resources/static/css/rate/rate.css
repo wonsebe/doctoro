@@ -47,6 +47,10 @@ th {
   justify-content: space-around;
 }
 
+.btn {
+  background-color: #bc97d2 !important;
+}
+
 #poke_select1,
 #poke_select2,
 #poke_select3,
@@ -62,6 +66,10 @@ th {
 }
 
 .rate_modal {
+  margin: 0 auto;
+}
+
+.modal-body1 {
   margin: 0 auto;
 }
 
