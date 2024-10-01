@@ -174,8 +174,6 @@ h2:after {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    border : 1px solid black;
-    background-color : lightgray;
     margin-top: 150px;
     border-radius : 50px
 }
