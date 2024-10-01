@@ -1,25 +1,33 @@
 console.log('base-stats.js')
 
+// 기본값 정렬
 let sort = '';
 let word = '';
-let click = 0;      // 오름차순 내림차순 왔다갔다 할 수 있게 해주는 변수
+let click = 0;      // 오름차순 내림차순 번호순 왔다갔다 할 수 있게 해주는 변수
+
+// 상위 퍼센트 정렬
+let sort2 = '';
+let word2 = '';
+let click2 = 0;      // 오름차순 내림차순 번호순 왔다갔다 할 수 있게 해주는 변수
 
 // 포켓몬 종족값 목록 출력 - 기본 : 아이디(번호) 기준 정렬
 baseStatsAllPrint('아이디');
 function baseStatsAllPrint(name) {      console.log('baseStatsAllPrint()');
     console.log(name);
 
-    // 같은 버튼을 연속해서 누른 경우 내림차순으로 정렬
-    if (word == name && click == 1) {
+    // 해당하는 조건에 따라 오름차순 내림차순 번호순으로 정렬
+    if (word == name && click == 0) {
         sort = '내림차순';
-        click = 0;
+        click = 1;
+    } else if (word == name && click == 1) {
+        sort = '번호순';
+        click = 2;
     } else {
         sort = '오름차순';
-        click = 1;
+        click = 0;
     }
     word = name;
     
-
     // Flask 서버에 통신
     $.ajax({
         async : false,
@@ -86,12 +94,30 @@ function baseStatsAllPrint(name) {      console.log('baseStatsAllPrint()');
 // baseStatsPercentPrint('총합')
 function baseStatsPercentPrint(stats) {      console.log('baseStatsPercentPrint()');
     console.log(stats);
+
+    // 해당하는 조건에 따라 오름차순 내림차순 번호순으로 정렬
+    if (word2 == stats && click2 == 0) {
+        sort2 = '내림차순';
+        click2 = 1;
+    } else if (word2 == stats && click2 == 1) {
+        sort2 = '번호순';
+        click2 = 2;
+    } else {
+        sort2 = '오름차순';
+        click2 = 0;
+    }
+    word2 = stats;
+    console.log(sort2);
+
     $.ajax({
         async : false,
         method : 'post',
         url : "http://localhost:5000/base/stats/print/percent",
         contentType: 'application/json',
-        data : JSON.stringify({ stats : stats }),
+        data : JSON.stringify({ 
+            stats : stats,
+            sort : sort2
+         }),
         success : (result) => {     console.log(result);
             let thead = document.querySelector('thead > tr');
             let tbody = document.querySelector('tbody');

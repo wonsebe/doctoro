@@ -75,6 +75,8 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
         url : '/mypoke/exist',
         success : (result) => {     console.log(result);
             uno = result.uno;       // 현재 로그인된 유저 번호 대입
+            
+            expLogPrint();      // 내 포켓몬 경험치 기록 최근 10개 가져오기
 
             if (result == '') {     // 내 포켓몬이 존재하지 않으면
                 console.log('처음 생성');
@@ -88,8 +90,6 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
                 myPokeStatus.innerHTML = html;
             } else {
                 console.log('이미 생성');
-
-                expLogPrint();      // 내 포켓몬 경험치 기록 최근 10개 가져오기
 
                 stage = result.stage;
 

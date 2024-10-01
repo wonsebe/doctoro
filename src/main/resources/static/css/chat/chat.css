@@ -1,15 +1,15 @@
-*{
-    border:1px solid red;
-}
+
 
 #content{
     width: 1280px;
     height: 1000px;
     margin: 0 auto;
+    background-color: #f4f4f4;
 }
 #imgSend{
     width: 40px;
 }
+
 #box{
     display: flex;
 }
@@ -27,12 +27,14 @@
     font-size: 20px;
     border:1px solid pink;
     background-color: pink;
-    border-radius: 20px;
+    border-radius: 5px;
+    margin-right: 30px;
  }
 
 .messageBox{
 width : 1280px;
 border: none;
+background-color: #f4f4f4;
 }
 .fromMsgBox{
 text-align : right;
@@ -42,12 +44,23 @@ border: none;
     font-size: 20px;
     border:1px solid rgb(37, 226, 201);;
     background-color: rgb(37, 226, 201);
-    border-radius: 20px;
+    border-radius: 5px;
+    margin-left: 30px;
 }
-.content{
+#imgS{
+    width: 20px;
+}
+p{
+    font-weight: bold;
+}
+.contentC{
     border:1px solid rgb(190, 170, 170);
     color:black;
     height:  30px;
+    display: flex;
+    align-items: baseline;
+    background-color: white;
+    border-radius: 10px;
 }
 .toMsgBox{
 text-align : left;
@@ -69,4 +82,25 @@ input[type="text"] {
     border : 1px solid rgb(231, 231, 231);
     outline: none; /* 포커스 시 테두리 제거 */
     /* 필요시 다른 스타일 추가 */
+}
+
+#imgEE{
+    width: 28px;
+}
+
+#imgfi{
+    width: 32px;
+}
+
+.userpo{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row-reverse;
+    margin-right: 30px;
+}
+
+.userpot{
+    display: flex;
+    align-items: baseline;
+    margin-left: 30px;
 }

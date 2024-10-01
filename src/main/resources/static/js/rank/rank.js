@@ -21,13 +21,13 @@ function total(page = 1){
                     success : r2 => {
                         //console.log(r2);
                             html += `<tr>
-                                <td class="idtotal">${e.아이디}</td> <td class="imgtotal"> <img width=140px src = ${e.이미지} /></td> <td class="nametotal">${e.한글이름}</td> `
-                            html += `<td>
+                                <td class="idtotal">${e.아이디}</td> <td class="imgtotal"> <p class=imgp> <img width=140px src = ${e.이미지} /> </p> </td> <td class="nametotal">${e.한글이름}</td> `
+                            html += `<td class="wintotal">
                                         <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="${r2.click}" aria-valuemin="0" aria-valuemax="100">
                                           <div class="progress-bar bg-success" style="width: ${r2.click}%">${r2.click}%</div>
                                         </div>
                                     </td>
-                                    <td>
+                                    <td class="clicktotal">
                                         <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="${r2.win}" aria-valuemin="0" aria-valuemax="100">
                                           <div class="progress-bar bg-info text-dark" style="width: ${r2.win}%">${r2.win}%</div>
                                         </div>
