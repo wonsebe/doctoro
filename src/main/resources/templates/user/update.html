@@ -3,44 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>회원 정보 수정</title>
+    
+    <!-- CSS 호출 -->
+    <link href="/css/user/user.css" rel="stylesheet" />
 </head>
 <body>
     <div th:replace="~{/header.html :: header }"></div>
 
     <div id="content">
-        회원 정보 수정
+        <div id="updateForm">
+            <h5>회원 정보 수정</h5>
 
-        <form>
-            아이디 : <input type="text" id="id" disabled /> <br>
-            <div id="idInputCheck"></div>
-            
-            비밀번호 : <input type="password" id="pw" onkeyup="pwCheck()" />
-            <div id="pwInputCheck"></div>
+            <form>
+                <label for="id">아이디</label> </br>
+                <input type="text" id="id" class="inputBox inputCheck" disabled /> <br>
+                <div id="idInputCheck"></div>
+                
+                <label for="pw">비밀번호</label> </br>
+                <input type="password" id="pw" class="inputBox inputCheck" onkeyup="pwCheck()" />
+                <div id="pwInputCheck"></div>
 
-            비밀번호 확인 : <input type="password" id="pwConfirm" onkeyup="pwConfirmCheck()" />
-            <div id="pwConfirmInputCheck"></div>
+                <label for="pwConfirm">비밀번호 확인</label> </br>
+                <input type="password" id="pwConfirm" class="inputBox inputCheck" onkeyup="pwConfirmCheck()" />
+                <div id="pwConfirmInputCheck"></div>
+                
+                <label for="name">이름</label> </br>
+                <input type="text" id="name" class="inputBox inputCheck" onkeyup="nameCheck()" />
+                <div id="nameInputCheck"></div>
 
-            이름 : <input type="text" id="name" onkeyup="nameCheck()" />
-            <div id="nameInputCheck"></div>
+                <div id="genderInputCheck">
+                    <label for="genderM">성별 : </label>
+                    <span>
+                        <label for="genderM">
+                            <input type="radio" id="genderM" name="gender" value="M" checked />
+                            남성
+                        </label>
 
-            성별 : <span>
-                        <input type="radio" name="gender" value="M" disabled /> 남자
-                        <input type="radio" name="gender" value="F" disabled /> 여자
-                   </span> <br>
+                        <label for="genderF">
+                            <input type="radio" id="genderF" name="gender" value="F" />
+                            여성
+                        </label> </br>
+                    </span>
+                </div>
 
-            전화번호 : <input type="text" id="phone" onkeyup="phoneCheck()" />
-            <div id="phoneInputCheck"></div>
+                <label for="phone">전화번호</label> </br>
+                <input type="text" id="phone" class="inputBox inputCheck" onkeyup="phoneCheck()" />
+                <div id="phoneInputCheck"></div>
 
-            생년월일 : <input type="date" id="birth" min="1900-01-01" onchange="birthCheck()" disabled /> <br>
-            <div id="birthInputCheck"></div>
+                <label for="birth">생년월일</label> </br>
+                <input type="date" id="birth" min="1900-01-01" class="inputBox inputCheck" onchange="birthCheck()" disabled /> <br>
+                <div id="birthInputCheck"></div>
 
-            <button type="button" onclick="doUpdate()">회원정보수정</button>
-        </form>
+                <button type="button" class="btns bottomXBtn" onclick="doUpdate()">회원 정보 수정</button>
+            </form>
+        </div>
     </div>
 
     <script src="/js/user/update.js"></script>
     <script src="/js/user/signup.js"></script>
     
-
 </body>
 </html>
