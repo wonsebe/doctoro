@@ -17,124 +17,144 @@ function poke_detail_print() {
             let poke_detail_info = result[0]
             console.log(poke_detail_info)
             kr_type = type_trans(poke_detail_info.타입)
-            html += `<table>
-                            <thead>
-                                <tr>
-                                    <th>
+            html += `<div>
+                        <div class = "detail_info_top">
+                            <div>
+                                <table class = "table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan ="3">
+                                                No.${poke_detail_info.아이디} ${poke_detail_info.한글이름} ${poke_detail_info.영어이름}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                타입
+                                            </td>
+                                            <td>
+                                                ${kr_type} ${poke_detail_info.타입}
+                                            </td>
+                                            <td>
+                                                ${poke_detail_info.한글정보} ${poke_detail_info.영어정보}
+                                            </td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <td>
+                                                HP
+                                            </td>
+                                            <td>
+                                                ${poke_detail_info.체력}
+                                            </td>
+                                            <td style = "align-content:center">
+                                                <div style = "width : ${poke_detail_info.체력}px; background-color:#69dc12">
+                                                    ${poke_detail_info.체력}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-warning">
+                                            <td>
+                                                공격
+                                            </td>
+                                            <td>
+                                                ${poke_detail_info.공격}
+                                            </td>
+                                            <td style = "align-content:center">
+                                                <div style = "width : ${poke_detail_info.공격}px; background-color:#efcc18">
+                                                    ${poke_detail_info.공격}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td>
+                                                방어
+                                            </td>
+                                            <td>
+                                                ${poke_detail_info.방어}
+                                            </td>
+                                            <td style = "align-content:center">
+                                                <div style = "width : ${poke_detail_info.방어}px; background-color:#e86412">
+                                                    ${poke_detail_info.방어}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td>
+                                                스피드
+                                            </td>
+                                            <td>
+                                                ${poke_detail_info.스피드}
+                                            </td>
+                                            <td style = "align-content:center">
+                                                <div style = "width : ${poke_detail_info.스피드}px; background-color:#14c3f1">
+                                                    ${poke_detail_info.스피드}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-primary">
+                                            <td>
+                                                특수공격
+                                            </td>
+                                            <td>
+                                                ${poke_detail_info.특수공격}
+                                            </td>
+                                            <td style = "align-content:center">
+                                                <div style = "width : ${poke_detail_info.특수공격}px; background-color:#4a6adf">
+                                                    ${poke_detail_info.특수공격}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td>
+                                                특수방어
+                                            </td>
+                                            <td>
+                                                ${poke_detail_info.특수방어}
+                                            </td>
+                                            <td style = "align-content:center">
+                                                <div style = "width : ${poke_detail_info.특수방어}px; background-color:#d51dad">
+                                                    ${poke_detail_info.특수방어}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <img src="${poke_detail_info.이미지}" class="detail_info_img">
+                            </div>
 
-                                    </th>
-                                    <th>
-                                        포켓몬 정보
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        이미지
-                                    </td>
-                                    <td>
-                                        <img src="${poke_detail_info.이미지}">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        도감번호
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.아이디}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        이름
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.한글이름} ${poke_detail_info.영어이름}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        체력
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.체력}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        공격
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.공격} 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        방어
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.방어}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        스피드
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.스피드}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        특수공격
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.특수공격}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        특수방어
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.특수방어}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        타입
-                                    </td>
-                                    <td>
-                                        ${kr_type} ${poke_detail_info.타입}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        정보1
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.한글정보} ${poke_detail_info.영어정보}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        정보2
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.한글정보2}</br>${poke_detail_info.영어정보2}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        정보3
-                                    </td>
-                                    <td>
-                                        ${poke_detail_info.한글정보3} ${poke_detail_info.영어정보3}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>`;
+                        </div>
+
+                        <div class = "info_explain">
+                            <table class = "table">
+                                <thead>
+                                    <tr>
+                                        <th colspan = "2">
+                                            도감 설명
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style = "align-content:center">
+                                            ${poke_detail_info.한글정보2} <br>
+                                            ${poke_detail_info.영어정보2}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style = "align-content:center">
+                                            ${poke_detail_info.한글정보3} <br>
+                                            ${poke_detail_info.영어정보3}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+            
+                    </div>`;
 
             poke_info_detail.innerHTML = html;
         }
