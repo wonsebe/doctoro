@@ -1,5 +1,8 @@
 console.log('header.js');
 
+let loginNo = 0;    // 현재 로그인된 유저 번호
+console.log(loginNo);
+
 // 1. 로그인 체크
 doLoginCheck();
 function doLoginCheck() {
@@ -11,6 +14,8 @@ function doLoginCheck() {
         success: (result) => {
             console.log(result);
             let html = '';
+            loginNo = result['uno']     // 현재 로그인된 유저 번호 저장
+
             // 로그인 상태에 따른 메뉴 구성
             if (result == '') {
                 // 비로그인 상태인 경우

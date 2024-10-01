@@ -29,8 +29,7 @@ a{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;     /* 양쪽 끝에 여백 없이 사이 여백 균등 정렬 */
-    margin-top: 10px;
-    margin-bottom: 10px;
+
     align-items: center;
 }
 
@@ -48,13 +47,27 @@ a{
 #headerMenu{
     display: flex;
     justify-content: space-between;     /* 양쪽 끝에 여백 없이 사이 여백 균등 정렬 */
+     margin-bottom: 0;
 }
 
 #headerMenu > li{
     margin-left: 40px;
+
 }
 
+/* 강사가 변경 */
 #imgO{
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#headerMenu > li > a {
+    font-size : 15px;
+    font-family: 'yg-jalnan';
 }

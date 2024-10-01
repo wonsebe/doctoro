@@ -2,3 +2,74 @@
     width : 1080px;
     margin : 0 auto;
 }
+
+.pagination{
+    display : flex;
+    justify-content: center;
+    margin : 20px 0px 20px 0px;
+}
+
+.idtotal{
+    align-content: center;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nametotal{
+    align-content: center;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.wintotal{
+    align-content: center;
+    text-align: center;
+}
+
+.clicktotal{
+    align-content: center;
+    text-align: center;
+}
+
+.wintotal > .progress {
+    width : 150px;
+    height : 20px;
+    margin : 0px auto;
+}
+
+.clicktotal > .progress{
+    width : 150px;
+    height : 20px;
+    margin : 0px auto;
+}
+
+.img{
+    align-content: center;
+    text-align: center;
+}
+
+.rank{
+    align-content: center;
+    text-align: center;
+}
+
+.name{
+    align-content: center;
+    text-align: center;
+}
+
+.totalwin{
+    align-content: center;
+    text-align: center;
+}
+
+.click{
+    align-content: center;
+    text-align: center;
+}
+
+.imgp {
+    text-align : center;
+}
