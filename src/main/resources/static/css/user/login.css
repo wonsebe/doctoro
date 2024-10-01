@@ -1,0 +1,111 @@
+#content {
+    margin-bottom: 120px;
+}
+
+#logo {
+    width: 435px;
+    margin: 0 auto;
+    margin-top: 150px;
+    text-align: center;
+}
+
+#logo > a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgO {
+    width: 100px;
+    height: 100px;
+}
+
+#logo > a > h3 {
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+/* ================================== */
+
+#userForm {
+    width: 435px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 40px;
+    border: 1px solid rgb(218, 218, 218);
+}
+
+label {
+    letter-spacing: 0.5px;         /* 자간 조정 */
+}
+
+.inputBox {
+    width: 350px;
+    height: 30px;
+    margin-bottom: 15px;
+    padding : 5px;
+}
+
+.btn {
+    width: 350px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 5.5px;         /* 자간 조정 */
+}
+
+.userHref {
+    width: 350px;
+    text-align: center;
+    padding-left: 28.5px;
+    word-spacing: 11.5px;         /* 어간 조정 */
+}
+
+.userHref > a {
+    word-spacing: 0.5px;         /* 어간 조정 */
+}
+
+/* ================================== */
+
+#findidBox {                /* findid.html에만 있는 거 */
+    margin-bottom: 20px;
+}
+
+.inputCheck {               /* findpw.html, resetpw.html에만 있는 거 */
+    margin-bottom: 5px;
+}
+
+#idInputCheck, #pwInputCheck, #pwConfirmInputCheck,
+#nameInputCheck, #phoneInputCheck, #birthInputCheck, #genderInputCheck {      /* findpw.html, resetpw.html, signup.html에만 있는 거 */
+    margin-left : 3px;
+    margin-bottom: 15px;
+}
+
+#userForm > h5 {                /* resetpw.html에만 있는 거 */
+    margin-bottom: 23px;
+    font-size: 18px;
+}
+
+.bottomXBtn {                   /* resetpw.html, signup.html에만 있는 거 */
+    margin-bottom: 0px;
+}
+
+#signuplogo {                   /* signup.html에만 있는 거 */
+    width: 435px;
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: center;
+}
+
+#signuplogo > a {               /* signup.html에만 있는 거 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo > a > h3 {
+    font-size: 25px;
+    margin-bottom: 0px;
+}
