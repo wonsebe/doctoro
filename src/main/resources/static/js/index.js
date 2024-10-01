@@ -75,6 +75,87 @@ function checkuinfo(){
         method : 'get',
         url : '/user/login/check',
         success : r => {
+            if(r == ''){
+
+                let random0 = Math.floor(100 + Math.random() * 800);
+                let random1 = Math.floor(100 + Math.random() * 800);
+                let random2 = Math.floor(100 + Math.random() * 800);
+                let random3 = Math.floor(100 + Math.random() * 800);
+                let random4 = Math.floor(100 + Math.random() * 800);
+
+                let procard = document.querySelector('.procard')
+                html = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${random0}.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>`
+                let card1 = document.querySelector('.card1')
+                html1 = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${random1}.png" class="card-img-top" alt="...">
+                         <div class="card-body1">
+                         <h5 class="card-title">Card title</h5>
+                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                         </div>`
+
+                let card2 = document.querySelector('.card2')
+                html2 = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${random2}.png" class="card-img-top" alt="...">
+                         <div class="card-body2">
+                         <h5 class="card-title">Card title</h5>
+                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                         </div>`
+
+                let card3 = document.querySelector('.card3')
+                html3 = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${random3}.png" class="card-img-top" alt="...">
+                         <div class="card-body3">
+                         <h5 class="card-title">Card title</h5>
+                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                         </div>`
+
+                let card4 = document.querySelector('.card4')
+                html4 = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${random4}.png" class="card-img-top" alt="...">
+                         <div class="card-body4">
+                         <h5 class="card-title">Card title</h5>
+                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                         </div>`
+
+                procard.innerHTML = html
+                card1.innerHTML = html1
+                card2.innerHTML = html2
+                card3.innerHTML = html3
+                card4.innerHTML = html4
+
+                $.ajax({
+                    async : false,
+                    method : 'get',
+                    url : 'http://localhost:5000/pokeinfos',
+                    success : e => {
+                        console.log(e[random0-1])
+                        let cardbod = document.querySelector('.card-body')
+                        html = `<h5 class="card-title">${e[random0-1]['한글이름']}</h5>
+                                <p class="card-text"> ${e[random0-1]['한글정보2']} </p>`;
+
+                        let card1 = document.querySelector('.card-body1')
+                        html1 = `<h5 class="card-title">${e[random1-1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random1-1]['한글정보2']}</p>`
+
+                        let card2 = document.querySelector('.card-body2')
+                        html2 = `<h5 class="card-title">${e[random2-1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random2-1]['한글정보2']}</p>`
+
+                        let card3 = document.querySelector('.card-body3')
+                        html3 = `<h5 class="card-title">${e[random3-1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random3-1]['한글정보2']}</p>`
+
+                        let card4 = document.querySelector('.card-body4')
+                        html4 = `<h5 class="card-title">${e[random4-1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random4-1]['한글정보2']}</p>`
+
+                        cardbod.innerHTML = html;
+                        card1.innerHTML = html1;
+                        card2.innerHTML = html2;
+                        card3.innerHTML = html3;
+                        card4.innerHTML = html4
+                    }
+                })
+            }
             console.log(r['gender'])
             console.log(r['ubirth'])
 
@@ -89,6 +170,7 @@ function checkuinfo(){
             else if(gender == 'F'){gender = 0}
             console.log(gender)
 
+            let random0 = Math.floor(100 + Math.random() * 800);
             let random1 = Math.floor(100 + Math.random() * 800);
             let random2 = Math.floor(100 + Math.random() * 800);
             let random3 = Math.floor(100 + Math.random() * 800);
@@ -98,6 +180,7 @@ function checkuinfo(){
             console.log(random2)
             console.log(random3)
             console.log(random4)
+
 
             $.ajax({
                 async : false,

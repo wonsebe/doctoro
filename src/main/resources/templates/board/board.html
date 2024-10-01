@@ -21,9 +21,9 @@
             color: blue;
             font-weight: bold;
         }
-  
 
-        
+
+
     </style>
 </head>
 <body>
@@ -31,28 +31,32 @@
 
 
 <div id="content">
-    <h3> 게시판 출력 페이지 </h3> <br/>
-
+    <br/><br/>
+    <h3> 자유 게시판 </h3> <br/>
+    <p> 자유 게시판은 자유로운 의견을 남기는 공간이므로 자유롭게 포켓몬에 대한 의견을 남겨주시면 됩니다.<br/>포켓몬에 대한 다양한 의견들과 정보를 오직 오박사의 연구소에서만 즐겨보세요.</p><br/>
     <h5>게시글 인기 키워드</h5>
     <!-- <button type="button" onclick="count()">빈도수 보기</button> -->
-   
+
     <marquee behavior="scroll" direction="right" id="rr" style="display: flex">
         <div id="countPrint">
 
         </div>
     </marquee>
 
-  
-
-
-
-
-    <button type="button" onclick="doLoginCheck()"> 글쓰기</button></a> <br><br>
-
-
     <!-- 카테고리 구역 -->
     <div class="categoryBox" style="display:flex;"> <!-- doBoardFindAll( 페이지번호 page , 카테고리번호 bcno ) -->
-    </div>
+    </div><br/><br/>
+    <!-- 검색구역 -->
+    <div id="searchB">
+        <select class="searchKey ">
+            <option value="btitle" > --검색선택-- </option>
+            <option value="btitle"> 제목 </option>
+            <option value="btitle"> 내용 </option>
+            <option value="id"> 작성자 </option>
+        </select>
+        <input class="searchKeyWord"/>
+        <button type="button" onclick="search()" id="bbu" > 검색 </button>
+    </div> <br/>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -66,30 +70,16 @@
         <tbody id="tbox">
         </tbody>
     </table>
-
+    <button type="button" onclick="doLoginCheck()"> 글쓰기</button></a> <br><br>
     <!-- 페이징 구역 -->
+    
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" onclick="print()">이전</a></li>
         </ul>
-    </nav>
-    <!-- 검색구역 -->
-    <div>
-        <select class="searchKey">
-            <option value="btitle"> 제목 </option>
-            <option value="btitle"> 내용 </option>
-            <option value="id"> 작성자 </option>
-        </select>
-        <input class="searchKeyWord"/>
-        <button type="button" onclick="search()" > 검색 </button>
-    </div> <br/>
-
-
-
-    
-
-
-
+    </nav> 
+      
+   
 </div>
 
 <!-- 1. 부트스트랩 JS 캐러셀을 사용하기 위해 추가 -->
