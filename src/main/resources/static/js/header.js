@@ -29,7 +29,6 @@ function doLoginCheck() {
                         <li> <a href="/board/bprint">게시판</a> </li>
                         <li> <a href="/chat">채팅방</a> </li>
                         <li> <a href="/user/login">로그인</a> </li>
-                        <li> <a href="/user/signup">회원가입</a> </li>
                         `
             } else {
                 // 로그인한 상태인 경우
