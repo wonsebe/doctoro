@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="/css/board/detail.css" rel="stylesheet" />
 </head>
 <style>
     .uid{
@@ -17,23 +18,28 @@
 <body>
     <div th:replace="~{/header.html :: header }"></div>
     <div id="content">
-<h3> 게시판 상세 페이지 </h3>
+        <br/>
+        <h3> 게시판 상세 페이지 </h3><br/><br/>
 
  
 
     <div>
-        <div class="categoryname"> ( 카테고리명 ) </div>
-        <div class="infoBox"> (작성자) , ( 조회수 ) , ( 작성일 ) </div>
-        <div class="btitle"> 안녕하세요1 (제목구역) </div>
-        <div class="bcontent"> 내용 (내용구역) </div>
-        <div class="btnBox">
+            <div class="btitle"> 안녕하세요1 (제목구역) </div><br/>
+            <div class="detailBox">
+            <div class="categoryname"> ( 카테고리명 ) </div>/
+            <div class="infoBox"> (작성자) , ( 조회수 ) , ( 작성일 ) </div>
+            </div><br/>
+            
+            <div class="bcontent"> 내용 (내용구역) </div>
+        <br/>
+            <div class="btnBox">
 
+            </div>
         </div>
-    </div>
     <br/><br/><br/><br/><br/><hr><br/>
-    <div>
-        <br/><br/>
-        <h3>댓글</h3> <br/>
+       
+            <h3>댓글을 남겨주십시오.</h3><br/>
+    <div id="comentBox">
         <textarea class="ccontent"></textarea>
         <button type="button" onclick="comment()">댓글등록</button>
     </div><br/>
