@@ -325,10 +325,10 @@ function rate_cal() {
                                     점수
                                 </td>
                                 <td>
-                                    ${result.A_포켓몬_점수}
+                                    ${result.A_포켓몬_점수}점
                                 </td>
                                 <td>
-                                    ${result.B_포켓몬_점수}
+                                    ${result.B_포켓몬_점수}점
                                 </td>
                             </tr>
                             <tr>
@@ -336,19 +336,25 @@ function rate_cal() {
                                     승률
                                 </td>
                                 <td>
-                                    ${result.A_포켓몬_승률}
+                                    ${result.A_포켓몬_승률}%
                                 </td>
                                 <td>
-                                    ${result.B_포켓몬_승률}
+                                    ${result.B_포켓몬_승률}%
                                 </td>
                             </tr>
                             <tr>
-                                <button type="button" class="btn btn-primary" onclick="rate_records1(${result.A_포켓몬_점수}, ${result.A_포켓몬_승률})">
-                                    1번 포켓몬 승률 기록 남기기
-                                </button>
-                                <button type="button" class="btn btn-primary" onclick="rate_records2(${result.B_포켓몬_점수}, ${result.B_포켓몬_승률})">
-                                    2번 포켓몬 승률 기록 남기기
-                                </button>
+                                <td>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" onclick="rate_records1(${result.A_포켓몬_점수}, ${result.A_포켓몬_승률})">
+                                        저장하기 
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" onclick="rate_records2(${result.B_포켓몬_점수}, ${result.B_포켓몬_승률})">
+                                        저장하기
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>`
@@ -359,19 +365,21 @@ function rate_cal() {
             console.log(loginNo);   // 현재 로그인된 유저 번호 확인
             if (loginNo > 0) {  // 현재 로그인된 경우만 경험치 지급
                 $.ajax({
-                    async : false,
-                    method : 'post',
-                    url : '/exp/add',
-                    data : {
-                        expvalue : 5,
-                        expmethod : '포켓몬 1:1 대결 비교',
-                        loginUno : loginNo
+                    async: false,
+                    method: 'post',
+                    url: '/exp/add',
+                    data: {
+                        expvalue: 5,
+                        expmethod: '포켓몬 1:1 대결 비교',
+                        loginUno: loginNo
                     },
-                    success : (result) => {
+                    success: (result) => {
                         console.log(result);
+
+
                     }   // success end
                 })  // ajax end
-            }   // if end
+            }
 
         }
 
@@ -628,12 +636,22 @@ function rate_predict_from_model() {
         data: { poke_index: poke_index, rskillpower: rskillpower },
         success: function response(result) {
             console.log(result);
-            html += `<div>
-                        예측 결과는? 
-                    </div>
-                    <div>
-                    ${result[0]}%
-                    </div>
+            html += `<table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    예측 결과
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    ${Math.round(result[0])}%
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     `
             rate_result.innerHTML = html;
 
