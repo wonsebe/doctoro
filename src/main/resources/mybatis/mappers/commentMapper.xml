@@ -19,9 +19,4 @@
 
     </select>
 
-    <!--3. 수정 -->
-    <update id="bUpdate" parameterType="web.model.dto.BoardDto">
-        update comment set ccontent= #{ ccontent };
-    </update>
-
 </mapper>

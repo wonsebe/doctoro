@@ -31,18 +31,4 @@ public class ComentplyController {
         return commetnplyService.cPrint(bno);
 
     }
-
-    //댓글 수정
-    @PutMapping("/cupdate")
-    public boolean cUpdate(CommentDto commentDto){
-        System.out.println("commentDto = " + commentDto);
-        System.out.println("ComentplyController.cUpdate");
-        return  commetnplyService.cUpdate(commentDto);
-    }
-
-    //댓글 삭제
-    @DeleteMapping("/cdelete")
-    public boolean cDelete(int cno){
-        return commetnplyService.cDelete(cno);
-    }
 }

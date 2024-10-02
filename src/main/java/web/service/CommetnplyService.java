@@ -59,17 +59,4 @@ public class CommetnplyService {
         return commentplyDao.cPrint(bno);
     }
 
-    //댓글 수정
-    public  boolean cUpdate(CommentDto commentDto){
-        System.out.println("commentDto = " + commentDto);
-        System.out.println("CommetnplyService.cUpdate");
-        return commentplyDao.cUpdate(commentDto);
-    }
-
-    //댓글 삭제
-    public boolean cDelete(int cno){
-        System.out.println("CommetnplyService.cDelete");
-        System.out.println("cno = " + cno);
-        return commentplyDao.cDelete(cno);
-    }
 }
