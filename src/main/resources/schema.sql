@@ -151,7 +151,7 @@ create table product (
     product_name varchar(50) not null,             -- 상품명
     price int not null,                            -- 가격
     product_image varchar(255) not null,           -- 이미지
-    produc_description varchar(255) not null,      -- 상품 설명
+    product_description varchar(255) not null,      -- 상품 설명
 	pcategory_no int not null,                     -- 상품 카테고리 번호 (외래키)
 	primary key (product_no),
     foreign key(pcategory_no) references pcategory (pcategory_no) on update cascade on delete cascade
