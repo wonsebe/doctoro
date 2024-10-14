@@ -2544,3 +2544,1989 @@ INSERT INTO explog (expvalue, expmethod, mpno) VALUES
 (10, '로그인', 28),
 (10, '로그인', 29),
 (10, '로그인', 30);
+
+
+-- 포인트 로그 샘플
+INSERT INTO pointlog (point_indecrease, free_paid, point_reason, uno) VALUES
+(100, '무료', '댓글', 4),
+(100000, '유료', '포인트충전', 1),
+(-10000, '무료', '상품구매', 1),
+(-20000, '무료', '상품구매', 1),
+(-30000, '유료', '상품구매', 2),
+(50, '무료', '회원가입 보너스', 1),
+(-5000, '유료', '상품구매', 1),
+(200, '무료', '리뷰 작성', 2),
+(-150, '유료', '상품구매', 3),
+(300, '무료', '이벤트 참여', 2),
+(-1000, '유료', '상품구매', 4),
+(400, '무료', '생일 보너스', 3),
+(-100, '유료', '상품구매', 5),
+(600, '무료', '추천인 포인트', 4),
+(-7000, '유료', '상품구매', 1),
+(250, '무료', '이벤트 참여', 5),
+(-12000, '유료', '상품구매', 2),
+(800, '무료', '댓글 작성', 3),
+(-300, '유료', '상품구매', 4),
+(900, '무료', '소셜미디어 공유', 1),
+(-200, '유료', '상품구매', 5),
+(100, '무료', '포인트 전환', 1),
+(-500, '유료', '상품구매', 2),
+(150, '무료', '포인트 적립', 3),
+(-250, '유료', '상품구매', 4),
+(300, '무료', '이벤트 참여', 2),
+(-400, '유료', '상품구매', 3),
+(500, '무료', '리뷰 작성', 5),
+(-600, '유료', '상품구매', 1),
+(700, '무료', '회원가입 보너스', 4),
+(-800, '유료', '상품구매', 2),
+(900, '무료', '리뷰 작성', 3),
+(-1000, '유료', '상품구매', 5),
+(1100, '무료', '이벤트 참여', 1),
+(-1200, '유료', '상품구매', 4),
+(1300, '무료', '추천인 포인트', 3),
+(-1400, '유료', '상품구매', 2),
+(1500, '무료', '생일 보너스', 5),
+(-1600, '유료', '상품구매', 1),
+(1700, '무료', '댓글 작성', 2),
+(-1800, '유료', '상품구매', 3),
+(1900, '무료', '포인트 전환', 4),
+(-2000, '유료', '상품구매', 5),
+(2100, '무료', '이벤트 참여', 1),
+(-2200, '유료', '상품구매', 2),
+(2300, '무료', '리뷰 작성', 3),
+(-2400, '유료', '상품구매', 4),
+(2500, '무료', '회원가입 보너스', 5),
+(-2600, '유료', '상품구매', 1),
+(2700, '무료', '추천인 포인트', 3),
+(-2800, '유료', '상품구매', 2),
+(2900, '무료', '생일 보너스', 4),
+(-3000, '유료', '상품구매', 5),
+(3100, '무료', '이벤트 참여', 1),
+(-3200, '유료', '상품구매', 3),
+(3300, '무료', '댓글 작성', 2),
+(-3400, '유료', '상품구매', 4),
+(3500, '무료', '포인트 적립', 5),
+(-3600, '유료', '상품구매', 1),
+(3700, '무료', '회원가입 보너스', 3),
+(-3800, '유료', '상품구매', 2),
+(3900, '무료', '리뷰 작성', 4),
+(-4000, '유료', '상품구매', 5),
+(4100, '무료', '이벤트 참여', 1),
+(-4200, '유료', '상품구매', 3),
+(4300, '무료', '추천인 포인트', 2),
+(-4400, '유료', '상품구매', 4),
+(4500, '무료', '생일 보너스', 5),
+(-4600, '유료', '상품구매', 1);
+
+-- 상품 카테고리 샘플
+INSERT INTO pcategory (pcategory_no,pcategory_name)VALUES (1,'굿즈');
+INSERT INTO pcategory (pcategory_no,pcategory_name)VALUES (2,'카드');
+INSERT INTO pcategory (pcategory_no,pcategory_name)VALUES (3,'강화 아이템');
+
+-- 상품 샘플
+INSERT INTO product (product_name,price,product_image,product_description, pcategory_no)VALUES
+('이브이 인형', 10000, 'doll_eevee.png','귀여운 이브이 인형', 1),
+('피카츄 인형', 20000, 'doll_pikachu.png','언제나 귀여운 피카츄 인형', 1),
+('포켓몬 카드게임 확장팩 「나이트원더러」',30000, 'card_deck_shrouded_fable.png','인기만점 나이트원더러', 2),
+('꼬부기 카드', 2000, 'card_squirtle.png','희귀한 꼬부기 카드', 2),
+('검은띠', 1000, 'reinforce_item_black_belt.png','강화 성공 확률 70%', 3),
+('피카츄 인형', 15000, 'pikachu_plush.jpg', '귀여운 피카츄 인형', 1),
+('이상해꽃 포스터', 8000, 'venusaur_poster.jpg', '이상해꽃 포스터', 1),
+('리자몽 머그컵', 10000, 'charizard_mug.jpg', '리자몽 디자인 머그컵', 1),
+('포켓몬 카드팩', 3000, 'pokemon_card_pack.jpg', '포켓몬 카드팩', 2),
+('피카츄 카드', 2000, 'pikachu_card.jpg', '귀여운 피카츄 카드', 2),
+('리자몽 카드', 2500, 'charizard_card.jpg', '리자몽 카드', 2),
+('강화 물약', 5000, 'strength_potion.jpg', '포켓몬 강화 물약', 3),
+('스피드 부스트', 7000, 'speed_boost.jpg', '포켓몬 스피드 부스트 아이템', 3),
+('방어구 강화', 6000, 'defense_upgrade.jpg', '포켓몬 방어구 강화 아이템', 3),
+('꼬부기 인형', 15000, 'squirtle_plush.jpg', '귀여운 꼬부기 인형', 1),
+('뮤츠 카드', 2000, 'mewtwo_card.jpg', '전설의 뮤츠 카드', 2),
+('고라파덕 인형', 15000, 'psyduck_plush.jpg', '고라파덕 인형', 1),
+('포켓몬 스티커', 5000, 'pokemon_sticker.jpg', '포켓몬 스티커 세트', 1),
+('이상해씨 카드', 2000, 'bulbasaur_card.jpg', '이상해씨 카드', 2),
+('방어구 아이템', 6000, 'armor_item.jpg', '포켓몬 방어구 아이템', 3),
+('리자몽 인형', 15000, 'charizard_plush.jpg', '리자몽 인형', 1),
+('레쿠쟈 카드', 2500, 'rayquaza_card.jpg', '레쿠쟈 카드', 2),
+('포켓몬 키링', 7000, 'pokemon_keyring.jpg', '포켓몬 키링', 1),
+('파이리 카드', 2000, 'charmander_card.jpg', '파이리 카드', 2),
+('강화 물약', 5000, 'strength_potion.jpg', '포켓몬 강화 물약', 3),
+('미뇽 인형', 15000, 'dratini_plush.jpg', '미뇽 인형', 1),
+('신뇽 카드', 2500, 'dragonite_card.jpg', '신뇽 카드', 2),
+('물약 아이템', 4000, 'potion_item.jpg', '포켓몬 물약 아이템', 3),
+('마그나카드 인형', 15000, 'magikarp_plush.jpg', '잉어킹 인형', 1),
+('픽시 카드', 2000, 'jigglypuff_card.jpg', '픽시 카드', 2),
+('강화 스톤', 6000, 'evolution_stone.jpg', '포켓몬 진화 스톤', 3),
+('사이킥 카드', 2000, 'hypno_card.jpg', '사이킥 카드', 2),
+('노곤한 인형', 15000, 'snorlax_plush.jpg', '노곤한 인형', 1),
+('리자드 카드', 2500, 'charmeleon_card.jpg', '리자드 카드', 2),
+('스피드 아이템', 5000, 'speed_item.jpg', '포켓몬 스피드 아이템', 3),
+('거북왕 인형', 15000, 'blastoise_plush.jpg', '거북왕 인형', 1),
+('타란튤라 카드', 2000, 'spinarak_card.jpg', '타란튤라 카드', 2),
+('강화 부적', 6000, 'charm_item.jpg', '포켓몬 강화 부적', 3),
+('다크라이 인형', 15000, 'darkrai_plush.jpg', '다크라이 인형', 1),
+('에브이 카드', 2500, 'evee_card.jpg', '에브이 카드', 2),
+('방어 스톤', 6000, 'defense_stone.jpg', '포켓몬 방어 스톤', 3),
+('루기아 인형', 15000, 'lugia_plush.jpg', '루기아 인형', 1),
+('한카리아스 카드', 2000, 'garchomp_card.jpg', '한카리아스 카드', 2),
+('특훈 물약', 5000, 'training_potion.jpg', '포켓몬 특훈 물약', 3),
+('갸라도스 인형', 15000, 'gyarados_plush.jpg', '갸라도스 인형', 1),
+('리자몽 카드팩', 3000, 'charizard_card_pack.jpg', '리자몽 카드팩', 2),
+('레벨업 아이템', 4000, 'level_up_item.jpg', '포켓몬 레벨업 아이템', 3),
+('조로아크 인형', 15000, 'zoroark_plush.jpg', '조로아크 인형', 1),
+('몽얏 카드', 2000, 'snivy_card.jpg', '몽얏 카드', 2),
+('강화 방패', 6000, 'shield_item.jpg', '포켓몬 강화 방패', 3),
+('신비한 포켓몬 인형', 15000, 'mew_plush.jpg', '신비한 포켓몬 인형', 1),
+('피카츄 카드팩', 3000, 'pikachu_card_pack.jpg', '피카츄 카드팩', 2),
+('힘의 물약', 5000, 'power_potion.jpg', '포켓몬 힘의 물약', 3),
+('스라크 인형', 15000, 'slurpuff_plush.jpg', '스라크 인형', 1),
+('에스퍼 카드', 2000, 'espurr_card.jpg', '에스퍼 카드', 2),
+('방어 물약', 5000, 'defense_potion.jpg', '포켓몬 방어 물약', 3),
+('베토베토 카드', 2000, 'burmy_card.jpg', '베토베토 카드', 2),
+('가디 인형', 15000, 'growlithe_plush.jpg', '가디 인형', 1),
+('포켓몬 배지', 7000, 'pokemon_badge.jpg', '포켓몬 배지', 1),
+('자이로볼 카드', 2500, 'gyro_ball_card.jpg', '자이로볼 카드', 2),
+('포켓몬 엽서', 3000, 'pokemon_postcard.jpg', '포켓몬 엽서', 1),
+('로토무 카드', 2500, 'rotom_card.jpg', '로토무 카드', 2),
+('신비한 구슬', 6000, 'mystic_orb.jpg', '신비한 구슬', 3),
+('초능력 인형', 15000, 'psychic_plush.jpg', '초능력 인형', 1),
+('포켓몬 카탈로그', 10000, 'pokemon_catalog.jpg', '포켓몬 카탈로그', 1),
+('루리리 카드', 2000, 'spheal_card.jpg', '루리리 카드', 2),
+('스킬 물약', 5000, 'skill_potion.jpg', '포켓몬 스킬 물약', 3),
+('미우미우 인형', 15000, 'meowstic_plush.jpg', '미우미우 인형', 1),
+('리자몽 피규어', 18000, 'charizard_figure.jpg', '멋진 리자몽 피규어', 1),
+('부스터 카드', 2500, 'flareon_card.jpg', '부스터 카드', 2),
+('푸린 인형', 15000, 'jigglypuff_plush.jpg', '귀여운 푸린 인형', 1),
+('강화 포션', 5000, 'enhancement_potion.jpg', '포켓몬 강화 포션', 3),
+('이상해꽃 피규어', 17000, 'venusaur_figure.jpg', '이상해꽃 피규어', 1),
+('뮤츠 카드', 3000, 'mewtwo_card.jpg', '전설의 뮤츠 카드', 2),
+('고라파덕 인형', 15000, 'psyduck_plush.jpg', '귀여운 고라파덕 인형', 1),
+('드래피온 카드', 2500, 'drapion_card.jpg', '드래피온 카드', 2),
+('강화 아이템', 6000, 'strength_item.jpg', '포켓몬 강화 아이템', 3),
+('뽀뽀 카드', 2000, 'porygon_card.jpg', '뽀뽀 카드', 2),
+('조로아크 피규어', 16000, 'zoroark_figure.jpg', '조로아크 피규어', 1),
+('꼬부기 카드', 2000, 'squirtle_card.jpg', '꼬부기 카드', 2),
+('리자드 후드티', 22000, 'charmeleon_hoodie.jpg', '리자드 디자인 후드티', 1),
+('마임맨 카드', 2500, 'mr_mime_card.jpg', '마임맨 카드', 2),
+('스톤 아이템', 5000, 'stone_item.jpg', '포켓몬 진화 스톤', 3),
+('피카츄 카드', 2000, 'pikachu_card.jpg', '귀여운 피카츄 카드', 2),
+('거북왕 인형', 18000, 'blastoise_plush.jpg', '거북왕 인형', 1),
+('전룡 카드', 2500, 'raikou_card.jpg', '전룡 카드', 2),
+('강화 주사위', 7000, 'enhancement_dice.jpg', '포켓몬 강화 주사위', 3),
+('상디 피규어', 16000, 'sandslash_figure.jpg', '상디 피규어', 1),
+('미뇽 카드', 2000, 'dratini_card.jpg', '미뇽 카드', 2),
+('레벨업 포션', 6000, 'level_up_potion.jpg', '포켓몬 레벨업 포션', 3),
+('마그마 인형', 15000, 'magmar_plush.jpg', '마그마 인형', 1),
+('고오스 카드', 2000, 'gastly_card.jpg', '고오스 카드', 2),
+('엉켜진 인형', 15000, 'snorlax_plush.jpg', '귀여운 엉켜진 인형', 1),
+('파이리 카드', 2000, 'charmander_card.jpg', '파이리 카드', 2),
+('강화 체력 물약', 5000, 'health_potion.jpg', '포켓몬 체력 강화 물약', 3),
+('패러소드 인형', 15000, 'parasect_plush.jpg', '패러소드 인형', 1),
+('레쿠쟈 카드', 2500, 'rayquaza_card.jpg', '레쿠쟈 카드', 2),
+('신비한 물약', 6000, 'mystic_potion.jpg', '포켓몬 신비한 물약', 3),
+('야도란 인형', 15000, 'slowpoke_plush.jpg', '귀여운 야도란 인형', 1),
+('푸크린 카드', 2000, 'clefairy_card.jpg', '푸크린 카드', 2),
+('강화 장비', 5000, 'gear_item.jpg', '포켓몬 강화 장비', 3),
+('뮤 피규어', 16000, 'mew_plush.jpg', '신비로운 뮤 피규어', 1);
+
+-- 재고 샘플
+INSERT INTO inventory (inventory_indecrease, inventory_reason, product_no) VALUES
+(50, '재고등록', 1),
+(50, '재고등록', 2),
+(-1, '상품구매', 1),
+(-3, '상품구매', 2),
+(30, '재고등록', 3),
+(10, '재고등록', 1),
+(20, '재고등록', 1),
+(-5, '상품구매', 1),
+(-2, '상품구매', 1),
+(15, '재고등록', 2),
+(25, '재고등록', 2),
+(-4, '상품구매', 2),
+(-1, '상품구매', 2),
+(30, '재고등록', 3),
+(10, '재고등록', 3),
+(-2, '상품구매', 3),
+(-5, '상품구매', 3),
+(20, '재고등록', 4),
+(10, '재고등록', 4),
+(-3, '상품구매', 4),
+(-2, '상품구매', 4),
+(40, '재고등록', 5),
+(15, '재고등록', 5),
+(-8, '상품구매', 5),
+(-5, '상품구매', 5),
+(35, '재고등록', 6),
+(5, '재고등록', 6),
+(-6, '상품구매', 6),
+(-2, '상품구매', 6),
+(50, '재고등록', 7),
+(30, '재고등록', 7),
+(-1, '상품구매', 7),
+(-4, '상품구매', 7),
+(10, '재고등록', 8),
+(15, '재고등록', 8),
+(-3, '상품구매', 8),
+(-7, '상품구매', 8),
+(60, '재고등록', 9),
+(25, '재고등록', 9),
+(-2, '상품구매', 9),
+(-1, '상품구매', 9),
+(45, '재고등록', 10),
+(20, '재고등록', 10),
+(-4, '상품구매', 10),
+(-3, '상품구매', 10),
+(12, '재고등록', 11),
+(15, '재고등록', 11),
+(-5, '상품구매', 11),
+(-1, '상품구매', 11),
+(22, '재고등록', 12),
+(18, '재고등록', 12),
+(-3, '상품구매', 12),
+(-4, '상품구매', 12),
+(14, '재고등록', 13),
+(8, '재고등록', 13),
+(-2, '상품구매', 13),
+(-5, '상품구매', 13),
+(19, '재고등록', 14),
+(13, '재고등록', 14),
+(-1, '상품구매', 14),
+(-3, '상품구매', 14),
+(27, '재고등록', 15),
+(22, '재고등록', 15),
+(-6, '상품구매', 15),
+(-2, '상품구매', 15),
+(33, '재고등록', 16),
+(11, '재고등록', 16),
+(-4, '상품구매', 16),
+(-3, '상품구매', 16),
+(28, '재고등록', 17),
+(19, '재고등록', 17),
+(-2, '상품구매', 17),
+(-5, '상품구매', 17),
+(16, '재고등록', 18),
+(12, '재고등록', 18),
+(-7, '상품구매', 18),
+(-3, '상품구매', 18),
+(21, '재고등록', 19),
+(15, '재고등록', 19),
+(-4, '상품구매', 19),
+(-6, '상품구매', 19),
+(29, '재고등록', 20),
+(23, '재고등록', 20),
+(-2, '상품구매', 20),
+(-3, '상품구매', 20);
+
+-- 주문 샘플
+insert into orders (order_no, order_date,uno) values
+(1,'2024-07-15',1),
+(2,'2024-08-23',1),
+(3,'2024-08-30',2),
+(4,'2024-09-02',3),
+(5,'2024-10-10',4),
+(6, '2024-10-12', 1),
+(7, '2024-10-13', 2),
+(8, '2024-10-14', 1),
+(9, '2024-10-15', 3),
+(10, '2024-10-16', 4),
+(11, '2024-10-17', 2),
+(12, '2024-10-18', 1),
+(13, '2024-10-19', 3),
+(14, '2024-10-20', 4),
+(15, '2024-10-21', 1),
+(16, '2024-10-22', 2),
+(17, '2024-10-23', 3),
+(18, '2024-10-24', 4),
+(19, '2024-10-25', 1),
+(20, '2024-10-26', 2),
+(21, '2024-10-27', 3),
+(22, '2024-10-28', 4),
+(23, '2024-10-29', 1),
+(24, '2024-10-30', 2),
+(25, '2024-10-31', 3),
+(26, '2024-11-01', 4),
+(27, '2024-11-02', 1),
+(28, '2024-11-03', 2),
+(29, '2024-11-04', 3),
+(30, '2024-11-05', 4),
+(31, '2024-11-06', 1),
+(32, '2024-11-07', 2),
+(33, '2024-11-08', 3),
+(34, '2024-11-09', 4),
+(35, '2024-11-10', 1),
+(36, '2024-11-11', 2),
+(37, '2024-11-12', 3),
+(38, '2024-11-13', 4),
+(39, '2024-11-14', 1),
+(40, '2024-11-15', 2),
+(41, '2024-11-16', 3),
+(42, '2024-11-17', 4),
+(43, '2024-11-18', 1),
+(44, '2024-11-19', 2),
+(45, '2024-11-20', 3),
+(46, '2024-11-21', 4),
+(47, '2024-11-22', 1),
+(48, '2024-11-23', 2),
+(49, '2024-11-24', 3),
+(50, '2024-11-25', 4),
+(51, '2024-11-26', 1),
+(52, '2024-11-27', 2),
+(53, '2024-11-28', 3),
+(54, '2024-11-29', 4),
+(55, '2024-11-30', 1),
+(56, '2024-12-01', 2),
+(57, '2024-12-02', 3),
+(58, '2024-12-03', 4),
+(59, '2024-12-04', 1),
+(60, '2024-12-05', 2),
+(61, '2024-12-06', 3),
+(62, '2024-12-07', 4),
+(63, '2024-12-08', 1),
+(64, '2024-12-09', 2),
+(65, '2024-12-10', 3),
+(66, '2024-12-11', 4),
+(67, '2024-12-12', 1),
+(68, '2024-12-13', 2),
+(69, '2024-12-14', 3),
+(70, '2024-12-15', 4),
+(71, '2024-12-16', 1),
+(72, '2024-12-17', 2),
+(73, '2024-12-18', 3),
+(74, '2024-12-19', 4),
+(75, '2024-12-20', 1),
+(76, '2024-12-21', 2),
+(77, '2024-12-22', 3),
+(78, '2024-12-23', 4),
+(79, '2024-12-24', 1),
+(80, '2024-12-25', 2),
+(81, '2024-12-26', 3),
+(82, '2024-12-27', 4),
+(83, '2024-12-28', 1),
+(84, '2024-12-29', 2),
+(85, '2024-12-30', 3),
+(86, '2024-12-31', 4),
+(87, '2025-01-01', 1),
+(88, '2025-01-02', 2),
+(89, '2025-01-03', 3),
+(90, '2025-01-04', 4),
+(91, '2025-01-05', 1),
+(92, '2025-01-06', 2),
+(93, '2025-01-07', 3),
+(94, '2025-01-08', 4),
+(95, '2025-01-09', 1),
+(96, '2025-01-10', 2),
+(97, '2025-01-11', 3),
+(98, '2025-01-12', 4),
+(99, '2025-01-13', 1),
+(100, '2025-01-14', 2);
+
+-- 주문 상세 샘플
+insert into odetails (order_status,product_no,order_no) values
+(0,1,1),
+(0,2,1),
+(0,3,2),
+(0,5,3),
+(1,4,3),
+(0, 1, 1),
+(0, 2, 1),
+(0, 3, 2),
+(0, 4, 2),
+(1, 5, 3),
+(0, 1, 4),
+(1, 2, 4),
+(0, 3, 5),
+(1, 4, 5),
+(0, 5, 6),
+(1, 1, 6),
+(0, 2, 7),
+(0, 3, 8),
+(1, 4, 8),
+(0, 5, 9),
+(1, 1, 9),
+(0, 2, 10),
+(1, 3, 10),
+(0, 4, 11),
+(1, 5, 11),
+(0, 1, 12),
+(1, 2, 12),
+(0, 3, 13),
+(1, 4, 13),
+(0, 5, 14),
+(1, 1, 14),
+(0, 2, 15),
+(1, 3, 15),
+(0, 4, 16),
+(1, 5, 16),
+(0, 1, 17),
+(1, 2, 17),
+(0, 3, 18),
+(1, 4, 18),
+(0, 5, 19),
+(1, 1, 19),
+(0, 2, 20),
+(1, 3, 20),
+(0, 4, 21),
+(1, 5, 21),
+(0, 1, 22),
+(1, 2, 22),
+(0, 3, 23),
+(1, 4, 23),
+(0, 5, 24),
+(1, 1, 24),
+(0, 2, 25),
+(1, 3, 25),
+(0, 4, 26),
+(1, 5, 26),
+(0, 1, 27),
+(1, 2, 27),
+(0, 3, 28),
+(1, 4, 28),
+(0, 5, 29),
+(1, 1, 29),
+(0, 2, 30),
+(1, 3, 30),
+(0, 4, 31),
+(1, 5, 31),
+(0, 1, 32),
+(1, 2, 32),
+(0, 3, 33),
+(1, 4, 33),
+(0, 5, 34),
+(1, 1, 34),
+(0, 2, 35),
+(1, 3, 35),
+(0, 4, 36),
+(1, 5, 36),
+(0, 1, 37),
+(1, 2, 37),
+(0, 3, 38),
+(1, 4, 38),
+(0, 5, 39),
+(1, 1, 39),
+(0, 2, 40),
+(1, 3, 40),
+(0, 4, 41),
+(1, 5, 41),
+(0, 1, 42),
+(1, 2, 42),
+(0, 3, 43),
+(1, 4, 43),
+(0, 5, 44),
+(1, 1, 44),
+(0, 2, 45),
+(1, 3, 45),
+(0, 4, 46),
+(1, 5, 46),
+(0, 1, 47),
+(1, 2, 47),
+(0, 3, 48),
+(1, 4, 48),
+(0, 5, 49),
+(1, 1, 49),
+(0, 2, 50);
+
+-- 배송 샘플
+insert into delivery (delivery_status,delivery_date,order_no) values
+('배송완료','2024-07-17',1),
+('배송준비중','2024-08-25',2),
+('배송준비중','2024-09-01',3),
+('배송완료','2024-09-04',4),
+('배송완료','2024-10-12',5);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-01', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-17', 66);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-16', 55);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-14', 74);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-09', 80);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-26', 65);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-14', 64);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-05', 25);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-02', 80);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-07', 12);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-21', 53);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-04', 21);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-26', 59);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-17', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-13', 24);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-30', 85);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-14', 87);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-01', 99);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-02', 61);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-05', 85);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-26', 17);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-08', 47);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-14', 27);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-02', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-14', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-21', 3);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-02', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-19', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-27', 59);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-30', 4);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-05', 13);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-27', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-01', 57);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-06', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-02', 42);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-12', 5);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-21', 22);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-01', 60);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-14', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-28', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-28', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-13', 21);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-13', 79);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-09', 76);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-06', 72);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-26', 75);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-18', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-24', 87);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-17', 61);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-24', 5);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-25', 47);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-11', 23);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-03', 91);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-19', 47);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-25', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-31', 64);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-27', 11);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-01', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-25', 52);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-11', 57);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-09', 35);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-03', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-07', 73);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-14', 27);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-19', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-10', 6);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-20', 48);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-27', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-09', 39);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-30', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-25', 80);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-19', 5);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-29', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-17', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-26', 13);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-19', 47);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-14', 39);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-14', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-20', 61);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-11', 89);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-28', 60);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-07', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-15', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-09', 32);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-16', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-28', 37);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-13', 16);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-23', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-05', 25);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-13', 23);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-30', 55);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-04', 16);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-14', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-29', 4);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-22', 57);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-25', 51);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-25', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-15', 33);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-13', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-18', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-24', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-29', 26);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-25', 72);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-16', 48);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-15', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-24', 6);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-02', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-14', 82);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-26', 80);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-05', 96);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-30', 32);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-18', 34);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-05', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-09', 51);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-09', 24);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-05', 34);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-21', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-30', 64);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-02', 33);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-05', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-08', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-23', 67);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-28', 45);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-19', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-14', 57);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-24', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-22', 87);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-14', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-07', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-06', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-04', 16);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-01', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-21', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-01', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-02', 99);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-09', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-15', 66);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-31', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-17', 18);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-25', 23);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-25', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-26', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-04', 1);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-23', 94);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-14', 88);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-02', 79);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-26', 3);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-21', 60);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-13', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-25', 37);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-10', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-16', 80);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-16', 60);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-19', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-21', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-26', 59);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-10-13', 32);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-14', 90);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-18', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-30', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-22', 54);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-19', 6);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-13', 51);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-13', 36);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-29', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-20', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-17', 77);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-06', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-23', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-07', 24);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-02', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-06', 32);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-19', 36);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-03', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-27', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-21', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-07', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-01', 36);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-08', 55);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-18', 25);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-08', 47);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-30', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-25', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-14', 75);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-13', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-21', 60);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-27', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-01', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-07', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-30', 32);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-18', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-24', 20);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-14', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-01', 72);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-19', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-08', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-09', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-22', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-25', 86);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-10', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-06', 87);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-24', 33);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-10', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-12', 89);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-30', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-13', 55);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-09', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-03', 66);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-20', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-19', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-18', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-14', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-12', 36);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-10', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-26', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-09', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-13', 14);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-16', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-01', 84);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-22', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-01', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-02', 8);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-14', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-08', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-02', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-18', 24);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-27', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-01', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-27', 53);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-21', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-29', 16);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-26', 38);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-25', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-20', 20);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-19', 71);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-24', 16);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-21', 82);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-16', 89);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-13', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-08', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-12', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-07', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-23', 54);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-08', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-11', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-23', 64);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-09', 67);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-03', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-28', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-07', 20);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-02', 13);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-22', 58);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-19', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-18', 58);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-22', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-16', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-17', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-03', 23);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-08', 89);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-11', 93);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-04', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-30', 4);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-25', 61);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-07', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-15', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-04', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-10-10', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-22', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-09', 71);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-15', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-09', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-20', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-10', 71);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-05', 35);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-30', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-18', 25);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-24', 41);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-25', 98);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-29', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-10-12', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-05', 80);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-14', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-03', 45);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-24', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-01', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-06', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-01', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-05', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-28', 61);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-11', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-13', 18);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-07', 35);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-11', 42);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-25', 94);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-14', 84);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-29', 59);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-22', 88);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-21', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-20', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-04', 14);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-20', 85);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-20', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-08', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-27', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-18', 52);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-04', 44);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-13', 48);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-06', 13);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-22', 48);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-22', 89);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-13', 73);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-20', 23);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-30', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-02', 1);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-10', 39);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-04', 20);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-25', 75);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-13', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-17', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-13', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-06', 79);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-26', 65);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-07', 45);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-30', 77);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-01', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-14', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-08', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-18', 35);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-10', 1);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-21', 36);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-23', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-06', 22);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-13', 74);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-22', 53);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-25', 20);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-24', 41);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-27', 24);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-18', 39);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-15', 42);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-12', 85);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-11', 22);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-11', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-24', 89);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-28', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-19', 45);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-04', 71);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-08', 55);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-25', 39);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-20', 74);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-08', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-03', 41);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-26', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-28', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-27', 17);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-19', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-30', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-13', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-26', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-10', 27);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-12', 86);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-17', 82);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-29', 93);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-07', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-15', 77);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-17', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-18', 59);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-10', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-05', 33);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-26', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-11', 12);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-26', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-02', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-01', 14);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-02', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-11', 96);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-12', 93);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-23', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-21', 55);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-13', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-04', 45);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-03', 27);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-24', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-18', 84);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-14', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-25', 54);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-04', 37);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-07', 21);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-06', 98);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-15', 91);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-01', 70);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-20', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-16', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-21', 75);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-10', 14);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-30', 39);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-19', 48);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-23', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-09', 37);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-11', 86);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-01', 1);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-29', 59);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-05', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-16', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-15', 45);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-07', 14);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-17', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-31', 54);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-25', 73);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-04', 51);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-20', 91);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-26', 65);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-04', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-04', 22);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-09', 11);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-19', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-27', 71);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-14', 19);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-30', 58);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-26', 84);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-14', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-30', 8);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-17', 4);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-11', 65);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-16', 67);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-11', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-30', 84);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-18', 44);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-24', 71);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-24', 16);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-28', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-20', 43);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-04', 52);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-11', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-17', 48);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-04', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-29', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-18', 26);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-24', 76);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-16', 79);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-28', 67);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-15', 97);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-03', 54);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-12', 79);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-03', 86);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-05', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-09', 96);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-04', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-31', 99);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-18', 86);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-23', 71);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-14', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-26', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-08', 74);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-20', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-18', 53);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-24', 93);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-03', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-24', 17);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-16', 12);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-03', 18);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-31', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-27', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-23', 27);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-10-11', 20);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-16', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-30', 84);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-27', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-28', 13);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-03', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-27', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-26', 25);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-02', 34);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-10-11', 76);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-20', 76);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-16', 64);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-08', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-26', 90);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-19', 5);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-10', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-17', 26);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-06', 72);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-09', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-04', 36);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-14', 87);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-28', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-18', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-02', 47);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-04', 22);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-08', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-26', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-10', 3);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-28', 90);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-31', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-05', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-13', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-15', 51);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-06', 60);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-11', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-29', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-07', 86);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-26', 53);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-08', 65);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-12', 13);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-08', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-09', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-10-13', 23);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-10', 37);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-24', 26);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-19', 89);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-31', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-18', 20);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-17', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-05', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-29', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-18', 27);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-03', 18);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-04', 41);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-03', 51);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-17', 17);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-12', 4);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-31', 54);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-19', 5);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-08', 8);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-28', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-27', 24);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-31', 44);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-23', 100);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-13', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-08', 79);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-01', 98);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-18', 91);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-06', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-23', 91);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-31', 42);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-26', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-20', 85);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-11', 94);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-03', 83);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-10', 91);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-06', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-17', 57);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-01', 96);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-02', 18);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-05', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-31', 22);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-29', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-26', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-19', 67);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-12', 13);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-01', 60);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-16', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-12', 38);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-04', 40);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-04', 59);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-30', 3);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-12', 36);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-19', 24);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-26', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-25', 18);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-04', 34);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-14', 29);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-16', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-21', 63);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-03', 85);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-15', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-21', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-04', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-18', 23);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-19', 37);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-26', 94);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-09-17', 52);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-25', 69);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-30', 41);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-19', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-10-11', 75);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-07', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-12', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-10-06', 80);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-14', 62);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-02', 91);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-03', 28);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-23', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-26', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-25', 53);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-03', 41);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-08-30', 3);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-04', 19);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-08', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-26', 85);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-25', 21);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-10', 51);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-10', 50);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-29', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-02-28', 56);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-07', 9);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-08', 72);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-30', 53);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-30', 16);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-02', 30);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-01', 21);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-23', 55);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-22', 27);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-11-17', 93);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-30', 15);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-08', 75);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-18', 1);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-15', 61);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-10', 45);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-28', 18);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-22', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-07', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-08', 40);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-10', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-22', 22);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-30', 26);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-29', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-09-12', 1);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-18', 98);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-17', 58);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-12-04', 73);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-08-03', 31);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-17', 12);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-27', 44);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-07', 72);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-04', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-24', 73);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-07-04', 5);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-12-09', 4);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-18', 52);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-01-11', 65);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-20', 65);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-08-08', 35);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-29', 61);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-11-08', 92);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-09', 4);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-05-02', 49);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-09-18', 77);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-02', 38);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-08-29', 21);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-07-24', 90);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-05-16', 14);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-12', 78);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-02-01', 79);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2023-10-10', 10);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-06-20', 7);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-03-05', 6);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-06', 64);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-16', 2);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-06-22', 81);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-06', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-09-11', 95);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-04-26', 99);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-07-26', 88);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-01-19', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-07-05', 21);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-02', 98);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2024-04-08', 46);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송완료', '2024-03-05', 68);
+insert into delivery (delivery_status, delivery_date, order_no) values ('배송준비중', '2023-10-27', 30);
+
+-- 장바구니 샘플
+insert into cart (cart_no,cart_product_quantity,product_no,uno) values
+(1,1,1,1),
+(2,3,2,1),
+(3,1,3,2),
+(4,2,5,3),
+(5,4,1,2);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 44, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (78, 51, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (3, 13, 21);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 31, 33);
+insert into cart (cart_product_quantity, product_no, uno) values (100, 100, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 84, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 72, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (82, 32, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (23, 44, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (21, 82, 3);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 70, 81);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 80, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (3, 4, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (62, 88, 86);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 37, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (15, 12, 32);
+insert into cart (cart_product_quantity, product_no, uno) values (61, 85, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 98, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 45, 93);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 15, 4);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 13, 29);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 55, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 2, 62);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 72, 95);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 62, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 41, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 41, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (54, 67, 31);
+insert into cart (cart_product_quantity, product_no, uno) values (81, 66, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 73, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 49, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 100, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 74, 8);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 99, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 34, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 92, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 47, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 85, 7);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 27, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 38, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (13, 86, 21);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 14, 66);
+insert into cart (cart_product_quantity, product_no, uno) values (75, 95, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 64, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 51, 51);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 25, 28);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 32, 32);
+insert into cart (cart_product_quantity, product_no, uno) values (4, 72, 98);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 18, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (82, 8, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (59, 80, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 75, 61);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 40, 3);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 27, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 51, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 52, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (100, 97, 71);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 12, 40);
+insert into cart (cart_product_quantity, product_no, uno) values (81, 23, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 78, 33);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 32, 3);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 84, 26);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 58, 81);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 71, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (47, 82, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 58, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (59, 78, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (99, 83, 40);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 23, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (76, 75, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 44, 61);
+insert into cart (cart_product_quantity, product_no, uno) values (61, 20, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 71, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (21, 94, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (78, 94, 76);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 35, 41);
+insert into cart (cart_product_quantity, product_no, uno) values (47, 56, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (54, 89, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 79, 16);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 65, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 29, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 79, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (56, 24, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (9, 93, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 49, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (89, 13, 97);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 15, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 27, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (16, 55, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (89, 8, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (72, 36, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (28, 29, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 28, 31);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 43, 47);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 56, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 5, 8);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 74, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 31, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (86, 21, 89);
+insert into cart (cart_product_quantity, product_no, uno) values (78, 73, 86);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 28, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 90, 32);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 23, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (3, 64, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (61, 74, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 81, 87);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 28, 76);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 21, 95);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 70, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 83, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 18, 21);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 80, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (33, 1, 95);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 51, 8);
+insert into cart (cart_product_quantity, product_no, uno) values (96, 73, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 67, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (75, 28, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (56, 77, 27);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 7, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 51, 38);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 5, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 46, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (54, 36, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (68, 66, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 90, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (9, 62, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 48, 66);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 69, 29);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 40, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (23, 2, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (39, 84, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 12, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 27, 62);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 83, 17);
+insert into cart (cart_product_quantity, product_no, uno) values (83, 77, 28);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 57, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 34, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 32, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 13, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 68, 91);
+insert into cart (cart_product_quantity, product_no, uno) values (48, 49, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (4, 26, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 80, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (90, 37, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 40, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 13, 60);
+insert into cart (cart_product_quantity, product_no, uno) values (23, 23, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 67, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (47, 41, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (80, 28, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (21, 24, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 9, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (61, 94, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 75, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (3, 19, 40);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 21, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 71, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 56, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 61, 2);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 34, 60);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 27, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (16, 34, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 11, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 22, 40);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 12, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (12, 11, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 16, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 52, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 24, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 20, 17);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 77, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 85, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 25, 32);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 91, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 41, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (100, 74, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 75, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (90, 37, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 64, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (12, 61, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 54, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 76, 28);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 85, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 16, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 74, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (61, 51, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 92, 18);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 37, 32);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 81, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 35, 2);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 31, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 79, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 27, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (23, 23, 27);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 94, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 51, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 59, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 9, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 96, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 1, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 49, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 12, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 71, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (97, 95, 31);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 95, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 51, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (83, 30, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 74, 31);
+insert into cart (cart_product_quantity, product_no, uno) values (36, 26, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 19, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 24, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 49, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 24, 45);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 25, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (56, 20, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 4, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (31, 73, 41);
+insert into cart (cart_product_quantity, product_no, uno) values (14, 30, 66);
+insert into cart (cart_product_quantity, product_no, uno) values (87, 25, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (15, 2, 4);
+insert into cart (cart_product_quantity, product_no, uno) values (90, 9, 18);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 70, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 48, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (15, 24, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 65, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (4, 94, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 67, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 53, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 96, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 17, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 34, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (80, 67, 71);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 21, 95);
+insert into cart (cart_product_quantity, product_no, uno) values (83, 62, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 93, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (68, 40, 95);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 65, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 50, 21);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 79, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 26, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 84, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 76, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 3, 89);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 24, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (89, 74, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 52, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 22, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 15, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 32, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 40, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 48, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (59, 74, 71);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 45, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (48, 82, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 9, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 60, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 6, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 86, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 98, 60);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 44, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 40, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 82, 11);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 74, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 76, 86);
+insert into cart (cart_product_quantity, product_no, uno) values (80, 50, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (48, 56, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 72, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (28, 88, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 3, 7);
+insert into cart (cart_product_quantity, product_no, uno) values (68, 25, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (23, 55, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 40, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 66, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 49, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 55, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (81, 6, 21);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 30, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 40, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 71, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 37, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (16, 8, 81);
+insert into cart (cart_product_quantity, product_no, uno) values (68, 43, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 17, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 37, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 83, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (48, 54, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (48, 15, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 93, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 64, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (89, 52, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 82, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 4, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 29, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 43, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (90, 87, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 93, 62);
+insert into cart (cart_product_quantity, product_no, uno) values (72, 94, 76);
+insert into cart (cart_product_quantity, product_no, uno) values (85, 57, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 67, 4);
+insert into cart (cart_product_quantity, product_no, uno) values (81, 69, 87);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 41, 41);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 52, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (39, 57, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 92, 90);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 99, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 54, 89);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 16, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 92, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 20, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (78, 36, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 66, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 26, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (13, 57, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 99, 7);
+insert into cart (cart_product_quantity, product_no, uno) values (3, 28, 11);
+insert into cart (cart_product_quantity, product_no, uno) values (86, 55, 33);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 3, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 87, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 36, 21);
+insert into cart (cart_product_quantity, product_no, uno) values (76, 36, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 99, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 23, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (62, 52, 89);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 87, 7);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 47, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 88, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 72, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (82, 22, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (19, 92, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 3, 61);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 32, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (96, 44, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (62, 95, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (47, 42, 16);
+insert into cart (cart_product_quantity, product_no, uno) values (33, 40, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 38, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 75, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (72, 33, 38);
+insert into cart (cart_product_quantity, product_no, uno) values (5, 29, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 76, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (76, 23, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (39, 57, 28);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 80, 91);
+insert into cart (cart_product_quantity, product_no, uno) values (80, 86, 29);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 90, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 22, 8);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 40, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 48, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 93, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 32, 47);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 66, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (14, 97, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 25, 51);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 99, 91);
+insert into cart (cart_product_quantity, product_no, uno) values (97, 59, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 73, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 38, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 55, 21);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 30, 2);
+insert into cart (cart_product_quantity, product_no, uno) values (62, 8, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 70, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 59, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (96, 62, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 72, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (86, 3, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 50, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 49, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 43, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 26, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 40, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 6, 72);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 55, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (85, 80, 86);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 26, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 84, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 63, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (5, 35, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (89, 85, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 4, 4);
+insert into cart (cart_product_quantity, product_no, uno) values (83, 39, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (97, 61, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (99, 49, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (9, 92, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 15, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 59, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 63, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 21, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (39, 72, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 14, 7);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 92, 86);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 7, 82);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 2, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 94, 11);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 21, 16);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 49, 8);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 82, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 8, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 31, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 26, 17);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 99, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 68, 2);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 20, 41);
+insert into cart (cart_product_quantity, product_no, uno) values (23, 65, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (5, 58, 90);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 89, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 39, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 6, 93);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 27, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 12, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 3, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 4, 45);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 97, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 33, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 90, 4);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 96, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 22, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 79, 27);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 46, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 57, 66);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 54, 18);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 6, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (96, 58, 8);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 52, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 28, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 70, 40);
+insert into cart (cart_product_quantity, product_no, uno) values (14, 55, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 83, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (86, 2, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 19, 37);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 67, 71);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 26, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 38, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 79, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 48, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 84, 33);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 46, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 13, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 44, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 6, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 73, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 31, 45);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 69, 45);
+insert into cart (cart_product_quantity, product_no, uno) values (54, 5, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (62, 87, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 74, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 27, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 21, 28);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 80, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (15, 27, 56);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 49, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 25, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 68, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 31, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 95, 38);
+insert into cart (cart_product_quantity, product_no, uno) values (16, 33, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 67, 90);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 85, 51);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 87, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 30, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 17, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (78, 79, 45);
+insert into cart (cart_product_quantity, product_no, uno) values (87, 26, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 30, 51);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 71, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (4, 48, 95);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 79, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (89, 53, 29);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 41, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 97, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 28, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 79, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 90, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (61, 4, 18);
+insert into cart (cart_product_quantity, product_no, uno) values (31, 46, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 57, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 97, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 68, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 42, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (87, 67, 37);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 54, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 95, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 76, 62);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 61, 4);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 37, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (59, 70, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 24, 37);
+insert into cart (cart_product_quantity, product_no, uno) values (9, 74, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 64, 53);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 98, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 95, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (63, 31, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 44, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 48, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (59, 68, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 49, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 18, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 11, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 52, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 36, 93);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 46, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (9, 10, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 66, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 85, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 10, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 73, 86);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 52, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 44, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 57, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (80, 97, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (14, 37, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 67, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 22, 97);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 84, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (96, 10, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 88, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (9, 97, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 22, 29);
+insert into cart (cart_product_quantity, product_no, uno) values (81, 20, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 94, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 52, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 70, 41);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 92, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (39, 63, 27);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 51, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 80, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (92, 10, 28);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 9, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 2, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (12, 30, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (48, 99, 18);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 41, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 1, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 17, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 71, 98);
+insert into cart (cart_product_quantity, product_no, uno) values (75, 67, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 81, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 51, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 94, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 70, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 47, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 94, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 29, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 15, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 32, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (89, 81, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 79, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 81, 9);
+insert into cart (cart_product_quantity, product_no, uno) values (72, 1, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 48, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (59, 24, 87);
+insert into cart (cart_product_quantity, product_no, uno) values (54, 2, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (83, 5, 7);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 1, 4);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 38, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 14, 76);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 83, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 8, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 70, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (62, 26, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 39, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 10, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 19, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (85, 64, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 75, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (35, 5, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 100, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (99, 59, 51);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 93, 47);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 4, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (90, 33, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (74, 71, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (33, 18, 91);
+insert into cart (cart_product_quantity, product_no, uno) values (61, 13, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 13, 98);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 25, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 78, 38);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 96, 98);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 5, 38);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 36, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 43, 90);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 45, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 1, 16);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 58, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 24, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (12, 68, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 87, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 37, 66);
+insert into cart (cart_product_quantity, product_no, uno) values (56, 55, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 35, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 100, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (39, 8, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 57, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 96, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 100, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 41, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (4, 44, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 28, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 37, 37);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 59, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (14, 13, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 64, 87);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 50, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 49, 26);
+insert into cart (cart_product_quantity, product_no, uno) values (56, 80, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (19, 34, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 4, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (33, 82, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 34, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 98, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 2, 41);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 61, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (100, 17, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 8, 71);
+insert into cart (cart_product_quantity, product_no, uno) values (82, 61, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 18, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 92, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 100, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 56, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (70, 37, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 62, 40);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 11, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 63, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (52, 30, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 75, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 78, 3);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 33, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 29, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 92, 61);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 74, 11);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 34, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 73, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 92, 98);
+insert into cart (cart_product_quantity, product_no, uno) values (69, 57, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 44, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (87, 56, 16);
+insert into cart (cart_product_quantity, product_no, uno) values (28, 54, 89);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 58, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (12, 63, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 26, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 1, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (82, 30, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (54, 77, 64);
+insert into cart (cart_product_quantity, product_no, uno) values (6, 36, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 24, 72);
+insert into cart (cart_product_quantity, product_no, uno) values (75, 83, 95);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 67, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 60, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 23, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 55, 7);
+insert into cart (cart_product_quantity, product_no, uno) values (14, 10, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (41, 58, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 8, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 5, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 22, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 62, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 17, 61);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 61, 39);
+insert into cart (cart_product_quantity, product_no, uno) values (97, 45, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 15, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 55, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 8, 32);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 64, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 69, 8);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 10, 88);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 90, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (75, 90, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 31, 51);
+insert into cart (cart_product_quantity, product_no, uno) values (31, 62, 73);
+insert into cart (cart_product_quantity, product_no, uno) values (83, 92, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (83, 65, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 38, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (27, 41, 12);
+insert into cart (cart_product_quantity, product_no, uno) values (19, 3, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (54, 47, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (47, 86, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 100, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (15, 44, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (16, 22, 87);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 87, 42);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 95, 25);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 64, 3);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 84, 89);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 28, 85);
+insert into cart (cart_product_quantity, product_no, uno) values (80, 28, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 1, 90);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 74, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (19, 13, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 7, 76);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 44, 16);
+insert into cart (cart_product_quantity, product_no, uno) values (16, 34, 31);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 53, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 24, 66);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 67, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 70, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (35, 75, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (87, 68, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (15, 5, 37);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 67, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 29, 93);
+insert into cart (cart_product_quantity, product_no, uno) values (31, 59, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (100, 57, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 21, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (80, 44, 33);
+insert into cart (cart_product_quantity, product_no, uno) values (20, 40, 90);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 25, 76);
+insert into cart (cart_product_quantity, product_no, uno) values (48, 81, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 79, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (30, 93, 89);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 58, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 23, 26);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 50, 18);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 78, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 71, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (11, 61, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 68, 5);
+insert into cart (cart_product_quantity, product_no, uno) values (21, 5, 10);
+insert into cart (cart_product_quantity, product_no, uno) values (46, 47, 60);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 16, 49);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 41, 58);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 54, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 69, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (91, 80, 100);
+insert into cart (cart_product_quantity, product_no, uno) values (22, 34, 60);
+insert into cart (cart_product_quantity, product_no, uno) values (26, 55, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 14, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 98, 70);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 70, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 96, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (84, 98, 27);
+insert into cart (cart_product_quantity, product_no, uno) values (87, 27, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 47, 60);
+insert into cart (cart_product_quantity, product_no, uno) values (23, 17, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (67, 34, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (36, 30, 80);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 54, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (24, 52, 50);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 30, 44);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 24, 68);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 76, 28);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 67, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (60, 23, 98);
+insert into cart (cart_product_quantity, product_no, uno) values (55, 76, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 57, 34);
+insert into cart (cart_product_quantity, product_no, uno) values (43, 60, 31);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 37, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (98, 31, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 89, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 54, 2);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 9, 24);
+insert into cart (cart_product_quantity, product_no, uno) values (1, 1, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 78, 87);
+insert into cart (cart_product_quantity, product_no, uno) values (9, 6, 61);
+insert into cart (cart_product_quantity, product_no, uno) values (29, 77, 18);
+insert into cart (cart_product_quantity, product_no, uno) values (8, 48, 37);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 15, 27);
+insert into cart (cart_product_quantity, product_no, uno) values (99, 33, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (86, 62, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 32, 16);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 57, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (64, 20, 3);
+insert into cart (cart_product_quantity, product_no, uno) values (79, 1, 47);
+insert into cart (cart_product_quantity, product_no, uno) values (86, 19, 46);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 86, 54);
+insert into cart (cart_product_quantity, product_no, uno) values (56, 67, 67);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 85, 93);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 29, 94);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 88, 26);
+insert into cart (cart_product_quantity, product_no, uno) values (35, 23, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 68, 90);
+insert into cart (cart_product_quantity, product_no, uno) values (51, 5, 84);
+insert into cart (cart_product_quantity, product_no, uno) values (45, 95, 35);
+insert into cart (cart_product_quantity, product_no, uno) values (18, 62, 93);
+insert into cart (cart_product_quantity, product_no, uno) values (40, 66, 30);
+insert into cart (cart_product_quantity, product_no, uno) values (14, 43, 41);
+insert into cart (cart_product_quantity, product_no, uno) values (35, 88, 63);
+insert into cart (cart_product_quantity, product_no, uno) values (37, 89, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 50, 38);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 41, 62);
+insert into cart (cart_product_quantity, product_no, uno) values (38, 72, 72);
+insert into cart (cart_product_quantity, product_no, uno) values (72, 22, 1);
+insert into cart (cart_product_quantity, product_no, uno) values (59, 53, 20);
+insert into cart (cart_product_quantity, product_no, uno) values (85, 42, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (19, 8, 19);
+insert into cart (cart_product_quantity, product_no, uno) values (42, 11, 91);
+insert into cart (cart_product_quantity, product_no, uno) values (94, 7, 76);
+insert into cart (cart_product_quantity, product_no, uno) values (81, 88, 48);
+insert into cart (cart_product_quantity, product_no, uno) values (28, 25, 79);
+insert into cart (cart_product_quantity, product_no, uno) values (15, 6, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (71, 37, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 55, 13);
+insert into cart (cart_product_quantity, product_no, uno) values (57, 81, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 35, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (2, 100, 6);
+insert into cart (cart_product_quantity, product_no, uno) values (28, 63, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (31, 22, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (7, 70, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 49, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (77, 65, 52);
+insert into cart (cart_product_quantity, product_no, uno) values (36, 85, 36);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 58, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (13, 39, 17);
+insert into cart (cart_product_quantity, product_no, uno) values (66, 44, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 90, 74);
+insert into cart (cart_product_quantity, product_no, uno) values (95, 67, 15);
+insert into cart (cart_product_quantity, product_no, uno) values (17, 64, 26);
+insert into cart (cart_product_quantity, product_no, uno) values (25, 89, 92);
+insert into cart (cart_product_quantity, product_no, uno) values (3, 70, 59);
+insert into cart (cart_product_quantity, product_no, uno) values (56, 70, 78);
+insert into cart (cart_product_quantity, product_no, uno) values (49, 15, 31);
+insert into cart (cart_product_quantity, product_no, uno) values (73, 20, 93);
+insert into cart (cart_product_quantity, product_no, uno) values (72, 16, 55);
+insert into cart (cart_product_quantity, product_no, uno) values (10, 96, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (34, 64, 23);
+insert into cart (cart_product_quantity, product_no, uno) values (96, 5, 65);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 30, 2);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 35, 99);
+insert into cart (cart_product_quantity, product_no, uno) values (32, 49, 97);
+insert into cart (cart_product_quantity, product_no, uno) values (88, 79, 22);
+insert into cart (cart_product_quantity, product_no, uno) values (50, 4, 14);
+insert into cart (cart_product_quantity, product_no, uno) values (13, 14, 43);
+insert into cart (cart_product_quantity, product_no, uno) values (53, 84, 77);
+insert into cart (cart_product_quantity, product_no, uno) values (19, 58, 69);
+insert into cart (cart_product_quantity, product_no, uno) values (12, 6, 62);
+insert into cart (cart_product_quantity, product_no, uno) values (5, 44, 75);
+insert into cart (cart_product_quantity, product_no, uno) values (93, 49, 60);
+insert into cart (cart_product_quantity, product_no, uno) values (58, 45, 57);
+insert into cart (cart_product_quantity, product_no, uno) values (4, 1, 91);
+insert into cart (cart_product_quantity, product_no, uno) values (33, 86, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (82, 80, 11);
+insert into cart (cart_product_quantity, product_no, uno) values (44, 97, 83);
+insert into cart (cart_product_quantity, product_no, uno) values (65, 13, 96);
+insert into cart (cart_product_quantity, product_no, uno) values (86, 57, 26);
