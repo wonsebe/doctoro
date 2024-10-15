@@ -8,7 +8,7 @@
 
     <!--2. 전체 출력 -->
     <select id="getMainShop" resultType="web.model.dto.ProductDto">
-        select * from product;
+        select * from product as p inner join pcategory as pc on p.pcategory_no = pc.pcategory_no;
     </select>
 
 </mapper>  <!-- mapper end -->
