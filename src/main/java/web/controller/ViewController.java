@@ -121,4 +121,11 @@ public class ViewController {
         return "/chat/chat.html";
     }
 
+    // ===================== 상품 관련 ===================== //
+    @GetMapping("/product")
+    public String product(){
+        return "/product/product.html";
+    }
+
+
 }
