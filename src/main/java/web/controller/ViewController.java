@@ -128,4 +128,19 @@ public class ViewController {
     }
 
 
+    // ================= 관리자페이지 관련 ========================== //
+    @GetMapping("/adminmain")
+    public String adminMain(){return "/admin/admin.html";}
+
+    @GetMapping("/adminproduct")
+    public String adminProduct(){return "/admin/adminproduct.html";}
+
+    @GetMapping("/admininventory")
+    public String adminInventory(){return "/admin/admininventory.html";}
+
+    @GetMapping("/adminorders")
+    public String adminorders(){return "/admin/adminorders.html";}
+
+    @GetMapping("/adminpoint")
+    public String adminpoint(){return "/admin/adminpoint.html";}
 }
