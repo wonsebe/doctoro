@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="web.model.dao.ShopDao" > <!-- mapper start -->
+<mapper namespace="web.model.dao.AdminDao" > <!-- mapper start -->
 
 
     <!--2. 전체 출력 -->

@@ -6,7 +6,7 @@ import web.model.dto.ShopDto;
 import java.util.ArrayList;
 
 @Mapper
-public interface ShopDao {
+public interface AdminDao {
 
     ArrayList<ShopDto> getMainShop(ShopDto shopDto);
 }

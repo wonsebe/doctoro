@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.model.dto.ShopDto;
-import web.service.ShopService;
+import web.service.AdminService;
 
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/shop")
-public class ShopController {
+@RequestMapping("/admin")
+public class AdminController {
 
-    @Autowired private ShopService shopService;
+    @Autowired private AdminService adminService;
 
     //Read
     @GetMapping("/main")
     public ArrayList<ShopDto> getMainShop(ShopDto shopDto) {
-        return shopService.getMainShop(shopDto);
+        return adminService.getMainShop(shopDto);
     }
     //Update
 }
