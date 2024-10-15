@@ -3,7 +3,7 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.model.dao.AdminDao;
-import web.model.dto.ShopDto;
+import web.model.dto.ProductDto;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ public class AdminService {
 
     @Autowired private AdminDao adminDao;
 
-    public ArrayList<ShopDto> getMainShop(ShopDto shopDto) {
-        return adminDao.getMainShop(shopDto);
+    public ArrayList<ProductDto> getMainShop(ProductDto productDto) {
+        return adminDao.getMainShop(productDto);
     }
 
 }

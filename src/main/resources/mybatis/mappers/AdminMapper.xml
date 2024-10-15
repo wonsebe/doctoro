@@ -7,7 +7,7 @@
 
 
     <!--2. 전체 출력 -->
-    <select id="getMainShop" resultType="web.model.dto.ShopDto">
+    <select id="getMainShop" resultType="web.model.dto.ProductDto">
         select * from product;
     </select>
 
