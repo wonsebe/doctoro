@@ -38,7 +38,7 @@ function pointadd(){
     console.log(category) //1,2
     let info = document.querySelector("#info").value;
     let name = document.querySelector("#name").value;
-
+    let uno = 0;
     //카테고리 값 변환
     if(category == 1){category = "무료"}
     else if(category == 2){category = "유료"}
@@ -54,24 +54,23 @@ function pointadd(){
                 console.log(r);
                 r.forEach(e => {
 //                    console.log(e.name)
-                    if(e.name == name){name = e.uno}
-                    else{name = name}
+                    if(e.name == name){
+                        let v2 = {point_indecrease:price,free_paid:category,point_reason:info,uno:e.uno}
+                        $.ajax({
+                                async: false,
+                                method: 'post',
+                                url: '/admin/addpoint',
+                                data: v2,
+                                success: (r) => {
+                                    console.log(r);
+                                    alert('포인트 추가 성공');
+                                    read();
+                                }
+                            })
+
+                    }
+                    else{uno = 0}
                 })
                 }
             })
-    console.log(name)
-
-    let v2 = {point_indecrease:price,free_paid:category,point_reason:info,uno:name}
-
-    $.ajax({
-        async: false,
-        method: 'post',
-        url: '/admin/addpoint',
-        data: v2,
-        success: (r) => {
-            console.log(r);
-            alert('포인트 추가 성공');
-            read();
-        }
-    })
 }

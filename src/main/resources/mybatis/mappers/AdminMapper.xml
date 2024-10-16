@@ -24,7 +24,7 @@
 
     <!--포인트지급-->
     <insert id="addpoint" parameterType="web.model.dto.PointDto">
-        insert into pointlog INSERT INTO pointlog (point_indecrease, free_paid, point_reason, uno) VALUES
+        INSERT INTO pointlog (point_indecrease, free_paid, point_reason, uno) VALUES
         (#{point_indecrease}, #{free_paid}, #{point_reason}, #{uno})
     </insert>
 
