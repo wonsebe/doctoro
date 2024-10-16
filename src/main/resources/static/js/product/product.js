@@ -11,13 +11,17 @@ function productAllPrint() {    console.log('productAllPrint()');
             let productAll = document.querySelector('#productAll');
             let html = ``;
 
-            html += `
-                    <div>${result.product_image}</div>
-                    <div>${result.product_name}</div>
-                    <div>${result.product_description}</div>
-                    <div>${result.price}</div>
-                    <div>${result.pcategory_no}</div>
-                    `
+            result.forEach(상품 => {
+                html += `
+                        <div>
+                            <div>${상품.product_image}</div>
+                            <div>${상품.product_name}</div>
+                            <div>${상품.product_description}</div>
+                            <div>${상품.price}</div>
+                            <div>${상품.pcategory_name}</div>
+                        </div>
+                        `
+            })
 
             productAll.innerHTML = html;
 
