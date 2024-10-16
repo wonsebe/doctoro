@@ -12,8 +12,9 @@
 
 <div>
     <div>
-        <h3>관리자 페이지 테스트</h3>
+        <h3>관리자 상품관리</h3>
     </div>
+
 
     <div>
         메뉴 선택
@@ -28,20 +29,48 @@
 
 <div>
     <div>
-        <table class="inventoryhd">
+        <input id="name" type="text"> <!--이름-->
+        <input id="price" type="text"> <!--가격-->
+        <input id="file" type="file"> <!--파일-->
+        <input id="info" type="text"> <!--상세설명-->
+        <select id="category" name="itemcategory"> <!--카테고리선택-->
+            <option value="1">굿즈</option>
+            <option value="2">카드</option>
+            <option value="3">강화 아이템</option>
+        </select>
+        <button type="button" onclick="invadd()"> 상품등록 </button>
+    </div>
+</div>
+
+<div>
+    <div>
+        <table id="inventoryhd" class="table">
             <thead>
-            <tr>
-                <th>상품번호</th><th>상품명</th><th>가격</th><th>상품이미지</th><th>상품설명</th><th>카테고리분류</th>
-            </tr>
+                <tr>
+                    <th> 선택 </th>
+                    <th>상품번호</th>
+                    <th>상품명</th>
+                    <th>가격</th>
+                    <th>상품이미지</th>
+                    <th>상품설명</th>
+                    <th>카테고리분류</th>
+                </tr>
             </thead>
 
             <tbody id="body">
-            <tr>
-                <th>1</th><th>인형</th><th>10000</th><th><img src=/img/admin/legend></th><th>인형입니다</th><th>굿즈</th>
-            </tr>
+                <tr>
+                    <td> <input type="checkbox" class="checko"> </td>
+                    <td>1</td>
+                    <td>인형</td>
+                    <td>10000</td>
+                    <td><img src=/img/admin/legend></td>
+                    <td>인형입니다</td>
+                    <td>굿즈</td>
+                </tr>
             </tbody>
         </table>
     </div>
+
 </div>
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>

@@ -11,4 +11,25 @@
         select * from product as p inner join pcategory as pc on p.pcategory_no = pc.pcategory_no;
     </select>
 
+    <insert id="add" parameterType="web.model.dto.ProductDto">
+        INSERT INTO product (product_name,price,product_image,product_description, pcategory_no)VALUES (#{product_name}, #{price}, #{product_image},#{product_description}, #{pcategory_no});
+    </insert>
+
+    <!--포인트 관련-->
+
+    <!--출력-->
+    <select id="prtpoint" resultType="web.model.dto.PointDto">
+        select * from pointlog as p inner join users as u on p.uno = u.uno;
+    </select>
+
+    <!--포인트지급-->
+    <insert id="addpoint" parameterType="web.model.dto.PointDto">
+        insert into pointlog INSERT INTO pointlog (point_indecrease, free_paid, point_reason, uno) VALUES
+        (#{point_indecrease}, #{free_paid}, #{point_reason}, #{uno})
+    </insert>
+
+    <select id="user">
+        select * from users;
+    </select>
+
 </mapper>  <!-- mapper end -->
