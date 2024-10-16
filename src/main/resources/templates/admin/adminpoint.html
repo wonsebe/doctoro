@@ -12,7 +12,7 @@
 
 <div>
     <div>
-        <h3>관리자 페이지 테스트</h3>
+        <h3>관리자 포인트 관리</h3>
     </div>
 
     <div>
@@ -23,6 +23,45 @@
         <div> 게시판관리 </div>
         <div> 유저관리 </div>
         <div> 포인트관리 </div>
+    </div>
+
+    <div>
+        <input id="price" type="text" placeholder="금액입력">
+        <select id="category">
+            <option value="1">무료</option>
+            <option value="2">유료</option>
+        </select>
+        <input id="info" type="text" placeholder="금액내용 입력">
+        <input id="name" type="text" placeholder="이름 입력">
+        <button type="button" id="pointbt" onclick="pointadd()"> 확인 </button>
+    </div>
+
+    <div>
+        <div>
+            <table id="pointlog" class="table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>충전 내역</th>
+                        <th>날짜</th>
+                        <th>유/무 료 여부</th>
+                        <th>포인트 충전 내역</th>
+                        <th>유저</th>
+                    </tr>
+                </thead>
+
+                <tbody id="pointbd">
+                    <tr>
+                        <td>1</td>
+                        <td>10000</td>
+                        <td>2024-10-16 16:56</td>
+                        <td>유료</td>
+                        <td>현금충전</td>
+                        <td>마석도</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
