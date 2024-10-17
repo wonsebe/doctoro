@@ -16,11 +16,11 @@ function read(){
          result.forEach(e => {
             console.log(e)
              html += `<tr>
-                <td> <input type="checkbox" class="checko"> </td>
-                <td>${e.product_no}</th>
-                <th>${e.product_name}</td>
-                <td>${e.price}</th>
-                <th>${e.product_image}</td>
+                <td> <input type="checkbox" class="checko" value=${e.product_no}> </td>
+                <td>${e.product_no}</td>
+                <td>${e.product_name}</td>
+                <td>${e.price}</td>
+                <td>${e.product_image}</td>
                 <td>${e.product_description}</td>
                 <td>${e.pcategory_name}</td>
              </tr>`;
@@ -47,6 +47,8 @@ function invadd(){
                 product_description:info,
                 pcategory_no:category}
 
+    console.log(v1)
+
     $.ajax({
         async : false,
         method : 'post',
@@ -54,7 +56,18 @@ function invadd(){
         data : v1,
         success : (r) => {
             console.log(r)
+            read()
         },
         error : (r) => {console.log(r)},
     })
+}
+
+function invdel(){
+    console.log("del")
+    let check = document.querySelectorAll('.checko:checked');
+
+    check.forEach(c  => {
+        console.log(c.value)
+    })
+
 }

@@ -3,9 +3,7 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import web.model.dto.PointDto;
-import web.model.dto.ProductDto;
-import web.model.dto.UserDto;
+import web.model.dto.*;
 import web.service.AdminService;
 
 import java.util.ArrayList;
@@ -26,6 +24,11 @@ public class AdminController {
     public boolean add (ProductDto productDto)
     {return adminService.add(productDto);}
 
+    //Delte
+    @DeleteMapping("/invdel")
+    public boolean del (ProductDto productDto)
+    {return adminService.del(productDto);}
+
     //포인트 로그 출력
     @GetMapping("/prtpoint")
     public ArrayList<ProductDto> prtpoint(PointDto pointDto){
@@ -40,4 +43,31 @@ public class AdminController {
     @GetMapping("/user")
     public ArrayList<UserDto> user(UserDto userDto)
     {return adminService.user(userDto);}
+
+    //재고 관리
+    //재고 조회
+    @GetMapping("/product")
+    public ArrayList<InventoryDto> prtproduct(InventoryDto inventoryDto)
+    {return adminService.prtproduct(inventoryDto);}
+    //재고 추가
+    @PostMapping("/prodadd")
+    public boolean prodadd(InventoryDto inventoryDto)
+    {return adminService.prodadd(inventoryDto);}
+    //재고별 보유
+    @GetMapping("/prodall")
+    public ArrayList<InventoryDto> prodall(InventoryDto inventoryDto)
+    {return adminService.prodall(inventoryDto);}
+    //주문 전체조회
+    @GetMapping("/orderall")
+    public ArrayList<OrdersDto> orderall(OrdersDto ordersDto)
+    {return adminService.orderall(ordersDto);}
+
+    //배송 전체 조회
+    @GetMapping("/delivery")
+    public ArrayList<OrdersDto> delivery(DeliveryDto deliveryDto)
+    {return adminService.delivery(deliveryDto);}
+
+    @PutMapping("/change")
+    public boolean change (int odetail_no)
+    {return adminService.change(odetail_no);}
 }

@@ -1,9 +1,7 @@
 package web.model.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-import web.model.dto.PointDto;
-import web.model.dto.ProductDto;
-import web.model.dto.UserDto;
+import web.model.dto.*;
 
 import java.util.ArrayList;
 
@@ -14,10 +12,24 @@ public interface AdminDao {
 
     boolean add (ProductDto productDto);
 
+    boolean del (ProductDto productDto);
+
     ArrayList<ProductDto> prtpoint(PointDto pointDto);
 
     boolean addpoint (PointDto pointDto);
 
     ArrayList<UserDto> user(UserDto userDto);
+
+    ArrayList<InventoryDto> prtproduct(InventoryDto inventoryDto);
+
+    boolean prodadd(InventoryDto inventoryDto);
+
+    ArrayList<InventoryDto> prodall(InventoryDto inventoryDto);
+
+    ArrayList<OrdersDto> orderall(OrdersDto ordersDto);
+
+    ArrayList<OrdersDto> delivery(DeliveryDto deliveryDto);
+
+    boolean change (int odetail_no);
 
 }

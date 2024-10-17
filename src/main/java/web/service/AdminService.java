@@ -3,9 +3,7 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.model.dao.AdminDao;
-import web.model.dto.PointDto;
-import web.model.dto.ProductDto;
-import web.model.dto.UserDto;
+import web.model.dto.*;
 
 import java.util.ArrayList;
 
@@ -20,6 +18,9 @@ public class AdminService {
     public boolean add (ProductDto productDto)
     {return adminDao.add(productDto);}
 
+    public boolean del (ProductDto productDto)
+    {return adminDao.del(productDto);}
+
     public ArrayList<ProductDto> prtpoint(PointDto pointDto)
     {return adminDao.prtpoint(pointDto);}
 
@@ -28,4 +29,22 @@ public class AdminService {
 
     public ArrayList<UserDto> user(UserDto userDto)
     {return adminDao.user(userDto);}
+
+    public ArrayList<InventoryDto> prtproduct(InventoryDto inventoryDto)
+    {return adminDao.prtproduct(inventoryDto);}
+
+    public boolean prodadd(InventoryDto inventoryDto)
+    {return adminDao.prodadd(inventoryDto);}
+
+    public ArrayList<InventoryDto> prodall(InventoryDto inventoryDto)
+    {return adminDao.prodall(inventoryDto);}
+
+    public ArrayList<OrdersDto> orderall(OrdersDto ordersDto)
+    {return adminDao.orderall(ordersDto);}
+
+    public ArrayList<OrdersDto> delivery(DeliveryDto deliveryDto)
+    {return adminDao.delivery(deliveryDto);}
+
+    public boolean change (int odetail_no)
+    {return adminDao.change(odetail_no);}
 }
