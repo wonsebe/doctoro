@@ -72,6 +72,6 @@ public class AdminController {
     {return adminService.change(odetail_no);}
     //상품 삭제
     @DeleteMapping("/delete")
-    public boolean delete (int pno)
-    {return adminService.delete(pno);}
+    public boolean delete (int inventory_no)
+    {return adminService.delete(inventory_no);}
 }
