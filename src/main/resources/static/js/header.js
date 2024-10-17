@@ -24,7 +24,7 @@ function doLoginCheck() {
                         <li> <a href="/info">정보</a> </li>
                         <li> <a href="/rate">확률</a> </li>
                         <li> <a href="/base/stats/print">종족값</a> </li>
-                        <li> <a href="/rank/tnm">이상형월드컵</a> </li>
+                        <li> <a href="/rank/enter">투표</a> </li>
                         <li> <a href="/rank/get">랭킹보기</a> </li>
                         <li> <a href="/board/bprint">게시판</a> </li>
                         <li> <a href="/chat">채팅방</a> </li>
@@ -37,7 +37,7 @@ function doLoginCheck() {
                         <li> <a href="/info">정보</a> </li>
                         <li> <a href="/rate">확률</a> </li>
                         <li> <a href="/base/stats/print">종족값</a> </li>
-                        <li> <a href="/rank/tnm">이상형월드컵</a> </li>
+                        <li> <a href="/rank/enter">투표</a> </li>
                         <li> <a href="/rank/get">랭킹보기</a> </li>
                         <li> <a href="/board/bprint">게시판</a> </li>
                         <li> <a href="/chat">채팅방</a> </li>
