@@ -3,7 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="web.model.dao.UserDao">    <!-- mapper start -->
-
+<mapper namespace="web.model.dao.PointDao">    <!-- mapper start -->
+    <!-- 유료 포인트 충전 -->
+    <insert id="chargePaidPoint" parameterType="web.model.dto.PointDto">
+        insert into pointlog (point_indecrease, free_paid, point_reason, uno) VALUES
+        (#{point_indecrease}, #{free_paid}, #{point_reason}, #{uno});
+    </insert>
 
 </mapper>   <!-- mapper end -->

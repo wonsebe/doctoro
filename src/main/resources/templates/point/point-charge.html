@@ -7,10 +7,29 @@
 <body>
     <div th:replace="~{/header.html :: header }"></div>
 
+    <div id="content">
+        포인트 충전
 
+        <div>
+            <button type="button" onclick="sumPoint(1000)">1,000원</button>
+            <button type="button" onclick="sumPoint(3000)">3,000원</button>
+            <button type="button" onclick="sumPoint(5000)">5,000원</button>
 
-    <!-- 아임포트 (결제 API)를 사용하기 위해 추가) -->
-    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+            <button type="button" onclick="sumPoint(10000)">10,000원</button>
+            <button type="button" onclick="sumPoint(30000)">30,000원</button>
+            <button type="button" onclick="sumPoint(50000)">50,000원</button>
+        </div>
+
+        <div id="chargePaidPoint">
+
+        </div>
+
+        <button type="button" onclick="iamport()">충전</button>
+    </div>
+
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
     <script src="/js/point/point-charge.js"></script>
 
 </body>

@@ -122,6 +122,7 @@ public class ViewController {
     }
 
     // ===================== 상품 관련 ===================== //
+    // [유저] 상품 전체 출력 페이지 요청
     @GetMapping("/product")
     public String product(){
         return "/product/product.html";
@@ -143,4 +144,13 @@ public class ViewController {
 
     @GetMapping("/adminpoint")
     public String adminpoint(){return "/admin/adminpoint.html";}
+
+    // ===================== 포인트 관련 ===================== //
+    // [유저] 포인트 충전 페이지 요청
+    @GetMapping("/point/charge")
+    public String pointCharge(){
+        return "/point/point-charge.html";
+    }
+
+
 }
