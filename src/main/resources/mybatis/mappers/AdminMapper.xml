@@ -67,4 +67,8 @@
         UPDATE odetails SET order_status = CASE WHEN order_status = 0 THEN 1 WHEN order_status = 1 THEN 0 END WHERE odetail_no = #{odetail_no};
     </update>
 
+    <delete id="delete" parameterType="web.model.dto.InventoryDto">
+        delete from inventory  where inventory_no = #{inventory_no};
+    </delete>
+
 </mapper>  <!-- mapper end -->

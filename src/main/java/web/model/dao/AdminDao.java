@@ -32,4 +32,5 @@ public interface AdminDao {
 
     boolean change (int odetail_no);
 
+    boolean delete (int pno);
 }

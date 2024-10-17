@@ -47,4 +47,7 @@ public class AdminService {
 
     public boolean change (int odetail_no)
     {return adminDao.change(odetail_no);}
+
+    public boolean delete (int pno)
+    {return adminDao.delete(pno);}
 }
