@@ -12,9 +12,9 @@ public class PointService {
     @Autowired private UserService userService;
 
     // 유료 포인트 충전
-    public boolean chargePaidPoint(int paidPoint) {
+    public boolean chargePaidPoint(PointDto pointIndecrease) {
         System.out.println("PointService.chargePaidPoint");
-        System.out.println("paidPoint = " + paidPoint);
+        System.out.println("paidPoint = " + pointIndecrease);
 
         UserDto loginDto = userService.userLoginCheck();    // 로그인된 세션 정보 요청
         if (loginDto == null) {     // 비로그인이라면 리턴
@@ -24,7 +24,7 @@ public class PointService {
         System.out.println("loginUno = " + loginUno);
 
         PointDto pointDto = PointDto.builder()
-                .point_indecrease(paidPoint)
+                .point_indecrease(pointIndecrease.getPoint_indecrease())
                 .free_paid("유료")
                 .point_reason("유료 포인트 충전")
                 .uno(loginUno)
@@ -32,6 +32,20 @@ public class PointService {
         System.out.println("pointDto = " + pointDto);
 
         return pointDao.chargePaidPoint(pointDto);
+    }
+
+    // 나의 현재 무료 포인트 값 가져오기
+    public int currentFreePoint() {
+        System.out.println("PointService.currentFreePoint");
+
+        UserDto loginDto = userService.userLoginCheck();    // 로그인된 세션 정보 요청
+        if (loginDto == null) {     // 비로그인이라면 리턴
+            return 0;
+        }
+        int loginUno = loginDto.getUno();
+        System.out.println("loginUno = " + loginUno);
+
+        return pointDao.currentFreePoint(loginUno);
     }
 
 }

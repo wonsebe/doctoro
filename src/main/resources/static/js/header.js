@@ -21,6 +21,7 @@ function doLoginCheck() {
                 // 비로그인 상태인 경우
                 console.log('비로그인');
                 html += `
+                        <li> <a href="/product">상품</a> </li>
                         <li> <a href="/info">정보</a> </li>
                         <li> <a href="/rate">확률</a> </li>
                         <li> <a href="/base/stats/print">종족값</a> </li>
@@ -34,6 +35,7 @@ function doLoginCheck() {
                 // 로그인한 상태인 경우
                 console.log('로그인');
                 html += `
+                        <li> <a href="/product">상품</a> </li>
                         <li> <a href="/info">정보</a> </li>
                         <li> <a href="/rate">확률</a> </li>
                         <li> <a href="/base/stats/print">종족값</a> </li>

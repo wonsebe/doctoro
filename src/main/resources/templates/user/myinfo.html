@@ -11,6 +11,7 @@
     <div th:replace="~{/header.html :: header }"></div>
 
     <div id="content">
+        <!-- ========== 내 정보 ========== -->
         <h5 class="myInformation">내 정보</h5>
 
         <div id="myinfo">
@@ -23,6 +24,7 @@
             <button type="button" class="myInfoDelete" onclick="location.href='/user/delete'">회원탈퇴</button>
         </div>
 
+        <!-- ========== 내 포켓몬 ========== -->
         <h5 class="myPokeInfo">나의 포켓몬</h5>
         <div id="myPokemon">
             <div id="myPokeStatus">
@@ -40,6 +42,43 @@
                 </tbody>
             </div>
         </div>
+
+
+        <!-- ========== 내 포인트 ========== -->
+        <h5 class="myPoint">내 포인트</h5>
+
+        <div>
+            <!-- 무료 포인트 부분 -->
+            <div id="myFreePoint">
+                <h6>무료 포인트</h6>
+                <div class="myCurrentFreePoint">
+                
+                </div>
+
+                <h6>무료 포인트 로그</h6>
+                <div class="myFreePointLog">
+
+                </div>
+            </div> <br>
+
+            <!-- 유료 포인트 부분 -->
+            <div id="myPaidPoint">
+                <h6>유료 포인트</h6>
+                <div class="myCurrentPaidPoint">
+
+                </div>
+
+                <h6>유료 포인트 로그</h6>
+                <div class="myPaidPointLog">
+
+                </div>
+            </div> <br>
+        </div>
+
+        <div class="myPointBtn">
+            <button type="button" class="myPointCharge" onclick="location.href='/point/charge'">포인트 충전</button>
+        </div>
+
     </div>
 
     <script src="/js/user/myinfo.js"></script>
