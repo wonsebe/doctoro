@@ -10,6 +10,10 @@ import java.util.List;
 public interface VoteDao {
 
 
+    //  마을 테이블 전체 출력
     ArrayList<VoteCityDto> cityAllRead();
 
+
+    //  투표 기록 insert
+    boolean cityVoteRecord(VoteCityDto voteCityDto);
 }

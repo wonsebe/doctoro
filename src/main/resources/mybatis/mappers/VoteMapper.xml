@@ -7,4 +7,8 @@
     <select id="cityAllRead" resultType="web.model.dto.VoteCityDto">
         select * from pollcityinfo;
     </select>
+
+    <insert id="cityVoteRecord" parameterType="web.model.dto.VoteCityDto">
+        insert into pollcity(poll_city_first, poll_city_second, poll_city_third, uno) values (#{poll_city_first}, #{poll_city_second}, #{poll_city_third}, #{uno});
+    </insert>
 </mapper>

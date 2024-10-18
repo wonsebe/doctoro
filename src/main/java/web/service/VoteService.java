@@ -14,8 +14,13 @@ public class VoteService {
     @Autowired
     VoteDao voteDao;
 
+    // 마을 테이블 출력
     public ArrayList<VoteCityDto> cityAllRead(){
-        System.out.println("VoteService.cityAllRead");
         return voteDao.cityAllRead();
+    }
+
+    // 투표 기록 insert
+    public boolean cityVoteRecord(VoteCityDto voteCityDto){
+        return voteDao.cityVoteRecord(voteCityDto);
     }
 }
