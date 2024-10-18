@@ -58,6 +58,7 @@ function poke_rate_model_update() {
     })
 }
 
+
 // ======================== 내 포켓몬 ======================== //
 let myExp = 0;          // 나의 경험치량
 let maxExp = 0;         // 최대 경험치량
@@ -428,5 +429,37 @@ function expLogPrint() {    console.log('expLogPrint()');
     }
 
 }   // expLogPrint() end
+
+
+// ======================== 포인트 ======================== //
+// 나의 현재 무료 포인트 값 가져오기
+currentFreePoint();
+function currentFreePoint() {
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/point/free',
+        success : (result) => {     console.log(result);
+            let myCurrentFreePoint = document.querySelector('.myCurrentFreePoint');
+            let html = ``;
+
+            html += `
+                    ${result} 포인트
+                    `;
+
+            myCurrentFreePoint.innerHTML = html;
+        }   // success end
+    })  // ajax end
+}   // currentFreePoint() end
+
+// 나의 무료 포인트 로그 가져오기
+
+
+
+// 나의 현재 유료 포인트 값 가져오기
+
+
+
+// 나의 유료 포인트 로그 가져오기
 
 

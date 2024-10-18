@@ -7,6 +7,9 @@ import web.model.dto.PointDto;
 public interface PointDao {
 
     // 유료 포인트 충전
-    public boolean chargePaidPoint(PointDto pointDto);
+    boolean chargePaidPoint(PointDto pointDto);
+
+    // 나의 현재 무료 포인트 값 가져오기
+    int currentFreePoint(int loginUno);
 
 }
