@@ -23,4 +23,19 @@ public class VoteService {
     public boolean cityVoteRecord(VoteCityDto voteCityDto){
         return voteDao.cityVoteRecord(voteCityDto);
     }
+
+    // 투표 기록 1등 출력
+    public List<VoteCityDto> cityVoteRecordFirst(){
+        return voteDao.cityVoteRecordFirst();
+    }
+
+    // 투표 기록 2등 출력
+    public List<VoteCityDto> cityVoteRecordSecond(){
+        return voteDao.cityVoteRecordSecond();
+    }
+
+    // 투표 기록 3등 출력
+    public List<VoteCityDto> cityVoteRecordThird(){
+        return voteDao.cityVoteRecordThird();
+    }
 }

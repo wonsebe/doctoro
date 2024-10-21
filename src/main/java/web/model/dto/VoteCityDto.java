@@ -23,4 +23,12 @@ public class VoteCityDto {
     private int poll_city_second;
     private int poll_city_third;
     private int uno;
+
+
+    // 투표 기록 join용 테이블
+    private String gender;
+    private String ubirth;
+    private int first_count;
+    private int second_count;
+    private int third_count;
 }
