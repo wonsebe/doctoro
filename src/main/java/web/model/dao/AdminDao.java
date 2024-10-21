@@ -33,4 +33,8 @@ public interface AdminDao {
     boolean change (int odetail_no);
 
     boolean delete (int product_no);
+
+    ArrayList<UserDto> userall(UserDto userDto);
+
+    ArrayList<Report_userDto> userreport(Report_userDto report_userDto);
 }

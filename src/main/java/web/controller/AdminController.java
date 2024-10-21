@@ -75,4 +75,11 @@ public class AdminController {
     public boolean delete (int product_no)
     {return adminService.delete(product_no);}
     //유저 출력
+    @GetMapping("/userall")
+    public ArrayList<UserDto> userall(UserDto userDto)
+    {return adminService.userall(userDto);}
+    //유저신고 내역 출력
+    @GetMapping("/user/report")
+    public ArrayList<Report_userDto> userreport(Report_userDto report_userDto)
+    {return adminService.userreport(report_userDto);}
 }

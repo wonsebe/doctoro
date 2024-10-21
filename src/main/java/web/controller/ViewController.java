@@ -145,6 +145,11 @@ public class ViewController {
     @GetMapping("/adminpoint")
     public String adminpoint(){return "/admin/adminpoint.html";}
 
+    @GetMapping("/admin/userreport")
+    public String adminureport(){return "/admin/adminureport.html";}
+
+    @GetMapping("/admin/boardreport")
+    public String adminbreport(){return "/admin/adminbreport.html";}
 
     // ================ 투표 페이지 확장 관련 ===================== //
     @GetMapping("/rank/enter")

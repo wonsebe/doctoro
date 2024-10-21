@@ -50,4 +50,10 @@ public class AdminService {
 
     public boolean delete (int product_no)
     {return adminDao.delete(product_no);}
+
+    public ArrayList<UserDto> userall(UserDto userDto)
+    {return adminDao.userall(userDto);}
+
+    public ArrayList<Report_userDto> userreport(Report_userDto report_userDto)
+    {return adminDao.userreport(report_userDto);}
 }

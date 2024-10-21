@@ -22,6 +22,13 @@ drop table if exists pcategory;
 drop table if exists delivery;
 drop table if exists orders;
 drop table if exists users;
+drop table if exists pollcityinfo;
+drop table if exists pollcity;
+drop table if exists pollcitybgminfo;
+drop table if exists pollcitybgm;
+drop table if exists report_user;
+drop table if exists report_board;
+drop table if exists report_comment;
 
 -- [3] 테이블 생성
 -- 1. 회원 테이블
@@ -209,4 +216,82 @@ create table cart (
     foreign key(uno) references users (uno) on update cascade on delete cascade
 );
 
+-- 18. 투표용 마을 정보 테이블
+create table pollcityinfo(
+    poll_city_info_no int auto_increment not null,
+    poll_city_img_src varchar(255) not null,
+    poll_city_title varchar(50) not null,
+    poll_city_content text not null,
+    poll_city_motive text not null,
+    primary key (poll_city_info_no)
+);
 
+-- 19. 투표용 마을 bgm 정보 테이블
+create table pollcitybgminfo(
+    poll_city_bgm_info_no int auto_increment not null,
+    poll_city_title varchar(50) not null,
+    poll_city_bgm_src varchar(255) not null,
+    poll_city_no int not null,
+    primary key (poll_city_bgm_info_no)
+);
+
+-- 20. 마을 투표 기록 테이블
+create table pollcity(
+    poll_city_no int auto_increment not null,
+    poll_city_first int not null,
+    poll_city_second int not null,
+    poll_city_third int not null,
+    uno int not null,
+    primary key (poll_city_no),
+    foreign key(uno) references users (uno) on update cascade on delete cascade,
+    foreign key(poll_city_first) references pollcityinfo (poll_city_info_no) on update cascade on delete cascade,
+    foreign key(poll_city_second) references pollcityinfo (poll_city_info_no) on update cascade on delete cascade,
+    foreign key(poll_city_third) references pollcityinfo (poll_city_info_no) on update cascade on delete cascade
+);
+
+-- 21. 마을 bgm 투표 기록 테이블
+create table pollcitybgm(
+    poll_city_bgm_no int auto_increment not null,
+    poll_city_bgm_first int not null,
+    poll_city_bgm_second int not null,
+    poll_city_bgm_third int not null,
+    uno int not null,
+    primary key (poll_city_bgm_no),
+    foreign key(uno) references users (uno) on update cascade on delete cascade,
+    foreign key(poll_city_bgm_first) references pollcitybgminfo (poll_city_bgm_info_no) on update cascade on delete cascade,
+    foreign key(poll_city_bgm_second) references pollcitybgminfo (poll_city_bgm_info_no) on update cascade on delete cascade,
+    foreign key(poll_city_bgm_third) references pollcitybgminfo (poll_city_bgm_info_no) on update cascade on delete cascade
+);
+
+-- 22. 회원신고 테이블
+create table report_user(
+runo int auto_increment,
+ruiun int not null,
+rudate datetime default now(),
+ruoun int not null,
+primary key (runo),
+foreign key (ruiun) references users (uno),
+foreign key (ruoun) references users (uno)
+);
+
+-- 23. 게시판신고 테이블
+create table report_board(
+rbno int auto_increment,
+rbiun int not null,
+rbdate datetime default now(),
+rbbn int not null,
+primary key(rbno),
+foreign key (rbiun) references users (uno),
+foreign key (rbbn) references board (bno)
+);
+
+-- 24.댓글신고 테이블
+create table report_comment(
+rcno int auto_increment,
+rciun int not null,
+rcdate datetime default now(),
+rccno int not null,
+primary key(rcno),
+foreign key (rciun) references users (uno),
+foreign key (rccno) references comment (cno)
+);
