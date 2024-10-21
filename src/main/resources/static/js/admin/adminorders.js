@@ -73,7 +73,7 @@ function change(orderNo, ){
     })
 }
 
-check()
+
 function check(){
     $.ajax({
         async : false,

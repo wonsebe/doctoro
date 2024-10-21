@@ -1,6 +1,7 @@
 console.log("Admin Main")
 
 check()
+
 function check(){
     $.ajax({
         async : false,

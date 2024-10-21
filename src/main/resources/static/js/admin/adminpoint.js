@@ -77,7 +77,7 @@ function pointadd(){
             })
 }
 
-check()
+
 function check(){
     $.ajax({
         async : false,

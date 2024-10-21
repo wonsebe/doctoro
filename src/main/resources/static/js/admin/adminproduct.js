@@ -100,7 +100,7 @@ function allprod(){
     })
 }
 
-check()
+
 function check(){
     $.ajax({
         async : false,
