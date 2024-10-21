@@ -77,7 +77,7 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
         success : (result) => {     console.log(result);
             uno = result.uno;       // 현재 로그인된 유저 번호 대입
             
-            expLogPrint();      // 내 포켓몬 경험치 기록 최근 10개 가져오기
+            expLogPrint();          // 내 포켓몬 경험치 기록 최근 10개 가져오기
 
             if (result == '') {     // 내 포켓몬이 존재하지 않으면
                 console.log('처음 생성');
@@ -439,27 +439,138 @@ function currentFreePoint() {
         async : false,
         method : 'get',
         url : '/point/free',
-        success : (result) => {     console.log(result);
+        success : (result) => {     console.log(result.totalPoint);
             let myCurrentFreePoint = document.querySelector('.myCurrentFreePoint');
             let html = ``;
 
-            html += `
-                    ${result} 포인트
-                    `;
-
+            if (result == '') {     // 포인트가 존재하지 않으면
+                html += `
+                        0 포인트
+                        `;
+            } else {
+                html += `
+                        ${result.totalPoint} 포인트
+                        `;
+            }
+            
             myCurrentFreePoint.innerHTML = html;
         }   // success end
     })  // ajax end
 }   // currentFreePoint() end
 
 // 나의 무료 포인트 로그 가져오기
+freePointLog();
+function freePointLog() {
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/point/free/log',
+        success : (result) => {     console.log(result);
+            freePointLogDto = result;
 
+        }   // success end
+    })  // ajax end
 
+    let myFreePointLogTbody = document.querySelector('.myFreePointLogTbody');
+    let myFreePointLog = document.querySelector('.myFreePointLog');
+
+    let html = ``;
+
+    if (freePointLogDto != '') {  // 내 무료 포인트 기록이 있는 경우
+        for (let i = 0; i < freePointLogDto.length; i++) {
+            html += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${freePointLogDto[i].point_reason}</td>
+                        <td>${freePointLogDto[i].point_indecrease}</td>
+                        <td>${freePointLogDto[i].point_date}</td>
+                    </tr>
+                    `;
+        }   // for end
+
+        myFreePointLogTbody.innerHTML = html;
+    } else {    // 내 무료 포인트 기록이 없는 경우
+        html += `
+                <thead>
+                </thead>
+                <tbody id="myFreePointLogTbody">
+                    <tr> <td>무료 포인트 기록이 존재하지 않습니다.</td> </tr>
+                </tbody>
+                `;
+
+        myFreePointLog.innerHTML = html;
+    }
+
+}   // freePointLog() end
 
 // 나의 현재 유료 포인트 값 가져오기
+currentPaidPoint();
+function currentPaidPoint() {
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/point/paid',
+        success : (result) => {     console.log(result.totalPoint);
+            let myCurrentPaidPoint = document.querySelector('.myCurrentPaidPoint');
+            let html = ``;
 
-
+            if (result == '') {     // 포인트가 존재하지 않으면
+                html += `
+                        0 포인트
+                        `;
+            } else {
+                html += `
+                        ${result.totalPoint} 포인트
+                        `;
+            }
+            
+            myCurrentPaidPoint.innerHTML = html;
+        }   // success end
+    })  // ajax end
+}   // currentPaidPoint() end
 
 // 나의 유료 포인트 로그 가져오기
+paidPointLog();
+function paidPointLog() {
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/point/paid/log',
+        success : (result) => {     console.log(result);
+            paidPointLogDto = result;
 
+        }   // success end
+    })  // ajax end
+
+    let myPaidPointLogTbody = document.querySelector('.myPaidPointLogTbody');
+    let myPaidPointLog = document.querySelector('.myPaidPointLog');
+
+    let html = ``;
+
+    if (paidPointLogDto != '') {  // 내 유료 포인트 기록이 있는 경우
+        for (let i = 0; i < paidPointLogDto.length; i++) {
+            html += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${paidPointLogDto[i].point_reason}</td>
+                        <td>${paidPointLogDto[i].point_indecrease}</td>
+                        <td>${paidPointLogDto[i].point_date}</td>
+                    </tr>
+                    `;
+        }   // for end
+
+        myPaidPointLogTbody.innerHTML = html;
+    } else {    // 내 무료 포인트 기록이 없는 경우
+        html += `
+                <thead>
+                </thead>
+                <tbody id="myPaidPointLogTbody">
+                    <tr> <td>유료 포인트 기록이 존재하지 않습니다.</td> </tr>
+                </tbody>
+                `;
+
+        myPaidPointLog.innerHTML = html;
+    }
+
+}   // paidPointLog() end
 
