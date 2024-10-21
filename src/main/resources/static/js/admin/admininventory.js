@@ -68,6 +68,17 @@ function invdel(){
 
     check.forEach(c  => {
         console.log(c.value)
+
+        $.ajax({
+            async : false,
+            method : 'delete',
+            url : '/admin/delete',
+            data : {inventory_no:c.value},
+            success : (r) => {
+                console.log(r)
+                read()
+            }
+        })
     })
 
 }

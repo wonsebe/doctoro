@@ -66,8 +66,12 @@ public class AdminController {
     @GetMapping("/delivery")
     public ArrayList<OrdersDto> delivery(DeliveryDto deliveryDto)
     {return adminService.delivery(deliveryDto);}
-
+    //배송 상태 변경
     @PutMapping("/change")
     public boolean change (int odetail_no)
     {return adminService.change(odetail_no);}
+    //상품 삭제
+    @DeleteMapping("/delete")
+    public boolean delete (int inventory_no)
+    {return adminService.delete(inventory_no);}
 }

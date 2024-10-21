@@ -62,9 +62,14 @@
     <select id="delivery" resultType="web.model.dto.DeliveryDto">
         select * from delivery;
     </select>
-
+    <!--주문 상태 업데이트-->
     <update id="change" parameterType="int">
         UPDATE odetails SET order_status = CASE WHEN order_status = 0 THEN 1 WHEN order_status = 1 THEN 0 END WHERE odetail_no = #{odetail_no};
     </update>
+
+    <!--상품 등록 삭제-->
+    <delete id="delete" parameterType="int">
+        delete from inventory where inventory_no = #{inventory_no};
+    </delete>
 
 </mapper>  <!-- mapper end -->
