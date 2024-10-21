@@ -5,3 +5,10 @@ div#toptable {
     padding-top : 30px
     padding-bottom : 0px;
 }
+
+div#bottomtable {
+    width: 1500px;
+    height: 600px;
+    margin: 0 auto;
+    padding-top : 30px
+}

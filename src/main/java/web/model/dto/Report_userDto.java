@@ -13,4 +13,5 @@ public class Report_userDto {
     int ruiun;
     String rudate;
     int ruoun;
+    int rno;
 }

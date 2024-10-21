@@ -37,4 +37,6 @@ public interface AdminDao {
     ArrayList<UserDto> userall(UserDto userDto);
 
     ArrayList<Report_userDto> userreport(Report_userDto report_userDto);
+
+    ArrayList<Report_userDto> reportcount(Report_userDto report_userDto);
 }

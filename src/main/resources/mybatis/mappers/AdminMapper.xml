@@ -79,7 +79,12 @@
 
     <!--유저 신고 조회-->
     <select id="userreport" resultType="web.model.dto.Report_userDto">
-        SELECT ru.runo,u1.name,ru.rudate,u2.name FROM report_user AS ru INNER JOIN users AS u1 ON ru.ruiun = u1.uno INNER JOIN users AS u2 ON ru.ruoun = u2.uno;
+        select * from report_user;
+    </select>
+
+    <!--유저 신고 횟수 조회-->
+    <select id="reportcount" resultType="web.model.dto.Report_userDto">
+        SELECT ruoun, COUNT(runo)as rno FROM report_user GROUP BY ruoun;
     </select>
 
 </mapper>  <!-- mapper end -->
