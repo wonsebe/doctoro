@@ -34,6 +34,23 @@ function doLoginCheck() {
             } else {
                 // 로그인한 상태인 경우
                 console.log('로그인');
+                console.log(loginNo)
+                if(loginNo == 1){
+                html += `
+                         <li> <a href="/adminmain">관리자</a> </li>
+                         <li> <a href="/product">상품</a> </li>
+                         <li> <a href="/info">정보</a> </li>
+                         <li> <a href="/rate">확률</a> </li>
+                         <li> <a href="/base/stats/print">종족값</a> </li>
+                         <li> <a href="/rank/enter">투표</a> </li>
+                         <li> <a href="/rank/get">랭킹보기</a> </li>
+                         <li> <a href="/board/bprint">게시판</a> </li>
+                         <li> <a href="/chat">채팅방</a> </li>
+                         <li> <a href="/user/myinfo">마이페이지</a> </li>
+                         <li> <a href="#" onclick="doLogout()">로그아웃</a> </li>
+                         `
+                         }
+                else {
                 html += `
                         <li> <a href="/product">상품</a> </li>
                         <li> <a href="/info">정보</a> </li>
@@ -46,6 +63,7 @@ function doLoginCheck() {
                         <li> <a href="/user/myinfo">마이페이지</a> </li>
                         <li> <a href="#" onclick="doLogout()">로그아웃</a> </li>
                         `
+                }
             }
             document.querySelector('#headerMenu').innerHTML = html;
         }   // success end

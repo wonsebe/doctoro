@@ -56,7 +56,7 @@ function invadd(){
         url : '/admin/invadd',
         data : v1,
         success : (r) => {
-            console.log(r)
+//            console.log(r)
             read()
         },
         error : (r) => {console.log(r)},
@@ -68,7 +68,7 @@ function invdel(){
     let check = document.querySelectorAll('.checko:checked');
 
     check.forEach(c  => {
-        console.log(c.value)
+//        console.log(c.value)
 
         $.ajax({
             async : false,
@@ -76,7 +76,7 @@ function invdel(){
             url : '/admin/delete',
             data : {product_no:c.value},
             success : (r) => {
-                console.log(r);
+//                console.log(r);
                 read();
             }
         })
