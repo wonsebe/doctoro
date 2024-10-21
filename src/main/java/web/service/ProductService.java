@@ -17,4 +17,10 @@ public class ProductService {
         return productDao.productAllPrint();
     }
 
+    // 상품 개별 조회
+    public ProductDto productDetaillPrint(int productNo) {
+        System.out.println("ProductService.productDetaillPrint");
+        return productDao.productDetaillPrint(productNo);
+    }
+
 }

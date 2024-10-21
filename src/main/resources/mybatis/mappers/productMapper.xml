@@ -9,4 +9,9 @@
         select * from product pro inner join pcategory pca on pro.pcategory_no = pca.pcategory_no order by product_no;
     </select>
 
+    <!-- 상품 개별 조회 -->
+    <select id="productDetaillPrint" resultType="web.model.dto.ProductDto">
+        select * from product pro inner join pcategory pca on pro.pcategory_no = pca.pcategory_no where product_no = ${productNo} order by product_no;
+    </select>
+
 </mapper>   <!-- mapper end -->

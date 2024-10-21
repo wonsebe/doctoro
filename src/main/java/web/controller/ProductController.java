@@ -21,5 +21,12 @@ public class ProductController {
         return productService.productAllPrint();
     }
 
+    // 상품 개별 조회
+    @GetMapping("/detail/print")
+    public ProductDto productDetaillPrint(int productNo) {
+        System.out.println("ProductController.productDetaillPrint");
+        return productService.productDetaillPrint(productNo);
+    }
+
 
 }
