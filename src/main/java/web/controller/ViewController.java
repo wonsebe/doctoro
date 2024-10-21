@@ -128,6 +128,12 @@ public class ViewController {
         return "/product/product.html";
     }
 
+    // [유저] 상품 개별 출력 페이지 요청
+    @GetMapping("/product/detail")
+    public String productDetail(){
+        return "/product/product-detail.html";
+    }
+
 
     // ================= 관리자페이지 관련 ========================== //
     @GetMapping("/adminmain")
@@ -170,5 +176,11 @@ public class ViewController {
         return "/point/point-charge.html";
     }
 
+    // ===================== 장바구니 관련 ===================== //
+    // 장바구니 페이지 요청
+    @GetMapping("/cart")
+    public String cartPage(){
+        return "/cart/cart.html";
+    }
 
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>상품</title>
+</head>
+<body>
+    <div th:replace="~{/header.html :: header }"></div>
+
+    <div id="content">
+        상품조회
+
+        <div id="productDetail">
+            
+        </div>
+        <label for="productNum">수량</label> </br>
+        <input type="text" id="productNum" />
+        <button type="button" onclick="cartAdd()">장바구니 등록</button>
+    </div>
+
+    <script src="/js/product/product-detail.js"></script>
+
+</body>
+</html>
