@@ -14,8 +14,8 @@ function productAllPrint() {    console.log('productAllPrint()');
             result.forEach(상품 => {
                 html += `
                         <div>
-                            <div> <a href="/product/detail?pno=${ 상품.product_no }">${상품.product_image}</a> </div>
-                            <div> <a href="/product/detail?pno=${ 상품.product_no }">${상품.product_name }</a> </div>
+                            <div> <a href="/product/detail?pno=${상품.product_no}">${상품.product_image}</a> </div>
+                            <div> <a href="/product/detail?pno=${상품.product_no}">${상품.product_name}</a> </div>
                             <div>${상품.product_description}</div>
                             <div>${상품.price}</div>
                             <div>${상품.pcategory_name}</div>
