@@ -1,0 +1,16 @@
+
+div#toptable {
+    width: 1500px;
+    height: 600px;
+    margin: 0 auto;
+    padding-top : 30px
+}
+
+div#menubar{
+    margin : 0 auto;
+}
+
+"overflow": (
+  property: overflow,
+  values: auto hidden visible scroll,
+)

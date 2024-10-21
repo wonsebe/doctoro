@@ -12,19 +12,21 @@
 
 <div>
     <div>
-        <h3>관리자 포인트 관리</h3>
+        <h3>관리자 포인트관리</h3>
     </div>
 
     <div>
-        메뉴 선택
-        <div> 상품관리 </div>
-        <div> 재고관리 </div>
-        <div> 주문관리 </div>
-        <div> 게시판관리 </div>
-        <div> 유저관리 </div>
-        <div> 포인트관리 </div>
+        <a href="http://localhost:8080/adminmain"> 메인화면 </a>
+        <a href="http://localhost:8080/admininventory"> 상품관리 </a>
+        <a href="http://localhost:8080/adminproduct"> 재고관리 </a>
+        <a href="http://localhost:8080/adminorders"> 주문관리 </a>
+        <a> 게시판관리 </a>
+        <a> 유저관리 </a>
+        <a href="http://localhost:8080/adminpoint"> 포인트관리 </a>
     </div>
+</div>
 
+<div>
     <div>
         <input id="price" type="text" placeholder="금액입력">
         <select id="category">
@@ -37,7 +39,7 @@
     </div>
 
     <div>
-        <div>
+        <div class="overflow-auto" id="toptable">
             <table id="pointlog" class="table">
                 <thead>
                     <tr>
@@ -63,6 +65,7 @@
             </table>
         </div>
     </div>
+
 </div>
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>

@@ -74,4 +74,5 @@ public class AdminController {
     @DeleteMapping("/delete")
     public boolean delete (int product_no)
     {return adminService.delete(product_no);}
+    //유저 출력
 }

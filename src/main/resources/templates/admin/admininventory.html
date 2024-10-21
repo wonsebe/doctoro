@@ -15,19 +15,18 @@
         <h3>관리자 상품관리</h3>
     </div>
 
-
     <div>
-        메뉴 선택
-        <div> 상품관리 </div>
-        <div> 재고관리 </div>
-        <div> 주문관리 </div>
-        <div> 게시판관리 </div>
-        <div> 유저관리 </div>
-        <div> 포인트관리 </div>
+        <a href="http://localhost:8080/adminmain"> 메인화면 </a>
+        <a href="http://localhost:8080/admininventory"> 상품관리 </a>
+        <a href="http://localhost:8080/adminproduct"> 재고관리 </a>
+        <a href="http://localhost:8080/adminorders"> 주문관리 </a>
+        <a> 게시판관리 </a>
+        <a> 유저관리 </a>
+        <a href="http://localhost:8080/adminpoint"> 포인트관리 </a>
     </div>
 </div>
 
-<div>
+<div id="menubar">
     <div>
         <input id="name" type="text"> <!--이름-->
         <input id="price" type="text"> <!--가격-->
@@ -39,12 +38,12 @@
             <option value="3">강화 아이템</option>
         </select>
         <button type="button" onclick="invadd()"> 상품등록 </button>
+        <button type="button" onclick="invdel()"> 삭제 </button>
     </div>
 </div>
 
 <div>
-    <div>
-        <button type="button" onclick="invdel()"> 삭제 </button>
+    <div class="overflow-auto" id="toptable">
         <table id="inventoryhd" class="table">
             <thead>
                 <tr>

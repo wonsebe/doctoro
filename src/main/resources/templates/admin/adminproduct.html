@@ -16,15 +16,17 @@
     </div>
 
     <div>
-        메뉴 선택
-        <div> 상품관리 </div>
-        <div> 재고관리 </div>
-        <div> 주문관리 </div>
-        <div> 게시판관리 </div>
-        <div> 유저관리 </div>
-        <div> 포인트관리 </div>
+        <a href="http://localhost:8080/adminmain"> 메인화면 </a>
+        <a href="http://localhost:8080/admininventory"> 상품관리 </a>
+        <a href="http://localhost:8080/adminproduct"> 재고관리 </a>
+        <a href="http://localhost:8080/adminorders"> 주문관리 </a>
+        <a> 게시판관리 </a>
+        <a> 유저관리 </a>
+        <a href="http://localhost:8080/adminpoint"> 포인트관리 </a>
     </div>
+</div>
 
+<div>
     <div>
         <h3>재고 등록</h3>
         <input type="text" placeholder="재고 증감 수량 입력" id="prodpm"> <!--재고 증감-->
@@ -39,47 +41,52 @@
 
     <div>
         <h3> 재고 로그 </h3>
-        <table id="product" class="table">
-            <thead>
-            <tr>
-                <th>재고 번호</th>
-                <th>재고 증감</th>
-                <th>날짜 시간</th>
-                <th>재고 증감 사유</th>
-                <th>상품 명</th>
-            </tr>
-            </thead>
+        <div class="overflow-auto" id="toptable">
+            <table id="product" class="table">
+                <thead>
+                <tr>
+                    <th>재고 번호</th>
+                    <th>재고 증감</th>
+                    <th>날짜 시간</th>
+                    <th>재고 증감 사유</th>
+                    <th>상품 명</th>
+                </tr>
+                </thead>
 
-            <tbody id="body">
-            <tr>
-                <td>1</td>
-                <td>50</td>
-                <td>2024/06/07</td>
-                <td>재고 입력</td>
-                <td>인형입니다</td>
-            </tr>
-            </tbody>
-        </table>
+                <tbody id="body">
+                <tr>
+                    <td>1</td>
+                    <td>50</td>
+                    <td>2024/06/07</td>
+                    <td>재고 입력</td>
+                    <td>인형입니다</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div>
         <h4> 현재 재고 </h4>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>상품 명</th>
-                <th>재고 수량</th>
-            </tr>
-            </thead>
+        <div class="overflow-auto" id="bottomtable">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>상품 명</th>
+                    <th>재고 수량</th>
+                </tr>
+                </thead>
 
-            <tbody id="body2">
-            <tr>
-                <td>인형</td>
-                <td>50</td>
-            </tr>
-            </tbody>
-        </table>
+                <tbody id="body2">
+                <tr>
+                    <td>인형</td>
+                    <td>50</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
 </div>
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
