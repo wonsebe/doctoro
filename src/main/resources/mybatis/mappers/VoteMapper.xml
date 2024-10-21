@@ -11,4 +11,55 @@
     <insert id="cityVoteRecord" parameterType="web.model.dto.VoteCityDto">
         insert into pollcity(poll_city_first, poll_city_second, poll_city_third, uno) values (#{poll_city_first}, #{poll_city_second}, #{poll_city_third}, #{uno});
     </insert>
+
+    <select id="cityVoteRecordFirst" resultType="web.model.dto.VoteCityDto">
+        SELECT
+        u.gender AS gender,
+        u.ubirth AS ubirth,
+        p.poll_city_first AS poll_city_first,
+        COUNT(p.poll_city_first) AS first_count
+        FROM
+        users u
+        JOIN
+        pollcity p ON u.uno = p.uno
+        GROUP BY
+        u.uno, u.name, p.poll_city_first
+        ORDER BY
+        u.uno, p.poll_city_first
+        limit 999999;
+    </select>
+
+    <select id="cityVoteRecordSecond" resultType="web.model.dto.VoteCityDto">
+        SELECT
+        u.gender AS gender,
+        u.ubirth AS ubirth,
+        p.poll_city_second AS poll_city_second,
+        COUNT(p.poll_city_second) AS second_count
+        FROM
+        users u
+        JOIN
+        pollcity p ON u.uno = p.uno
+        GROUP BY
+        u.uno, u.name, p.poll_city_second
+        ORDER BY
+        u.uno, p.poll_city_second
+        limit 999999;
+    </select>
+
+    <select id="cityVoteRecordThird" resultType="web.model.dto.VoteCityDto">
+        SELECT
+        u.gender AS gender,
+        u.ubirth AS ubirth,
+        p.poll_city_third AS poll_city_third,
+        COUNT(p.poll_city_third) AS third_count
+        FROM
+        users u
+        JOIN
+        pollcity p ON u.uno = p.uno
+        GROUP BY
+        u.uno, u.name, p.poll_city_third
+        ORDER BY
+        u.uno, p.poll_city_third
+        limit 999999;
+    </select>
 </mapper>

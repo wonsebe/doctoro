@@ -24,6 +24,7 @@ function doMyInfo() {
                         <div>전화번호 : ${result.phone}</div>
                         <div>생년월일 : ${result.ubirth}</div>
                         <button type="button" onclick="poke_rate_model_update()"> 승률 예측 모델 최신화 </button>
+                        <button type="button" onclick="poke_vote_list_update()"> 마을 투표 기록 최신화 </button>
                         `;
 
                 myinfo.innerHTML = html;
@@ -58,6 +59,17 @@ function poke_rate_model_update() {
     })
 }
 
+function poke_vote_list_update() {
+    $.ajax({
+        async: false,
+        method: "get",
+        url: "/vote/record/read_first",
+        success: function response(result) {
+            console.log(result);
+        }
+    })
+}
+
 
 // ======================== 내 포켓몬 ======================== //
 let myExp = 0;          // 나의 경험치량
@@ -69,14 +81,16 @@ let expLogDto = [];     // 내 포켓몬 경험치 기록 // ajax로부터 응�
 
 // 내 포켓몬 존재 유무에 따른 포켓몬 출력
 myPokeExistCheck();
-function myPokeExistCheck() {   console.log('myPokeExistCheck()');
+function myPokeExistCheck() {
+    console.log('myPokeExistCheck()');
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/mypoke/exist',
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'get',
+        url: '/mypoke/exist',
+        success: (result) => {
+            console.log(result);
             uno = result.uno;       // 현재 로그인된 유저 번호 대입
-            
+
             expLogPrint();          // 내 포켓몬 경험치 기록 최근 10개 가져오기
 
             if (result == '') {     // 내 포켓몬이 존재하지 않으면
@@ -101,14 +115,14 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
                 let html = ``;
 
                 // (현재 경험치 / 전체 경험치) * 100 으로 나온 값을 경험치바에 비율 계산해서 표시
-                    // 4% 미만일 경우 경험치바 내의 글씨가 보이지 않는 경우가 있어 최소가 4%도록 설정
+                // 4% 미만일 경우 경험치바 내의 글씨가 보이지 않는 경우가 있어 최소가 4%도록 설정
                 let expPercent = (myExp / maxExp) * 100;
                 if (expPercent == 0) {
                     expPercent = 0;
                 } else if (expPercent < 4) {
                     expPercent = 4;
                 }
-                
+
                 if (result.stage == 0) {    // 0단계 출력
                     html += `
                             <h4>${result.stage}단계</h4>
@@ -132,11 +146,12 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
                 } else {    // 1 ~ 6단계 출력
                     // 파이썬에 내 포켓몬 번호를 넘겨주어 포켓몬 이름, 이미지 가져오기
                     $.ajax({
-                        async : false,
-                        method : 'get',
-                        url : 'http://localhost:5000/mypoke/info',
-                        data : { pokeno : result.pokeno },
-                        success : (res) => {     console.log(res);
+                        async: false,
+                        method: 'get',
+                        url: 'http://localhost:5000/mypoke/info',
+                        data: { pokeno: result.pokeno },
+                        success: (res) => {
+                            console.log(res);
                             html += `
                                     <h4>${result.stage}단계</h4>
                                     <img id="myPokeImg" src="${res[0].이미지}" />
@@ -169,31 +184,35 @@ function myPokeExistCheck() {   console.log('myPokeExistCheck()');
 }   // myPokeExistCheck() end
 
 // 내 포켓몬 생성
-function MyPokeAdd() {      console.log('MyPokeAdd()');
+function MyPokeAdd() {
+    console.log('MyPokeAdd()');
     $.ajax({
-        async : false,
-        method : 'post',
-        url : '/mypoke/add',
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'post',
+        url: '/mypoke/add',
+        success: (result) => {
+            console.log(result);
             if (result) {
                 alert('포켓몬 생성 완료');
                 myPokeExistCheck();
             } else {
                 alert('포켓몬 생성 실패');
                 myPokeExistCheck();
-            }            
+            }
         }   // success end
     })  // ajax end
 }   // MyPokeAdd() end
 
 // 내 포켓몬 초기화
-function reset() {  console.log('reset()');
+function reset() {
+    console.log('reset()');
     if (confirm("정말 리셋 하시겠습니까?")) {
         $.ajax({
-            async : false,
-            method : 'delete',
-            url : '/mypoke/reset',
-            success : (result) => {     console.log(result);
+            async: false,
+            method: 'delete',
+            url: '/mypoke/reset',
+            success: (result) => {
+                console.log(result);
                 if (result) {
                     alert('초기화가 완료되었습니다.');
                     expLogPrint();          // 내 포켓몬 경험치 기록 최근 10개 가져오기
@@ -209,15 +228,16 @@ function reset() {  console.log('reset()');
 // 총 경험치 값 가져오기
 function expTotal() {
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/exp/total',
-        data : { loginUno : uno },
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'get',
+        url: '/exp/total',
+        data: { loginUno: uno },
+        success: (result) => {
+            console.log(result);
             // 총 경험치 값과 단계에 따른 현재 경험치, 최대 경험치 값 계산, 진화 가능 여부 판별
             if (result >= 2100) {           // 총 경험치 값이 2100 이상이고
                 console.log(stage);
-                
+
                 if (stage == 5) {               // 단계가 5단계면 -> 600 / 600, 진화 가능
                     myExp = 600;
                     maxExp = 600;
@@ -235,7 +255,7 @@ function expTotal() {
                 }
             } else if (result >= 1500) {    // 총 경험치 값이 1500 이상이고
                 console.log(stage);
-                
+
                 if (stage == 5) {               // 단계가 5단계면 -> 최대값이하 / 600, 진화 불가
                     myExp = result - 1500;
                     maxExp = 600;
@@ -255,7 +275,7 @@ function expTotal() {
                 }
             } else if (result >= 1000) {    // 총 경험치 값이 1000 이상이고
                 console.log(stage);
-                
+
                 if (stage == 4) {               // 단계가 4단계면 -> 최대값이하 / 500, 진화 불가
                     myExp = result - 1000;
                     maxExp = 500;
@@ -275,7 +295,7 @@ function expTotal() {
                 }
             } else if (result >= 600) {     // 총 경험치 값이 600 이상이고
                 console.log(stage);
-                
+
                 if (stage == 3) {               // 단계가 3단계면 -> 최대값이하 / 400, 진화 불가
                     myExp = result - 600;
                     maxExp = 400;
@@ -295,7 +315,7 @@ function expTotal() {
                 }
             } else if (result >= 300) {     // 총 경험치 값이 300 이상이고
                 console.log(stage);
-                
+
                 if (stage == 2) {               // 단계가 2단계면 -> 최대값이하 / 300, 진화 불가
                     myExp = result - 300;
                     maxExp = 300;
@@ -315,7 +335,7 @@ function expTotal() {
                 }
             } else if (result >= 100) {     // 총 경험치 값이 100 이상이고
                 console.log(stage);
-                
+
                 if (stage == 1) {               // 단계가 1단계면 -> 최대값이하 / 200, 진화 불가
                     myExp = result - 100;
                     maxExp = 200;
@@ -335,7 +355,7 @@ function expTotal() {
                 }
             } else {                        // 총 경험치 값이 100 미만이면
                 console.log(stage);
-                
+
                 myExp = result;                 // 최대값이하 / 100, 진화 불가
                 maxExp = 100;
                 evolve = false;
@@ -344,7 +364,7 @@ function expTotal() {
                 console.log(maxExp);
                 console.log(evolve);
             }
-    
+
             console.log(myExp);
             console.log(maxExp);
             console.log(evolve);
@@ -354,23 +374,26 @@ function expTotal() {
 }   // expTotal() end
 
 // 진화하기
-function doEvolve(myStage) {    console.log('doEvolve()');
+function doEvolve(myStage) {
+    console.log('doEvolve()');
     $.ajax({
-        async : false,
-        method : 'get',
-        url : 'http://localhost:5000/mypoke/evolve',
-        data : { stage : myStage+1 },
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'get',
+        url: 'http://localhost:5000/mypoke/evolve',
+        data: { stage: myStage + 1 },
+        success: (result) => {
+            console.log(result);
             if (result != '') {     // 파이썬에서 진화할 새로운 포켓몬 번호를 받아왔다면
                 $.ajax({
-                    async : false,
-                    method : 'put',
-                    url : '/mypoke/evolve/new',
-                    data : { pokeno : result.new_pokeno, stage : myStage+1 },
-                    success : (res) => {     console.log(res);
+                    async: false,
+                    method: 'put',
+                    url: '/mypoke/evolve/new',
+                    data: { pokeno: result.new_pokeno, stage: myStage + 1 },
+                    success: (res) => {
+                        console.log(res);
                         if (res) {
                             alert('포켓몬이 진화했습니다!');
-                            stage = myStage+1;
+                            stage = myStage + 1;
                             myPokeExistCheck();
                         } else {
                             alert('진화에 실패하였습니다. 다시 시도해주세요.');
@@ -384,13 +407,15 @@ function doEvolve(myStage) {    console.log('doEvolve()');
 }   // doEvolve() end
 
 // 내 포켓몬 경험치 기록 최근 10개 가져오기
-function expLogPrint() {    console.log('expLogPrint()');
+function expLogPrint() {
+    console.log('expLogPrint()');
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/exp/log',
-        data : { loginUno : uno },
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'get',
+        url: '/exp/log',
+        data: { loginUno: uno },
+        success: (result) => {
+            console.log(result);
             expLogDto = result;     // 응답 데이터의 타입이 Array , Object인지 확인 필요함.
 
         }   // success end
@@ -436,10 +461,11 @@ function expLogPrint() {    console.log('expLogPrint()');
 currentFreePoint();
 function currentFreePoint() {
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/point/free',
-        success : (result) => {     console.log(result.totalPoint);
+        async: false,
+        method: 'get',
+        url: '/point/free',
+        success: (result) => {
+            console.log(result.totalPoint);
             let myCurrentFreePoint = document.querySelector('.myCurrentFreePoint');
             let html = ``;
 
@@ -452,7 +478,7 @@ function currentFreePoint() {
                         ${result.totalPoint} 포인트
                         `;
             }
-            
+
             myCurrentFreePoint.innerHTML = html;
         }   // success end
     })  // ajax end
@@ -462,10 +488,11 @@ function currentFreePoint() {
 freePointLog();
 function freePointLog() {
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/point/free/log',
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'get',
+        url: '/point/free/log',
+        success: (result) => {
+            console.log(result);
             freePointLogDto = result;
 
         }   // success end
@@ -507,10 +534,11 @@ function freePointLog() {
 currentPaidPoint();
 function currentPaidPoint() {
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/point/paid',
-        success : (result) => {     console.log(result.totalPoint);
+        async: false,
+        method: 'get',
+        url: '/point/paid',
+        success: (result) => {
+            console.log(result.totalPoint);
             let myCurrentPaidPoint = document.querySelector('.myCurrentPaidPoint');
             let html = ``;
 
@@ -523,7 +551,7 @@ function currentPaidPoint() {
                         ${result.totalPoint} 포인트
                         `;
             }
-            
+
             myCurrentPaidPoint.innerHTML = html;
         }   // success end
     })  // ajax end
@@ -533,10 +561,11 @@ function currentPaidPoint() {
 paidPointLog();
 function paidPointLog() {
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/point/paid/log',
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'get',
+        url: '/point/paid/log',
+        success: (result) => {
+            console.log(result);
             paidPointLogDto = result;
 
         }   // success end

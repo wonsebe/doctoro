@@ -32,4 +32,24 @@ public class VoteController {
         return voteService.cityVoteRecord(voteCityDto);
     }
 
+    // 투표 기록 1등 출력
+    @GetMapping("/record/read_first")
+    public List<VoteCityDto> cityVoteRecordFirst(){
+        System.out.println("VoteController.cityVoteRecordRead");
+        return voteService.cityVoteRecordFirst();
+    }
+
+    // 투표 기록 2등 출력
+    @GetMapping("/record/read_second")
+    public List<VoteCityDto> cityVoteRecordSecond(){
+        System.out.println("VoteController.cityVoteRecordSecond");
+        return voteService.cityVoteRecordSecond();
+    }
+
+    // 투표 기록 3등 출력
+    @GetMapping("/record/read_third")
+    public List<VoteCityDto> cityVoteRecordThird(){
+        System.out.println("VoteController.cityVoteRecordThird");
+        return voteService.cityVoteRecordThird();
+    }
 }

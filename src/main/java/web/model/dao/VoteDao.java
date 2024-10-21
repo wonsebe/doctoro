@@ -16,4 +16,13 @@ public interface VoteDao {
 
     //  투표 기록 insert
     boolean cityVoteRecord(VoteCityDto voteCityDto);
+
+    // 투표 기록 1등 출력
+    List<VoteCityDto> cityVoteRecordFirst();
+
+    // 투표 기록 2등 출력
+    List<VoteCityDto> cityVoteRecordSecond();
+
+    // 투표 기록 3등 출력
+    List<VoteCityDto> cityVoteRecordThird();
 }
