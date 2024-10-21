@@ -59,6 +59,7 @@ function prodadd(){
     console.log(prodinv)
 
     if(prodinfo == 1){prodinfo = "재고등록"}
+    if(prodinfo == 2){prodinfo = "상품주문"}
     console.log(prodinfo)
 //
 //    console.log(prodinv)
