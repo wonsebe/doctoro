@@ -32,5 +32,5 @@ public interface AdminDao {
 
     boolean change (int odetail_no);
 
-    boolean delete (int inventory_no);
+    boolean delete (int product_no);
 }

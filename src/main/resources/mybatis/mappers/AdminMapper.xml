@@ -69,7 +69,7 @@
 
     <!--상품 등록 삭제-->
     <delete id="delete" parameterType="int">
-        delete from inventory where inventory_no = #{inventory_no};
+        delete from product where product_no = #{product_no};
     </delete>
 
 </mapper>  <!-- mapper end -->

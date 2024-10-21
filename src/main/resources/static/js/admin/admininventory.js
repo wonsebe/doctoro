@@ -8,13 +8,13 @@ function read(){
         method : 'get',
         url : '/admin/main',
         success : (result) => {
-         console.log(result);
+//         console.log(result);
          //어디에
          let item = document.querySelector("#body")
          html = '';
          //무엇을
          result.forEach(e => {
-            console.log(e)
+//            console.log(e)
              html += `<tr>
                 <td> <input type="checkbox" class="checko" value=${e.product_no}> </td>
                 <td>${e.product_no}</td>
@@ -34,12 +34,12 @@ function read(){
 function invadd(){
 
     let name = document.querySelector("#name").value;
-    console.log(name)
+//    console.log(name)
     let price = document.querySelector("#price").value;
     let file = document.querySelector("#file").value;
     let info = document.querySelector("#info").value;
     let category = document.querySelector("#category").value;
-    console.log(category)
+//    console.log(category)
 
     let v1 = {product_name:name,
                 price:price,
@@ -47,7 +47,7 @@ function invadd(){
                 product_description:info,
                 pcategory_no:category}
 
-    console.log(v1)
+//    console.log(v1)
 
     $.ajax({
         async : false,
@@ -63,7 +63,7 @@ function invadd(){
 }
 
 function invdel(){
-    console.log("del")
+//    console.log("del")
     let check = document.querySelectorAll('.checko:checked');
 
     check.forEach(c  => {
@@ -73,10 +73,10 @@ function invdel(){
             async : false,
             method : 'delete',
             url : '/admin/delete',
-            data : {inventory_no:c.value},
+            data : {product_no:c.value},
             success : (r) => {
-                console.log(r)
-                read()
+                console.log(r);
+                read();
             }
         })
     })

@@ -48,6 +48,6 @@ public class AdminService {
     public boolean change (int odetail_no)
     {return adminDao.change(odetail_no);}
 
-    public boolean delete (int inventory_no)
-    {return adminDao.delete(inventory_no);}
+    public boolean delete (int product_no)
+    {return adminDao.delete(product_no);}
 }
