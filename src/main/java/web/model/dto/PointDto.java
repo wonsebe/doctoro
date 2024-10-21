@@ -15,5 +15,7 @@ public class PointDto {
     private String free_paid;           // 무료/유료 구분
     private String point_reason;        // 포인트 사유
     private int uno;                    // 유저 번호
+
     private String name;
+    private int totalPoint;             // 포인트 총합
 }
