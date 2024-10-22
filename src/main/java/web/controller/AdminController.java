@@ -82,4 +82,12 @@ public class AdminController {
     @GetMapping("/user/report")
     public ArrayList<Report_userDto> userreport(Report_userDto report_userDto)
     {return adminService.userreport(report_userDto);}
+    //게시물 신고 내역 출력
+    @GetMapping("/board/repot")
+    public ArrayList<BoardDto> boardrepot(BoardDto boardDto)
+    {return adminService.boardrepot(boardDto);}
+    //댓글 신고 내역 출력
+    @GetMapping("/comment/repot")
+    public ArrayList<CommentDto> commentrepot(CommentDto commentDto)
+    {return adminService.commentrepot(commentDto);}
 }

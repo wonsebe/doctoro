@@ -16,4 +16,9 @@ public class CommentDto {
     private int uno;            // 유저 번호
     private int rno;           //대댓글 번호
     private String id;  //유저 아이디
+
+    //(김병찬 관리자용)
+    String btitle; //게시물 이름 
+    String name; //유저 이름
+    int rpno; // 신고당한 횟수
 }

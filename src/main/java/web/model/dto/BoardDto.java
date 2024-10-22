@@ -19,4 +19,8 @@ public class BoardDto {
     private String categoryname;
     private String id;
 
+    //김병찬관리자용
+    String name; //작성자 이름
+    int rno;//신고당한 횟수
+
 }

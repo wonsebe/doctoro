@@ -1,0 +1,14 @@
+div#toptable {
+    width: 1900px;
+    height: 600px;
+    margin: 0 auto;
+    padding-top : 30px
+    padding-bottom : 0px;
+}
+
+div#bottomtable {
+    width: 1900px;
+    height: 600px;
+    margin: 0 auto;
+    padding-top : 30px
+}

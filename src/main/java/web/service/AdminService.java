@@ -57,5 +57,9 @@ public class AdminService {
     public ArrayList<Report_userDto> userreport(Report_userDto report_userDto)
     {return adminDao.userreport(report_userDto);}
 
+    public ArrayList<BoardDto> boardrepot(BoardDto boardDto)
+    {return adminDao.boardrepot(boardDto);}
 
+    public ArrayList<CommentDto> commentrepot(CommentDto commentDto)
+    {return adminDao.commentrepot(commentDto);}
 }

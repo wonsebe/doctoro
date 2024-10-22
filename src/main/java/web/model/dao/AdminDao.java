@@ -37,4 +37,8 @@ public interface AdminDao {
     ArrayList<UserDto> userall(UserDto userDto);
 
     ArrayList<Report_userDto> userreport(Report_userDto report_userDto);
+
+    ArrayList<BoardDto> boardrepot(BoardDto boardDto);
+
+    ArrayList<CommentDto> commentrepot(CommentDto commentDto);
 }

@@ -82,4 +82,14 @@
         select * from report_user;
     </select>
 
+    <!--게시물 신고 조회-->
+    <select id="boardrepot" resultType="web.model.dto.BoardDto">
+        select b.bno, b.btitle, b.bcontent, b.bdate, b.bview, u.name, c.categoryname, count(rb.rbbn) as rno from board as b left join users as u on b.uno = u.uno left join category as c on b.categoryno = c.categoryno left join report_board as rb on rb.rbbn = b.bno group by b.bno, b.btitle, b.bcontent, b.bdate, b.bview, u.name, c.categoryname;
+    </select>
+
+    <!--댓글 신고 조회-->
+    <select id="commentrepot" resultType="web.model.dto.CommentDto">
+        select c.cno, c.ccontent, c.cdate, b.btitle, u.name, count(rc.rccno) as rpno from comment as c inner join board as b on c.bno = b.bno inner join users as u on c.uno = u.uno left join report_comment as rc on c.cno = rc.rccno group by c.cno, c.ccontent, c.cdate, b.btitle, u.name;
+    </select>
+
 </mapper>  <!-- mapper end -->
