@@ -1,4 +1,4 @@
-console.log("point")
+//console.log("point")
 
 check()
 read()

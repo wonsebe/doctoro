@@ -1,4 +1,4 @@
-console.log("product")
+//console.log("product")
 
 check()
 read()
