@@ -66,8 +66,58 @@ function poke_vote_list_update() {
         url: "/vote/record/read_first",
         success: function response(result) {
             console.log(result);
+            $.ajax({
+                async: false,
+                method: "post",
+                url: "http://127.0.0.1:5000/vote/record_first",
+                data: JSON.stringify({ list: result }),
+                contentType: 'application/json',
+                success: function response(result1) {
+                    console.log(result1);
+                    console.log("데이터 전송 성공");
+                }
+            })
         }
     })
+    $.ajax({
+        async: false,
+        method: "get",
+        url: "/vote/record/read_second",
+        success: function response(result) {
+            console.log(result);
+            $.ajax({
+                async: false,
+                method: "post",
+                url: "http://127.0.0.1:5000/vote/record_second",
+                data: JSON.stringify({ list: result }),
+                contentType: 'application/json',
+                success: function response(result1) {
+                    console.log(result1);
+                    console.log("데이터 전송 성공");
+                }
+            })
+        }
+    })
+    $.ajax({
+        async: false,
+        method: "get",
+        url: "/vote/record/read_third",
+        success: function response(result) {
+            console.log(result);
+            $.ajax({
+                async: false,
+                method: "post",
+                url: "http://127.0.0.1:5000/vote/record_third",
+                data: JSON.stringify({ list: result }),
+                contentType: 'application/json',
+                success: function response(result1) {
+                    console.log(result1);
+                    console.log("데이터 전송 성공");
+                }
+            })
+        }
+    })
+
 }
 
 
