@@ -21,6 +21,14 @@ public class CartController {
         return cartService.cartAdd(cartDto);
     }
 
+    // 장바구니 수정 (동일한 상품이 장바귀니에 존재하여 원래 등록돼있는 것을 수량만 수정 / 수량 변경)
+    @PutMapping("/update")
+    public boolean cartAddUpdate(CartDto cartDto) {
+        System.out.println("CartController.cartAddUpdate");
+        System.out.println("cartDto = " + cartDto);
+        return cartService.cartAddUpdate(cartDto);
+    }
+
     // 장바구니 출력
     @GetMapping("/print")
     public ArrayList<ProductDto> cartPrint() {
@@ -30,9 +38,9 @@ public class CartController {
 
     // 장바구니 항목 삭제
     @DeleteMapping("/delete")
-    public boolean cartDelete(int productNo) {
+    public boolean cartDelete(CartDto cartDto) {
         System.out.println("CartController.cartDelete");
-        return cartService.cartDelete(productNo);
+        return cartService.cartDelete(cartDto);
     }
 
 
