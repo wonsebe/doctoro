@@ -11,9 +11,18 @@ function doLoginCheck() {   console.log('doLoginCheck');
         method : 'get',
         url : '/user/login/check',
         success : (result) => {     console.log(result);
-            if (result == '') {                 // 비로그인 상태인 경우
-                alert("로그인 후 이용 가능합니다.");
-                location.href="/user/login";    // 로그인 페이지로 이동
+            if (result != '') {          // 로그인 상태인 경우 장바구니 기능이 보이도록 하기
+                let productCart = document.querySelector('#productCart');
+                let html = ``;
+
+                html += `
+                        <label for="productNum">수량</label> </br>
+                        <button type="button">-</button>
+                        <input type="text" id="productNum" onkeyup="productNumCheck()" />
+                        <button type="button">+</button>
+                        <button type="button" onclick="cartAdd()">장바구니 등록</button>
+                        `
+                productCart.innerHTML = html;
             }
         }   // success end
     })  // ajax end
