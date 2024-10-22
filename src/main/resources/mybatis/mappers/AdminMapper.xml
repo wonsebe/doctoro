@@ -74,17 +74,12 @@
 
     <!--유저 조회-->
     <select id="userall" resultType="web.model.dto.UserDto">
-        select * from users;
+        SELECT u.uno, u.id, u.password, u.name, u.gender, u.phone, u.ubirth, u.distinction ,COUNT(ru.ruoun) AS rno FROM users AS u LEFT JOIN report_user AS ru ON u.uno = ru.ruoun GROUP BY u.uno;
     </select>
 
     <!--유저 신고 조회-->
     <select id="userreport" resultType="web.model.dto.Report_userDto">
         select * from report_user;
-    </select>
-
-    <!--유저 신고 횟수 조회-->
-    <select id="reportcount" resultType="web.model.dto.Report_userDto">
-        SELECT ruoun, COUNT(runo)as rno FROM report_user GROUP BY ruoun;
     </select>
 
 </mapper>  <!-- mapper end -->

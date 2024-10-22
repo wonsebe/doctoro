@@ -57,6 +57,5 @@ public class AdminService {
     public ArrayList<Report_userDto> userreport(Report_userDto report_userDto)
     {return adminDao.userreport(report_userDto);}
 
-    public ArrayList<Report_userDto> reportcount(Report_userDto report_userDto)
-    {return adminDao.reportcount(report_userDto);}
+
 }

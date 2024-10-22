@@ -82,8 +82,4 @@ public class AdminController {
     @GetMapping("/user/report")
     public ArrayList<Report_userDto> userreport(Report_userDto report_userDto)
     {return adminService.userreport(report_userDto);}
-    //유저 신고 횟수
-    @GetMapping("/report/count")
-    public ArrayList<Report_userDto> reportcount(Report_userDto report_userDto)
-    {return adminService.reportcount(report_userDto);}
 }

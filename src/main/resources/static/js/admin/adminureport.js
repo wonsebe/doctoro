@@ -22,27 +22,9 @@ $.ajax({
                      <td>${e.gender}</td>
                      <td>${e.phone}</td>
                      <td>${e.ubirth}</td>
-                     <td>${e.distinction}</td>`
-
-            $.ajax({
-               async : false,
-               method : 'get',
-               url : '/admin/report/count',
-               success : (p) => {
-                   console.log(p)
-
-                   p.forEach(z => {
-                   console.log(z)
-                   if(e.uno == z.ruoun){
-                   html += `<td>${z.rno}</td>`
-                   }
-                   if(z.ruoun === undefined){
-                   html += `<td>0</td>`
-                   }
-                   })
-               }
-            })
-            html += `</tr>`;
+                     <td>${e.distinction}</td>
+                     <td>${e.rno}</td>
+                     </tr>`;
         })
         body.innerHTML = html;
         }
