@@ -11,4 +11,15 @@
         (#{cart_product_quantity}, #{product_no}, #{uno});
     </insert>
 
+    <!-- 장바구니 출력 -->
+    <select id="cartPrint" resultType="web.model.dto.ProductDto" parameterType="int">
+        select * from cart inner join product on cart.product_no = product.product_no where uno = #{loginUno};
+    </select>
+
+    <!-- 장바구니 항목 삭제 -->
+    <delete id="cartDelete" parameterType="web.model.dto.CartDto">
+        delete from cart
+        where uno = #{uno} and product_no = #{product_no};
+    </delete>
+
 </mapper>   <!-- mapper end -->
