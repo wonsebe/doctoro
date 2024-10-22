@@ -183,4 +183,11 @@ public class ViewController {
         return "/cart/cart.html";
     }
 
+    // ===================== 장바구니 관련 ===================== //
+    // 주문내역 페이지 요청
+    @GetMapping("/order")
+    public String orderPage(){
+        return "/order/order.html";
+    }
+
 }

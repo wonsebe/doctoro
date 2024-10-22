@@ -25,7 +25,10 @@
 
     <!-- 장바구니 출력 -->
     <select id="cartPrint" resultType="web.model.dto.ProductDto" parameterType="int">
-        select * from cart inner join product on cart.product_no = product.product_no where uno = #{loginUno};
+        select *
+        from cart inner join product on cart.product_no = product.product_no
+                  inner join pcategory on product.pcategory_no = pcategory.pcategory_no
+        where uno = #{loginUno};
     </select>
 
     <!-- 장바구니 항목 삭제 -->

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.model.dao.OrderDao">    <!-- mapper start -->
+
+    <!-- 주문내역 출력 -->
+    <select id="orderPrint" resultType="web.model.dto.OrdersDto" parameterType="int">
+        select *
+        from orders inner join odetails on orders.order_no = odetails.order_no
+        inner join product on product.product_no = odetails.product_no
+        where uno = #{loginUno};
+    </select>
+
+
+
+</mapper>   <!-- mapper end -->
