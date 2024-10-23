@@ -8,7 +8,7 @@ function getTime(){
 
     clock.innerText=`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     //Date 객체의 여러 메소드를 활용해, 현재 시간 값을 얻어올 수 있음. 이를 innerText 화면에 표시
-
+    
 
 
 

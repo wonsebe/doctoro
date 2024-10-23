@@ -183,9 +183,13 @@ public class ViewController {
         return "/cart/cart.html";
     }
     // ===================== 날씨 예보 관련 ===================== //
+    //날씨 페이지 요청
+    @GetMapping("/weather")
+    public String weather_predict(){
+        return "/weather/weather_predict.html";
+    }
 
-
-    // ===================== 장바구니 관련 ===================== //
+    // ===================== 주문 관련 ===================== //
     // 주문내역 페이지 요청
     @GetMapping("/order")
     public String orderPage(){
