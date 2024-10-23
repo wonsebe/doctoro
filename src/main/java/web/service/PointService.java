@@ -92,5 +92,7 @@ public class PointService {
         return pointDao.paidPointLog(loginUno);
     }
 
+    // 무료 포인트 지급
+
 
 }
