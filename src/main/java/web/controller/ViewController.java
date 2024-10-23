@@ -182,5 +182,7 @@ public class ViewController {
     public String cartPage(){
         return "/cart/cart.html";
     }
+    // ===================== 날씨 예보 관련 ===================== //
+
 
 }

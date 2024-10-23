@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>날씨예보 창</title>
+   
+    <!-- <link href="/css/board/board.css" rel="stylesheet" /> -->
+   <style>
+        #content{
+            margin: 0 auto;
+        }
+
+   </style>
+
+
+</head>
+<body>
+<div th:replace="~{/header.html :: header }"></div>
+
+
+<div id="content">
+  
+      <div class="wPrint">
+      </div>
+   
+</div>
+
+<!-- 1. 부트스트랩 JS 캐러셀을 사용하기 위해 추가 -->
+<script src="/js/weather/weather.js"></script>
+
+</body>
+
+</html>
