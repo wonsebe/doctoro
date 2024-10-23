@@ -13,53 +13,14 @@
     </insert>
 
     <select id="cityVoteRecordFirst" resultType="web.model.dto.VoteCityDto">
-        SELECT
-        u.gender AS gender,
-        u.ubirth AS ubirth,
-        p.poll_city_first AS poll_city_info_no,
-        COUNT(p.poll_city_first) AS first_count
-        FROM
-        users u
-        JOIN
-        pollcity p ON u.uno = p.uno
-        GROUP BY
-        u.uno, u.name, p.poll_city_first
-        ORDER BY
-        u.uno, p.poll_city_first
-        limit 999999;
+        select pc.poll_city_first as poll_city_info_no, u.gender AS gender, u.ubirth AS ubirth from pollcity as pc inner join users as u on pc.uno = u.uno order by pc.poll_city_no limit 999999;
     </select>
 
     <select id="cityVoteRecordSecond" resultType="web.model.dto.VoteCityDto">
-        SELECT
-        u.gender AS gender,
-        u.ubirth AS ubirth,
-        p.poll_city_second AS poll_city_info_no,
-        COUNT(p.poll_city_second) AS second_count
-        FROM
-        users u
-        JOIN
-        pollcity p ON u.uno = p.uno
-        GROUP BY
-        u.uno, u.name, p.poll_city_second
-        ORDER BY
-        u.uno, p.poll_city_second
-        limit 999999;
+        select pc.poll_city_second as poll_city_info_no, u.gender AS gender, u.ubirth AS ubirth from pollcity as pc inner join users as u on pc.uno = u.uno order by pc.poll_city_no limit 999999;
     </select>
 
     <select id="cityVoteRecordThird" resultType="web.model.dto.VoteCityDto">
-        SELECT
-        u.gender AS gender,
-        u.ubirth AS ubirth,
-        p.poll_city_third AS poll_city_info_no,
-        COUNT(p.poll_city_third) AS third_count
-        FROM
-        users u
-        JOIN
-        pollcity p ON u.uno = p.uno
-        GROUP BY
-        u.uno, u.name, p.poll_city_third
-        ORDER BY
-        u.uno, p.poll_city_third
-        limit 999999;
+        select pc.poll_city_third as poll_city_info_no, u.gender AS gender, u.ubirth AS ubirth from pollcity as pc inner join users as u on pc.uno = u.uno order by pc.poll_city_no limit 999999;
     </select>
 </mapper>
