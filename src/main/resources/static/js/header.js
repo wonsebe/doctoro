@@ -47,6 +47,8 @@ function doLoginCheck() {
                          <li> <a href="/board/bprint">게시판</a> </li>
                          <li> <a href="/chat">채팅방</a> </li>
                          <li> <a href="/user/myinfo">마이페이지</a> </li>
+                         <li> <a href="/cart">장바구니</a> </li>
+                         <li> <a href="/order">주문내역</a> </li>
                          <li> <a href="#" onclick="doLogout()">로그아웃</a> </li>
                          `
                          }
@@ -61,6 +63,8 @@ function doLoginCheck() {
                         <li> <a href="/board/bprint">게시판</a> </li>
                         <li> <a href="/chat">채팅방</a> </li>
                         <li> <a href="/user/myinfo">마이페이지</a> </li>
+                        <li> <a href="/cart">장바구니</a> </li>
+                        <li> <a href="/order">주문내역</a> </li>
                         <li> <a href="#" onclick="doLogout()">로그아웃</a> </li>
                         `
                 }

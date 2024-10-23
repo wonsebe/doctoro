@@ -185,4 +185,11 @@ public class ViewController {
     // ===================== 날씨 예보 관련 ===================== //
 
 
+    // ===================== 장바구니 관련 ===================== //
+    // 주문내역 페이지 요청
+    @GetMapping("/order")
+    public String orderPage(){
+        return "/order/order.html";
+    }
+
 }

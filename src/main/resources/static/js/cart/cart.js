@@ -17,8 +17,8 @@ function doLoginCheck() {   console.log('doLoginCheck');
 }   // doLoginCheck() end
 
 // 상품 수량 입력값 체크
-function productNumCheck() {    console.log('productNumCheck()');
-    let productNum = document.querySelector('#productNum').value;
+function productNumCheck(pno) {    console.log('productNumCheck()');
+    let productNum = document.querySelector(`#productNum${pno}`).value;
     console.log(productNum);
 
     // 값이 정수가 아니면 1로 설정
@@ -51,10 +51,10 @@ function cartPrint() {  console.log('cartPrint()');
                             <div>${장바구니.pcategory_name}</div>
 
                             <label for="productNum">수량</label> </br>
-                            <button type="button">-</button>
-                            <input type="text" id="productNum" value="${장바구니.cart_product_quantity}"
-                                onkeyup="productNumCheck()" />
-                            <button type="button">+</button>
+                            <button type="button" onclick="proNumChange('-', ${장바구니.product_no})">-</button>
+                            <input type="text" id="productNum${장바구니.product_no}" value="${장바구니.cart_product_quantity}"
+                                onkeyup="productNumCheck(${장바구니.product_no})" />
+                            <button type="button" onclick="proNumChange('+', ${장바구니.product_no})">+</button>
 
                             <div>${장바구니.cart_product_quantity * 장바구니.price}원</div>
                             <button type="button" onclick="cartUpdate(${장바구니.product_no})">수정</button>
@@ -71,7 +71,7 @@ function cartPrint() {  console.log('cartPrint()');
 
 // 장바구니 수량 수정
 function cartUpdate(pno) {     console.log('cartUpdate()');
-    let productNum = document.querySelector('#productNum').value;
+    let productNum = document.querySelector(`#productNum${pno}`).value;
     $.ajax({
         async : false,
         method : 'put',
@@ -109,3 +109,22 @@ function cartDelete(pno) {     console.log('cartDelete()');
     })  // ajax end
 }   // cartDelete() end
 
+// 상품 수량 변경
+function proNumChange(mode, pno) {   console.log('proNumChange()');
+    console.log(mode);
+    console.log(pno);
+    
+    let productNum = document.querySelector(`#productNum${pno}`);
+    let productNumValue = productNum.value;
+    let pNum = 0;
+
+    console.log(Number(productNumValue));
+    if (mode == '+') {
+        pNum = Number(productNumValue) + 1;
+        productNum.value = pNum;
+    } else if (mode == '-' && Number(productNumValue) > 1) {
+        pNum = Number(productNumValue) - 1;
+        productNum.value = pNum;
+    }
+    
+}   // proNumChange() end

@@ -9,8 +9,8 @@ import lombok.*;
 @ToString
 @Builder
 public class OdetailsDto {
-    int odetail_no;
-    int order_status;
-    int product_no;
-    int order_no;
+    private int odetail_no;
+    private int order_status;
+    private int product_no;
+    private int order_no;
 }
