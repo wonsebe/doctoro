@@ -9,6 +9,8 @@ function productAllPrint() {    console.log('productAllPrint()');
         url : '/product/all/print',
         success : (result) => {     console.log(result);
             let productAll = document.querySelector('#productAll');
+            let productCategory = document.querySelector('#productCategory');
+            
             let html = ``;
 
             result.forEach(상품 => {
@@ -21,10 +23,36 @@ function productAllPrint() {    console.log('productAllPrint()');
                             <div>${상품.pcategory_name}</div>
                         </div>
                         `
+
+                productAll.innerHTML = html;
             })
-
-            productAll.innerHTML = html;
-
         }   // success end
     })  // ajax end
 }   // productAllPrint() end
+
+// 상품 카테고리 출력
+function pCategoryPrint() {    console.log('pCategoryPrint()');
+    // $.ajax({
+    //     async : false,
+    //     method : 'get',
+    //     url : '/product/category/print',
+    //     success : (result) => {     console.log(result);
+    //         let productAll = document.querySelector('#productAll');
+    //         let productCategory = document.querySelector('#productCategory');
+            
+    //         let html = ``;
+
+    //         result.forEach(상품 => {
+
+    //             html = `
+    //                 <li>${상품.pcategory_name}</li>
+    //                 <li>${상품.pcategory_name}</li>
+    //                 <li>${상품.pcategory_name}</li>
+    //                 `
+    //         })
+    //         productCategory.innerHTML = html;
+    //     }   // success end
+    // })  // ajax end
+}   // pCategoryPrint() end
+
+

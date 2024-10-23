@@ -26,7 +26,7 @@ function read_all_city_info() {
                 html += `
                         <tr>
                             <td>
-                                <img width = "190px" src="${r.poll_city_img_src}">
+                                <img width = "190px" src="static/img/village/${i + 1}.png">
                             </td>
                             <td>
                                 ${r.poll_city_title}
