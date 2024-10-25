@@ -4,7 +4,13 @@
 --use doctoro;
 
 -- [2] 테이블이 존재하면 삭제
-drop table if exists reply;
+drop table if exists report_comment;
+drop table if exists report_board;
+drop table if exists report_user;
+drop table if exists pollcity;
+drop table if exists pollcityinfo;
+drop table if exists pollcitybgm;
+drop table if exists pollcitybgminfo;
 drop table if exists comment;
 drop table if exists board;
 drop table if exists category;
@@ -22,13 +28,6 @@ drop table if exists pcategory;
 drop table if exists delivery;
 drop table if exists orders;
 drop table if exists users;
-drop table if exists pollcityinfo;
-drop table if exists pollcity;
-drop table if exists pollcitybgminfo;
-drop table if exists pollcitybgm;
-drop table if exists report_user;
-drop table if exists report_board;
-drop table if exists report_comment;
 
 -- [3] 테이블 생성
 -- 1. 회원 테이블
@@ -36,10 +35,11 @@ create table users(
     uno int auto_increment,
     id varchar(30) not null unique,
     password varchar(30) not null,
-    name varchar(15) not null,
+    name varchar(20) not null,
     gender varchar(2) not null,
     phone varchar(15) not null unique,
     ubirth varchar(20) not null,
+    address varchar(70),
     distinction varchar(10) not null,
     primary key (uno)
 );
