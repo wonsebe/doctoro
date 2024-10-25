@@ -6,16 +6,18 @@ console.log('index.js');
 eventPokemon();
 
 
-function eventPokemon() {       console.log('eventPokemon()');
+function eventPokemon() {
+    console.log('eventPokemon()');
     $.ajax({
-        async : false,
-        method : 'get',
-        url : "http://localhost:5000/event/crawling",
-        success : (result) => {     console.log(result);
+        async: false,
+        method: 'get',
+        url: "http://localhost:5000/event/crawling",
+        success: (result) => {
+            console.log(result);
             let slides = document.querySelector('.slides');
 
-            let html =  ``;
-            
+            let html = ``;
+
             result.forEach(event => {
                 html += `
                         <li>
@@ -34,12 +36,12 @@ function eventPokemon() {       console.log('eventPokemon()');
 }   // eventPokemon() end
 
 var slides = document.querySelector('.slides');
-console.log( slides )
+console.log(slides)
 var slide = document.querySelectorAll('.slides li');
-console.log( slide )
+console.log(slide)
 var currentIdx = 0;
 var slideCount = slide.length;
-var  slideWidth = 300;
+var slideWidth = 300;
 var slideMargin = 30;
 var prevBtn = document.querySelector('.prev');
 var nextBtn = document.querySelector('.next');
@@ -50,17 +52,17 @@ function moveSlide(num) {
     slides.style.left = -num * 330 + 'px';
     currentIdx = num;
 }
-function onPrev(){
-    if( currentIdx > 0){
+function onPrev() {
+    if (currentIdx > 0) {
         moveSlide(currentIdx - 1);
-    }else{
+    } else {
         moveSlide(slideCount - 3);
     }
 }
-function onNext(){
-    if( currentIdx < slideCount - 3){
+function onNext() {
+    if (currentIdx < slideCount - 3) {
         moveSlide(currentIdx + 1);
-    }else{
+    } else {
         moveSlide(0);
     }
 }
@@ -68,14 +70,15 @@ function onNext(){
 
 //유저 정보 가져오기
 checkuinfo();
-function checkuinfo(){
-//    alert('123');
+img_city_read();
+function checkuinfo() {
+    //    alert('123');
     $.ajax({
-        async : false,
-        method : 'get',
-        url : '/user/login/check',
-        success : r => {
-            if(r == ''){
+        async: false,
+        method: 'get',
+        url: '/user/login/check',
+        success: r => {
+            if (r == '') {
 
                 let random0 = Math.floor(100 + Math.random() * 800);
                 let random1 = Math.floor(100 + Math.random() * 800);
@@ -123,30 +126,30 @@ function checkuinfo(){
                 card4.innerHTML = html4
 
                 $.ajax({
-                    async : false,
-                    method : 'get',
-                    url : 'http://localhost:5000/pokeinfos',
-                    success : e => {
-                        console.log(e[random0-1])
+                    async: false,
+                    method: 'get',
+                    url: 'http://localhost:5000/pokeinfos',
+                    success: e => {
+                        console.log(e[random0 - 1])
                         let cardbod = document.querySelector('.card-body')
-                        html = `<h5 class="card-title">${e[random0-1]['한글이름']}</h5>
-                                <p class="card-text"> ${e[random0-1]['한글정보2']} </p>`;
+                        html = `<h5 class="card-title">${e[random0 - 1]['한글이름']}</h5>
+                                <p class="card-text"> ${e[random0 - 1]['한글정보2']} </p>`;
 
                         let card1 = document.querySelector('.card-body1')
-                        html1 = `<h5 class="card-title">${e[random1-1]['한글이름']}</h5>
-                                 <p class="card-text">${e[random1-1]['한글정보2']}</p>`
+                        html1 = `<h5 class="card-title">${e[random1 - 1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random1 - 1]['한글정보2']}</p>`
 
                         let card2 = document.querySelector('.card-body2')
-                        html2 = `<h5 class="card-title">${e[random2-1]['한글이름']}</h5>
-                                 <p class="card-text">${e[random2-1]['한글정보2']}</p>`
+                        html2 = `<h5 class="card-title">${e[random2 - 1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random2 - 1]['한글정보2']}</p>`
 
                         let card3 = document.querySelector('.card-body3')
-                        html3 = `<h5 class="card-title">${e[random3-1]['한글이름']}</h5>
-                                 <p class="card-text">${e[random3-1]['한글정보2']}</p>`
+                        html3 = `<h5 class="card-title">${e[random3 - 1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random3 - 1]['한글정보2']}</p>`
 
                         let card4 = document.querySelector('.card-body4')
-                        html4 = `<h5 class="card-title">${e[random4-1]['한글이름']}</h5>
-                                 <p class="card-text">${e[random4-1]['한글정보2']}</p>`
+                        html4 = `<h5 class="card-title">${e[random4 - 1]['한글이름']}</h5>
+                                 <p class="card-text">${e[random4 - 1]['한글정보2']}</p>`
 
                         cardbod.innerHTML = html;
                         card1.innerHTML = html1;
@@ -160,14 +163,14 @@ function checkuinfo(){
             console.log(r['ubirth'])
 
             let birth = r['ubirth']
-            let ebirth = birth.slice(0,4)
+            let ebirth = birth.slice(0, 4)
             let ubirth = Number(ebirth)
             ubirth = 2024 - ubirth
-            console.log(typeof(ubirth))
+            console.log(typeof (ubirth))
 
             let gender = r['gender']
-            if(gender == 'M'){gender = 1}
-            else if(gender == 'F'){gender = 0}
+            if (gender == 'M') { gender = 1 }
+            else if (gender == 'F') { gender = 0 }
             console.log(gender)
 
             let random0 = Math.floor(100 + Math.random() * 800);
@@ -183,11 +186,11 @@ function checkuinfo(){
 
 
             $.ajax({
-                async : false,
-                method : 'get',
-                url : 'http://localhost:5000/model',
-                data : {ubirth : ubirth, gender : gender },
-                success : (result) => {
+                async: false,
+                method: 'get',
+                url: 'http://localhost:5000/model',
+                data: { ubirth: ubirth, gender: gender },
+                success: (result) => {
                     console.log(result)
                     let procard = document.querySelector('.procard');
                     html = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result}.png" class="card-img-top" alt="...">
@@ -230,30 +233,30 @@ function checkuinfo(){
                     card4.innerHTML = html4
 
                     $.ajax({
-                        async : false,
-                        method : 'get',
-                        url : 'http://localhost:5000/pokeinfos',
-                        success : e => {
-                            console.log(e[result-1])
+                        async: false,
+                        method: 'get',
+                        url: 'http://localhost:5000/pokeinfos',
+                        success: e => {
+                            console.log(e[result - 1])
                             let cardbod = document.querySelector('.card-body')
-                            html = `<h5 class="card-title">${e[result-1]['한글이름']}</h5>
-                                    <p class="card-text"> ${e[result-1]['한글정보2']} </p>`;
+                            html = `<h5 class="card-title">${e[result - 1]['한글이름']}</h5>
+                                    <p class="card-text"> ${e[result - 1]['한글정보2']} </p>`;
 
                             let card1 = document.querySelector('.card-body1')
-                            html1 = `<h5 class="card-title">${e[random1-1]['한글이름']}</h5>
-                                     <p class="card-text">${e[random1-1]['한글정보2']}</p>`
+                            html1 = `<h5 class="card-title">${e[random1 - 1]['한글이름']}</h5>
+                                     <p class="card-text">${e[random1 - 1]['한글정보2']}</p>`
 
                             let card2 = document.querySelector('.card-body2')
-                            html2 = `<h5 class="card-title">${e[random2-1]['한글이름']}</h5>
-                                     <p class="card-text">${e[random2-1]['한글정보2']}</p>`
+                            html2 = `<h5 class="card-title">${e[random2 - 1]['한글이름']}</h5>
+                                     <p class="card-text">${e[random2 - 1]['한글정보2']}</p>`
 
                             let card3 = document.querySelector('.card-body3')
-                            html3 = `<h5 class="card-title">${e[random3-1]['한글이름']}</h5>
-                                     <p class="card-text">${e[random3-1]['한글정보2']}</p>`
+                            html3 = `<h5 class="card-title">${e[random3 - 1]['한글이름']}</h5>
+                                     <p class="card-text">${e[random3 - 1]['한글정보2']}</p>`
 
                             let card4 = document.querySelector('.card-body4')
-                            html4 = `<h5 class="card-title">${e[random4-1]['한글이름']}</h5>
-                                     <p class="card-text">${e[random4-1]['한글정보2']}</p>`
+                            html4 = `<h5 class="card-title">${e[random4 - 1]['한글이름']}</h5>
+                                     <p class="card-text">${e[random4 - 1]['한글정보2']}</p>`
 
                             cardbod.innerHTML = html;
                             card1.innerHTML = html1;
@@ -262,14 +265,79 @@ function checkuinfo(){
                             card4.innerHTML = html4
                         }
                     })
-//                    alert('456');
+                    //                    alert('456');
                 },
-                error : x => {
+                error: x => {
                     console.log(x)
                     console.log('error')
-//                    alert('789');
+                    //                    alert('789');
                 }
             })
+
+        }
+    })
+}
+
+function img_city_read() {
+    let city_area1 = document.querySelector(".city_area1");
+    let city_area2 = document.querySelector(".city_area2");
+    let city_area3 = document.querySelector(".city_area3");
+    let html1 = ``;
+    let html2 = ``;
+    let html3 = ``;
+    $.ajax({
+        async: false,
+        method: "get",
+        url: '/user/login/check',
+        success: function response(result) {
+            if (result == "") {
+                let random0 = Math.round((Math.random() * 125) + 1)
+                let random1 = Math.round((Math.random() * 125) + 1)
+                let random2 = Math.round((Math.random() * 125) + 1)
+
+                html1 = `<img width = "400px" src="/img/village/${random0}.png></img>`;
+                html2 = `<img width = "400px" src="/img/village/${random1}.png></img>`;
+                html3 = `<img width = "400px" src="/img/village/${random2}.png></img>`;
+
+                city_area1.innerHTML = html1;
+                city_area2.innerHTML = html2;
+                city_area3.innerHTML = html3;
+            } else {
+                let gen = result["gender"]
+                let age = result["ubirth"]
+
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "http://127.0.0.1:5000/vote/first_pred",
+                    data: { gen: gen, age: age },
+                    success: function response(result) {
+                        html1 = `<img width = "400px" src="/img/village/${result}.png></img>`;
+                    }
+                })
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "http://127.0.0.1:5000/vote/second_pred",
+                    data: { gen: gen, age: age },
+                    success: function response(result) {
+                        html2 = `<img width = "400px" src="/img/village/${result}.png></img>`;
+                    }
+                })
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "http://127.0.0.1:5000/vote/third_pred",
+                    data: { gen: gen, age: age },
+                    success: function response(result) {
+                        html3 = `<img width = "400px" src="/img/village/${result}.png></img>`;
+                    }
+                })
+                city_area1.innerHTML = html1;
+                city_area2.innerHTML = html2;
+                city_area3.innerHTML = html3;
+
+            }
 
         }
     })
