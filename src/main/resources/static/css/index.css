@@ -168,3 +168,8 @@ marquee > span {
     font-size: 28px;
     font-family: 'yg-jalnan';
 }
+
+.wPrint{
+  margin: 0 auto;
+  text-align: center;
+}
