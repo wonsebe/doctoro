@@ -1,15 +1,16 @@
+#topContent {
+  border: 1px solid blue;
+  height: 33%;
+}
 
-#topContent{
-    border: 1px solid blue;
-    height: 33%;
+#middleContent {
+  border: 1px solid blue;
+  height: 33%;
 }
-#middleContent{
-    border: 1px solid blue;
-    height: 33%;
-}
-#bottomContent{
-    border: 1px solid blue;
-    height: 33%;
+
+#bottomContent {
+  border: 1px solid blue;
+  height: 33%;
 }
 
 /* =========== 이벤트 페이지 크롤링한 부분 CSS =========== */
@@ -19,152 +20,171 @@
 }*/
 
 #eventImg {
-    width: 300px;
-} 
+  width: 300px;
+}
 
 /* *{margin:0; padding:0;}
 li{list-style:none;} */
-.flex{
-  display:flex;
+.flex {
+  display: flex;
 }
 
-.flex-jc-c{
-  justify-content:center;
-}
-.con{
-  max-width:1200px;
-  margin:0 auto;
-  border:solid red;
+.flex-jc-c {
+  justify-content: center;
 }
 
-.article-board-box{
-  position:relative;
-  border:solid red;
-}
-.slide_wrapper{
-  position:relative;
-  margin:0 auto;
-  height:300px;
-  overflow:hidden
+.con {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: solid red;
 }
 
-.slides{
-  position:absolute;
-  left:0;
-  top:0;
-  transition:left 0.5s ease-out;
+.article-board-box {
+  position: relative;
+  border: solid red;
 }
 
-.slides li:not(:last-child){
-  justify-content:flex-start;
-  margin-right:30px;
+.slide_wrapper {
+  position: relative;
+  margin: 0 auto;
+  height: 300px;
+  overflow: hidden
+}
+
+.slides {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: left 0.5s ease-out;
+}
+
+.slides li:not(:last-child) {
+  justify-content: flex-start;
+  margin-right: 30px;
 }
 
 
-.controls{
-  text-align:center;
+.controls {
+  text-align: center;
 }
 
-.controls span{
-  z-index:2;
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
+.controls span {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.controls>.prev{
-  right:calc(100% - 40px);
+.controls>.prev {
+  right: calc(100% - 40px);
   font-size: 30px;
-  color : yellow;
+  color: yellow;
 }
 
-.controls>.next{
-  left:calc(100% - 40px);
-    font-size: 30px;
-      color : yellow;
+.controls>.next {
+  left: calc(100% - 40px);
+  font-size: 30px;
+  color: yellow;
 }
 
-.ha{
-    width:50px;
-  }
+.ha {
+  width: 50px;
+}
 
 /* 강사 */
-.content > .mainTitle{
-    margin: 30px 0px 20px 0px;;
-}
-.content > .mainTitle > h3{
-    font-size: 40px;
-    color: #191919;
-    letter-spacing: -1px;
-    font-family: 'yg-jalnan';
-        display: inline;
-}
-.content > .mainTitle > h3 > span{
-    font-size: 40px;
-    letter-spacing: -1px;
-    font-family: 'yg-jalnan';
-    color: #bc97d2;
-}
-.content > .contentTop1{
-    margin :20px 0px;
-        display: flex;
-        justify-content: space-between;
-}
-.content > .contentTop1 > div:nth-child(1) {
-    width : 48%;
-}
-.content > .contentTop1 > div:nth-child(2) {
-    width : 48%;
-}
-marquee{
-    background-color: #bc97d2;
-    color: yellow;
-    font-size: 15px;
-    font-family: 'yg-jalnan';
-}
-marquee > span {
-    margin : 0px 50px;
-    font-size : 15px;
-}
-.content > .contentTop3 > div:nth-child(2) {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0px;
+.content>.mainTitle {
+  margin: 30px 0px 20px 0px;
+  ;
 }
 
-.content{
-    width: 1280px;
-    margin: 0 auto;
+.content>.mainTitle>h3 {
+  font-size: 40px;
+  color: #191919;
+  letter-spacing: -1px;
+  font-family: 'yg-jalnan';
+  display: inline;
 }
 
-.procard{
-    border: 1px solid #dddddd;
+.content>.mainTitle>h3>span {
+  font-size: 40px;
+  letter-spacing: -1px;
+  font-family: 'yg-jalnan';
+  color: #bc97d2;
 }
 
-.card1{
-    border: 1px solid #dddddd;
+.content>.contentTop1 {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.card2{
-    border: 1px solid #dddddd;
+.content>.contentTop1>div:nth-child(1) {
+  width: 48%;
 }
 
-.card3{
-    border: 1px solid #dddddd;
+.content>.contentTop1>div:nth-child(2) {
+  width: 48%;
 }
 
-.card4{
-    border: 1px solid #dddddd;
+marquee {
+  background-color: #bc97d2;
+  color: yellow;
+  font-size: 15px;
+  font-family: 'yg-jalnan';
 }
-.contentTop1  .card-title{
-    font-size: 20px;
-    font-family: 'yg-jalnan';
-    margin: 10px 0px;
+
+marquee>span {
+  margin: 0px 50px;
+  font-size: 15px;
 }
-.contentTop1  .card-text{
-    letter-spacing: 0.5px;
+
+.content>.contentTop3>div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
 }
-.contentTop1 .aipoint{
-    font-size: 28px;
-    font-family: 'yg-jalnan';
+
+.content {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.procard {
+  border: 1px solid #dddddd;
+}
+
+.card1 {
+  border: 1px solid #dddddd;
+}
+
+.card2 {
+  border: 1px solid #dddddd;
+}
+
+.card3 {
+  border: 1px solid #dddddd;
+}
+
+.card4 {
+  border: 1px solid #dddddd;
+}
+
+.contentTop1 .card-title {
+  font-size: 20px;
+  font-family: 'yg-jalnan';
+  margin: 10px 0px;
+}
+
+.contentTop1 .card-text {
+  letter-spacing: 0.5px;
+}
+
+.contentTop1 .aipoint {
+  font-size: 28px;
+  font-family: 'yg-jalnan';
+}
+
+
+.city_area {
+  display: flex;
 }
