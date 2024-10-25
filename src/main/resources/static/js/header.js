@@ -38,7 +38,6 @@ function doLoginCheck() {
                 if(loginNo == 1){
                 html += `
                          <li> <a href="/adminmain">관리자</a> </li>
-                         <li> <a href="/weather">날씨</a> </li>
                          <li> <a href="/product">상품</a> </li>
                          <li> <a href="/info">정보</a> </li>
                          <li> <a href="/rate">확률</a> </li>
@@ -55,8 +54,7 @@ function doLoginCheck() {
                          `
                          }
                 else {
-                html += `
-                        <li> <a href="/weather">날씨</a> </li>
+                html += `                      
                         <li> <a href="/product">상품</a> </li>
                         <li> <a href="/info">정보</a> </li>
                         <li> <a href="/rate">확률</a> </li>

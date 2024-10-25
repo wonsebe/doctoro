@@ -184,6 +184,11 @@ marquee>span {
   font-family: 'yg-jalnan';
 }
 
+.wPrint{
+  margin: 0 auto;
+  text-align: center;
+}
+
 
 .city_area {
   display: flex;
