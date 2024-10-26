@@ -40,8 +40,19 @@ function productDetaillPrint() {    console.log('productDetaillPrint()');
             let productDetail = document.querySelector('#productDetail');
             let html = ``;
 
+            let pFolderName = '';
+            // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
+            if (result.pcategory_name == '굿즈') {
+                pFolderName = 'goods';
+            } else if (result.pcategory_name == '카드') {
+                pFolderName = 'card';
+            } else if (result.pcategory_name == '강화 아이템') {
+                pFolderName = 'item';
+            }
+
             html += `
                     <div>
+                        <img id="productImg" src="/img/${pFolderName}/${result.product_image}" />
                         <div>${result.product_image}</div>
                         <div>${result.product_name }</div>
                         <div>${result.product_description}</div>
