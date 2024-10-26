@@ -37,8 +37,5 @@ public class ProductController {
         return productService.pCategoryPrint();
     }
 
-    // 구매한 아이템 출력
-
-
 
 }
