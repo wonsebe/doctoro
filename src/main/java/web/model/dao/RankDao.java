@@ -3,6 +3,7 @@ package web.model.dao;
 import org.apache.ibatis.annotations.Mapper;
 import web.model.dto.RankDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper
@@ -15,5 +16,7 @@ public interface RankDao {
     boolean click ( int pno );
     //승리횟수
     boolean win ( int pno );
+
+    ArrayList<RankDto> crolling (RankDto rankDto );
 
 }
