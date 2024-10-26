@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import web.model.dto.RankDto;
 import web.service.RankService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,7 +35,8 @@ public class RankController {
     public boolean win (int pno ) {return rankService.win( pno ); }
 
     //u
-
+    @GetMapping("/crolling")
+    public ArrayList<RankDto> crolling (RankDto rankDto ) {return rankService.crolling( rankDto ); }
     //d
 
 

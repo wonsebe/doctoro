@@ -19,4 +19,8 @@
         update rankpokemon set win = win + 1 where pno = #{pno}
     </update>
 
+    <select id="crolling" resultType="web.model.dto.RankDto">
+        select * from rankpokemon
+    </select>
+
 </mapper>  <!-- mapper end -->
