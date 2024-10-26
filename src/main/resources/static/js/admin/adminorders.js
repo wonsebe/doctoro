@@ -45,12 +45,36 @@ function read2(){
 
             r.forEach(e => {
                 console.log(e)
+
+                //주문 날짜
+                let deliveryDate = new Date(e.delivery_date);
+                let formattedDate = deliveryDate.toISOString().split('T')[0];
+
+                let today = new Date();
+
+                //현재 날짜
+                let year = today.getFullYear();
+                let month = ('0' + (today.getMonth() + 1)).slice(-2);
+                let day = ('0' + today.getDate()).slice(-2);
+
+                let dateString = year + '-' + month  + '-' + day;
+
+                console.log(dateString);
+
+                if(dateString > formattedDate){
                 html += `<tr>
                              <td>${e.delivery_no}</td>
-                             <td>${e.delivery_status}</td>
-                             <td>${e.delivery_date}</td>
+                             <td>배송완료</td>
+                             <td>${formattedDate}</td>
                              <td>${e.order_no}</td>
                          </tr>`;
+                         }
+                else {html += `<tr>
+                              <td>${e.delivery_no}</td>
+                              <td>${e.delivery_status}</td>
+                              <td>${formattedDate}</td>
+                              <td>${e.order_no}</td>
+                          </tr>`;}
             })
             tbody2.innerHTML = html;
         }
