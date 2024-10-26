@@ -23,6 +23,7 @@ drop table if exists pointlog;
 drop table if exists inventory;
 drop table if exists odetails;
 drop table if exists cart;
+drop table if exists items;
 drop table if exists product;
 drop table if exists pcategory;
 drop table if exists delivery;
@@ -294,4 +295,15 @@ rccno int not null,
 primary key(rcno),
 foreign key (rciun) references users (uno),
 foreign key (rccno) references comment (cno)
+);
+
+-- 25. 아이템 테이블
+create table items(
+    item_no int auto_increment,
+    item_use int default 0,
+    uno int not null,
+    product_no int not null,
+    primary key(item_no),
+    foreign key(uno) references users (uno) on update cascade on delete cascade,
+    foreign key(product_no) references product (product_no) on update cascade on delete cascade
 );
