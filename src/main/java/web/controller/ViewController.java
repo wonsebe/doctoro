@@ -195,5 +195,10 @@ public class ViewController {
     public String orderPage(){
         return "/order/order.html";
     }
+    // ===================== 챗봇 관련 ===================== //
+    @GetMapping("/chatbot")
+    public String chatbotPage(){
+        return "/chatbot/chatbot.html";
+    }
 
 }
