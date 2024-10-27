@@ -27,4 +27,19 @@ public class OrderService {
         return orderDao.orderPrint(loginUno);
     }
 
+    // 주문 등록 (상품 구매)
+    public boolean orderAdd() {
+        System.out.println("OrderService.orderAdd");
+
+        UserDto loginDto = userService.userLoginCheck();    // 로그인된 세션 정보 요청
+        if (loginDto == null) {     // 비로그인이라면 리턴
+            return false;
+        }
+        int loginUno = loginDto.getUno();
+        System.out.println("loginUno = " + loginUno);
+
+        return orderDao.orderAdd(loginUno);
+    }
+
+
 }
