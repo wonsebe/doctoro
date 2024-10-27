@@ -7,6 +7,7 @@ import web.model.dto.ExpLogDto;
 import web.model.dto.RankDto;
 import web.model.dto.UserDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -49,6 +50,8 @@ public class RankService {
 
         return result;
     }
+
+    public ArrayList<RankDto> crolling (RankDto rankDto ) {return rankDao.crolling( rankDto ); }
 
 
 }
