@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>결제</title>
+</head>
+<body>
+    <div th:replace="~{/header.html :: header }"></div>
+
+    <div id="content">
+        <h4>결제 페이지</h4>
+
+        <!-- 상품 정보 -->
+        <div class="productInfo">
+
+        </div> <br>
+
+        <!-- 주문자 정보 -->
+        <div class="userInfo">
+            
+        </div> <br>
+
+        <!-- 배송 정보 -->
+        <div class="deliveryInfo">
+            
+        </div> <br>
+
+        <!-- 결제 금액 정보 -->
+        <div class="priceInfo">
+            
+        </div> <br>
+
+        <!-- 현재 포인트 정보 -->
+        <div class="pointInfo">
+            
+        </div> <br>
+        
+        <button type="button" onclick="orderAdd()">결제하기</button>
+    </div>
+
+    <script src="/js/order/purchase.js"></script>
+
+</body>
+</html>

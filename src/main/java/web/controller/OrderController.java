@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.model.dto.OrdersDto;
@@ -22,6 +23,11 @@ public class OrderController {
     }
 
     // 주문 등록 (상품 구매)
+    @PostMapping("/add")
+    public boolean orderAdd() {
+        System.out.println("OrderController.orderAdd");
+        return orderService.orderAdd();
+    }
 
 
 

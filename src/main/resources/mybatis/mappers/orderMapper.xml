@@ -10,9 +10,14 @@
         select *
         from orders inner join odetails on orders.order_no = odetails.order_no
         inner join product on product.product_no = odetails.product_no
-        where uno = #{loginUno};
+        where uno = #{loginUno}
+        order by odetails.odetail_no desc;
     </select>
 
+    <!-- 주문 등록 (상품 구매) -->
+    <insert id="orderAdd" parameterType="int">
+        insert into orders (uno) values (#{uno});
+    </insert>
 
 
 </mapper>   <!-- mapper end -->
