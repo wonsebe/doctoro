@@ -17,10 +17,10 @@ public class PointController {
 
     // 유료 포인트 충전
     @PostMapping("/charge")
-    public boolean chargePaidPoint(PointDto pointIndecrease) {
+    public boolean chargePaidPoint(PointDto pointDto) {
         System.out.println("PointController.chargePaidPoint");
-        System.out.println("paidPoint = " + pointIndecrease);
-        return pointService.chargePaidPoint(pointIndecrease);
+        System.out.println("pointDto = " + pointDto);
+        return pointService.chargePaidPoint(pointDto);
     }
 
     // 나의 현재 무료 포인트 값 가져오기

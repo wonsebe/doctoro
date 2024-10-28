@@ -60,7 +60,7 @@ function productAllPrint(page) {    console.log('productAllPrint()');
                         </div>
                         <div> <a href="/product/detail?pno=${상품.product_no}">${상품.product_name}</a> </div>
                         <div>${상품.product_description}</div>
-                        <div>${상품.price}</div>
+                        <div>${상품.price}원</div>
                         <div>${상품.pcategory_name}</div>
                     </div>
                     `

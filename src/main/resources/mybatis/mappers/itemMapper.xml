@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="web.model.dao.ItemDao">    <!-- mapper start -->
+
+    <!-- 카테고리명이 '강화 아이템'인 상품을 구매 시 아이템 테이블에 레코드 등록 -->
+    <insert id="itemAdd" parameterType="web.model.dto.ItemDto">
+        insert into items (item_use, uno, product_no) VALUES (#{item_use}, #{uno}, #{product_no});
+    </insert>
+
+</mapper>   <!-- mapper end -->

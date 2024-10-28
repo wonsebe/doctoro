@@ -22,11 +22,11 @@ public class OrderController {
         return orderService.orderPrint();
     }
 
-    // 주문 등록 (상품 구매) / productNum : 상품 구매 수량
+    // 주문 등록 (상품 구매) / product_no : 상품 번호 / productNum : 상품 구매 수량 / totalPrice : 총 결제 금액 / pcategory_name : 상품 카테고리명
     @PostMapping("/add")
-    public boolean orderAdd(int product_no, int productNum) {
+    public boolean orderAdd(int product_no, int productNum, int totalPrice, String pcategory_name) {
         System.out.println("OrderController.orderAdd");
-        return orderService.orderAdd(product_no, productNum);
+        return orderService.orderAdd(product_no, productNum, totalPrice, pcategory_name);
     }
 
 
