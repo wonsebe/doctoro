@@ -3,31 +3,6 @@ console.log('product-detail.js');
 let urlParams = new URL(location.href).searchParams;
 let pno = parseInt(urlParams.get("pno"));
 
-// 로그인 체크
-doLoginCheck();
-function doLoginCheck() {   console.log('doLoginCheck');
-    $.ajax({
-        async : false,
-        method : 'get',
-        url : '/user/login/check',
-        success : (result) => {     console.log(result);
-            if (result != '') {          // 로그인 상태인 경우 장바구니 기능이 보이도록 하기
-                let productCart = document.querySelector('#productCart');
-                let html = ``;
-
-                html += `
-                        <label for="productNum">수량</label> </br>
-                        <button type="button">-</button>
-                        <input type="text" id="productNum" onkeyup="productNumCheck()" />
-                        <button type="button">+</button>
-                        <button type="button" onclick="cartAdd()">장바구니 등록</button>
-                        `
-                productCart.innerHTML = html;
-            }
-        }   // success end
-    })  // ajax end
-}   // doLoginCheck() end
-
 // 상품 개별 조회 처리
 productDetaillPrint();
 function productDetaillPrint() {    console.log('productDetaillPrint()');
@@ -53,11 +28,16 @@ function productDetaillPrint() {    console.log('productDetaillPrint()');
             html += `
                     <div>
                         <img id="productImg" src="/img/${pFolderName}/${result.product_image}" />
-                        <div>${result.product_image}</div>
-                        <div>${result.product_name }</div>
+                        <div class="productName">${result.product_name}</div>
                         <div>${result.product_description}</div>
                         <div>${result.price}</div>
                         <div>${result.pcategory_name}</div>
+
+                        <label for="productNum">수량</label> </br>
+                        <button type="button">-</button>
+                        <input type="text" id="productNum" value=1 onkeyup="productNumCheck()" />
+                        <button type="button">+</button>
+                        <button type="button" onclick="cartAdd()">장바구니 등록</button>
                     </div>
                     `
 
@@ -108,3 +88,13 @@ function cartAdd() {    console.log('cartAdd()');
 
 }   // cartAdd() end
 
+// 결제 창으로 이동
+function purchase() {   console.log('purchase()');
+    let productName = document.querySelector('.productName').innerText;     // 상품명 가져오기
+    let productNum = document.querySelector('#productNum').value;           // 상품 구매 수량 가져오기
+
+    console.log(productName);
+    console.log(productNum);
+
+    location.href=`/purchase?pno=${pno}&pnum=${productNum}`;
+}   // purchase() end

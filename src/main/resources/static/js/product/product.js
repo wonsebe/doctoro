@@ -4,7 +4,7 @@ console.log('product.js');
 let pageInfo = {
     page : 1,
     pcategory_no : 0,
-    pSearchKey : 'pSearchSelect',
+    pSearchKey : 'product_name',
     pSearchKeyWord : ''
 }
 
@@ -37,34 +37,41 @@ function productAllPrint(page) {    console.log('productAllPrint()');
     let list = productPageDto.productData;
     console.log(list);
 
-    Array.from(list).forEach(상품 => {
-        let pFolderName = '';
+    console.log(list.length);
+    if (list.length != 0) {
+        Array.from(list).forEach(상품 => {
+            let pFolderName = '';
 
-        // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
-        if (상품.pcategory_name == '굿즈') {
-            pFolderName = 'goods';
-        } else if (상품.pcategory_name == '카드') {
-            pFolderName = 'card';
-        } else if (상품.pcategory_name == '강화 아이템') {
-            pFolderName = 'item';
-        }
+            // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
+            if (상품.pcategory_name == '굿즈') {
+                pFolderName = 'goods';
+            } else if (상품.pcategory_name == '카드') {
+                pFolderName = 'card';
+            } else if (상품.pcategory_name == '강화 아이템') {
+                pFolderName = 'item';
+            }
 
-        html += `
-                <div>
+            html += `
                     <div>
-                        <a href="/product/detail?pno=${상품.product_no}">
-                            <img id="productImg" src="/img/${pFolderName}/${상품.product_image}" />
-                        </a>
+                        <div>
+                            <a href="/product/detail?pno=${상품.product_no}">
+                                <img id="productImg" src="/img/${pFolderName}/${상품.product_image}" />
+                            </a>
+                        </div>
+                        <div> <a href="/product/detail?pno=${상품.product_no}">${상품.product_name}</a> </div>
+                        <div>${상품.product_description}</div>
+                        <div>${상품.price}</div>
+                        <div>${상품.pcategory_name}</div>
                     </div>
-                    <div> <a href="/product/detail?pno=${상품.product_no}">${상품.product_name}</a> </div>
-                    <div>${상품.product_description}</div>
-                    <div>${상품.price}</div>
-                    <div>${상품.pcategory_name}</div>
-                </div>
-                `
+                    `
+
+            productAll.innerHTML = html;
+        })  // forEach end
+    } else {
+        html = `<h5>검색 결과가 존재하지 않습니다.</h5>`;
 
         productAll.innerHTML = html;
-    })  // forEach end
+    }
 
     // 페이지네이션 (페이지 버튼) 구성
     // 어디에
@@ -132,11 +139,11 @@ function pCategoryPrint() {    console.log('pCategoryPrint()');
 // 검색 상태 제거/초기화
 function onSearchClear(){
     // 입력창 초기화
-    document.querySelector('.pSearchKey').value=`pSearchSelect`
+    document.querySelector('.pSearchKey').value=`product_name`
     document.querySelector('.pSearchKeyWord').value=``;
 
     // 전역변수 초기화
-    pageInfo.pSearchKey='pSearchSelect';
+    pageInfo.pSearchKey='product_name';
     pageInfo.pSearchKeyWord='';
 }
 
