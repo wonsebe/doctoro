@@ -129,6 +129,10 @@ function orderAdd() {       console.log('orderAdd()');
         async: false,
         method: 'post',
         url: '/order/add',
+        data : { 
+            product_no : pno,
+            productNum : pnum
+        },
         success: (result) => {      console.log(result);
             if (result) {
                 alert('주문이 완료되었습니다.');

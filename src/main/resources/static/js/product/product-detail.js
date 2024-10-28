@@ -3,27 +3,6 @@ console.log('product-detail.js');
 let urlParams = new URL(location.href).searchParams;
 let pno = parseInt(urlParams.get("pno"));
 
-// 로그인 체크
-// doLoginCheck();
-// function doLoginCheck() {   console.log('doLoginCheck');
-//     $.ajax({
-//         async : false,
-//         method : 'get',
-//         url : '/user/login/check',
-//         success : (result) => {     console.log(result);
-//             if (result != '') {          // 로그인 상태인 경우 장바구니 기능이 보이도록 하기
-//                 let productCart = document.querySelector('#productCart');
-//                 let html = ``;
-
-//                 html += `
-
-//                         `
-//                 productCart.innerHTML = html;
-//             }
-//         }   // success end
-//     })  // ajax end
-// }   // doLoginCheck() end
-
 // 상품 개별 조회 처리
 productDetaillPrint();
 function productDetaillPrint() {    console.log('productDetaillPrint()');

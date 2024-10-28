@@ -10,13 +10,21 @@
         select *
         from orders inner join odetails on orders.order_no = odetails.order_no
         inner join product on product.product_no = odetails.product_no
+        inner join pcategory on product.pcategory_no = pcategory.pcategory_no
         where uno = #{loginUno}
         order by odetails.odetail_no desc;
     </select>
 
     <!-- 주문 등록 (상품 구매) -->
-    <insert id="orderAdd" parameterType="int">
+        <!-- 자동 생성된 키값 사용여부 -->
+        <!-- 자동 생성된 키값명 -->
+    <insert id="orderAdd" parameterType="web.model.dto.OrdersDto" useGeneratedKeys="true" keyProperty="order_no"  >
         insert into orders (uno) values (#{uno});
+    </insert>
+
+    <!-- 주문 상세 등록 -->
+    <insert id="orderDetailAdd" parameterType="web.model.dto.OrdersDto">
+        insert into odetails (order_status, product_no, order_no) values (0, #{product_no}, #{order_no});
     </insert>
 
 
