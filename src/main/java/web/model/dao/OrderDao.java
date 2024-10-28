@@ -9,6 +9,13 @@ import java.util.ArrayList;
 public interface OrderDao {
 
     // 주문내역 출력
-    public ArrayList<OrdersDto> orderPrint(int loginUno);
+    ArrayList<OrdersDto> orderPrint(int loginUno);
+
+    // 주문 등록 (상품 구매)
+    int orderAdd(OrdersDto ordersDto);
+
+    // 주문 상세 등록
+    boolean orderDetailAdd(OrdersDto ordersDto);
+
 
 }

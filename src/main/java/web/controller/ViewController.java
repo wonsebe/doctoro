@@ -190,11 +190,24 @@ public class ViewController {
     }
 
     // ===================== 주문 관련 ===================== //
-    // 주문내역 페이지 요청
+    // 주문 내역 페이지 요청
     @GetMapping("/order")
     public String orderPage(){
         return "/order/order.html";
     }
+
+    // 주문 상세 내역 페이지 요청
+    @GetMapping("/order/detail")
+    public String orderDetailPage(){
+        return "/order/order-detail.html";
+    }
+
+    // 결제 페이지 요청
+    @GetMapping("/purchase")
+    public String purchasePage(){
+        return "/order/purchase.html";
+    }
+
     // ===================== 챗봇 관련 ===================== //
     @GetMapping("/chatbot")
     public String chatbotPage(){

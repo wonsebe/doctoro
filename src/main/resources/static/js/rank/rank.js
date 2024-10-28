@@ -60,3 +60,26 @@ function total(page = 1){
         }
     })
 }
+
+//전체 정보 보내기
+function allcrolling(){
+    console.log("allcrolling")
+    $.ajax({
+        async : false,
+        url : '/rank/crolling',
+        method : 'GET',
+        success : r => {
+            console.log(r);
+            $.ajax({
+                async : false,
+                url : 'http://localhost:5000/rank/allcrolling',
+                method : 'POST',
+                data : JSON.stringify({data : r}),
+                contentType: 'application/json',
+                success : r2 => {
+                    console.log(r2);
+                }
+            })
+        }
+    })
+}

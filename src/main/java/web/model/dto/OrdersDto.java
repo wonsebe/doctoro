@@ -20,6 +20,7 @@ public class OrdersDto {
     private String product_name;        // 상품명
     private int price;                  // 상품 가격
     private String product_image;       // 상품 이미지
+    private String pcategory_name;      // 상품 카테고리명
 
     private String name;                // 유저 이름
 
