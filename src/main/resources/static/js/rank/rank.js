@@ -1,7 +1,6 @@
 console.log('Connect success')
 
 total();
-allcrolling();
 
 function total(page = 1){
     $.ajax({
