@@ -653,3 +653,48 @@ function paidPointLog() {
 
 }   // paidPointLog() end
 
+// 내 아이템 출력
+myItemPrint();
+function myItemPrint() {    console.log('myItemPrint()');
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/item/print',
+        success : (result) => {     console.log(result);
+            let myItemList = document.querySelector('#myItemList');
+            let html = '';
+
+            result.forEach(아이템 => {
+                html += `       
+                        <div>
+                            <div> <img id="productImg" src="/img/item/${아이템.product_image}" /> </div>
+                            <div>${아이템.product_name}</div>
+                            <div>${아이템.product_description}</div>
+                            <button type="button" onclick="itemUse(${아이템.product_no})">사용</button>
+                        </div>
+                        `
+            })
+
+            myItemList.innerHTML = html;
+        }   // success end
+    })
+}   // myItemPrint() end
+
+// 아이템 사용 클릭 시, 사용 여부 상태 변경 (0 -> 1)
+function itemUse(product_no) {    console.log('itemUse()');
+    $.ajax({
+        async: false,
+        method: 'put',
+        url: '/item/use',
+        data : { product_no : product_no },
+        success: (result) => {      console.log(result);
+            if (result) {
+                alert('아이템 사용이 완료되었습니다.');
+                myItemPrint();
+            } else {
+                alert('다시 시도해주십시오.');
+            }
+        }   // success end
+    })  // ajax end
+}   // itemUse() end
+

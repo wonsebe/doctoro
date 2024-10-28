@@ -155,9 +155,9 @@ button:disabled {
 }
 
 
-
+/* 임시 */
 /* 내 포인트 */
-#myPoint {
+#myPoint, #myItemList {
     background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;

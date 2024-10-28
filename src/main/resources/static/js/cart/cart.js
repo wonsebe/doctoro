@@ -41,11 +41,26 @@ function cartPrint() {  console.log('cartPrint()');
             let cartArea = document.querySelector('#cartArea');
             let html = ``;
 
+            let pFolderName = '';
+            // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
+            if (result.pcategory_name == '굿즈') {
+                pFolderName = 'goods';
+            } else if (result.pcategory_name == '카드') {
+                pFolderName = 'card';
+            } else if (result.pcategory_name == '강화 아이템') {
+                pFolderName = 'item';
+            }
+
             result.forEach(장바구니 => {
                 html += `       
                         <div>
-                            <div> <a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_image}</a> </div>
-                            <div> <a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_name }</a> </div>
+                        
+                            <div>
+                                <a href="/product/detail?pno=${장바구니.product_no}">
+                                    <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
+                                </a>
+                            </div>
+                            <div> <a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_name}</a> </div>
                             <div>${장바구니.product_description}</div>
                             <div>${장바구니.price}</div>
                             <div>${장바구니.pcategory_name}</div>

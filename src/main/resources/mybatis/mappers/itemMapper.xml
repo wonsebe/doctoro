@@ -10,4 +10,19 @@
         insert into items (item_use, uno, product_no) VALUES (#{item_use}, #{uno}, #{product_no});
     </insert>
 
+    <!-- 내 아이템 목록 출력 -->
+    <select id="itemPrint" resultType="web.model.dto.ItemDto" parameterType="int">
+        select *
+        from items inner join product on items.product_no = product.product_no
+        where uno = #{loginUno} and item_use = 0;
+    </select>
+
+    <!-- 아이템 사용 클릭 시, 사용 여부 상태 변경 (0 -> 1) -->
+    <update id="itemUse" parameterType="web.model.dto.UserDto">
+        update items
+        set item_use = 1
+        where uno = #{uno} and product_no = #{product_no} and item_use = 0
+        limit 1;
+    </update>
+
 </mapper>   <!-- mapper end -->

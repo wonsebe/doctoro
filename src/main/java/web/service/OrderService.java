@@ -134,4 +134,18 @@ public class OrderService {
         return result;
     }
 
+    // 주문 번호 기준 같은 상품 개수 구하기
+    public ArrayList<OrdersDto> orderProductSum() {
+        System.out.println("OrderService.orderProductSum");
+
+        UserDto loginDto = userService.userLoginCheck();    // 로그인된 세션 정보 요청
+        if (loginDto == null) {     // 비로그인이라면 리턴
+            return null;
+        }
+        int loginUno = loginDto.getUno();       // 유저 번호
+        System.out.println("loginUno = " + loginUno);
+
+        return orderDao.orderProductSum(loginUno);
+    }
+
 }
