@@ -15,19 +15,42 @@ function boardWrite(){
     console.log(html)
 
     $.ajax({
-        async:false,
-        url:'/board/write',
-        method:'post',
-        data :info,
-        success: (result) =>{
-            console.log(result);
-            if( result ){ // 4. 통신 결과에 실행문
-                alert('글쓰기성공');
-                location.href="/board/bprint";
-            }else{ alert('글쓰기실패'); }
-        } , //s e
-        error : (e)=>{ console.log(e); }
-    })//ajax e
+            async : false,
+            method : 'get',
+            url : '/user/login/check',
+            success : (result) => {     console.log(result['uno']);
+                if (result == '') {                 // 비로그인 상태인 경우
+                    alert("로그인 후 이용 가능합니다.");
+                    location.href="/user/login";    // 로그인 페이지로 이동
+                }
+                else {
+                        $.ajax({
+                            async:false,
+                            url:'/board/write',
+                            method:'post',
+                            data :info,
+                            success: (r) =>{
+                                console.log(r);
+                                if( r ){ // 4. 통신 결과에 실행문
+                                    console.log(result['uno'])
+                                    $.ajax({
+                                        async : false,
+                                        method : 'POST',
+                                        url : '/point/add',
+                                        data : {uno : result['uno']},
+                                        success : p => {
+                                            console.log(p);
+                                        }
+                                    })
+                                    alert('글쓰기성공');
+                                    location.href="/board/bprint";
+                                }else{ alert('글쓰기실패'); }
+                            } , //s e
+                            error : (e)=>{ console.log(e); }
+                        })//ajax e
+                }
+            }   // success end
+        })  // ajax end
 
 }//f e
 

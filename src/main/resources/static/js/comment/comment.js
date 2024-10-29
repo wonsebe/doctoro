@@ -6,25 +6,44 @@ function comment(){ console.log('comment()');
      let info={ccontent:ccontent,
                     bno:bno}
      console.log(info)
-
     $.ajax({
-         async : true,
-         method:'post',
-         url:"/comment/comentb",
-         data:info, 
-         success:(r)=>{ console.log(r);
-              if(r){alert('댓글쓰기 성공')
-              commentPrint();
-              document.querySelector('.ccontent').value=``
-              }else{alert('댓글쓰기 실패 :로그인 후 쓰기가 가능합니다.');}
-         },
-         error : (e) =>{
-              console.log(e);
-        }
+        async : false,
+        method : 'get',
+        url : '/user/login/check',
+        success : (result) => {     console.log(result);
+            if (result == '') {                 // 비로그인 상태인 경우
+                alert('댓글쓰기 실패 :로그인 후 쓰기가 가능합니다.');    // 로그인 페이지로 이동
+            }
+            else { //else start
+                $.ajax({ //ajax 2 st
+                     async : true,
+                     method:'post',
+                     url:"/comment/comentb",
+                     data:info,
+                     success:(r)=>{ console.log(r);
+                          console.log(result['uno'])
+                          $.ajax({
+                            async : false,
+                            method : 'POST',
+                            url : '/point/add',
+                            data : {uno : result['uno']},
+                            success : p => {
+                                console.log(p)
+                            }
+                          })
+                          if(r){alert('댓글쓰기 성공')
+                          commentPrint();
+                          document.querySelector('.ccontent').value=``
+                          }else{alert('댓글쓰기 실패 :로그인 후 쓰기가 가능합니다.');}
+                     },
+                     error : (e) =>{
+                          console.log(e);
+                    }
+                }) //ajax2 end
+            } //else end
+        }   // success end
+    })  // ajax end
 
-    })
- 
-    
 };
 
 console.log('cprint.js');
