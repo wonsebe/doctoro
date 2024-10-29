@@ -52,19 +52,16 @@ function productAllPrint(page) {    console.log('productAllPrint()');
             }
 
             html += `
-                    <div>
-                        <div>
-                            <a href="/product/detail?pno=${상품.product_no}">
-                                <img id="productImg" src="/img/${pFolderName}/${상품.product_image}" />
-                            </a>
-                        </div>
-                        <div> <a href="/product/detail?pno=${상품.product_no}">${상품.product_name}</a> </div>
-                        <div>${상품.product_description}</div>
-                        <div>${상품.price}원</div>
-                        <div>${상품.pcategory_name}</div>
+                    <div class="product-card">
+                        <a href="/product/detail?pno=${상품.product_no}">
+                            <img id="productImg" src="/img/${pFolderName}/${상품.product_image}" alt="${상품.product_name}" />
+                        </a>
+                        <a href="/product/detail?pno=${상품.product_no}" class="product-name">${상품.product_name}</a>
+                        <div class="product-description">${상품.product_description}</div>
+                        <div class="price">${상품.price.toLocaleString()}원</div>
+                        <div class="category">${상품.pcategory_name}</div>
                     </div>
                     `
-
             productAll.innerHTML = html;
         })  // forEach end
     } else {

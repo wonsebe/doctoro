@@ -43,6 +43,9 @@ function cartPrint() {  console.log('cartPrint()');
 
             let pFolderName = '';
 
+            let 총수량 = 0
+            let 총금액 = 0
+
             result.forEach(장바구니 => {
                 // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
                 if (장바구니.pcategory_name == '굿즈') {
@@ -52,33 +55,33 @@ function cartPrint() {  console.log('cartPrint()');
                 } else if (result.pcategory_name == '강화 아이템') {
                     pFolderName = 'item';
                 }
-
-                html += `       
-                        <div>
-                            <div>
-                                <a href="/product/detail?pno=${장바구니.product_no}">
-                                    <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
-                                </a>
-                            </div>
-                            <div> <a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_name}</a> </div>
-                            <div>${장바구니.product_description}</div>
-                            <div>${장바구니.price}</div>
-                            <div>${장바구니.pcategory_name}</div>
-
-                            <label for="productNum">수량</label> </br>
-                            <button type="button" onclick="proNumChange('-', ${장바구니.product_no})">-</button>
-                            <input type="text" id="productNum${장바구니.product_no}" value="${장바구니.cart_product_quantity}"
-                                onkeyup="productNumCheck(${장바구니.product_no})" />
-                            <button type="button" onclick="proNumChange('+', ${장바구니.product_no})">+</button>
-
-                            <div>${장바구니.cart_product_quantity * 장바구니.price}원</div>
-                            <button type="button" onclick="cartUpdate(${장바구니.product_no})">수정</button>
-                            <button type="button" onclick="cartDelete(${장바구니.product_no})">X</button>
-                        </div>
+                총수량+= 장바구니.cart_product_quantity
+                총금액+= (장바구니.cart_product_quantity * 장바구니.price)
+                html +=
+                                    `
+                                    <tr>
+                                        <td>
+                                            <a href="/product/detail?pno=${장바구니.product_no}">
+                                                <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" style="width: 100px; height: auto;">
+                                            </a>
+                                        </td>
+                                        <td><a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_name}</a> </td>
+                                        <td >${장바구니.price.toLocaleString()}원</td>
+                                        <td>${장바구니.pcategory_name}</td>
+                                        <td>
+                                            <button type="button" onclick="proNumChange('-', ${장바구니.product_no})">-</button>
+                                            <input type="text" id="productNum${장바구니.product_no}" value="${장바구니.cart_product_quantity}"onkeyup="productNumCheck(${장바구니.product_no})" />
+                                            <button type="button" onclick="proNumChange('+', ${장바구니.product_no})">+</button>
+                                        </td>
+                                        <td class="cart_price_td">${(장바구니.cart_product_quantity * 장바구니.price).toLocaleString()}원</td>
+                                        <td><button type="button" onclick="cartDelete(${장바구니.product_no})">X</button></td>
+                                    </tr>
                         `
             })
 
             cartArea.innerHTML = html;
+             document.querySelector('.cart_total_count').innerHTML = 총수량 + '개'
+              document.querySelector('.cart_total_price').innerHTML = 총금액.toLocaleString() + '원'
 
         }   // success end
     })  // ajax end
@@ -97,7 +100,6 @@ function cartUpdate(pno) {     console.log('cartUpdate()');
         },
         success : (result) => {     console.log(result);
             if (result) {
-                alert('수정되었습니다.');
                 cartPrint();
             } else {
                 alert('다시 시도해주십시오.');
@@ -137,10 +139,12 @@ function proNumChange(mode, pno) {   console.log('proNumChange()');
     if (mode == '+') {
         pNum = Number(productNumValue) + 1;
         productNum.value = pNum;
+
     } else if (mode == '-' && Number(productNumValue) > 1) {
         pNum = Number(productNumValue) - 1;
         productNum.value = pNum;
     }
+    cartUpdate( pno ) // 제품 수정
     
 }   // proNumChange() end
 

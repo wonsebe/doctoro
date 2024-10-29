@@ -3,22 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <title>장바구니</title>
+
+    <style>
+        /* 테이블 스타일 */
+        #cartTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top : 50px;
+        }
+
+        #cartTable th, #cartTable td {
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #fff;
+        }
+
+        #cartTable th {
+            background-color: #bc97d2; /* 초록색 */
+            color: white;
+            font-weight: bold;
+        }
+
+        /* 제품 이미지 스타일 */
+        #productImg {
+            width: 80px; /* 이미지 크기 조정 */
+            height: auto;
+        }
+
+        /* 버튼 스타일 */
+        button {
+            background-color: #fff; /* 파란색 배경 */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+             font-family: 'yg-jalnan' !important;
+        }
+
+        /* 구매하기 버튼 스타일 */
+        .purchase-button {
+            background-color: #bc97d2; /* 녹색 배경 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 70px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .purchase-button:hover {
+            background-color: #218838; /* 어두운 녹색 */
+        }
+
+        /* 수량 입력 스타일 */
+        input[type="text"] {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+        /* 장바구니 제목 스타일 */
+h1 {
+    text-align: center;
+    color: #333 !important;
+    font-size: 2.5em; /* 제목 크기 */
+    margin-bottom: 20px;
+    padding: 10px;
+    color: white; /* 흰색 텍스트 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 60px !important;
+        font-family: 'yg-jalnan';
+}
+#content table .cart_price_td{
+    font-family: 'yg-jalnan';
+    font-size: 16px;
+    text-align: right;
+    padding-right: 20px;
+}
+#content .cart_bottom{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#content .cart_bottom div{
+    margin: 30px;
+}
+#content .cart_bottom div span{
+    font-family: 'yg-jalnan';
+    font-size : 25px;
+}
+.cart_total_count{
+    color:red;
+}
+.cart_total_price{
+    color:red;
+}
+
+    </style>
 </head>
 <body>
     <div th:replace="~{/header.html :: header }"></div>
 
     <div id="content">
-        장바구니
-
-        <div id="cartArea">
-            
+        <h1>장바구니</h1>
+        <table id="cartTable" border="1" style="width: 100%; border-collapse: collapse;">
+            <thead>
+            <tr>
+                <th>제품 이미지</th>
+                <th>제품명</th>
+                <th>가격</th>
+                <th>카테고리</th>
+                <th>수량</th>
+                <th>총 가격</th>
+                <th>취소</th>
+            </tr>
+            </thead>
+            <tbody id="cartArea">
+            <tr>
+                <td>
+                    <a href="/product/detail?pno=17">
+                        <img id="productImg" src="/img/goods/psyduck_plush.jpg" style="width: 100px; height: auto;">
+                    </a>
+                </td>
+                <td><a href="/product/detail?pno=17">고라파덕 인형</a></td>
+                <td>15000</td>
+                <td>굿즈</td>
+                <td>
+                    <button type="button" onclick="proNumChange('-', 17)">-</button>
+                    <input type="text" id="productNum17" value="23" onkeyup="productNumCheck(17)" style="width: 40px;">
+                    <button type="button" onclick="proNumChange('+', 17)">+</button>
+                </td>
+                <td>345000원</td>
+                <td><button type="button" onclick="cartUpdate(17)">수정</button></td>
+                <td><button type="button" onclick="cartDelete(17)">X</button></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="cart_bottom">
+            <div>
+                <span> 총 주문 개수 </span>
+                <span class="cart_total_count"> 32 </span>
+            </div>
+            <div>
+                <span> 총 주문 금액 </span>
+                <span class="cart_total_price"> 30,000 </span>
+            </div>
+            <button type="button" class="purchase-button" onclick="purchase()">구매하기</button>
         </div>
 
-        
-        <button type="button" onclick="purchase()">구매하기</button>
     </div>
 
     <script src="/js/cart/cart.js"></script>
-
+    <div th:replace="~{/footer.html :: footer }"></div>
 </body>
 </html>
