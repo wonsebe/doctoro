@@ -7,6 +7,7 @@ import web.model.dto.ProductDto;
 import web.service.CartService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cart")
@@ -44,6 +45,11 @@ public class CartController {
     }
 
 
+    // 장바구니 상위 5개 조회(챗봇용)
+    @GetMapping("/select_five")
+    public List<CartDto> cart_select_five(CartDto cartDto){
+        return cartService.cart_select_five(cartDto);
+    }
 
 
 }

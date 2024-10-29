@@ -62,5 +62,10 @@
         select id from users where phone = #{phone};
     </select>
 
+    <!-- 마이페이지 정보 출력 (챗봇용)-->
+    <select id="userMyInfoChatbot" resultType="web.model.dto.UserDto" parameterType="web.model.dto.UserDto">
+        select * from users where uno = #{uno};
+    </select>
+
 
 </mapper>   <!-- mapper end -->

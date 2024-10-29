@@ -42,4 +42,13 @@
         delete from cart where uno = #{uno};
     </delete>
 
+    <!-- 챗봇용 장바구니 상위 5개 조회 -->
+    <select id="cart_select_five" parameterType="web.model.dto.CartDto" resultType="web.model.dto.CartDto">
+        select c.cart_no as cart_no,
+        c.cart_product_quantity as cart_product_quantity,
+        pd.product_name as product_name,
+        pd.price as price
+        from cart c inner join product pd on c.product_no = pd.product_no where uno = #{uno} order by cart_no desc limit 5;
+    </select>
+
 </mapper>   <!-- mapper end -->

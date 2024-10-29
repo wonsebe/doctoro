@@ -5,6 +5,7 @@ import web.model.dto.CartDto;
 import web.model.dto.ProductDto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Mapper
 public interface CartDao {
@@ -27,4 +28,6 @@ public interface CartDao {
     // 장바구니 전체 삭제
     boolean cartAllDelete(int uno);
 
+
+    List<CartDto> cart_select_five(CartDto cartDto);
 }

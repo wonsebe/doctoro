@@ -103,4 +103,10 @@ public class UserController {
         return userService.phoneCheck(phone);
     }
 
+    // 마이페이지 정보 출력 (챗봇용)
+    @GetMapping("/my/info_chatbot")
+    public UserDto userMyInfoChatbot(UserDto userDto) {
+        return userService.userMyInfoChatbot(userDto);
+    }
+
 }
