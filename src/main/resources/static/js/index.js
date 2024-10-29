@@ -69,8 +69,92 @@ function onNext() {
 
 
 //유저 정보 가져오기
-checkuinfo();
 img_city_read();
+
+checkuinfo();
+
+
+function img_city_read() {
+    let city_area1 = document.querySelector(".city_area1");
+    let city_area2 = document.querySelector(".city_area2");
+    let city_area3 = document.querySelector(".city_area3");
+    let html1 = ``;
+    let html2 = ``;
+    let html3 = ``;
+    $.ajax({
+        async: false,
+        method: "get",
+        url: '/user/login/check',
+        success: function response(result) {
+            console.log(result);
+            if (result == "") {
+                let random0 = Math.round((Math.random() * 125) + 1);
+                let random1 = Math.round((Math.random() * 125) + 1);
+                let random2 = Math.round((Math.random() * 125) + 1);
+
+                console.log(random0);
+                console.log(random1);
+                console.log(random2);
+
+                html1 = `<img width = "400px" src="/img/village/${random0}.png">`;
+                html2 = `<img width = "400px" src="/img/village/${random1}.png">`;
+                html3 = `<img width = "400px" src="/img/village/${random2}.png">`;
+
+                city_area1.innerHTML = html1;
+                city_area2.innerHTML = html2;
+                city_area3.innerHTML = html3;
+            } else {
+                let gen = result["gender"]
+                let age = result["ubirth"]
+
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "http://127.0.0.1:5000/vote/first_pred",
+                    data: { gen: gen, age: age },
+                    success: function response(result) {
+                        console.log(result);
+                        html1 = `<img width = "400px" src="/img/village/${Math.round(result[0])}.png">`;
+
+                        city_area1.innerHTML = html1;
+                    }
+                })
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "http://127.0.0.1:5000/vote/second_pred",
+                    data: { gen: gen, age: age },
+                    success: function response(result) {
+                        console.log(result);
+                        html2 = `<img width = "400px" src="/img/village/${Math.round(result[0])}.png">`;
+
+                        city_area2.innerHTML = html2;
+                    }
+                })
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "http://127.0.0.1:5000/vote/third_pred",
+                    data: { gen: gen, age: age },
+                    success: function response(result) {
+                        console.log(result);
+                        html3 = `<img width = "400px" src="/img/village/${Math.round(result[0])}.png">`;
+
+                        city_area3.innerHTML = html3;
+                    }
+                })
+
+
+
+
+            }
+
+        }
+    })
+}
+
+
+
 function checkuinfo() {
     //    alert('123');
     $.ajax({
@@ -278,67 +362,3 @@ function checkuinfo() {
     })
 }
 
-function img_city_read() {
-    let city_area1 = document.querySelector(".city_area1");
-    let city_area2 = document.querySelector(".city_area2");
-    let city_area3 = document.querySelector(".city_area3");
-    let html1 = ``;
-    let html2 = ``;
-    let html3 = ``;
-    $.ajax({
-        async: false,
-        method: "get",
-        url: '/user/login/check',
-        success: function response(result) {
-            if (result == "") {
-                let random0 = Math.round((Math.random() * 125) + 1)
-                let random1 = Math.round((Math.random() * 125) + 1)
-                let random2 = Math.round((Math.random() * 125) + 1)
-
-                html1 = `<img width = "400px" src="/img/village/${random0}.png></img>`;
-                html2 = `<img width = "400px" src="/img/village/${random1}.png></img>`;
-                html3 = `<img width = "400px" src="/img/village/${random2}.png></img>`;
-
-                city_area1.innerHTML = html1;
-                city_area2.innerHTML = html2;
-                city_area3.innerHTML = html3;
-            } else {
-                let gen = result["gender"]
-                let age = result["ubirth"]
-
-                $.ajax({
-                    async: false,
-                    method: "get",
-                    url: "http://127.0.0.1:5000/vote/first_pred",
-                    data: { gen: gen, age: age },
-                    success: function response(result) {
-                        html1 = `<img width = "400px" src="/img/village/${result}.png></img>`;
-                    }
-                })
-                $.ajax({
-                    async: false,
-                    method: "get",
-                    url: "http://127.0.0.1:5000/vote/second_pred",
-                    data: { gen: gen, age: age },
-                    success: function response(result) {
-                        html2 = `<img width = "400px" src="/img/village/${result}.png></img>`;
-                    }
-                })
-                $.ajax({
-                    async: false,
-                    method: "get",
-                    url: "http://127.0.0.1:5000/vote/third_pred",
-                    data: { gen: gen, age: age },
-                    success: function response(result) {
-                        html3 = `<img width = "400px" src="/img/village/${result}.png></img>`;
-                    }
-                })
-                city_area1.innerHTML = html1;
-                city_area2.innerHTML = html2;
-                city_area3.innerHTML = html3;
-
-            }
-
-        }
-    })
-}
