@@ -25,15 +25,7 @@ body {
   bottom: 30px;
   right: 35px;
   outline: none;
-  border: none;
-  height: 50px;
-  width: 50px;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #724ae8;
+  width: 44px;
   transition: all 0.2s ease;
 }
 body.show-chatbot .chatbot-toggler {
@@ -76,7 +68,7 @@ body.show-chatbot .chatbot {
   position: relative;
   text-align: center;
   color: #fff;
-  background: #724ae8;
+  background: #e67458;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 .chatbot header span {
@@ -125,6 +117,13 @@ header h2 {
   background: #724ae8;
   border-radius: 4px;
   margin: 0 10px 7px 0;
+
+ 
+}
+.material-symbols-outlined {
+width: 32px;
+height: 46px;
+padding-top: 16px;
 }
 .chatbox .chat p {
   white-space: pre-wrap;
@@ -133,7 +132,7 @@ header h2 {
   max-width: 75%;
   color: #fff;
   font-size: 0.95rem;
-  background: #724ae8;
+  background: #e67458;
 }
 .chatbox .incoming p {
   border-radius: 10px 10px 10px 0;
