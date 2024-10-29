@@ -20,5 +20,7 @@ public interface OrderDao {
     // 주문 번호 기준 같은 상품 개수 구하기
     ArrayList<OrdersDto> orderProductSum(int loginUno);
 
+    // 주문 상세 내역 출력
+    ArrayList<OrdersDto> orderDetailPrint(OrdersDto ordersDto);
 
 }

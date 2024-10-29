@@ -270,4 +270,20 @@ public class OrderService {
         return true;
     }
 
+    // 주문 상세 내역 출력
+    public ArrayList<OrdersDto> orderDetailPrint(OrdersDto ordersDto) {
+        System.out.println("OrderService.orderDetailPrint");
+
+        UserDto loginDto = userService.userLoginCheck();    // 로그인된 세션 정보 요청
+        if (loginDto == null) {     // 비로그인이라면 리턴
+            return null;
+        }
+        int loginUno = loginDto.getUno();       // 유저 번호
+        System.out.println("loginUno = " + loginUno);
+        ordersDto.setUno(loginUno);
+        System.out.println("loginUno = " + loginUno);
+
+        return orderDao.orderDetailPrint(ordersDto);
+    }
+
 }

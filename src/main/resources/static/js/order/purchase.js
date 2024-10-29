@@ -201,7 +201,7 @@ function cartOrderPrint() {     console.log('cartOrderPrint()');
             let priceInfo = document.querySelector('.priceInfo');
             let orderButton = document.querySelector('.orderButton');
             let html1 = `<h5>주문 상품 정보</h5>`;
-            let html2 =``;
+            let html2 = ``;
             let html3 = ``;
 
             let deliveryCheck = false;      // 배송 필요 여부 체크

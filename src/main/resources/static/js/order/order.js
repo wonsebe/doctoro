@@ -27,19 +27,19 @@ function orderPrint() {     console.log('orderPrint()');
             // 주문번호가 같고 상품 번호가 같으면 묶어주기
             let 전처리결과 = []
             result.forEach( item => {
-                let check = false 
+                let check = false ;
                 전처리결과.forEach( item2 => {
                     if( item.product_no == item2.product_no && item.order_no == item2.order_no ){
-                        check = true
-                        item2['count'] = item2['count'] + 1 // 기존에 추가 
+                        check = true;
+                        item2['count'] = item2['count'] + 1; // 기존에 추가 
                     }
                 })
                 if( check == false ){
-                    item['count'] = 1 
-                    전처리결과.push( item )
+                    item['count'] = 1 ;
+                    전처리결과.push( item );
                 }
             })
-            console.log( 전처리결과 )
+            console.log( 전처리결과 );
 
 
             let orderContent = document.querySelector('#orderContent');

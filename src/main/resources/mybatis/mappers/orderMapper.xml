@@ -39,5 +39,14 @@
         ORDER BY orders.order_no DESC;
     </select>
 
+    <!-- 주문 상세 내역 출력 -->
+    <select id="orderDetailPrint" resultType="web.model.dto.OrdersDto" parameterType="web.model.dto.OrdersDto">
+        select *
+        from orders inner join odetails on orders.order_no = odetails.order_no
+        inner join product on product.product_no = odetails.product_no
+        inner join pcategory on product.pcategory_no = pcategory.pcategory_no
+        where uno = #{uno} and orders.order_no = #{order_no}
+        order by odetails.odetail_no desc;
+    </select>
 
 </mapper>   <!-- mapper end -->
