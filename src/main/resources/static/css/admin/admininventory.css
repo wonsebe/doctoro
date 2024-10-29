@@ -1,16 +1,59 @@
-
 div#toptable {
-    width: 1500px;
+    width: 1600px;
     height: 600px;
     margin: 0 auto;
-    padding-top : 30px
+    padding-top : 30px;
+    padding-bottom : 0px;
+    border: 1px solid #bababa;
 }
 
-div#menubar{
-    margin : 0 auto;
+#list1 {
+    margin-bottom : 60px;
 }
+
+#inventoryhd th{
+    position: sticky;
+    top: -35px;
+    background-color: white !important;
+    padding-top : 10px;
+}
+
+.channel {
+    display: flex;
+    justify-content: center;
+}
+
+div#menulist {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+#name{margin :10px;}
+#price{margin :10px;}
+#file{margin :10px;}
+#info{margin :10px;}
+#category{margin :10px;}
+.add{margin :10px;}
+.del{margin :10px;}
 
 "overflow": (
   property: overflow,
   values: auto hidden visible scroll,
 )
+
+.channel{
+        display: flex;
+        justify-content: center;
+        padding-bottom : 40px;
+        padding-top : 40px;
+}
+
+.ch{
+  font-size: 20px;
+  color: #191919;
+  letter-spacing: -1px;
+  font-family: 'yg-jalnan';
+  display: inline;
+  margin : 20px;
+}

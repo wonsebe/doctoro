@@ -11,24 +11,19 @@
 <div th:replace="~{/header.html :: header }"></div>
 
 <div>
-    <div>
-        <h3>관리자 재고관리</h3>
-    </div>
-
-    <div>
-        <a href="/adminmain"> 메인화면 </a>
-        <a href="/admininventory"> 상품관리 </a>
-        <a href="/adminproduct"> 재고관리 </a>
-        <a href="/adminorders"> 주문관리 </a>
-        <a href="/admin/boardreport"> 게시판관리</a>
-        <a href="/admin/userreport"> 유저관리 </a>
-        <a href="/adminpoint"> 포인트관리 </a>
+    <div class="channel">
+        <div class="ch1"> <a class="ch" href="/adminmain"> 메인화면 </a> </div>
+        <div class="ch2"> <a class="ch" href="/admininventory"> 상품관리 </a> </div>
+        <div class="ch3"> <a class="ch" href="/adminproduct"> 재고관리 </a> </div>
+        <div class="ch4"> <a class="ch" href="/adminorders"> 주문관리 </a> </div>
+        <div class="ch5"> <a class="ch" href="/admin/boardreport"> 게시판관리</a> </div>
+        <div class="ch6"> <a class="ch" href="/admin/userreport"> 유저관리 </a> </div>
+        <div class="ch7"> <a class="ch" href="/adminpoint"> 포인트관리 </a> </div>
     </div>
 </div>
 
 <div>
-    <div>
-        <h3>재고 등록</h3>
+    <div id="menulist">
         <input type="text" placeholder="재고 증감 수량 입력" id="prodpm"> <!--재고 증감-->
         <select type="category" id="prodinfo"> <!--재고증감사유-->
             <option value="1">재고등록</option>
@@ -37,13 +32,12 @@
         <select type="category" id="prodinv"> <!--상품 명-->
             <option value="0">테스트</option>
         </select>
-        <button type="button" onclick="prodadd()"> 등록 </button>
+        <button id="addbtn" type="button" onclick="prodadd()"> 등록 </button>
     </div>
 
-    <div>
-        <h3> 재고 로그 </h3>
+    <div id="list1">
         <div class="overflow-auto" id="toptable">
-            <table id="product" class="table">
+            <table id="product1" class="table table-striped">
                 <thead>
                 <tr>
                     <th>재고 번호</th>
@@ -67,10 +61,9 @@
         </div>
     </div>
 
-    <div>
-        <h4> 현재 재고 </h4>
+    <div id="list2">
         <div class="overflow-auto" id="bottomtable">
-            <table class="table">
+            <table id="product2" class="table table-striped">
                 <thead>
                 <tr>
                     <th>상품 명</th>

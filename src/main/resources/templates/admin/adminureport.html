@@ -11,25 +11,20 @@
 <div th:replace="~{/header.html :: header }"></div>
 
 <div>
-    <div>
-        <h3>관리자 유저 관리(신고)페이지<h3>
-    </div>
-
-    <div>
-        <a href="/adminmain"> 메인화면 </a>
-        <a href="/admininventory"> 상품관리 </a>
-        <a href="/adminproduct"> 재고관리 </a>
-        <a href="/adminorders"> 주문관리 </a>
-        <a href="/admin/boardreport"> 게시판관리</a>
-        <a href="/admin/userreport"> 유저관리 </a>
-        <a href="/adminpoint"> 포인트관리 </a>
+    <div class="channel">
+        <div class="ch1"> <a class="ch" href="/adminmain"> 메인화면 </a> </div>
+        <div class="ch2"> <a class="ch" href="/admininventory"> 상품관리 </a> </div>
+        <div class="ch3"> <a class="ch" href="/adminproduct"> 재고관리 </a> </div>
+        <div class="ch4"> <a class="ch" href="/adminorders"> 주문관리 </a> </div>
+        <div class="ch5"> <a class="ch" href="/admin/boardreport"> 게시판관리</a> </div>
+        <div class="ch6"> <a class="ch" href="/admin/userreport"> 유저관리 </a> </div>
+        <div class="ch7"> <a class="ch" href="/adminpoint"> 포인트관리 </a> </div>
     </div>
 </div>
 
-<div>
-    <h3>회원 조회</h3>
+<div id="list1">
     <div class="overflow-auto" id="toptable">
-        <table id="users" class="table">
+        <table id="users" class="table table-striped">
             <thead>
                 <tr>
                     <th>유저 번호</th>
@@ -61,10 +56,9 @@
     </div>
 </div>
 
-<div>
-    <h3>신고 내역 조회</h3>
+<div id="list2">
     <div class="overflow-auto" id="bottomtable">
-        <table id="report" class="table">
+        <table id="report" class="table table-striped">
             <thead>
             <tr>
                 <th>신고 번호</th>
