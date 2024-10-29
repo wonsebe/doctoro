@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import web.model.dto.ExpLogDto;
 import web.model.dto.PointDto;
 import web.service.PointService;
 
@@ -51,5 +52,13 @@ public class PointController {
         return pointService.paidPointLog();
     }
 
+    // 무료 포인트 추가 기록하기
+    @PostMapping("/add")
+    public boolean addPoint(PointDto pointDto)
+    {return pointService.addPoint(pointDto);}
 
+    //보유 무료 포인트 조회
+    @GetMapping("/raed")
+    public ArrayList<PointDto> readPointLog(PointDto pointDto)
+    {return pointService.readPointLog(pointDto);}
 }

@@ -23,5 +23,9 @@ public interface PointDao {
     // 나의 유료 포인트 로그 가져오기
     public ArrayList<PointDto> paidPointLog(int loginUno);
 
+    //무료 포인트 충전/기록하기
+    public boolean addPoint(PointDto pointDto);
 
+    //보유 무료포인트 조회
+    public ArrayList<PointDto> readPointLog(PointDto pointDto);
 }

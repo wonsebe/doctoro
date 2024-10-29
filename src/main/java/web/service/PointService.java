@@ -89,6 +89,11 @@ public class PointService {
     }
 
     // 무료 포인트 지급
+    public boolean addPoint(PointDto pointDto)
+    {return pointDao.addPoint(pointDto);}
 
+    //보유무료 포인트 조회
+    public ArrayList<PointDto> readPointLog(PointDto pointDto)
+    {return pointDao.readPointLog(pointDto);}
 
 }

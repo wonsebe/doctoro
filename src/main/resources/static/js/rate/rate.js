@@ -297,6 +297,27 @@ function rate_cal() {
     let n2 = document.querySelector("#poke_select2").value;
     let m1 = document.querySelector("#poke_select_skill1").value;
     let m2 = document.querySelector("#poke_select_skill2").value;
+        $.ajax({
+            async : false,
+            method : 'get',
+            url : '/user/login/check',
+            success : (result) => {     console.log(result);
+                if (result == '') {                 // 비로그인 상태인 경우
+                    console.log("")
+                }
+                else {
+                    $.ajax({
+                        async : false,
+                        method : 'POST',
+                        url : '/point/add',
+                        data : {uno : result['uno']},
+                        success : p => {
+                            console.log(p)
+                        }
+                    })
+                }
+            }   // success end
+        })  // ajax end
     $.ajax({
         async: false,
         method: "get",
@@ -629,6 +650,27 @@ function rate_predict_from_model() {
     let rskillpower = document.querySelector("#poke_select_skill3").value;
     let rate_result = document.querySelector(".modal-body1")
     let html = ``;
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/user/login/check',
+        success : (result) => {     console.log(result);
+            if (result == '') {                 // 비로그인 상태인 경우
+                console.log("")
+            }
+            else {
+                $.ajax({
+                    async : false,
+                    method : 'POST',
+                    url : '/point/add',
+                    data : {uno : result['uno']},
+                    success : p => {
+                        console.log(p);
+                    }
+                })
+            }
+        }   // success end
+    })  // ajax end
     $.ajax({
         async: false,
         method: "get",

@@ -59,6 +59,9 @@ public class ViewController {
         return "/user/resetpw.html";
     }
 
+    @GetMapping("/user/change")
+    public String userChange() {return "/user/change.html";}
+
     // ===================== [3] 게시판관련 ===================== //
     //게시판 등록 페이지 요청
     @GetMapping("/board/bwrite")

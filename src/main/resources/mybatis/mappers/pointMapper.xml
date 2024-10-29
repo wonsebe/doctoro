@@ -40,4 +40,14 @@
         where free_paid = '유료' and uno = #{loginUno};
     </select>
 
+    <!-- 포켓몬 경험치 기록하기 -->
+    <insert id="addPoint" parameterType="web.model.dto.PointDto">
+        insert into pointlog (point_indecrease,free_paid,point_reason,uno) values (10,'무료','활동',#{uno});
+    </insert>
+
+    <!--보유 무료 포인트 조회-->
+    <select id="readPointLog" resultType="web.model.dto.PointDto" parameterType="int">
+        select sum(point_indecrease) from pointlog where uno = #{uno};
+    </select>
+
 </mapper>   <!-- mapper end -->

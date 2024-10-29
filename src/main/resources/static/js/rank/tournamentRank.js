@@ -129,6 +129,25 @@ function 포켓몬선택(index, index2){
         num = 포켓몬목록[`${selectRound[selectNo]}`][index][2]
 
         winup(num)
+            $.ajax({
+                async : false,
+                method : 'get',
+                url : '/user/login/check',
+                success : (result) => {     console.log(result);
+                        if (result == ''){console.log('비로그인상태')}
+                        else {
+                            $.ajax({
+                                async : false,
+                                method : 'post',
+                                url : '/point/add',
+                                data : {uno : result['uno']},
+                                success : p => {
+                                    console.log(p)
+                                }
+                            })
+                        }
+                }   // success end
+            })  // ajax end
 
         html = `<div class="center"> <div class="cards"> <figure class='card'> <h3 style="display : flex; justify-content: center;"> 우승 </h3> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png"> <figcaption> ${win} </figcaption> </figure> </div> </div>`;
 //        html2 = `<tr> <td> <span> WINNER </span> </td> </tr>`;

@@ -11,23 +11,19 @@
 <div th:replace="~{/header.html :: header }"></div>
 
 <div>
-    <div>
-        <h3>관리자 포인트관리</h3>
-    </div>
-
-    <div>
-        <a href="/adminmain"> 메인화면 </a>
-        <a href="/admininventory"> 상품관리 </a>
-        <a href="/adminproduct"> 재고관리 </a>
-        <a href="/adminorders"> 주문관리 </a>
-        <a href="/admin/boardreport"> 게시판관리</a>
-        <a href="/admin/userreport"> 유저관리 </a>
-        <a href="/adminpoint"> 포인트관리 </a>
+    <div class="channel">
+        <div class="ch1"> <a class="ch" href="/adminmain"> 메인화면 </a> </div>
+        <div class="ch2"> <a class="ch" href="/admininventory"> 상품관리 </a> </div>
+        <div class="ch3"> <a class="ch" href="/adminproduct"> 재고관리 </a> </div>
+        <div class="ch4"> <a class="ch" href="/adminorders"> 주문관리 </a> </div>
+        <div class="ch5"> <a class="ch" href="/admin/boardreport"> 게시판관리</a> </div>
+        <div class="ch6"> <a class="ch" href="/admin/userreport"> 유저관리 </a> </div>
+        <div class="ch7"> <a class="ch" href="/adminpoint"> 포인트관리 </a> </div>
     </div>
 </div>
 
 <div>
-    <div>
+    <div id="menulist">
         <input id="price" type="text" placeholder="금액입력">
         <select id="category">
             <option value="1">무료</option>
@@ -38,9 +34,9 @@
         <button type="button" id="pointbt" onclick="pointadd()"> 확인 </button>
     </div>
 
-    <div>
+    <div id="list1">
         <div class="overflow-auto" id="toptable">
-            <table id="pointlog" class="table">
+            <table id="pointlog" class="table table-striped">
                 <thead>
                     <tr>
                         <th>번호</th>

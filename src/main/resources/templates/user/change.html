@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 정보 수정</title>
+
+    <!-- CSS 호출 -->
+    <link href="/css/user/change.css" rel="stylesheet" />
+</head>
+<body>
+<div th:replace="~{/header.html :: header }"></div>
+
+<div id="list">
+    <div id="list2">
+        <h5>보유포인트</h5>
+
+        <input class="nowpoint" type="text" readonly>
+
+        <h5>포인트 전환</h5>
+
+        <div id="change">
+            <input class="inputpoint" type="text" placeholder="포인트 입력">
+            <div>보유포인트</div> <input class="valuepoint" type="text" readonly>
+        </div>
+
+    </div>
+</div>
+
+<script src="/js/user/change.js"></script>
+
+</body>
+</html>
