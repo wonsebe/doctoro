@@ -23,6 +23,7 @@ function doMyInfo() {
                         <div>성별 : ${result.gender}</div>
                         <div>전화번호 : ${result.phone}</div>
                         <div>생년월일 : ${result.ubirth}</div>
+                        <div>주소 : ${result.address}</div>
                         <button type="button" onclick="poke_rate_model_update()"> 승률 예측 모델 최신화 </button>
                         <button type="button" onclick="poke_vote_list_update()"> 마을 투표 기록 최신화 </button>
                         `;
@@ -38,6 +39,7 @@ function doMyInfo() {
                         <div>성별 : ${result.gender}</div>
                         <div>전화번호 : ${result.phone}</div>
                         <div>생년월일 : ${result.ubirth}</div>
+                        <div>주소 : ${result.address}</div>
                         `;
 
                 myinfo.innerHTML = html;

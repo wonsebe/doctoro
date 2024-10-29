@@ -18,6 +18,7 @@ public interface OrderDao {
     boolean orderDetailAdd(OrdersDto ordersDto);
 
     // 주문 번호 기준 같은 상품 개수 구하기
-    public ArrayList<OrdersDto> orderProductSum(int loginUno);
+    ArrayList<OrdersDto> orderProductSum(int loginUno);
+
 
 }

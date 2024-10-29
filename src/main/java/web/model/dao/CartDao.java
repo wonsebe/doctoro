@@ -24,5 +24,7 @@ public interface CartDao {
     // 장바구니 항목 삭제
     boolean cartDelete(CartDto cartDto);
 
+    // 장바구니 전체 삭제
+    boolean cartAllDelete(int uno);
 
 }

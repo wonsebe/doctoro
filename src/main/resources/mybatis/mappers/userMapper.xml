@@ -8,8 +8,8 @@
 
     <!-- 1. 회원가입 -->
     <insert id="userSignup" parameterType="web.model.dto.UserDto">
-        insert into users (id, password, name, gender, phone, ubirth, distinction) values
-        (#{id}, #{password}, #{name}, #{gender}, #{phone}, #{ubirth}, #{distinction});
+        insert into users (id, password, name, gender, phone, ubirth, address, distinction) values
+        (#{id}, #{password}, #{name}, #{gender}, #{phone}, #{ubirth}, #{address}, #{distinction});
     </insert>
 
     <!-- 2. 아이디 중복 검사 -->
