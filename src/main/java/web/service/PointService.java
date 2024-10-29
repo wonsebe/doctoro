@@ -98,4 +98,10 @@ public class PointService {
         System.out.println("<<<<<<<<<<<"+uno);
         return pointDao.readPointLog(uno);}
 
+    public boolean changePoint(PointDto pointDto)
+    {return pointDao.changePoint(pointDto);}
+
+    public boolean deletePoint(PointDto pointDto)
+    {return pointDao.deletePoint(pointDto);}
+
 }

@@ -50,4 +50,12 @@
         select sum(point_indecrease) from pointlog where uno = #{uno};
     </select>
 
+    <insert id="changePoint" parameterType="web.model.dto.PointDto">
+        insert into pointlog (point_indecrease,free_paid,point_reason,uno) values (#{point_indecrease},'유료','환전',#{uno});
+    </insert>
+
+    <insert id="deletePoint" parameterType="web.model.dto.PointDto">
+        insert into pointlog (point_indecrease,free_paid,point_reason,uno) values (#{point_indecrease},'무료','환전',#{uno});
+    </insert>
+
 </mapper>   <!-- mapper end -->

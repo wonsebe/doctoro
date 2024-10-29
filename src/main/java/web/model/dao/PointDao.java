@@ -28,4 +28,8 @@ public interface PointDao {
 
     //보유 무료포인트 조회
     public int readPointLog(int uno);
+
+    public boolean changePoint(PointDto pointDto);
+
+    public boolean deletePoint(PointDto pointDto);
 }

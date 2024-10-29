@@ -62,4 +62,12 @@ public class PointController {
     public int readPointLog(int uno)
     {System.out.println(">>>>>>>>>>>"+uno);
      return pointService.readPointLog(uno);}
+
+    @PostMapping("/change")
+    public boolean changePoint(PointDto pointDto)
+    {return pointService.changePoint(pointDto);}
+
+    @PostMapping("/delete")
+    public boolean deletePoint(PointDto pointDto)
+    {return pointService.deletePoint(pointDto);}
 }
