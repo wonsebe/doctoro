@@ -11,8 +11,13 @@ let totalPoint = 0;         // 총 유료 포인트 값
 console.log(pno);
 console.log(pnum);
 
-// 상품 & 결제 금액 정보 보여주기
-productPricePrint();
+if (isNaN(pno) && isNaN(pnum)) {    // 장바구니 페이지에서 구매 버튼을 누른 경우
+    cartOrderPrint();
+} else {    // 상품 페이지에서 구매 버튼을 누른 경우
+    productPricePrint();
+}
+
+// 상품 & 결제 금액 정보 보여주기 - 상품 종류 1개
 function productPricePrint() {   console.log('productPricePrint()');
     $.ajax({
         async : false,
@@ -22,8 +27,10 @@ function productPricePrint() {   console.log('productPricePrint()');
         success : (result) => {     console.log(result);
             let productInfo = document.querySelector('.productInfo');
             let priceInfo = document.querySelector('.priceInfo');
+            let orderButton = document.querySelector('.orderButton');
             let html =``;
             let html2 =``;
+            let html3 = ``;
 
             pCategoryName = result.pcategory_name;      // 상품 카테고리명
             price = result.price * pnum;                // 상품 기본 가격 (배송비 금액은 밑에서 추가)
@@ -68,8 +75,14 @@ function productPricePrint() {   console.log('productPricePrint()');
                 totalPrice = price;               // 총 결제 금액 (상품 가격 * 구매 수량)
             }
 
+            // 결제 버튼 - 상품 종류 1개
+            html3 += `
+                    <button type="button" onclick="orderAdd()">결제하기</button>
+                    `
+
             productInfo.innerHTML = html;
             priceInfo.innerHTML = html2;
+            orderButton.innerHTML = html3;
         }   // success end
     })  // ajax end
 }   // productPricePrint() end
@@ -143,7 +156,7 @@ function currentPaidPoint() {
     })  // ajax end
 }   // currentPaidPoint() end
 
-// 주문 테이블에 등록하기
+// 주문 테이블에 등록하기 - 상품 종류 1개
 function orderAdd() {       console.log('orderAdd()');
     if (totalPoint < totalPrice) {  // 보유 유료 포인트가 결제 금액 보다 적다면
         if (confirm("보유 유료 보인트가 결제 금액보다 적습니다.\n포인트를 충전하시겠습니까?")) {
@@ -175,3 +188,107 @@ function orderAdd() {       console.log('orderAdd()');
 
 
 
+// =============== 장바구니에서 구매 =============== //
+
+// 상품 & 결제 금액 정보 보여주기 - 장바구니
+function cartOrderPrint() {     console.log('cartOrderPrint()');
+    $.ajax({
+        async : false,
+        method : 'get',
+        url : '/cart/print',
+        success : (result) => {     console.log(result);
+            let productInfo = document.querySelector('.productInfo');
+            let priceInfo = document.querySelector('.priceInfo');
+            let orderButton = document.querySelector('.orderButton');
+            let html1 = `<h5>주문 상품 정보</h5>`;
+            let html2 =``;
+            let html3 = ``;
+
+            let deliveryCheck = false;      // 배송 필요 여부 체크
+
+            let pFolderName = '';
+
+            // 상품 정보
+            result.forEach(장바구니 => {
+                // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
+                if (장바구니.pcategory_name == '굿즈') {
+                    pFolderName = 'goods';
+                } else if (장바구니.pcategory_name == '카드') {
+                    pFolderName = 'card';
+                } else if (장바구니.pcategory_name == '강화 아이템') {
+                    pFolderName = 'item';
+                }
+                console.log(pFolderName);
+
+                html1 += `       
+                        <div>
+                            <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
+                            <div>${장바구니.product_name}</div>
+                            <div>${장바구니.cart_product_quantity}개</div>
+                            <div>${장바구니.cart_product_quantity * 장바구니.price}원</div>
+                        </div>
+                        `
+                
+                totalPrice += 장바구니.cart_product_quantity * 장바구니.price;
+
+                if (pFolderName != "item") {    // 주문 상품 중 카테고리가 아이템이 아닌 게 있다면 배송 여부 true로 변환
+                    deliveryCheck = true;
+                    console.log(pFolderName != "강화 아이템");
+                }
+            })
+
+            // 결제 금액 정보
+            html2 += `
+                    <h5>결제 금액 정보</h5>
+                    <h6>상품 가격 : ${totalPrice}원</h6>
+                    `
+
+            if (deliveryCheck) {   // 배송 여부가 true인 경우(카테고리명이 강화 아이템이 아닌 경우)
+                html2 += `
+                        <h6>배송비 : +3000원</h6>
+                        <hr>
+                        <h6>총 주문 금액 : ${totalPrice + 3000}원</h6>
+                        `
+                totalPrice = totalPrice + 3000;        // 총 결제 금액
+            } else {    // 카테고리명이 강화 아이템인 경우
+                html2 += `
+                        <hr>
+                        <h6>총 주문 금액 : ${totalPrice}원</h6>
+                        `
+            }
+
+            // 결제 버튼 - 장바구니
+            html3 += `
+                    <button type="button" onclick="orderCartAdd()">결제하기</button>
+                    `
+
+            productInfo.innerHTML = html1;
+            priceInfo.innerHTML = html2;
+            orderButton.innerHTML = html3;
+        }   // success end
+    })  // ajax end
+}   // cartOrderPrint() end
+
+// 주문 테이블에 등록하기 - 장바구니
+function orderCartAdd() {   console.log('orderCartAdd()');
+    if (totalPoint < totalPrice) {  // 보유 유료 포인트가 결제 금액 보다 적다면
+        if (confirm("보유 유료 보인트가 결제 금액보다 적습니다.\n포인트를 충전하시겠습니까?")) {
+            location.href="/point/charge";      // 확인 클릭 시, 포인트 충전 페이지로 이동
+        }
+        return;
+    }
+    
+    $.ajax({
+        async : false,
+        method : 'post',
+        url : '/order/add/cart',
+        success : (result) => {     console.log(result);
+            if (result) {
+                alert('주문이 완료되었습니다.');
+                location.href = "/order"
+            } else {
+                alert('다시 시도해 주십시오.');
+            }
+        }   // success end
+    })  // ajax end
+}   // orderCartAdd() end

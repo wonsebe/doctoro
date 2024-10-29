@@ -36,6 +36,11 @@ public class OrderController {
         return orderService.orderProductSum();
     }
 
-
+    // 주문 등록 (상품 구매) - 장바구니
+    @PostMapping("/add/cart")
+    public boolean orderCartAdd() {
+        System.out.println("OrderController.orderAdd");
+        return orderService.orderCartAdd();
+    }
 
 }

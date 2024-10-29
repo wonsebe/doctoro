@@ -42,19 +42,19 @@ function cartPrint() {  console.log('cartPrint()');
             let html = ``;
 
             let pFolderName = '';
-            // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
-            if (result.pcategory_name == '굿즈') {
-                pFolderName = 'goods';
-            } else if (result.pcategory_name == '카드') {
-                pFolderName = 'card';
-            } else if (result.pcategory_name == '강화 아이템') {
-                pFolderName = 'item';
-            }
 
             result.forEach(장바구니 => {
+                // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
+                if (장바구니.pcategory_name == '굿즈') {
+                    pFolderName = 'goods';
+                } else if (result.pcategory_name == '카드') {
+                    pFolderName = 'card';
+                } else if (result.pcategory_name == '강화 아이템') {
+                    pFolderName = 'item';
+                }
+
                 html += `       
                         <div>
-                        
                             <div>
                                 <a href="/product/detail?pno=${장바구니.product_no}">
                                     <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
@@ -143,3 +143,8 @@ function proNumChange(mode, pno) {   console.log('proNumChange()');
     }
     
 }   // proNumChange() end
+
+// 결제 창으로 이동
+function purchase() {   console.log('purchase()');
+    location.href='/purchase';      // 구매 페이지로 이동
+}   // purchase() end

@@ -37,4 +37,9 @@
         where uno = #{uno} and product_no = #{product_no};
     </delete>
 
+    <!-- 장바구니 전체 삭제 -->
+    <delete id="cartAllDelete" parameterType="int">
+        delete from cart where uno = #{uno};
+    </delete>
+
 </mapper>   <!-- mapper end -->

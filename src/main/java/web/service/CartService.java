@@ -86,4 +86,10 @@ public class CartService {
         return cartDao.cartDelete(cartDto);
     }
 
+    // 장바구니 전체 삭제
+    public boolean cartAllDelete(int uno) {
+        System.out.println("CartService.cartAllDelete");
+        return cartDao.cartAllDelete(uno);
+    }
+
 }
