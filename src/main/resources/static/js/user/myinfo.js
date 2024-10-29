@@ -666,16 +666,39 @@ function myItemPrint() {    console.log('myItemPrint()');
             let myItemList = document.querySelector('#myItemList');
             let html = '';
 
-            result.forEach(아이템 => {
+            if (result.length == 0) {
                 html += `       
-                        <div>
-                            <div> <img id="productImg" src="/img/item/${아이템.product_image}" /> </div>
-                            <div>${아이템.product_name}</div>
-                            <div>${아이템.product_description}</div>
-                            <button type="button" onclick="itemUse(${아이템.product_no})">사용</button>
-                        </div>
-                        `
-            })
+                        <div> 아이템이 존재하지 않습니다. </div>`;
+            } else {
+                // 주문번호가 같고 상품 번호가 같으면 묶어주기
+                let 전처리결과 = []
+                result.forEach( item => {
+                    let check = false ;
+                    전처리결과.forEach( item2 => {
+                        if( item.product_no == item2.product_no ){
+                            check = true;
+                            item2['count'] = item2['count'] + 1; // 기존에 추가 
+                        }
+                    })
+                    if( check == false ){
+                        item['count'] = 1 ;
+                        전처리결과.push( item );
+                    }
+                })
+                console.log( 전처리결과 );
+
+                전처리결과.forEach(아이템 => {
+                    html += `       
+                            <div>
+                                <div> <img id="productImg" src="/img/item/${아이템.product_image}" /> </div>
+                                <div>${아이템.count}개</div>
+                                <div>${아이템.product_name}</div>
+                                <div>${아이템.product_description}</div>
+                                <button type="button" class="myItemUse" onclick="itemUse(${아이템.product_no})">사용</button>
+                            </div>
+                            `
+                })
+            }
 
             myItemList.innerHTML = html;
         }   // success end
@@ -693,6 +716,7 @@ function itemUse(product_no) {    console.log('itemUse()');
             if (result) {
                 alert('아이템 사용이 완료되었습니다.');
                 myItemPrint();
+                myPokeExistCheck();
             } else {
                 alert('다시 시도해주십시오.');
             }

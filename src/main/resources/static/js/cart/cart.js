@@ -47,11 +47,12 @@ function cartPrint() {  console.log('cartPrint()');
                 // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
                 if (장바구니.pcategory_name == '굿즈') {
                     pFolderName = 'goods';
-                } else if (result.pcategory_name == '카드') {
+                } else if (장바구니.pcategory_name == '카드') {
                     pFolderName = 'card';
-                } else if (result.pcategory_name == '강화 아이템') {
+                } else if (장바구니.pcategory_name == '강화 아이템') {
                     pFolderName = 'item';
                 }
+                console.log(pFolderName);
 
                 html += `       
                         <div>

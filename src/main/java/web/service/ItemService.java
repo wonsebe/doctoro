@@ -3,6 +3,7 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.model.dao.ItemDao;
+import web.model.dto.ExpLogDto;
 import web.model.dto.ItemDto;
 import web.model.dto.UserDto;
 
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 public class ItemService {
     @Autowired private ItemDao itemDao;
     @Autowired private UserService userService;
+    @Autowired private ExpLogService expLogService;
 
     // 카테고리명이 '강화 아이템'인 상품을 구매 시 아이템 테이블에 레코드 등록
     public boolean itemAdd(ItemDto itemDto) {
@@ -44,6 +46,14 @@ public class ItemService {
         }
         itemDto.setUno(loginDto.getUno());       // 유저 번호 추가
         System.out.println("itemDto = " + itemDto);
+
+        // 경험치 기록 - 아이템 사용 10 경험치
+        ExpLogDto expLogDto = ExpLogDto.builder()
+                .expvalue(10)
+                .expmethod("아이템 사용")
+                .build();
+        System.out.println("expLogDto = " + expLogDto);
+        expLogService.pokeExpLogAdd(expLogDto, loginDto.getUno());
 
         return itemDao.itemUse(itemDto);
     }

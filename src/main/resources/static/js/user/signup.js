@@ -22,7 +22,7 @@ function doSignup() {   console.log('doSignup()');
     // 주소 값 가져오기
     let sample6_address =document.querySelector('#sample6_address').value;
     let sample6_detailAddress= document.querySelector('#sample6_detailAddress').value;
-    let address = sample6_address + " " + sample6_detailAddress
+    let address = sample6_address + "_" + sample6_detailAddress
     console.log(address);
     
     // 라디오 버튼 선택한 값 가져오기

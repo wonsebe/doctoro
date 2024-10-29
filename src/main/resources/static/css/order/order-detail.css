@@ -1,0 +1,143 @@
+/* 전체 컨텐츠 영역 */
+#content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+#content h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 주문 상세 내용 */
+#orderDetailContent,
+.userInfo,
+.deliveryInfo,
+.priceInfo {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 주문 헤더 스타일 */
+.orderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.orderHeader h4 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+.orderHeader a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.orderHeader span {
+    color: #555;
+    font-size: 14px;
+}
+
+/* 주문 카드 스타일 */
+.orderCard {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    gap: 20px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 10px;
+}
+
+.orderCard:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 이미지 스타일 */
+.orderCard img#productImg {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* 제품 정보 섹션 */
+.orderProduct {
+    flex: 1;
+}
+
+.orderProduct > div {
+    font-size: 15px;
+    color: #555;
+}
+
+.orderProduct a {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.orderProduct a:hover {
+    color: #007bff;
+}
+
+/* 제품 하단 정보 (가격, 수량) */
+.orderProductBottom {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #777;
+}
+
+.orderProductBottom div {
+    margin-right: 5px;
+}
+
+/* 주문 상태 */
+.orderStatus {
+    font-size: 15px;
+    font-weight: bold;
+    color: #28a745; /* 상태가 완료일 경우 초록색 */
+}
+
+/* 주문 상세 확인 버튼 */
+.orderDetailButton a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.orderDetailButton a:hover {
+    background-color: #0056b3;
+}
+
+.orderCard > .deliveryStatus {
+    font-size: 14px;
+    margin-left: 205px;
+}

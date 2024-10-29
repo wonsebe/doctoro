@@ -59,21 +59,31 @@ function orderDetailPrint() {       console.log('orderDetailPrint()');
                 }
 
                 html += `
-                        <div>
-                            <div>
+                        <div class="orderHeader">
+                            <div class="orderNum">
                                 <h4>주문번호</h4>
                                 <a href="/order/detail?ono=${주문.order_no}">${주문.order_no}</a>
                             </div>
-                            <div> 주문일자 ${주문.order_date} </div>
+                            <span> 주문일자 ${주문.order_date} </span>
+                        </div>
+
+                        <div class="orderCard">
                             <a href="/order/detail?ono=${주문.order_no}">
                                 <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
-                            </a>                            
+                            </a>
+                        
+                            <div class="orderProduct">
+                                <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
+                
+                                <div class="orderProductBottom">
+                                    <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price * 주문.count}원</a> </div>
+                                    <div> ${주문.count}개 </div>
+                                </div>
+                            </div>
                             
-                            <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
-                            <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price * 주문.count}원</a> </div>
+                            <div class="orderStatus"> ${oStatus} </div>
 
-                            <div> ${주문.count}개 </div>
-                            <div> ${oStatus} </div>
+                            <div class="deliveryStatus"> ${주문.delivery_status} </div>
                         </div>
                         `
 
@@ -93,7 +103,7 @@ function orderDetailPrint() {       console.log('orderDetailPrint()');
 
             if (deliveryCheck) {   // 배송 여부가 true인 경우(카테고리명이 강화 아이템이 아닌 경우)
                 html2 += `
-                        <h6>배송비 : +3000원</h6>
+                        <h6>배송비 : 3000원</h6>
                         <hr>
                         <h6>총 주문 금액 : ${totalPrice + 3000}원</h6>
                         `

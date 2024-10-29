@@ -65,21 +65,31 @@ function orderPrint() {     console.log('orderPrint()');
                 }
 
                 html += `
-                        <div>
-                            <div>
+                        <div class="orderHeader">
+                            <div class="orderNum">
                                 <h4>주문번호</h4>
                                 <a href="/order/detail?ono=${주문.order_no}">${주문.order_no}</a>
                             </div>
-                            <div> 주문일자 ${주문.order_date} </div>
+                            <span>주문일자 ${주문.order_date}</span>
+                        </div>
+
+                        <div class="orderCard">
                             <a href="/order/detail?ono=${주문.order_no}">
                                 <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
-                            </a>                            
-                            
-                            <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
-                            <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price}원</a> </div>
+                            </a>   
 
-                            <div> ${주문.count}개 </div>
-                            <div> ${oStatus} </div>
+                            <div class="orderProduct">        
+                                <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
+
+                                <div class="orderProductBottom">
+                                    <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price}원</a> &nbsp; </div>
+                                    <div> / ${주문.count}개 </div>
+                                </div>
+                            </div>
+
+                            <div class="orderStatus"> ${oStatus} </div>
+
+                            <div class="orderDetailButton"> <a href="/order/detail?ono=${주문.order_no}">주문 상세 확인</a> </div>
                         </div>
                         `
             })
