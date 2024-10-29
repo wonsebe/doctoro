@@ -46,7 +46,10 @@ function iamport(){     console.log('iamport()');
                 async : false,
                 method : 'post',
                 url : '/point/charge',
-                data : { point_indecrease : chargePoint },
+                data : {
+                    point_indecrease : chargePoint,
+                    point_reason : '유료 포인트 충전'
+                },
                 success : (result) => {     console.log(result);
                     if (result) {
                         alert('포인트 충전이 완료되었습니다.');

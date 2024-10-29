@@ -200,7 +200,7 @@ create table odetails (
 create table delivery (
     delivery_no int auto_increment,   			   -- 배송 번호
     delivery_status varchar(20) not null,          -- 배송 상태
-    delivery_date datetime,                        -- 배송 시작 날짜
+    delivery_date datetime default now(),          -- 배송 시작 날짜
     order_no int not null,                         -- 주문 번호 (외래키)
     primary key (delivery_no),
     foreign key(order_no) references orders (order_no) on update cascade on delete cascade
