@@ -24,22 +24,28 @@ function orderPrint() {     console.log('orderPrint()');
         method : 'get',
         url : '/order/print',
         success : (result) => {     console.log(result);
-            /*
-            $.ajax({
-                async : false,
-                method : 'get',
-                url : '/order/product/sum',
-                success : (res) => {    console.log(res);
-
+            // 주문번호가 같고 상품 번호가 같으면 묶어주기
+            let 전처리결과 = []
+            result.forEach( item => {
+                let check = false 
+                전처리결과.forEach( item2 => {
+                    if( item.product_no == item2.product_no && item.order_no == item2.order_no ){
+                        check = true
+                        item2['count'] = item2['count'] + 1 // 기존에 추가 
+                    }
+                })
+                if( check == false ){
+                    item['count'] = 1 
+                    전처리결과.push( item )
                 }
-            })  // ajax2 end
-            */
+            })
+            console.log( 전처리결과 )
 
 
             let orderContent = document.querySelector('#orderContent');
             let html = ``;
 
-            result.forEach(주문 => {
+            전처리결과.forEach(주문 => {
                 let oStatus = '';
                 
                 let pFolderName = '';
@@ -71,10 +77,11 @@ function orderPrint() {     console.log('orderPrint()');
                             
                             <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
                             <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price}원</a> </div>
+
+                            <div> ${주문.count}개 </div>
                             <div> ${oStatus} </div>
                         </div>
                         `
-                        // <div> ${}개 </div> 추가하기
             })
 
             orderContent.innerHTML = html;
