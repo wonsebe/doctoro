@@ -27,5 +27,5 @@ public interface PointDao {
     public boolean addPoint(PointDto pointDto);
 
     //보유 무료포인트 조회
-    public ArrayList<PointDto> readPointLog(PointDto pointDto);
+    public int readPointLog(int uno);
 }

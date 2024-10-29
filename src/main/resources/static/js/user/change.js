@@ -23,6 +23,9 @@ function read() {
                     data : {uno : result['uno']},
                     success : p => {
                         console.log(p);
+                    },
+                    error : e => {
+                        console.log(e);
                     }
                 })
             }

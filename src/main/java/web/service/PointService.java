@@ -93,7 +93,9 @@ public class PointService {
     {return pointDao.addPoint(pointDto);}
 
     //보유무료 포인트 조회
-    public ArrayList<PointDto> readPointLog(PointDto pointDto)
-    {return pointDao.readPointLog(pointDto);}
+    public int readPointLog(int uno)
+    {
+        System.out.println("<<<<<<<<<<<"+uno);
+        return pointDao.readPointLog(uno);}
 
 }
