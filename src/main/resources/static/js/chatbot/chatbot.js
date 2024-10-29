@@ -1,5 +1,23 @@
 console.log('chatbot.js');
 
+user_info = {
+    uno: 0
+}
+
+function login_check() {
+    $.ajax({
+        async: false,
+        url: "/user/login/check",
+        method: "get",
+        success: r => {
+            console.log(r);
+            user_info["uno"] = r["uno"];
+        }
+    })
+}
+
+
+
 
 function roChat() {
     console.log('roChat()');
@@ -7,17 +25,17 @@ function roChat() {
     console.log(text);
 
     $.ajax({
-        async:false,
-        url:'http://127.0.0.1:5000/chatbot/seq2seq',
-        method:'get',
-        data:{
-            text:text
+        async: false,
+        url: 'http://127.0.0.1:5000/chatbot/seq2seq',
+        method: 'get',
+        data: {
+            text: text
         },
-        success:function(response){
+        success: function (response) {
             console.log(response);
             console.log('서버 응답: ', response);
-            let cPrint=document.querySelector('.cPrint')
-            let html= cPrint.innerHTML;
+            let cPrint = document.querySelector('.cPrint')
+            let html = cPrint.innerHTML;
             html += `<div class="userC">유저: ${text}</div><br/>`
             html += ` <div class="botC">로토봇의 답변:${response}</div> <br/>`
             cPrint.innerHTML = html;
@@ -50,8 +68,55 @@ function roChat() {
                 setTimeout(() => {
                     location.href = "/rate";
                 }, 1500);
-            }
+            } else if (response.includes("포인트 내역")) {
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "/point/raed",
+                    data: user_info,
+                    success: r => {
+                        html += ` <div class="botC">로토봇의 답변: 현재 포인트는 ${r} 입니다. </div> <br/>`
 
+                        cPrint.innerHTML = html;
+                    }
+                })
+            } else if (response.includes("장바구니 내역")) {
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "",
+                    data: user_info,
+                    success: r => {
+                        html += ` <div class="botC">로토봇의 답변:  </div> <br/>`
+
+                        cPrint.innerHTML = html;
+                    }
+                })
+            } else if (response.includes("주문 내역")) {
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "",
+                    data: user_info,
+                    success: r => {
+                        html += ` <div class="botC">로토봇의 답변:  </div> <br/>`
+
+                        cPrint.innerHTML = html;
+                    }
+                })
+            } else if (response.includes("마이 페이지 정보")) {
+                $.ajax({
+                    async: false,
+                    method: "get",
+                    url: "",
+                    data: user_info,
+                    success: r => {
+                        html += ` <div class="botC">로토봇의 답변:  </div> <br/>`
+
+                        cPrint.innerHTML = html;
+                    }
+                })
+            }
         },
         error: function (error) {
             console.error('오류 발생:', error);
