@@ -4,6 +4,10 @@ let urlParams = new URL(location.href).searchParams;
 let pno = parseInt(urlParams.get("pno"));
 let pnum = parseInt(urlParams.get("pnum"));     // 상품 구매 수량
 
+let totalPrice = 0;         // 총 결제 금액 (상품 가격 + 배달비)
+let pCategoryName = '';     // 상품 카테고리명
+let totalPoint = 0;         // 총 유료 포인트 값
+
 console.log(pno);
 console.log(pnum);
 
@@ -21,6 +25,9 @@ function productPricePrint() {   console.log('productPricePrint()');
             let html =``;
             let html2 =``;
 
+            pCategoryName = result.pcategory_name;      // 상품 카테고리명
+            price = result.price * pnum;                // 상품 기본 가격 (배송비 금액은 밑에서 추가)
+
             let pFolderName = '';
             // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
             if (result.pcategory_name == '굿즈') {
@@ -37,17 +44,29 @@ function productPricePrint() {   console.log('productPricePrint()');
                     <img id="productImg" src="/img/${pFolderName}/${result.product_image}" />
                     <div class="productName">${result.product_name}</div>
                     <div>${pnum}개</div>
-                    <div>${result.price}</div>
+                    <div>${price}원</div>
                     `
 
             // 결제 금액 정보
             html2 += `
                     <h5>결제 금액 정보</h5>
-                    <h6>상품 가격 : ${result.price}</h6>
-                    <h6>배송비 : +3000원</h6>
-                    <hr>
-                    <h6>총 주문 금액 : ${result.price + 3000}원</h6>
+                    <h6>상품 가격 : ${price}원</h6>
                     `
+
+            if (pCategoryName != '강화 아이템') {   // 카테고리명이 강화 아이템이 아닌 경우
+                html2 += `
+                        <h6>배송비 : +3000원</h6>
+                        <hr>
+                        <h6>총 주문 금액 : ${price + 3000}원</h6>
+                        `
+                totalPrice = price + 3000;        // 총 결제 금액 (상품 가격 * 구매 수량 + 배달비)
+            } else {    // 카테고리명이 강화 아이템인 경우
+                html2 += `
+                        <hr>
+                        <h6>총 주문 금액 : ${price}원</h6>
+                        `
+                totalPrice = price;               // 총 결제 금액 (상품 가격 * 구매 수량)
+            }
 
             productInfo.innerHTML = html;
             priceInfo.innerHTML = html2;
@@ -116,6 +135,7 @@ function currentPaidPoint() {
                         <h5>현재 포인트</h5>
                         <h6>${result.totalPoint} 포인트</h6>
                         `;
+                totalPoint = result.totalPoint;
             }
 
             pointInfo.innerHTML = html;
@@ -125,13 +145,22 @@ function currentPaidPoint() {
 
 // 주문 테이블에 등록하기
 function orderAdd() {       console.log('orderAdd()');
+    if (totalPoint < totalPrice) {  // 보유 유료 포인트가 결제 금액 보다 적다면
+        if (confirm("보유 유료 보인트가 결제 금액보다 적습니다.\n포인트를 충전하시겠습니까?")) {
+            location.href="/point/charge";      // 확인 클릭 시, 포인트 충전 페이지로 이동
+        }
+        return;
+    }
+
     $.ajax({
         async: false,
         method: 'post',
         url: '/order/add',
         data : { 
             product_no : pno,
-            productNum : pnum
+            productNum : pnum,
+            totalPrice : totalPrice * (-1),
+            pcategory_name : pCategoryName
         },
         success: (result) => {      console.log(result);
             if (result) {

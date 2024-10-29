@@ -24,6 +24,18 @@ function orderPrint() {     console.log('orderPrint()');
         method : 'get',
         url : '/order/print',
         success : (result) => {     console.log(result);
+            /*
+            $.ajax({
+                async : false,
+                method : 'get',
+                url : '/order/product/sum',
+                success : (res) => {    console.log(res);
+
+                }
+            })  // ajax2 end
+            */
+
+
             let orderContent = document.querySelector('#orderContent');
             let html = ``;
 
@@ -53,13 +65,16 @@ function orderPrint() {     console.log('orderPrint()');
                                 <a href="/order/detail?ono=${주문.order_no}">${주문.order_no}</a>
                             </div>
                             <div> 주문일자 ${주문.order_date} </div>
-                            <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
+                            <a href="/order/detail?ono=${주문.order_no}">
+                                <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
+                            </a>                            
                             
                             <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
-                            <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price}</a> </div>
+                            <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price}원</a> </div>
                             <div> ${oStatus} </div>
                         </div>
                         `
+                        // <div> ${}개 </div> 추가하기
             })
 
             orderContent.innerHTML = html;

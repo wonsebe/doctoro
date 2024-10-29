@@ -30,7 +30,7 @@ function productDetaillPrint() {    console.log('productDetaillPrint()');
                         <img id="productImg" src="/img/${pFolderName}/${result.product_image}" />
                         <div class="productName">${result.product_name}</div>
                         <div>${result.product_description}</div>
-                        <div>${result.price}</div>
+                        <div>${result.price}원</div>
                         <div>${result.pcategory_name}</div>
 
                         <label for="productNum">수량</label> </br>

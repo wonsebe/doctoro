@@ -22,6 +22,8 @@ public class OrdersDto {
     private String product_image;       // 상품 이미지
     private String pcategory_name;      // 상품 카테고리명
 
+    private int same_product_count;     // 주문 번호 기준 같은 상품 수
+
     private String name;                // 유저 이름
 
 }
