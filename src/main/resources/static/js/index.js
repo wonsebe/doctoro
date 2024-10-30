@@ -114,7 +114,7 @@ function img_city_read() {
                     data: { gen: gen, age: age },
                     success: function response(result) {
                         console.log(result);
-                        html1 = `<img width = "400px" src="/img/village/${Math.round(result[0])}.png">`;
+                        html1 = `<img width = "400px" src="/img/village/${Math.ceil(result[0])}.png">`;
 
                         city_area1.innerHTML = html1;
                     }
@@ -138,7 +138,7 @@ function img_city_read() {
                     data: { gen: gen, age: age },
                     success: function response(result) {
                         console.log(result);
-                        html3 = `<img width = "400px" src="/img/village/${Math.round(result[0])}.png">`;
+                        html3 = `<img width = "400px" src="/img/village/${Math.floor(result[0])}.png">`;
 
                         city_area3.innerHTML = html3;
                     }

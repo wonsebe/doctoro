@@ -36,4 +36,7 @@ public interface UserDao {
     // 12. 전화번호 중복 검사
     String phoneCheck(String phone);
 
+    // 마이페이지 정보 호출 (챗봇용)
+    UserDto userMyInfoChatbot(UserDto userDto);
+
 }

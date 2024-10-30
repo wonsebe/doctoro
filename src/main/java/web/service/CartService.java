@@ -8,6 +8,7 @@ import web.model.dto.ProductDto;
 import web.model.dto.UserDto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CartService {
@@ -90,6 +91,11 @@ public class CartService {
     public boolean cartAllDelete(int uno) {
         System.out.println("CartService.cartAllDelete");
         return cartDao.cartAllDelete(uno);
+    }
+
+    // 장바구니 상위 5개 조회(챗봇용)
+    public List<CartDto> cart_select_five(CartDto cartDto){
+        return cartDao.cart_select_five(cartDto);
     }
 
 }

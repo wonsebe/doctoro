@@ -6,6 +6,7 @@ import web.model.dao.OrderDao;
 import web.model.dto.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -268,6 +269,11 @@ public class OrderService {
         }
 
         return true;
+    }
+
+    // 주문내역 상위 5개 조회 (챗봇용)
+    public List<OrdersDto> order_select_five(OrdersDto ordersDto){
+        return orderDao.order_select_five(ordersDto);
     }
 
 }

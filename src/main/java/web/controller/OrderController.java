@@ -9,6 +9,7 @@ import web.model.dto.OrdersDto;
 import web.service.OrderService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/order")
@@ -41,6 +42,12 @@ public class OrderController {
     public boolean orderCartAdd() {
         System.out.println("OrderController.orderAdd");
         return orderService.orderCartAdd();
+    }
+
+    // 주문 상세 출력 5개 (챗봇용
+    @GetMapping("/select_five")
+    public List<OrdersDto> order_select_five(OrdersDto ordersDto){
+        return orderService.order_select_five(ordersDto);
     }
 
 }

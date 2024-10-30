@@ -39,5 +39,17 @@
         ORDER BY orders.order_no DESC;
     </select>
 
+    <select id="order_select_five" resultType="web.model.dto.OrdersDto" parameterType="web.model.dto.OrdersDto">
+        select o.order_no, o.order_date, od.order_status, pd.product_name, pd.price
+        from orders o
+        inner join odetails od on o.order_no = od.order_no
+        inner join product pd on od.product_no = pd.product_no
+        inner join product
+        where uno = #{uno}
+        order by o.order_no desc
+        limit 10;
+    </select>
+
+
 
 </mapper>   <!-- mapper end -->

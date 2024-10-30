@@ -175,4 +175,9 @@ public class UserService {
         }
     }
 
+    // 마이페이지 정보 호출 (챗봇용)
+    public UserDto userMyInfoChatbot(UserDto userDto) {
+        return userDao.userMyInfoChatbot(userDto);
+    }
+
 }
