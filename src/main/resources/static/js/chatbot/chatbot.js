@@ -1,3 +1,9 @@
+orderState = "";
+
+user_info = {
+    uno: 0
+}
+
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
@@ -22,6 +28,8 @@ function doLoginCheck() {
                 alert("로그인 후 이용 가능합니다.");
                 location.href = "/user/login"; // 로그인 페이지로 이동
             } else {
+                console.log(result["uno"]);
+                user_info["uno"] = result["uno"];
                 document.body.classList.toggle("show-chatbot"); // 로그인 상태일 때 챗봇 열기
             }
         } // success end
@@ -55,6 +63,7 @@ const roChat = (chatElement) => {
             console.log(response);
             messageElement.textContent = response; // 챗봇의 답변을 표시
 
+
             // 페이지 전환 로직
             if (response.includes("채팅 페이지")) {
                 setTimeout(() => location.href = "/chat", 1500);
@@ -70,49 +79,41 @@ const roChat = (chatElement) => {
                 setTimeout(() => location.href = "/point/charge", 1500);
             } else if (response.includes("승률 예측 페이지")) {
                 setTimeout(() => location.href = "/rate", 1500);
-            }
-                setTimeout(() => {
-                    location.href = "/rate";
-                }, 1500);
-            } else if (response.includes("포켓몬 랭킹 페이지")) {
-                setTimeout(() => {
-                    location.href = "/rank/get";
-                }, 1500);
-            } else if (response.includes("포인트 내 역")) {
+            } else if (response.includes("포인트 내역")) {
                 $.ajax({
                     async: false,
                     method: "get",
                     url: "/point/raed",
                     data: user_info,
-                    success: r => {
-                        console.log(r)
-                        html += ` <div class="botC">로토봇의 답변: 현재 포인트는 ${r} 입니다. </div> <br/>`
+                    success: result => {
+                        console.log(result)
+                        html += ` <div class="botC">로토봇의 답변: 현재 포인트는 ${result} 입니다. </div> <br/>`
 
-                        cPrint.innerHTML = html;
+                        messageElement.innerHTML = html;
                     }
                 })
-            } else if (response.includes("장바구니 내 역")) {
+            } else if (response.includes("장바구니 내역")) {
                 $.ajax({
                     async: false,
                     method: "get",
                     url: "/cart/select_five",
                     data: user_info,
-                    success: r => {
-                        r.forEach(e => {
+                    success: result => {
+                        result.forEach(e => {
                             html += ` <div class="botC">${e.cart_no}번 제품 : ${e.product_name}, 수량 : ${e.cart_product_quantity}개, 개당 가격 : ${e.price}원  </div> <br/>`
                         })
                         html += `<div class="botC">로토봇의 답변: 장바구니 내역 상위 5개를 출력해드렸습니다. </div> <br/>`
-                        cPrint.innerHTML = html;
+                        messageElement.innerHTML = html;
                     }
                 })
-            } else if (response.includes("주문 내 역")) {
+            } else if (response.includes("주문 내역")) {
                 $.ajax({
                     async: false,
                     method: "get",
                     url: "/order/select_five",
                     data: user_info,
-                    success: r => {
-                        r.forEach(e => {
+                    success: result => {
+                        result.forEach(e => {
                             if (e.order_state == "0") {
                                 orderState = "완료"
                             } else {
@@ -122,7 +123,7 @@ const roChat = (chatElement) => {
                             html += ` <div class="botC">주문 번호 : ${e.order_no}번, 제품 이름 : ${e.product_name}, 날짜 : ${e.order_date}, 주문 상태 : ${orderState}, 가격 : ${e.price}원 </div> <br/>`
                         })
                         html += `<div class="botC">로토봇의 답변: 주문 내역 상위 10개를 출력해드렸습니다. </div> <br/>`
-                        cPrint.innerHTML = html;
+                        messageElement.innerHTML = html;
                     }
                 })
             } else if (response.includes("마이 페이지 정보")) {
@@ -141,7 +142,7 @@ const roChat = (chatElement) => {
                         <div class="botC">주소 : ${result.address}</div>`
 
                         html += `<div class="botC">로토봇의 답변: 회원님의 마이 페이지 정보를 출력해드렸습니다. </div> <br/>`
-                        cPrint.innerHTML = html;
+                        messageElement.innerHTML = html;
                     }
                 })
             }

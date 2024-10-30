@@ -78,7 +78,7 @@ function cartPrint() {  console.log('cartPrint()');
                             <div>${장바구니.cart_product_quantity * 장바구니.price}원</div>
                             <button type="button" onclick="cartUpdate(${장바구니.product_no})">수정</button>
                             <button type="button" onclick="cartDelete(${장바구니.product_no})">X</button>
-                        </div>
+                        </div>`
                 총수량+= 장바구니.cart_product_quantity
                 총금액+= (장바구니.cart_product_quantity * 장바구니.price)
                 html +=
