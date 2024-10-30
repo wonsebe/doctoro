@@ -78,7 +78,7 @@ const roChat = (chatElement) => {
                 setTimeout(() => {
                     location.href = "/rank/get";
                 }, 1500);
-            }else if (response.includes("포인트 내역")) {
+            } else if (response.includes("포인트 내 역")) {
                 $.ajax({
                     async: false,
                     method: "get",
@@ -91,31 +91,31 @@ const roChat = (chatElement) => {
                         cPrint.innerHTML = html;
                     }
                 })
-            } else if (response.includes("장바구니 내역")) {
+            } else if (response.includes("장바구니 내 역")) {
                 $.ajax({
                     async: false,
                     method: "get",
                     url: "/cart/select_five",
                     data: user_info,
                     success: r => {
-                        r.forEach(e=>{
+                        r.forEach(e => {
                             html += ` <div class="botC">${e.cart_no}번 제품 : ${e.product_name}, 수량 : ${e.cart_product_quantity}개, 개당 가격 : ${e.price}원  </div> <br/>`
                         })
                         html += `<div class="botC">로토봇의 답변: 장바구니 내역 상위 5개를 출력해드렸습니다. </div> <br/>`
                         cPrint.innerHTML = html;
                     }
                 })
-            } else if (response.includes("주문 내역")) {
+            } else if (response.includes("주문 내 역")) {
                 $.ajax({
                     async: false,
                     method: "get",
                     url: "/order/select_five",
                     data: user_info,
                     success: r => {
-                        r.forEach(e=>{
-                            if (e.order_state == "0"){
+                        r.forEach(e => {
+                            if (e.order_state == "0") {
                                 orderState = "완료"
-                            }else{
+                            } else {
                                 orderState = "환불"
                             }
 
@@ -125,7 +125,7 @@ const roChat = (chatElement) => {
                         cPrint.innerHTML = html;
                     }
                 })
-            } else if (response.includes("마이 페이지 정보")) {
+            } else if (response.includes("마이 페이지 정 보")) {
                 $.ajax({
                     async: false,
                     method: "get",
