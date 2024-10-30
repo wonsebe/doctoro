@@ -126,7 +126,7 @@ function roChat() {
                         cPrint.innerHTML = html;
                     }
                 })
-            } else if (response.includes("마이 페이지 정 보")) {
+            } else if (response.includes("마이 페이지 정보")) {
                 $.ajax({
                     async: false,
                     method: "get",
