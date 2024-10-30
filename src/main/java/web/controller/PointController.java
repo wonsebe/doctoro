@@ -58,7 +58,16 @@ public class PointController {
     {return pointService.addPoint(pointDto);}
 
     //보유 무료 포인트 조회
-    @GetMapping("/raed")
-    public ArrayList<PointDto> readPointLog(PointDto pointDto)
-    {return pointService.readPointLog(pointDto);}
+    @GetMapping("/read")
+    public int readPointLog(int uno)
+    {System.out.println(">>>>>>>>>>>"+uno);
+     return pointService.readPointLog(uno);}
+
+    @PostMapping("/change")
+    public boolean changePoint(PointDto pointDto)
+    {return pointService.changePoint(pointDto);}
+
+    @PostMapping("/delete")
+    public boolean deletePoint(PointDto pointDto)
+    {return pointService.deletePoint(pointDto);}
 }
