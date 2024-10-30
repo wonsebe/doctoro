@@ -27,18 +27,6 @@
         insert into odetails (order_status, product_no, order_no) values (0, #{product_no}, #{order_no});
     </insert>
 
-    <!-- 주문 번호 기준 같은 상품 개수 구하기 -->
-    <select id="orderProductSum" resultType="web.model.dto.OrdersDto" parameterType="int">
-        SELECT orders.order_no, product.product_no, COUNT(*) AS same_product_count
-        FROM orders
-        INNER JOIN odetails ON orders.order_no = odetails.order_no
-        INNER JOIN product ON product.product_no = odetails.product_no
-        INNER JOIN pcategory ON product.pcategory_no = pcategory.pcategory_no
-        WHERE orders.uno = #{loginUno}
-        GROUP BY orders.order_no, product.product_no
-        ORDER BY orders.order_no DESC;
-    </select>
-
     <select id="order_select_five" resultType="web.model.dto.OrdersDto" parameterType="web.model.dto.OrdersDto">
         select o.order_no, o.order_date, od.order_status, pd.product_name, pd.price
         from orders o

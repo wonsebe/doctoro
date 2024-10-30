@@ -52,8 +52,8 @@
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    gap: 55px;
     transition: box-shadow 0.3s ease;
+    justify-content: space-between;
 }
 
 .orderCard:hover {
@@ -70,10 +70,11 @@
 }
 
 /* 제품명, 가격, 수량, 상태 스타일 */
-.orderCard > div {
+.orderCard > .orderProductArea > div {
     font-size: 15px;
     color: #555;
     margin-top: 5px;
+    margin-left: 100px;
 }
 
 /* 상품명 */
@@ -89,13 +90,13 @@
     font-size: 12px;
 }
 
-.orderCard > .orderStatus {
+.orderCard > .orderInfoArea > .orderStatus {
     font-weight: bold;
     font-size: 14px;
     margin-left: 160px;
 }
 
-.orderCard > .orderDetailButton {
+.orderCard > .orderInfoArea > .orderDetailButton {
     font-size: 14px;
     margin-left: 205px;
     border: 1px solid #bc97d2;
@@ -104,7 +105,7 @@
     padding: 8px;
 }
 
-.orderCard > .orderDetailButton > a {
+.orderCard > .orderInfoArea  > .orderDetailButton > a {
     color : white;
 }
 
@@ -115,6 +116,12 @@
 
 .orderProductBottom {
     display: flex;
+    align-items: center;
+}
+
+.orderProductArea, .orderInfoArea {
+    display: flex;
+    align-items: center;
 }
 
 #orderTitle {

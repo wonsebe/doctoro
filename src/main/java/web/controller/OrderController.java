@@ -30,13 +30,6 @@ public class OrderController {
         return orderService.orderAdd(product_no, productNum, totalPrice, pcategory_name);
     }
 
-    // 주문 번호 기준 같은 상품 개수 구하기
-    @GetMapping("/product/sum")
-    public ArrayList<OrdersDto> orderProductSum() {
-        System.out.println("OrderController.orderProductSum");
-        return orderService.orderProductSum();
-    }
-
     // 주문 등록 (상품 구매) - 장바구니
     @PostMapping("/add/cart")
     public boolean orderCartAdd() {

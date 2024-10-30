@@ -18,7 +18,8 @@
 #orderDetailContent,
 .userInfo,
 .deliveryInfo,
-.priceInfo {
+.priceInfo,
+.pointInfo {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -64,9 +65,9 @@
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    gap: 20px;
     transition: box-shadow 0.3s ease;
     margin-top: 10px;
+    justify-content: space-between;
 }
 
 .orderCard:hover {
@@ -96,6 +97,7 @@
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
+    margin-left : -20px;
 }
 
 .orderProduct a:hover {
@@ -137,7 +139,20 @@
     background-color: #0056b3;
 }
 
-.orderCard > .deliveryStatus {
+.orderCard > .orderInfoArea > .deliveryStatus {
     font-size: 14px;
     margin-left: 205px;
+}
+
+
+/* ============*/
+.purchaseBtn {
+    font-size: 14px;
+    margin-left: 880px;
+    border: 1px solid #bc97d2;
+    background: #bc97d2;
+    border-radius: 18px;
+    padding: 8px;
+    color: white;
+    margin-bottom: 15px;
 }

@@ -18,6 +18,7 @@ let pageInfo = {
 // 상품 전체 출력
 productAllPrint(1);
 function productAllPrint(page) {    console.log('productAllPrint()');
+    window.scrollTo(0, 0);
     pageInfo.page = page;       //현재 페이지 번호를 전역변수에 대입
     pCategoryPrint();           // 카테고리 출력
     let productPageDto;

@@ -38,6 +38,7 @@ function orderDetailPrint() {       console.log('orderDetailPrint()');
             let html2 = ``;
 
             let deliveryCheck = false;      // 배송 필요 여부 체크
+            let orderHeader = false;            // 상품 헤더 출력 여부 확인
 
             전처리결과.forEach(주문 => {
                 let oStatus = '';
@@ -58,32 +59,42 @@ function orderDetailPrint() {       console.log('orderDetailPrint()');
                     oStatus = '환불';
                 }
 
-                html += `
-                        <div class="orderHeader">
-                            <div class="orderNum">
-                                <h4>주문번호</h4>
-                                <a href="/order/detail?ono=${주문.order_no}">${주문.order_no}</a>
+                if (orderHeader == false) {
+                    html += `
+                            <div class="orderHeader">
+                                <div class="orderNum">
+                                    <h4>주문번호</h4>
+                                    <a href="/order/detail?ono=${주문.order_no}">${주문.order_no}</a>
+                                </div>
+                                <span> 주문일자 ${주문.order_date} </span>
                             </div>
-                            <span> 주문일자 ${주문.order_date} </span>
-                        </div>
+                            `
+                    
+                    orderHeader = true;
+                }
 
+                html += `
                         <div class="orderCard">
-                            <a href="/order/detail?ono=${주문.order_no}">
-                                <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
-                            </a>
-                        
-                            <div class="orderProduct">
-                                <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
-                
-                                <div class="orderProductBottom">
-                                    <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price * 주문.count}원</a> </div>
-                                    <div> ${주문.count}개 </div>
+                            <div class="orderProductArea">
+                                <a href="/order/detail?ono=${주문.order_no}">
+                                    <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
+                                </a>
+                            
+                                <div class="orderProduct">
+                                    <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
+                    
+                                    <div class="orderProductBottom">
+                                        <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price * 주문.count}원</a> </div>
+                                        <div> / ${주문.count}개 </div>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="orderStatus"> ${oStatus} </div>
+                            <div class="orderInfoArea">
+                                <div class="orderStatus"> ${oStatus} </div>
 
-                            <div class="deliveryStatus"> ${주문.delivery_status} </div>
+                                <div class="deliveryStatus"> ${주문.delivery_status} </div>
+                            </div>
                         </div>
                         `
 

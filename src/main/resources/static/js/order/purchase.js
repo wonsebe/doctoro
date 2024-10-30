@@ -221,7 +221,7 @@ function cartOrderPrint() {     console.log('cartOrderPrint()');
                 console.log(pFolderName);
 
                 html1 += `       
-                        <div>
+                        <div class="orderCard purchaseCard">
                             <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
                             <div>${장바구니.product_name}</div>
                             <div>${장바구니.cart_product_quantity}개</div>
@@ -259,7 +259,7 @@ function cartOrderPrint() {     console.log('cartOrderPrint()');
 
             // 결제 버튼 - 장바구니
             html3 += `
-                    <button type="button" onclick="orderCartAdd()">결제하기</button>
+                    <button type="button" class="purchaseBtn" onclick="orderCartAdd()">결제하기</button>
                     `
 
             productInfo.innerHTML = html1;

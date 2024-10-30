@@ -41,7 +41,6 @@ function orderPrint() {     console.log('orderPrint()');
             })
             console.log( 전처리결과 );
 
-
             let orderContent = document.querySelector('#orderContent');
             let html = ``;
 
@@ -74,22 +73,26 @@ function orderPrint() {     console.log('orderPrint()');
                         </div>
 
                         <div class="orderCard">
-                            <a href="/order/detail?ono=${주문.order_no}">
-                                <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
-                            </a>   
+                            <div class="orderProductArea">
+                                <a href="/order/detail?ono=${주문.order_no}">
+                                    <img id="productImg" src="/img/${pFolderName}/${주문.product_image}" />
+                                </a>   
 
-                            <div class="orderProduct">        
-                                <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
+                                <div class="orderProduct">        
+                                    <div> <a href="/order/detail?ono=${주문.order_no}">${주문.product_name}</a> </div>
 
-                                <div class="orderProductBottom">
-                                    <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price}원</a> &nbsp; </div>
-                                    <div> / ${주문.count}개 </div>
+                                    <div class="orderProductBottom">
+                                        <div> <a href="/order/detail?ono=${주문.order_no}">${주문.price}원</a> </div>
+                                        <div> / ${주문.count}개 </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="orderStatus"> ${oStatus} </div>
+                            <div class="orderInfoArea">
+                                <div class="orderStatus"> ${oStatus} </div>
 
-                            <div class="orderDetailButton"> <a href="/order/detail?ono=${주문.order_no}">주문 상세 확인</a> </div>
+                                <div class="orderDetailButton"> <a href="/order/detail?ono=${주문.order_no}">주문 상세 확인</a> </div>
+                            </div>
                         </div>
                         `
             })

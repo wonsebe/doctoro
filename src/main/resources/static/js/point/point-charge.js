@@ -38,9 +38,10 @@ function iamport(){     console.log('iamport()');
         m_redirect_url : '{모바일에서 결제 완료 후 리디렉션 될 URL}'    // 예: https://www.my-service.com/payments/complete/mobile
     }, function(rsp) {
         if ( rsp.success ) {
-            alert('빌링키 발급 성공');
+            // alert('빌링키 발급 성공');
+            alert('포인트 충전에 실패하였습니다. 다시 시도해주십시오.');
         } else {
-            alert('빌링키 발급 실패');
+            // alert('빌링키 발급 실패');
             
             $.ajax({
                 async : false,

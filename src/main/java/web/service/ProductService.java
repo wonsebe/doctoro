@@ -25,7 +25,7 @@ public class ProductService {
         }
 
         // 하나의 페이지당 표시할 게시물 수
-        int pageProductSize = 30;
+        int pageProductSize = 32;
 
         // 페이지당 게시물을 출력할 시작레코드 번호
         int startRow = (productPageDto.getPage() - 1) * pageProductSize;

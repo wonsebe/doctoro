@@ -18,9 +18,6 @@ public interface OrderDao {
     // 주문 상세 등록
     boolean orderDetailAdd(OrdersDto ordersDto);
 
-    // 주문 번호 기준 같은 상품 개수 구하기
-    ArrayList<OrdersDto> orderProductSum(int loginUno);
-
     // 주문내역 상위 5개 조회 (챗봇용)
     List<OrdersDto> order_select_five(OrdersDto ordersDto);
     // 주문 상세 내역 출력

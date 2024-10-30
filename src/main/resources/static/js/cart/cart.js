@@ -57,28 +57,28 @@ function cartPrint() {  console.log('cartPrint()');
                 }
                 console.log(pFolderName);
 
-                html += `       
-                        <div>
-                            <div>
-                                <a href="/product/detail?pno=${장바구니.product_no}">
-                                    <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
-                                </a>
-                            </div>
-                            <div> <a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_name}</a> </div>
-                            <div>${장바구니.product_description}</div>
-                            <div>${장바구니.price}</div>
-                            <div>${장바구니.pcategory_name}</div>
+                // html += `       
+                //         <div>
+                //             <div>
+                //                 <a href="/product/detail?pno=${장바구니.product_no}">
+                //                     <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
+                //                 </a>
+                //             </div>
+                //             <div> <a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_name}</a> </div>
+                //             <div>${장바구니.product_description}</div>
+                //             <div>${장바구니.price}</div>
+                //             <div>${장바구니.pcategory_name}</div>
 
-                            <label for="productNum">수량</label> </br>
-                            <button type="button" onclick="proNumChange('-', ${장바구니.product_no})">-</button>
-                            <input type="text" id="productNum${장바구니.product_no}" value="${장바구니.cart_product_quantity}"
-                                onkeyup="productNumCheck(${장바구니.product_no})" />
-                            <button type="button" onclick="proNumChange('+', ${장바구니.product_no})">+</button>
+                //             <label for="productNum">수량</label> </br>
+                //             <button type="button" onclick="proNumChange('-', ${장바구니.product_no})">-</button>
+                //             <input type="text" id="productNum${장바구니.product_no}" value="${장바구니.cart_product_quantity}"
+                //                 onkeyup="productNumCheck(${장바구니.product_no})" />
+                //             <button type="button" onclick="proNumChange('+', ${장바구니.product_no})">+</button>
 
-                            <div>${장바구니.cart_product_quantity * 장바구니.price}원</div>
-                            <button type="button" onclick="cartUpdate(${장바구니.product_no})">수정</button>
-                            <button type="button" onclick="cartDelete(${장바구니.product_no})">X</button>
-                        </div>`
+                //             <div>${장바구니.cart_product_quantity * 장바구니.price}원</div>
+                //             <button type="button" onclick="cartUpdate(${장바구니.product_no})">수정</button>
+                //             <button type="button" onclick="cartDelete(${장바구니.product_no})">X</button>
+                //         </div>`
                 총수량+= 장바구니.cart_product_quantity
                 총금액+= (장바구니.cart_product_quantity * 장바구니.price)
                 html +=
