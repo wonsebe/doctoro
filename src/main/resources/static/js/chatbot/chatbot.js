@@ -59,7 +59,7 @@ const roChat = (chatElement) => {
         url: 'http://127.0.0.1:5000/chatbot/seq2seq',
         method: 'get',
         data: { text: text },
-        success: function(response) {
+        success: function (response) {
             console.log(response);
             messageElement.textContent = response; // 챗봇의 답변을 표시
 
@@ -79,40 +79,47 @@ const roChat = (chatElement) => {
                 setTimeout(() => location.href = "/point/charge", 1500);
             } else if (response.includes("승률 예측 페이지")) {
                 setTimeout(() => location.href = "/rate", 1500);
-            } else if (response.includes("포인트 내역")) {
+            } else if (response.includes("포인트 내 역")) {
                 $.ajax({
                     async: false,
                     method: "get",
-                    url: "/point/raed",
+                    url: "/point/read",
                     data: user_info,
                     success: result => {
                         console.log(result)
                         html += ` <div class="botC">로토봇의 답변: 현재 포인트는 ${result} 입니다. </div> <br/>`
 
                         messageElement.innerHTML = html;
+
+                        html = ``;
                     }
                 })
-            } else if (response.includes("장바구니 내역")) {
+            } else if (response.includes("장바구니 내 역")) {
                 $.ajax({
                     async: false,
                     method: "get",
                     url: "/cart/select_five",
                     data: user_info,
                     success: result => {
+                        console.log(result)
                         result.forEach(e => {
-                            html += ` <div class="botC">${e.cart_no}번 제품 : ${e.product_name}, 수량 : ${e.cart_product_quantity}개, 개당 가격 : ${e.price}원  </div> <br/>`
+                            html += ` <div class="botC">${e.cart_no}번 제품 : ${e.product_name}, 
+                            수량 : ${e.cart_product_quantity}개, 개당 가격 : ${e.price}원  </div> <br/>`
                         })
                         html += `<div class="botC">로토봇의 답변: 장바구니 내역 상위 5개를 출력해드렸습니다. </div> <br/>`
                         messageElement.innerHTML = html;
+
+                        html = ``;
                     }
                 })
-            } else if (response.includes("주문 내역")) {
+            } else if (response.includes("주문 내 역")) {
                 $.ajax({
                     async: false,
                     method: "get",
                     url: "/order/select_five",
                     data: user_info,
                     success: result => {
+                        console.log(result)
                         result.forEach(e => {
                             if (e.order_state == "0") {
                                 orderState = "완료"
@@ -124,6 +131,8 @@ const roChat = (chatElement) => {
                         })
                         html += `<div class="botC">로토봇의 답변: 주문 내역 상위 10개를 출력해드렸습니다. </div> <br/>`
                         messageElement.innerHTML = html;
+
+                        html = ``;
                     }
                 })
             } else if (response.includes("마이 페이지 정보")) {
@@ -143,11 +152,13 @@ const roChat = (chatElement) => {
 
                         html += `<div class="botC">로토봇의 답변: 회원님의 마이 페이지 정보를 출력해드렸습니다. </div> <br/>`
                         messageElement.innerHTML = html;
+
+                        html = ``;
                     }
                 })
             }
         },
-        error: function(error) {
+        error: function (error) {
             console.error('오류 발생:', error);
             messageElement.classList.add("error");
             messageElement.textContent = "Oops! Something went wrong. Please try again.";

@@ -44,7 +44,6 @@
         from orders o
         inner join odetails od on o.order_no = od.order_no
         inner join product pd on od.product_no = pd.product_no
-        inner join product
         where uno = #{uno}
         order by o.order_no desc
         limit 10;
