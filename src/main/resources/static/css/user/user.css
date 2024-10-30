@@ -106,7 +106,7 @@ label {
 #signuplogo {
     width: 435px;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 40px;
     text-align: center;
 }
 
@@ -142,4 +142,8 @@ label {
     padding: 40px;
     border: 1px solid rgb(218, 218, 218);
     border-radius: 5px;
+}
+
+.inputAddress{
+    margin-bottom : 7px;
 }

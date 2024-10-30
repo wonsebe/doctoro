@@ -30,7 +30,7 @@
     <!-- 7. 회원 정보 수정 -->
     <update id="userUpdate" parameterType="web.model.dto.UserDto">
         update users
-        set password = #{password}, name = #{name}, phone = #{phone}
+        set password = #{password}, name = #{name}, phone = #{phone}, address = #{address}
         where uno = #{uno};
     </update>
 

@@ -23,4 +23,7 @@ public interface OrderDao {
 
     // 주문내역 상위 5개 조회 (챗봇용)
     List<OrdersDto> order_select_five(OrdersDto ordersDto);
+    // 주문 상세 내역 출력
+    ArrayList<OrdersDto> orderDetailPrint(OrdersDto ordersDto);
+
 }

@@ -62,7 +62,7 @@ function productPricePrint() {   console.log('productPricePrint()');
 
             if (pCategoryName != '강화 아이템') {   // 카테고리명이 강화 아이템이 아닌 경우
                 html2 += `
-                        <h6>배송비 : +3000원</h6>
+                        <h6>배송비 : 3000원</h6>
                         <hr>
                         <h6>총 주문 금액 : ${price + 3000}원</h6>
                         `
@@ -201,7 +201,7 @@ function cartOrderPrint() {     console.log('cartOrderPrint()');
             let priceInfo = document.querySelector('.priceInfo');
             let orderButton = document.querySelector('.orderButton');
             let html1 = `<h5>주문 상품 정보</h5>`;
-            let html2 =``;
+            let html2 = ``;
             let html3 = ``;
 
             let deliveryCheck = false;      // 배송 필요 여부 체크
@@ -245,7 +245,7 @@ function cartOrderPrint() {     console.log('cartOrderPrint()');
 
             if (deliveryCheck) {   // 배송 여부가 true인 경우(카테고리명이 강화 아이템이 아닌 경우)
                 html2 += `
-                        <h6>배송비 : +3000원</h6>
+                        <h6>배송비 : 3000원</h6>
                         <hr>
                         <h6>총 주문 금액 : ${totalPrice + 3000}원</h6>
                         `

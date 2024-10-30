@@ -50,11 +50,35 @@ function cartPrint() {  console.log('cartPrint()');
                 // 해당 상품의 이미지가 저장돼있는 카테고리 폴더명 구하기
                 if (장바구니.pcategory_name == '굿즈') {
                     pFolderName = 'goods';
-                } else if (result.pcategory_name == '카드') {
+                } else if (장바구니.pcategory_name == '카드') {
                     pFolderName = 'card';
-                } else if (result.pcategory_name == '강화 아이템') {
+                } else if (장바구니.pcategory_name == '강화 아이템') {
                     pFolderName = 'item';
                 }
+                console.log(pFolderName);
+
+                html += `       
+                        <div>
+                            <div>
+                                <a href="/product/detail?pno=${장바구니.product_no}">
+                                    <img id="productImg" src="/img/${pFolderName}/${장바구니.product_image}" />
+                                </a>
+                            </div>
+                            <div> <a href="/product/detail?pno=${장바구니.product_no}">${장바구니.product_name}</a> </div>
+                            <div>${장바구니.product_description}</div>
+                            <div>${장바구니.price}</div>
+                            <div>${장바구니.pcategory_name}</div>
+
+                            <label for="productNum">수량</label> </br>
+                            <button type="button" onclick="proNumChange('-', ${장바구니.product_no})">-</button>
+                            <input type="text" id="productNum${장바구니.product_no}" value="${장바구니.cart_product_quantity}"
+                                onkeyup="productNumCheck(${장바구니.product_no})" />
+                            <button type="button" onclick="proNumChange('+', ${장바구니.product_no})">+</button>
+
+                            <div>${장바구니.cart_product_quantity * 장바구니.price}원</div>
+                            <button type="button" onclick="cartUpdate(${장바구니.product_no})">수정</button>
+                            <button type="button" onclick="cartDelete(${장바구니.product_no})">X</button>
+                        </div>
                 총수량+= 장바구니.cart_product_quantity
                 총금액+= (장바구니.cart_product_quantity * 장바구니.price)
                 html +=
@@ -100,6 +124,7 @@ function cartUpdate(pno) {     console.log('cartUpdate()');
         },
         success : (result) => {     console.log(result);
             if (result) {
+                alert('수정되었습니다.');
                 cartPrint();
             } else {
                 alert('다시 시도해주십시오.');
@@ -145,7 +170,7 @@ function proNumChange(mode, pno) {   console.log('proNumChange()');
         productNum.value = pNum;
     }
     cartUpdate( pno ) // 제품 수정
-    
+
 }   // proNumChange() end
 
 // 결제 창으로 이동

@@ -6,6 +6,7 @@
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 80px;
 }
 
 /* 내 정보 카드 */
@@ -87,7 +88,7 @@ button:disabled {
 }
 
 #expLogArea th {
-    background-color: #f1f1f1;
+    background-color: #999999;
 }
 
 #expLogArea tbody tr:nth-child(even) {
@@ -130,7 +131,21 @@ button:disabled {
 
 /* 제목 나의 포켓몬 부분 */
 #content > .myPokeInfo {
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* 제목 내 아이템 부분 */
+#content > .myItem {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* 제목 내 포인트 부분 */
+#content > .myPointInfo {
+    margin-top: 5px;
     margin-bottom: 10px;
     font-size: 18px;
 }
@@ -140,23 +155,25 @@ button:disabled {
     margin-top: 10px;
 }
 
-/* 회원정보수정, 회원탈퇴, 진화, 초기화, 내 포켓몬 생성 버튼 */
-.myInfoUpdate, .myInfoDelete, .evolveBtn, .resetBtn, .myPokeAdd {
+/* 회원정보수정, 회원탈퇴, 진화, 초기화, 내 포켓몬 생성 버튼
+    아이템 사용, 포인트 충전 버튼, 포인트 전환 버튼 */
+.myInfoUpdate, .myInfoDelete, .evolveBtn, .resetBtn, .myPokeAdd,
+.myItemUse, .myPointCharge, .myInfoChange {
     background-color: #bc97d2;
     margin: 0px 5px;
     color: white;
     border-radius: 5px;
 }
 
-.myInfoBtn {
+.myInfoBtn, .myPointBtn {
     display: inline-block;
     margin: 0 5px;
     float: right;
 }
 
+/* ========================== */
 
-/* 임시 */
-/* 내 포인트 */
+/* 내 포인트, 아이템 리스트 틀 */
 #myPoint, #myItemList {
     background-color: #ffffff;
     padding: 15px;
@@ -164,4 +181,102 @@ button:disabled {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.1rem;
 }
+
+/* 아이템 이미지 */
+#myItemList img {
+    width: 100px;
+    height : 100px;
+}
+
+/* 아이템 사용 버튼 */
+.myItemUse {
+    margin-top: 10px;
+    margin-left: 18px;
+}
+
+/* 포인트 충전 버튼 */
+.myPointCharge, .myInfoChange {
+    margin-top: 20px;
+}
+
+/* 내 아이템 */
+#myItemList {
+    display: flex;
+}
+
+/* 내 아이템 이름, 설명, 수량 */
+#myItemList > div > div {
+    text-align: center;
+}
+
+/* 포인트 내 소제목 */
+#myPoint h6 {
+    font-size: 14px;
+}
+
+/* ======================== */
+#myPoint {
+    margin: 0 auto; /* 화면 가운데 정렬 */
+    padding: 20px;
+}
+
+/* 무료 및 유료 포인트 섹션 스타일 */
+#myFreePoint, #myPaidPoint {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h6 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 현재 포인트 스타일 */
+.myCurrentFreePoint, .myCurrentPaidPoint {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table thead th {
+    background-color: #999999;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+table tbody td {
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f1f1f1; /* 줄무늬 효과 */
+}
+
+/* 빈 기록 표시 스타일 */
+.myFreePointLogTbody tr td, .myPaidPointLogTbody tr td {
+    text-align: center;
+    padding: 20px;
+}
+
+
 

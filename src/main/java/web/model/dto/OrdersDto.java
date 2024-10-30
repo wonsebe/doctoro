@@ -24,6 +24,8 @@ public class OrdersDto {
 
     private int same_product_count;     // 주문 번호 기준 같은 상품 수
 
+    private String delivery_status;     // 배송 상태
+
     private String name;                // 유저 이름
 
 }

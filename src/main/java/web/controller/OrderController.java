@@ -50,4 +50,12 @@ public class OrderController {
         return orderService.order_select_five(ordersDto);
     }
 
+    // 주문 상세 내역 출력
+    @GetMapping("/print/detail")
+    public ArrayList<OrdersDto> orderDetailPrint(OrdersDto ordersDto) {
+        System.out.println("OrderController.orderDetailPrint");
+        System.out.println("ordersDto = " + ordersDto);
+        return orderService.orderDetailPrint(ordersDto);
+    }
+
 }
