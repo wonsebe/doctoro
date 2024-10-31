@@ -1,0 +1,15 @@
+.wrap{
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.tableArea{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.imgArea{
+    width: 400px;
+    border: 1px solid black;
+}
